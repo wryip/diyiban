@@ -173,6 +173,9 @@
     <EmbeddedResource Include="spform.resx">
       <DependentUpon>spform.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="tcform.resx">
+      <DependentUpon>tcform.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="tjform.resx">
       <DependentUpon>tjform.cs</DependentUpon>
     </EmbeddedResource>
