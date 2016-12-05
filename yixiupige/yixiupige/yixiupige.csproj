@@ -124,6 +124,12 @@
     <Compile Include="spform.Designer.cs">
       <DependentUpon>spform.cs</DependentUpon>
     </Compile>
+    <Compile Include="tcform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tcform.Designer.cs">
+      <DependentUpon>tcform.cs</DependentUpon>
+    </Compile>
     <Compile Include="tjform.cs">
       <SubType>Form</SubType>
     </Compile>
