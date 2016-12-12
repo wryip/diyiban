@@ -57,6 +57,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -86,11 +87,47 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="glyszForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="glyszForm.Designer.cs">
+      <DependentUpon>glyszForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hyczForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hyczForm.Designer.cs">
+      <DependentUpon>hyczForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hyflglfwForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hyflglfwForm.Designer.cs">
+      <DependentUpon>hyflglfwForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="hyglform.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="hyglform.Designer.cs">
       <DependentUpon>hyglform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hyzjForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hyzjForm.Designer.cs">
+      <DependentUpon>hyzjForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jbcsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jbcsForm.Designer.cs">
+      <DependentUpon>jbcsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jbcszjForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jbcszjForm.Designer.cs">
+      <DependentUpon>jbcszjForm.cs</DependentUpon>
     </Compile>
     <Compile Include="jcform.cs">
       <SubType>Form</SubType>
@@ -104,19 +141,55 @@
     <Compile Include="jcglform.Designer.cs">
       <DependentUpon>jcglform.cs</DependentUpon>
     </Compile>
+    <Compile Include="jcsfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jcsfForm.Designer.cs">
+      <DependentUpon>jcsfForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jhglForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jhglForm.Designer.cs">
+      <DependentUpon>jhglForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="jisuanqi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="jisuanqi.Designer.cs">
       <DependentUpon>jisuanqi.cs</DependentUpon>
     </Compile>
+    <Compile Include="lsdglForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lsdglForm.Designer.cs">
+      <DependentUpon>lsdglForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lsdzjForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lsdzjForm.Designer.cs">
+      <DependentUpon>lsdzjForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="qtForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="qtForm.Designer.cs">
+      <DependentUpon>qtForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="shglform.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="shglform.Designer.cs">
       <DependentUpon>shglform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sjkglForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sjkglForm.Designer.cs">
+      <DependentUpon>sjkglForm.cs</DependentUpon>
     </Compile>
     <Compile Include="spform.cs">
       <SubType>Form</SubType>
@@ -124,17 +197,41 @@
     <Compile Include="spform.Designer.cs">
       <DependentUpon>spform.cs</DependentUpon>
     </Compile>
-    <Compile Include="tcform.cs">
+    <Compile Include="tcglForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="tcform.Designer.cs">
-      <DependentUpon>tcform.cs</DependentUpon>
+    <Compile Include="tcglForm.Designer.cs">
+      <DependentUpon>tcglForm.cs</DependentUpon>
     </Compile>
     <Compile Include="tjform.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="tjform.Designer.cs">
       <DependentUpon>tjform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ygglForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ygglForm.Designer.cs">
+      <DependentUpon>ygglForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ygzjForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ygzjForm.Designer.cs">
+      <DependentUpon>ygzjForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="zjhyflForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="zjhyflForm.Designer.cs">
+      <DependentUpon>zjhyflForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="zjhylbForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="zjhylbForm.Designer.cs">
+      <DependentUpon>zjhylbForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="DefaultForm.resx">
       <DependentUpon>DefaultForm.cs</DependentUpon>
@@ -145,8 +242,26 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="glyszForm.resx">
+      <DependentUpon>glyszForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hyczForm.resx">
+      <DependentUpon>hyczForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hyflglfwForm.resx">
+      <DependentUpon>hyflglfwForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="hyglform.resx">
       <DependentUpon>hyglform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hyzjForm.resx">
+      <DependentUpon>hyzjForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jbcsForm.resx">
+      <DependentUpon>jbcsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jbcszjForm.resx">
+      <DependentUpon>jbcszjForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="jcform.resx">
       <DependentUpon>jcform.cs</DependentUpon>
@@ -154,8 +269,20 @@
     <EmbeddedResource Include="jcglform.resx">
       <DependentUpon>jcglform.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="jcsfForm.resx">
+      <DependentUpon>jcsfForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jhglForm.resx">
+      <DependentUpon>jhglForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="jisuanqi.resx">
       <DependentUpon>jisuanqi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lsdglForm.resx">
+      <DependentUpon>lsdglForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lsdzjForm.resx">
+      <DependentUpon>lsdzjForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -167,17 +294,35 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="qtForm.resx">
+      <DependentUpon>qtForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="shglform.resx">
       <DependentUpon>shglform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sjkglForm.resx">
+      <DependentUpon>sjkglForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="spform.resx">
       <DependentUpon>spform.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="tcform.resx">
-      <DependentUpon>tcform.cs</DependentUpon>
+    <EmbeddedResource Include="tcglForm.resx">
+      <DependentUpon>tcglForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tjform.resx">
       <DependentUpon>tjform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ygglForm.resx">
+      <DependentUpon>ygglForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ygzjForm.resx">
+      <DependentUpon>ygzjForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="zjhyflForm.resx">
+      <DependentUpon>zjhyflForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="zjhylbForm.resx">
+      <DependentUpon>zjhylbForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -231,6 +376,19 @@
     <Content Include="leiku\AForge.Video.dll" />
     <Content Include="leiku\AForge.Video.FFMPEG.dll" />
     <Content Include="leiku\AForge.Video.FFMPEG.xml" />
+    <None Include="Resources\6962.png" />
+    <None Include="Resources\1631.png" />
+    <None Include="Resources\1133944.png" />
+    <None Include="Resources\995225889bdb82a5c18d57d1793657e41.png" />
+    <None Include="Resources\995225889bdb82a5c18d57d1793657e4.png" />
+    <None Include="Resources\4505.png" />
+    <None Include="Resources\532579.png" />
+    <None Include="Resources\556807.png" />
+    <None Include="Resources\12389.png" />
+    <None Include="Resources\1166404.png" />
+    <None Include="Resources\1084515.png" />
+    <None Include="Resources\1191650.png" />
+    <None Include="Resources\千库网-添加字符增加数学加上标志数学和商业.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

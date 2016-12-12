@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("金卡");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("银卡");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("会员卡");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("全部", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("金卡");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("银卡");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("会员卡");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("全部", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode6,
+            treeNode7});
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -74,7 +74,7 @@
             this.groupBox1.Controls.Add(this.treeView1);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(133, 536);
+            this.groupBox1.Size = new System.Drawing.Size(97, 536);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "会员分类";
@@ -86,17 +86,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeView1.Location = new System.Drawing.Point(7, 21);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "jinka";
-            treeNode1.Text = "金卡";
-            treeNode2.Name = "yinka";
-            treeNode2.Text = "银卡";
-            treeNode3.Name = "huiyuanka";
-            treeNode3.Text = "会员卡";
-            treeNode4.Name = "quanbu";
-            treeNode4.Text = "全部";
+            treeNode5.Name = "jinka";
+            treeNode5.Text = "金卡";
+            treeNode6.Name = "yinka";
+            treeNode6.Text = "银卡";
+            treeNode7.Name = "huiyuanka";
+            treeNode7.Text = "会员卡";
+            treeNode8.Name = "quanbu";
+            treeNode8.Text = "全部";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
-            this.treeView1.Size = new System.Drawing.Size(121, 509);
+            treeNode8});
+            this.treeView1.Size = new System.Drawing.Size(85, 509);
             this.treeView1.TabIndex = 0;
             // 
             // groupBox2
@@ -107,7 +107,7 @@
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(148, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1224, 536);
+            this.groupBox2.Size = new System.Drawing.Size(1188, 536);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "会员信息";
@@ -139,7 +139,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1211, 509);
+            this.dataGridView1.Size = new System.Drawing.Size(1175, 509);
             this.dataGridView1.TabIndex = 0;
             // 
             // hyNo
@@ -225,55 +225,57 @@
             this.删除会员ToolStripMenuItem,
             this.导出数据ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 180);
             // 
             // 查找会员ToolStripMenuItem
             // 
             this.查找会员ToolStripMenuItem.Name = "查找会员ToolStripMenuItem";
-            this.查找会员ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.查找会员ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.查找会员ToolStripMenuItem.Text = "查找会员";
+            this.查找会员ToolStripMenuItem.Click += new System.EventHandler(this.查找会员ToolStripMenuItem_Click);
             // 
             // 增加会员ToolStripMenuItem
             // 
             this.增加会员ToolStripMenuItem.Name = "增加会员ToolStripMenuItem";
-            this.增加会员ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.增加会员ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.增加会员ToolStripMenuItem.Text = "增加会员";
+            this.增加会员ToolStripMenuItem.Click += new System.EventHandler(this.增加会员ToolStripMenuItem_Click);
             // 
             // 会员修改ToolStripMenuItem
             // 
             this.会员修改ToolStripMenuItem.Name = "会员修改ToolStripMenuItem";
-            this.会员修改ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.会员修改ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.会员修改ToolStripMenuItem.Text = "会员修改";
             // 
             // 会员充值ToolStripMenuItem
             // 
             this.会员充值ToolStripMenuItem.Name = "会员充值ToolStripMenuItem";
-            this.会员充值ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.会员充值ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.会员充值ToolStripMenuItem.Text = "会员充值";
             // 
             // 积分兑换ToolStripMenuItem
             // 
             this.积分兑换ToolStripMenuItem.Name = "积分兑换ToolStripMenuItem";
-            this.积分兑换ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.积分兑换ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.积分兑换ToolStripMenuItem.Text = "积分兑换";
             // 
             // 删除会员ToolStripMenuItem
             // 
             this.删除会员ToolStripMenuItem.Name = "删除会员ToolStripMenuItem";
-            this.删除会员ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.删除会员ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.删除会员ToolStripMenuItem.Text = "删除会员";
             // 
             // 导出数据ToolStripMenuItem
             // 
             this.导出数据ToolStripMenuItem.Name = "导出数据ToolStripMenuItem";
-            this.导出数据ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.导出数据ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.导出数据ToolStripMenuItem.Text = "导出数据";
             // 
             // hyglform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 561);
+            this.ClientSize = new System.Drawing.Size(1348, 561);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;

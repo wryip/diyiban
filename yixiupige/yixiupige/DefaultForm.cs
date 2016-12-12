@@ -34,6 +34,7 @@ namespace yixiupige
             DateTime date = DateTime.Now;
             label1.Text = date.Year.ToString() + "-" + date.Month.ToString() + "-" + date.Day.ToString();
             label2.Text = date.Hour.ToString() + "-" + date.Minute.ToString() + "-" + date.Second.ToString();
+            
 
         }
 
@@ -51,6 +52,7 @@ namespace yixiupige
         private void toolStripButton10_Click(object sender, EventArgs e)
         {
             _fromclose();
+            Application.Exit();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -120,6 +122,7 @@ namespace yixiupige
             tongjibaobiao.Show();
             
         }
+     
 
         private void toolStripButton9_Click(object sender, EventArgs e)
         {
@@ -130,6 +133,81 @@ namespace yixiupige
             //jisuanqi.WindowState = FormWindowState.Maximized;
             jisuanqi.Show();
             
+        }
+        //显示管理员设置窗口
+        private void 管理员设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            glyszForm glygl = glyszForm.Create();
+            glygl.Show();
+            glygl.Focus();
+        }
+        //显示连锁店管理窗口
+        private void 系统设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lsdglForm lsdgl = lsdglForm.Create();
+            lsdgl.Show();
+            lsdgl.Focus();
+        }
+
+        private void 数据库管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sjkglForm sjkgl = sjkglForm.Create();
+            sjkgl.Show();
+            sjkgl.Focus();
+        }
+
+        private void 基本参数ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            jbcsForm jbcs = jbcsForm.Create();
+            jbcs.Show();
+            jbcs.Focus();
+        }
+
+        private void 分类服务ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            hyflglfwForm hyflgl = hyflglfwForm.Create();
+            hyflgl.Show();
+            hyflgl.Focus();
+        }
+
+        private void 其他ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            qtForm qt = qtForm.Create();
+            qt.Show();
+            qt.Focus();
+        }
+
+        private void 寄存收费ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            jcsfForm jcsf = jcsfForm.Create();
+            jcsf.Show();
+            jcsf.Focus();
+        }
+
+        private void 架号管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            jhglForm jhgl = jhglForm.Create();
+            jhgl.Show();
+            jhgl.Focus();
+        }
+
+        private void 员工管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ygglForm yggl = ygglForm.Create();
+            yggl.Show();
+            yggl.Focus();
+        }
+
+        private void 提成管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tcglForm tcgl = tcglForm.Create();
+            tcgl.Show();
+            tcgl.Focus();
+        }
+
+        private void DefaultForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

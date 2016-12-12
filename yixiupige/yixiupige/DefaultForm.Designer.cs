@@ -122,20 +122,24 @@
             // 系统设置ToolStripMenuItem
             // 
             this.系统设置ToolStripMenuItem.Name = "系统设置ToolStripMenuItem";
-            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.系统设置ToolStripMenuItem.Text = "系统设置";
+            this.系统设置ToolStripMenuItem.Click += new System.EventHandler(this.系统设置ToolStripMenuItem_Click);
             // 
             // 管理员设置ToolStripMenuItem
             // 
             this.管理员设置ToolStripMenuItem.Name = "管理员设置ToolStripMenuItem";
-            this.管理员设置ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.管理员设置ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.管理员设置ToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.管理员设置ToolStripMenuItem.Text = "管理员设置";
+            this.管理员设置ToolStripMenuItem.Click += new System.EventHandler(this.管理员设置ToolStripMenuItem_Click);
             // 
             // 数据库管理ToolStripMenuItem
             // 
             this.数据库管理ToolStripMenuItem.Name = "数据库管理ToolStripMenuItem";
-            this.数据库管理ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.数据库管理ToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.数据库管理ToolStripMenuItem.Text = "数据库管理";
+            this.数据库管理ToolStripMenuItem.Click += new System.EventHandler(this.数据库管理ToolStripMenuItem_Click);
             // 
             // 基本设置ToolStripMenuItem
             // 
@@ -154,30 +158,35 @@
             this.基本参数ToolStripMenuItem.Name = "基本参数ToolStripMenuItem";
             this.基本参数ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.基本参数ToolStripMenuItem.Text = "基本参数";
+            this.基本参数ToolStripMenuItem.Click += new System.EventHandler(this.基本参数ToolStripMenuItem_Click);
             // 
             // 分类服务ToolStripMenuItem
             // 
             this.分类服务ToolStripMenuItem.Name = "分类服务ToolStripMenuItem";
             this.分类服务ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.分类服务ToolStripMenuItem.Text = "分类服务";
+            this.分类服务ToolStripMenuItem.Click += new System.EventHandler(this.分类服务ToolStripMenuItem_Click);
             // 
             // 其他ToolStripMenuItem
             // 
             this.其他ToolStripMenuItem.Name = "其他ToolStripMenuItem";
             this.其他ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.其他ToolStripMenuItem.Text = "其他";
+            this.其他ToolStripMenuItem.Click += new System.EventHandler(this.其他ToolStripMenuItem_Click);
             // 
             // 架号管理ToolStripMenuItem
             // 
             this.架号管理ToolStripMenuItem.Name = "架号管理ToolStripMenuItem";
             this.架号管理ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.架号管理ToolStripMenuItem.Text = "架号管理";
+            this.架号管理ToolStripMenuItem.Click += new System.EventHandler(this.架号管理ToolStripMenuItem_Click);
             // 
             // 员工管理ToolStripMenuItem
             // 
             this.员工管理ToolStripMenuItem.Name = "员工管理ToolStripMenuItem";
             this.员工管理ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.员工管理ToolStripMenuItem.Text = "员工管理";
+            this.员工管理ToolStripMenuItem.Click += new System.EventHandler(this.员工管理ToolStripMenuItem_Click);
             // 
             // 财务管理ToolStripMenuItem
             // 
@@ -195,37 +204,39 @@
             // 提成管理ToolStripMenuItem
             // 
             this.提成管理ToolStripMenuItem.Name = "提成管理ToolStripMenuItem";
-            this.提成管理ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.提成管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.提成管理ToolStripMenuItem.Text = "提成管理";
+            this.提成管理ToolStripMenuItem.Click += new System.EventHandler(this.提成管理ToolStripMenuItem_Click);
             // 
             // 寄存收费ToolStripMenuItem
             // 
             this.寄存收费ToolStripMenuItem.Name = "寄存收费ToolStripMenuItem";
-            this.寄存收费ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.寄存收费ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.寄存收费ToolStripMenuItem.Text = "寄存收费";
+            this.寄存收费ToolStripMenuItem.Click += new System.EventHandler(this.寄存收费ToolStripMenuItem_Click);
             // 
             // 营业日报表ToolStripMenuItem
             // 
             this.营业日报表ToolStripMenuItem.Name = "营业日报表ToolStripMenuItem";
-            this.营业日报表ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.营业日报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.营业日报表ToolStripMenuItem.Text = "营业日报表";
             // 
             // 服务统计报表ToolStripMenuItem
             // 
             this.服务统计报表ToolStripMenuItem.Name = "服务统计报表ToolStripMenuItem";
-            this.服务统计报表ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.服务统计报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.服务统计报表ToolStripMenuItem.Text = "服务统计报表";
             // 
             // 管理营业日报ToolStripMenuItem
             // 
             this.管理营业日报ToolStripMenuItem.Name = "管理营业日报ToolStripMenuItem";
-            this.管理营业日报ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.管理营业日报ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.管理营业日报ToolStripMenuItem.Text = "管理营业日报";
             // 
             // 管理服务统计ToolStripMenuItem
             // 
             this.管理服务统计ToolStripMenuItem.Name = "管理服务统计ToolStripMenuItem";
-            this.管理服务统计ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.管理服务统计ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.管理服务统计ToolStripMenuItem.Text = "管理服务统计";
             // 
             // 系统帮助ToolStripMenuItem
@@ -347,7 +358,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(768, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(167, 40);
@@ -356,7 +367,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(956, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(137, 40);
@@ -569,6 +580,7 @@
             this.Name = "DefaultForm";
             this.Text = "首页";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DefaultForm_FormClosed);
             this.Load += new System.EventHandler(this.DefaultForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -34,5 +34,19 @@ namespace yixiupige
         {
             _danli = null;
         }
+
+        private void 查找会员ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            hyczForm hycz = hyczForm.Create();
+            hycz.Show();
+            hycz.Focus();
+        }
+
+        private void 增加会员ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            hyzjForm hyzj = hyzjForm.Create();
+            hyzj.Show();
+            hyzj.Focus();
+        }
     }
 }

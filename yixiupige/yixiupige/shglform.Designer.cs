@@ -269,7 +269,7 @@
             this.tabControl1.Location = new System.Drawing.Point(774, 14);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(198, 100);
+            this.tabControl1.Size = new System.Drawing.Size(162, 100);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -280,7 +280,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(190, 74);
+            this.tabPage1.Size = new System.Drawing.Size(154, 74);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "会员消费";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -367,7 +367,7 @@
             this.tabControl2.Location = new System.Drawing.Point(774, 120);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(198, 185);
+            this.tabControl2.Size = new System.Drawing.Size(162, 185);
             this.tabControl2.TabIndex = 2;
             // 
             // tabPage3
@@ -376,7 +376,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(190, 159);
+            this.tabPage3.Size = new System.Drawing.Size(154, 159);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "视频预览";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -388,7 +388,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.videoSourcePlayer1.Location = new System.Drawing.Point(7, 7);
             this.videoSourcePlayer1.Name = "videoSourcePlayer1";
-            this.videoSourcePlayer1.Size = new System.Drawing.Size(177, 146);
+            this.videoSourcePlayer1.Size = new System.Drawing.Size(141, 146);
             this.videoSourcePlayer1.TabIndex = 0;
             this.videoSourcePlayer1.Text = "videoSourcePlayer1";
             this.videoSourcePlayer1.VideoSource = null;
@@ -418,7 +418,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Location = new System.Drawing.Point(978, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(392, 123);
+            this.groupBox2.Size = new System.Drawing.Size(356, 123);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "会员信息";
@@ -430,7 +430,7 @@
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Location = new System.Drawing.Point(978, 142);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(392, 159);
+            this.groupBox3.Size = new System.Drawing.Size(356, 159);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "收活信息";
@@ -569,7 +569,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Location = new System.Drawing.Point(1115, 309);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(257, 240);
+            this.groupBox5.Size = new System.Drawing.Size(221, 240);
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "票据";
@@ -578,7 +578,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 561);
+            this.ClientSize = new System.Drawing.Size(1348, 561);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);

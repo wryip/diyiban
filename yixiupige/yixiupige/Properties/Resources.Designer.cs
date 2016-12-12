@@ -63,6 +63,126 @@ namespace yixiupige.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap _1084515 {
+            get {
+                object obj = ResourceManager.GetObject("1084515", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _1133944 {
+            get {
+                object obj = ResourceManager.GetObject("1133944", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _1166404 {
+            get {
+                object obj = ResourceManager.GetObject("1166404", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _1191650 {
+            get {
+                object obj = ResourceManager.GetObject("1191650", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _12389 {
+            get {
+                object obj = ResourceManager.GetObject("12389", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _1631 {
+            get {
+                object obj = ResourceManager.GetObject("1631", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _4505 {
+            get {
+                object obj = ResourceManager.GetObject("4505", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _532579 {
+            get {
+                object obj = ResourceManager.GetObject("532579", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _556807 {
+            get {
+                object obj = ResourceManager.GetObject("556807", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _6962 {
+            get {
+                object obj = ResourceManager.GetObject("6962", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _995225889bdb82a5c18d57d1793657e4 {
+            get {
+                object obj = ResourceManager.GetObject("995225889bdb82a5c18d57d1793657e4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _995225889bdb82a5c18d57d1793657e41 {
+            get {
+                object obj = ResourceManager.GetObject("995225889bdb82a5c18d57d1793657e41", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap bj {
             get {
                 object obj = ResourceManager.GetObject("bj", resourceCulture);
@@ -156,6 +276,16 @@ namespace yixiupige.Properties {
         internal static System.Drawing.Bitmap png_0555 {
             get {
                 object obj = ResourceManager.GetObject("png-0555", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 千库网_添加字符增加数学加上标志数学和商业 {
+            get {
+                object obj = ResourceManager.GetObject("千库网-添加字符增加数学加上标志数学和商业", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
