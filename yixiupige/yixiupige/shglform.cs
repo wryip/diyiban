@@ -132,5 +132,10 @@ namespace yixiupige
             //}
             //tsslPath.Text = "已经保存至：" + path;
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
