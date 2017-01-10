@@ -14,7 +14,7 @@ namespace DAL
         {
             bool result = false;
             SqlParameter[] pms=new SqlParameter[]{};
-            if (SqlHelper.ExecuteNonQuery("",)>0)
+            if (SqlHelper.ExecuteNonQuery("",pms)>0)
             {
                 result=true;
             }
