@@ -399,6 +399,10 @@
       <Project>{ddf3ca34-3b59-46c6-98f0-b09f74e5eb84}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MODEL\MODEL.csproj">
+      <Project>{302fa470-2512-4f1b-b463-4061e4370f18}</Project>
+      <Name>MODEL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
