@@ -209,5 +209,10 @@ namespace yixiupige
         {
             Application.Exit();
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

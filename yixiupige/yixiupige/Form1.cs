@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
+using BLL;
 
 namespace yixiupige
 {
     public partial class Form1 : Form
     {
+        public string sqlconn = ConfigurationManager.ConnectionStrings["sql"].ToString();
         public Form1()
         {
             InitializeComponent();
@@ -28,10 +32,18 @@ namespace yixiupige
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            DefaultForm _default2 = DefaultForm.CreateForm(fromclose);
-            _default2.Show();
-            this.Hide();
+        {         
+            LoginUser User=new LoginUser();
+            if (User.SelectUser(textBox2.Text.Trim(), textBox1.Text.Trim(), comboBox1.SelectedText.Trim()))
+            {
+                DefaultForm _default2 = DefaultForm.CreateForm(fromclose);
+                _default2.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("信息错误");
+            }
         }
         public void fromclose()
         {
