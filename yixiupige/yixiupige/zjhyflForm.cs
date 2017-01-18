@@ -14,13 +14,16 @@ namespace yixiupige
 {
     public partial class zjhyflForm : Form
     {
+        public delegate void zhixingbind();
+        public static zhixingbind fangfa;
         public zjhyflForm()
         {
             InitializeComponent();
         }
         private static zjhyflForm zjhyfl;
-        public static zjhyflForm Create()
+        public static zjhyflForm Create(zhixingbind fangfa1)
         {
+            fangfa = fangfa1;
             if (zjhyfl==null)
             {
                 zjhyfl = new zjhyflForm();
@@ -29,6 +32,7 @@ namespace yixiupige
         }
         private void zjhyflForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            fangfa();
             zjhyfl = null;
         }
 
@@ -68,13 +72,18 @@ namespace yixiupige
             else
             {
                 memberType user = new memberType();
-                user.Name = hymctextBox.Text.Trim();
-                user.Type = splxcomboBox.SelectedItem.ToString();
-                user.CardMoney = bkjetextBox.Text.Trim();
-                user.Rebate = spzktextBox.Text.Trim();
-                user.TopUp = czcstextBox.Text.Trim();
+                user.memberName = hymctextBox.Text.Trim();
+                user.memberTypechild = splxcomboBox.SelectedItem.ToString();
+                user.memberCardMoney = bkjetextBox.Text.Trim();
+                user.memberRebate = spzktextBox.Text.Trim();
+                user.memberTopUp = czcstextBox.Text.Trim();
                 memberTypeCURD memberType = new memberTypeCURD();
                 bool result=memberType.AddMember(user);
+                if (result)
+                {
+                    MessageBox.Show("添加成功！");
+                    this.Close();
+                }
             }
         }
 

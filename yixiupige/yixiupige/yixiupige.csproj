@@ -115,6 +115,12 @@
     <Compile Include="hyglform.Designer.cs">
       <DependentUpon>hyglform.cs</DependentUpon>
     </Compile>
+    <Compile Include="hylxedit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hylxedit.Designer.cs">
+      <DependentUpon>hylxedit.cs</DependentUpon>
+    </Compile>
     <Compile Include="hyzjForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +169,11 @@
     <Compile Include="jisuanqi.Designer.cs">
       <DependentUpon>jisuanqi.cs</DependentUpon>
     </Compile>
+    <Compile Include="kinyaoo123456DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>kinyaoo123456DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="lsdglForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +212,12 @@
     <Compile Include="spform.Designer.cs">
       <DependentUpon>spform.cs</DependentUpon>
     </Compile>
+    <Compile Include="szpassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="szpassword.Designer.cs">
+      <DependentUpon>szpassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="tcglForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +229,12 @@
     </Compile>
     <Compile Include="tjform.Designer.cs">
       <DependentUpon>tjform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xiugaimember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xiugaimember.Designer.cs">
+      <DependentUpon>xiugaimember.cs</DependentUpon>
     </Compile>
     <Compile Include="ygglForm.cs">
       <SubType>Form</SubType>
@@ -257,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="hyglform.resx">
       <DependentUpon>hyglform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hylxedit.resx">
+      <DependentUpon>hylxedit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="hyzjForm.resx">
       <DependentUpon>hyzjForm.cs</DependentUpon>
@@ -310,11 +336,17 @@
     <EmbeddedResource Include="spform.resx">
       <DependentUpon>spform.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="szpassword.resx">
+      <DependentUpon>szpassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="tcglForm.resx">
       <DependentUpon>tcglForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tjform.resx">
       <DependentUpon>tjform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xiugaimember.resx">
+      <DependentUpon>xiugaimember.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ygglForm.resx">
       <DependentUpon>ygglForm.cs</DependentUpon>
@@ -328,6 +360,17 @@
     <EmbeddedResource Include="zjhylbForm.resx">
       <DependentUpon>zjhylbForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="kinyaoo123456DataSet.xsc">
+      <DependentUpon>kinyaoo123456DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="kinyaoo123456DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>kinyaoo123456DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="kinyaoo123456DataSet.xss">
+      <DependentUpon>kinyaoo123456DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -403,6 +446,9 @@
       <Project>{302fa470-2512-4f1b-b463-4061e4370f18}</Project>
       <Name>MODEL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="imageFile\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
