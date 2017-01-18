@@ -218,5 +218,11 @@ namespace BLL
             }
             return list;
         }
+        public bool hyczMoney(string cardno, int money)
+        {
+            bool result = false;
+            result = dal.hyczMoney(cardno,money);
+            return result;
+        }
     }
 }

@@ -233,5 +233,19 @@ namespace DAL
             return list;
         }
         #endregion
+        public bool hyczMoney(string cardno,int money)
+        {
+            bool result = false;
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@membercardNo",cardno),
+            new SqlParameter("@toUpMoney",money)
+            };
+            string str = "update memberInfo set toUpMoney=@toUpMoney where membercardNo=@membercardNo";
+            if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
+            {
+                result = true;
+            }
+            return result;
+        }
     }
 }

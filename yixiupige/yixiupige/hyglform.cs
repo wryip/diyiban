@@ -147,7 +147,15 @@ namespace yixiupige
 
         private void 会员充值ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (id == -1)
+            {
+                MessageBox.Show("请选择会员!");
+                return;
+            }
+            memberInfoModel model = list[id];
+            hyczck chongzhi = hyczck.Create(model);
+            chongzhi.Show();
+            chongzhi.Focus();
         }
 
 

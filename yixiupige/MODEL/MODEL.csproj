@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="LoginUser.cs" />
     <Compile Include="memberInfoModel.cs" />
+    <Compile Include="memberToUpModel.cs" />
     <Compile Include="memberType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

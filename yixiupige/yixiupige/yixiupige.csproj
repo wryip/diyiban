@@ -97,6 +97,12 @@
     <Compile Include="glyszForm.Designer.cs">
       <DependentUpon>glyszForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="hyczck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hyczck.Designer.cs">
+      <DependentUpon>hyczck.cs</DependentUpon>
+    </Compile>
     <Compile Include="hyczForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="glyszForm.resx">
       <DependentUpon>glyszForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hyczck.resx">
+      <DependentUpon>hyczck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="hyczForm.resx">
       <DependentUpon>hyczForm.cs</DependentUpon>
