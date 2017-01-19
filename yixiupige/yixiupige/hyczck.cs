@@ -31,7 +31,7 @@ namespace yixiupige
         }
         private void hyczck_Load(object sender, EventArgs e)
         {
-            if (model1.cardType == "计次卡")
+            if (model1.cardType.Trim() == "计次卡")
             {
                 label2.Text = "剩余次数";
                 label3.Text = "充值次数";
