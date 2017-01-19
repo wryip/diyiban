@@ -192,7 +192,7 @@ namespace yixiupige
             if (pas.Trim() == "admin888")
             {
                 //删除该会员
-                bool result = infobll.deleteInfoModel(cardNo);
+                //bool result = infobll.deleteInfoModel(cardNo);
             }
             else
             {
