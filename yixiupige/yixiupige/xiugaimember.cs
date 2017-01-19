@@ -84,7 +84,6 @@ namespace yixiupige
             textBox1.ReadOnly = true;
             hyxbcomboBox.Text = modelmember.memberSex;
             ztcomboBox.Text = modelmember.zhuangtai;
-            pictureBox1.ImageLocation = modelmember.imageUrl;
             bzxxtextBox.Text = modelmember.remark;
             dwtextBox.Text = modelmember.address;
             ywycomboBox.Text = modelmember.saleMan;
@@ -113,7 +112,8 @@ namespace yixiupige
             {
                 qydqxzcheckBox.Checked = false;
                 dateTimePicker1.Enabled = false;
-            }
+            } 
+            pictureBox1.ImageLocation = modelmember.imageUrl;
             #endregion
         }
 

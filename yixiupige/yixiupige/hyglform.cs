@@ -115,6 +115,7 @@ namespace yixiupige
             xiugaimember xiugais = xiugaimember.Create(model, bindData);
             xiugais.Show();
             xiugais.Focus();
+            id = -1;
         }
         protected override void OnMouseDown(MouseEventArgs e)
         {
@@ -156,8 +157,48 @@ namespace yixiupige
             hyczck chongzhi = hyczck.Create(model);
             chongzhi.Show();
             chongzhi.Focus();
+            id = -1;
         }
 
+        private void 会员信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id == -1)
+            {
+                MessageBox.Show("请选择会员!");
+                return;
+            }
+            memberInfoModel model = list[id];
+            hyInfoZhanShi chongzhi = hyInfoZhanShi.Create(model);
+            chongzhi.Show();
+            chongzhi.Focus();
+            id = -1;
+        }
+
+        private void 删除会员ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id == -1)
+            {
+                MessageBox.Show("请选择会员!");
+                return;
+            }
+            memberInfoModel model = list[id];
+            caocuofrom chongzhi = caocuofrom.Create(deletePassword, model.memberCardNo.Trim());
+            chongzhi.Show();
+            chongzhi.Focus();
+            id = -1;
+        }
+        public void deletePassword(string pas,string cardNo)
+        {
+            if (pas.Trim() == "admin888")
+            {
+                //删除该会员
+                bool result = infobll.deleteInfoModel(cardNo);
+            }
+            else
+            {
+                MessageBox.Show("密码错误，删除失败！");
+            }
+        }
 
         
     }

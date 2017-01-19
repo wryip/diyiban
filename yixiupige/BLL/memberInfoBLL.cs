@@ -224,5 +224,9 @@ namespace BLL
             result = dal.hyczMoney(cardno,money);
             return result;
         }
+        //public bool deleteInfoModel(string cardNo)
+        //{
+ 
+        //}
     }
 }

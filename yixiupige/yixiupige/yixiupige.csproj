@@ -73,6 +73,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="baseClass.cs" />
+    <Compile Include="caocuofrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caocuofrom.Designer.cs">
+      <DependentUpon>caocuofrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="DefaultForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,12 @@
     </Compile>
     <Compile Include="hyglform.Designer.cs">
       <DependentUpon>hyglform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hyInfoZhanShi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hyInfoZhanShi.Designer.cs">
+      <DependentUpon>hyInfoZhanShi.cs</DependentUpon>
     </Compile>
     <Compile Include="hylxedit.cs">
       <SubType>Form</SubType>
@@ -266,6 +278,9 @@
     <Compile Include="zjhylbForm.Designer.cs">
       <DependentUpon>zjhylbForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="caocuofrom.resx">
+      <DependentUpon>caocuofrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DefaultForm.resx">
       <DependentUpon>DefaultForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="hyglform.resx">
       <DependentUpon>hyglform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hyInfoZhanShi.resx">
+      <DependentUpon>hyInfoZhanShi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="hylxedit.resx">
       <DependentUpon>hylxedit.cs</DependentUpon>

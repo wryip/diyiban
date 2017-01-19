@@ -35,9 +35,9 @@
             this.增加会员ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.会员修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.会员充值ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.积分兑换ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.会员信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除会员ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.导出数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打印预览ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -53,15 +53,15 @@
             this.hyActive = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hyNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hyDateEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -72,9 +72,9 @@
             this.增加会员ToolStripMenuItem,
             this.会员修改ToolStripMenuItem,
             this.会员充值ToolStripMenuItem,
-            this.积分兑换ToolStripMenuItem,
+            this.会员信息ToolStripMenuItem,
             this.删除会员ToolStripMenuItem,
-            this.导出数据ToolStripMenuItem});
+            this.打印预览ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(182, 214);
             // 
@@ -106,23 +106,25 @@
             this.会员充值ToolStripMenuItem.Text = "会员充值";
             this.会员充值ToolStripMenuItem.Click += new System.EventHandler(this.会员充值ToolStripMenuItem_Click);
             // 
-            // 积分兑换ToolStripMenuItem
+            // 会员信息ToolStripMenuItem
             // 
-            this.积分兑换ToolStripMenuItem.Name = "积分兑换ToolStripMenuItem";
-            this.积分兑换ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.积分兑换ToolStripMenuItem.Text = "积分兑换";
+            this.会员信息ToolStripMenuItem.Name = "会员信息ToolStripMenuItem";
+            this.会员信息ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.会员信息ToolStripMenuItem.Text = "会员信息";
+            this.会员信息ToolStripMenuItem.Click += new System.EventHandler(this.会员信息ToolStripMenuItem_Click);
             // 
             // 删除会员ToolStripMenuItem
             // 
             this.删除会员ToolStripMenuItem.Name = "删除会员ToolStripMenuItem";
             this.删除会员ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.删除会员ToolStripMenuItem.Text = "删除会员";
+            this.删除会员ToolStripMenuItem.Click += new System.EventHandler(this.删除会员ToolStripMenuItem_Click);
             // 
-            // 导出数据ToolStripMenuItem
+            // 打印预览ToolStripMenuItem
             // 
-            this.导出数据ToolStripMenuItem.Name = "导出数据ToolStripMenuItem";
-            this.导出数据ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.导出数据ToolStripMenuItem.Text = "导出数据";
+            this.打印预览ToolStripMenuItem.Name = "打印预览ToolStripMenuItem";
+            this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.打印预览ToolStripMenuItem.Text = "打印预览";
             // 
             // panel1
             // 
@@ -314,8 +316,8 @@
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -327,9 +329,9 @@
         private System.Windows.Forms.ToolStripMenuItem 增加会员ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 会员修改ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 会员充值ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 积分兑换ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 会员信息ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除会员ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 导出数据ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 打印预览ToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
