@@ -41,6 +41,8 @@
   <ItemGroup>
     <Compile Include="GoodInfoBLL.cs" />
     <Compile Include="LoginUser.cs" />
+    <Compile Include="memberCZMoneyBLL.cs" />
+    <Compile Include="memberInfoBLL.cs" />
     <Compile Include="memberTypeCURD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
