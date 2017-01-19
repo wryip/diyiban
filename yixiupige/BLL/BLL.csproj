@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GoodInfoBLL.cs" />
     <Compile Include="LoginUser.cs" />
     <Compile Include="memberTypeCURD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

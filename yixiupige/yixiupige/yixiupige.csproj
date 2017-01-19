@@ -73,6 +73,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="baseClass.cs" />
+    <Compile Include="cxspForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cxspForm.Designer.cs">
+      <DependentUpon>cxspForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DefaultForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,12 @@
     <Compile Include="sjkglForm.Designer.cs">
       <DependentUpon>sjkglForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="spbhForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="spbhForm.Designer.cs">
+      <DependentUpon>spbhForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="spform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +224,12 @@
     </Compile>
     <Compile Include="tjform.Designer.cs">
       <DependentUpon>tjform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xgspFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xgspFrom.Designer.cs">
+      <DependentUpon>xgspFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="ygglForm.cs">
       <SubType>Form</SubType>
@@ -237,6 +255,15 @@
     <Compile Include="zjhylbForm.Designer.cs">
       <DependentUpon>zjhylbForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="zjspForm、.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="zjspForm、.Designer.cs">
+      <DependentUpon>zjspForm、.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="cxspForm.resx">
+      <DependentUpon>cxspForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DefaultForm.resx">
       <DependentUpon>DefaultForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,6 +334,9 @@
     <EmbeddedResource Include="sjkglForm.resx">
       <DependentUpon>sjkglForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="spbhForm.resx">
+      <DependentUpon>spbhForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="spform.resx">
       <DependentUpon>spform.cs</DependentUpon>
     </EmbeddedResource>
@@ -315,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="tjform.resx">
       <DependentUpon>tjform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xgspFrom.resx">
+      <DependentUpon>xgspFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ygglForm.resx">
       <DependentUpon>ygglForm.cs</DependentUpon>
@@ -327,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="zjhylbForm.resx">
       <DependentUpon>zjhylbForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="zjspForm、.resx">
+      <DependentUpon>zjspForm、.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
