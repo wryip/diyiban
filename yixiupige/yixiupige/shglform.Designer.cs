@@ -35,24 +35,25 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.lable = new System.Windows.Forms.Label();
             this.pictureBoxQr = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.shNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shTiaoMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shDemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox20 = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -120,19 +121,22 @@
             this.lsNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsTiaoMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lable = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.shNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shTiaoMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shDemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.cardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -148,6 +152,7 @@
             this.tabPage3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -209,6 +214,51 @@
             this.panel3.Size = new System.Drawing.Size(447, 136);
             this.panel3.TabIndex = 17;
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(110, 94);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(258, 25);
+            this.textBox3.TabIndex = 2;
+            this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(287, 32);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(89, 19);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "模糊查找";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(59, 71);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(262, 15);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "请输入姓名，卡号，电话等信息回车！";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(26, 98);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(67, 15);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "查找内容";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(26, 12);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(67, 15);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "查找顾客";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.textBox2);
@@ -221,6 +271,47 @@
             this.panel2.Size = new System.Drawing.Size(327, 136);
             this.panel2.TabIndex = 18;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(100, 79);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(168, 25);
+            this.textBox2.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(100, 41);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(168, 25);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 15);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "散客电话";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 44);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 15);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "散客姓名";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(34, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "散客信息";
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.radioButton2);
@@ -230,6 +321,38 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(202, 136);
             this.panel4.TabIndex = 19;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(26, 78);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(58, 19);
+            this.radioButton2.TabIndex = 2;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "散客";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(26, 37);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(58, 19);
+            this.radioButton1.TabIndex = 1;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "会员";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // lable
+            // 
+            this.lable.AutoSize = true;
+            this.lable.Location = new System.Drawing.Point(51, 12);
+            this.lable.Name = "lable";
+            this.lable.Size = new System.Drawing.Size(67, 15);
+            this.lable.TabIndex = 0;
+            this.lable.Text = "顾客类型";
             // 
             // pictureBoxQr
             // 
@@ -296,85 +419,9 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(1451, 301);
+            this.dataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dataGridView2.Size = new System.Drawing.Size(1451, 267);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // shNo
-            // 
-            this.shNo.HeaderText = "编号";
-            this.shNo.Name = "shNo";
-            this.shNo.ReadOnly = true;
-            this.shNo.Width = 70;
-            // 
-            // shTiaoMa
-            // 
-            this.shTiaoMa.HeaderText = "条码";
-            this.shTiaoMa.Name = "shTiaoMa";
-            this.shTiaoMa.ReadOnly = true;
-            // 
-            // shDemo
-            // 
-            this.shDemo.HeaderText = "服务项目";
-            this.shDemo.Name = "shDemo";
-            this.shDemo.ReadOnly = true;
-            // 
-            // shCount
-            // 
-            this.shCount.HeaderText = "点数";
-            this.shCount.Name = "shCount";
-            this.shCount.ReadOnly = true;
-            // 
-            // shMoney
-            // 
-            this.shMoney.HeaderText = "金额";
-            this.shMoney.Name = "shMoney";
-            this.shMoney.ReadOnly = true;
-            this.shMoney.Width = 70;
-            // 
-            // shPay
-            // 
-            this.shPay.HeaderText = "应付";
-            this.shPay.Name = "shPay";
-            this.shPay.ReadOnly = true;
-            this.shPay.Width = 70;
-            // 
-            // shNumber
-            // 
-            this.shNumber.HeaderText = "架号";
-            this.shNumber.Name = "shNumber";
-            this.shNumber.ReadOnly = true;
-            this.shNumber.Width = 70;
-            // 
-            // shQuestion
-            // 
-            this.shQuestion.HeaderText = "常见问题";
-            this.shQuestion.Name = "shQuestion";
-            this.shQuestion.ReadOnly = true;
-            // 
-            // shMark
-            // 
-            this.shMark.HeaderText = "备注信息";
-            this.shMark.Name = "shMark";
-            this.shMark.ReadOnly = true;
-            // 
-            // shType
-            // 
-            this.shType.HeaderText = "品牌";
-            this.shType.Name = "shType";
-            this.shType.ReadOnly = true;
-            // 
-            // shColor
-            // 
-            this.shColor.HeaderText = "颜色";
-            this.shColor.Name = "shColor";
-            this.shColor.ReadOnly = true;
-            this.shColor.Width = 70;
-            // 
-            // shClass
-            // 
-            this.shClass.HeaderText = "类别";
-            this.shClass.Name = "shClass";
-            this.shClass.ReadOnly = true;
             // 
             // groupBox3
             // 
@@ -681,6 +728,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "确定";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox2
             // 
@@ -717,6 +765,7 @@
             this.textBox12.Location = new System.Drawing.Point(428, 110);
             this.textBox12.Margin = new System.Windows.Forms.Padding(4);
             this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
             this.textBox12.Size = new System.Drawing.Size(85, 25);
             this.textBox12.TabIndex = 1;
             // 
@@ -725,6 +774,7 @@
             this.textBox9.Location = new System.Drawing.Point(252, 111);
             this.textBox9.Margin = new System.Windows.Forms.Padding(4);
             this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(85, 25);
             this.textBox9.TabIndex = 1;
             // 
@@ -733,6 +783,7 @@
             this.textBox6.Location = new System.Drawing.Point(84, 110);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(85, 25);
             this.textBox6.TabIndex = 1;
             // 
@@ -741,6 +792,7 @@
             this.textBox11.Location = new System.Drawing.Point(428, 71);
             this.textBox11.Margin = new System.Windows.Forms.Padding(4);
             this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
             this.textBox11.Size = new System.Drawing.Size(85, 25);
             this.textBox11.TabIndex = 1;
             // 
@@ -749,6 +801,7 @@
             this.textBox8.Location = new System.Drawing.Point(252, 72);
             this.textBox8.Margin = new System.Windows.Forms.Padding(4);
             this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(85, 25);
             this.textBox8.TabIndex = 1;
             // 
@@ -757,6 +810,7 @@
             this.textBox10.Location = new System.Drawing.Point(428, 32);
             this.textBox10.Margin = new System.Windows.Forms.Padding(4);
             this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(85, 25);
             this.textBox10.TabIndex = 1;
             // 
@@ -765,6 +819,7 @@
             this.textBox5.Location = new System.Drawing.Point(84, 71);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(85, 25);
             this.textBox5.TabIndex = 1;
             // 
@@ -783,6 +838,7 @@
             this.textBox7.Location = new System.Drawing.Point(252, 34);
             this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(85, 25);
             this.textBox7.TabIndex = 1;
             // 
@@ -811,6 +867,7 @@
             this.textBox4.Location = new System.Drawing.Point(84, 32);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(85, 25);
             this.textBox4.TabIndex = 1;
             // 
@@ -914,6 +971,7 @@
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.dataGridView3);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(3, 146);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
@@ -1056,121 +1114,121 @@
             this.lsTiaoMa.Name = "lsTiaoMa";
             this.lsTiaoMa.ReadOnly = true;
             // 
-            // lable
+            // shNo
             // 
-            this.lable.AutoSize = true;
-            this.lable.Location = new System.Drawing.Point(51, 12);
-            this.lable.Name = "lable";
-            this.lable.Size = new System.Drawing.Size(67, 15);
-            this.lable.TabIndex = 0;
-            this.lable.Text = "顾客类型";
+            this.shNo.HeaderText = "编号";
+            this.shNo.Name = "shNo";
+            this.shNo.ReadOnly = true;
+            this.shNo.Width = 70;
             // 
-            // radioButton1
+            // shTiaoMa
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(26, 37);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(58, 19);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "会员";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.shTiaoMa.HeaderText = "条码";
+            this.shTiaoMa.Name = "shTiaoMa";
+            this.shTiaoMa.ReadOnly = true;
             // 
-            // radioButton2
+            // shDemo
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(26, 78);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(58, 19);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "散客";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.shDemo.HeaderText = "服务项目";
+            this.shDemo.Name = "shDemo";
+            this.shDemo.ReadOnly = true;
+            this.shDemo.Width = 300;
             // 
-            // label1
+            // shCount
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "散客信息";
+            this.shCount.HeaderText = "点数";
+            this.shCount.Name = "shCount";
+            this.shCount.ReadOnly = true;
             // 
-            // label2
+            // shMoney
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 15);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "散客姓名";
+            this.shMoney.HeaderText = "金额";
+            this.shMoney.Name = "shMoney";
+            this.shMoney.ReadOnly = true;
+            this.shMoney.Width = 70;
             // 
-            // label3
+            // shPay
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 82);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 15);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "散客电话";
+            this.shPay.HeaderText = "应付";
+            this.shPay.Name = "shPay";
+            this.shPay.ReadOnly = true;
+            this.shPay.Width = 70;
             // 
-            // textBox1
+            // shNumber
             // 
-            this.textBox1.Location = new System.Drawing.Point(100, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 25);
-            this.textBox1.TabIndex = 1;
+            this.shNumber.HeaderText = "架号";
+            this.shNumber.Name = "shNumber";
+            this.shNumber.ReadOnly = true;
+            this.shNumber.Width = 70;
             // 
-            // textBox2
+            // shQuestion
             // 
-            this.textBox2.Location = new System.Drawing.Point(100, 79);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(168, 25);
-            this.textBox2.TabIndex = 1;
+            this.shQuestion.HeaderText = "常见问题";
+            this.shQuestion.Name = "shQuestion";
+            this.shQuestion.ReadOnly = true;
+            this.shQuestion.Width = 300;
             // 
-            // label25
+            // shMark
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(26, 12);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(67, 15);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "查找顾客";
+            this.shMark.HeaderText = "备注信息";
+            this.shMark.Name = "shMark";
+            this.shMark.ReadOnly = true;
             // 
-            // checkBox1
+            // shType
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(287, 32);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(89, 19);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "模糊查找";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.shType.HeaderText = "品牌";
+            this.shType.Name = "shType";
+            this.shType.ReadOnly = true;
             // 
-            // label26
+            // shColor
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(59, 71);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(262, 15);
-            this.label26.TabIndex = 0;
-            this.label26.Text = "请输入姓名，卡号，电话等信息回车！";
+            this.shColor.HeaderText = "颜色";
+            this.shColor.Name = "shColor";
+            this.shColor.ReadOnly = true;
+            this.shColor.Width = 70;
             // 
-            // label27
+            // shClass
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(26, 98);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(67, 15);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "查找内容";
+            this.shClass.HeaderText = "类别";
+            this.shClass.Name = "shClass";
+            this.shClass.ReadOnly = true;
             // 
-            // textBox3
+            // dataGridView3
             // 
-            this.textBox3.Location = new System.Drawing.Point(110, 94);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(258, 25);
-            this.textBox3.TabIndex = 2;
+            this.dataGridView3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cardNo,
+            this.name,
+            this.tel});
+            this.dataGridView3.Location = new System.Drawing.Point(444, 0);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowTemplate.Height = 27;
+            this.dataGridView3.Size = new System.Drawing.Size(560, 150);
+            this.dataGridView3.TabIndex = 1;
+            this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
+            // 
+            // cardNo
+            // 
+            this.cardNo.DataPropertyName = "CardNo";
+            this.cardNo.HeaderText = "卡号";
+            this.cardNo.Name = "cardNo";
+            this.cardNo.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.DataPropertyName = "Name";
+            this.name.HeaderText = "姓名";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // tel
+            // 
+            this.tel.DataPropertyName = "Tel";
+            this.tel.HeaderText = "电话";
+            this.tel.Name = "tel";
+            this.tel.ReadOnly = true;
             // 
             // shglform
             // 
@@ -1178,7 +1236,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1845, 701);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1861, 738);
@@ -1208,6 +1266,7 @@
             this.tabPage3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1226,18 +1285,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shTiaoMa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shDemo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shMoney;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shPay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shQuestion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shMark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shClass;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.Label label24;
@@ -1318,5 +1365,21 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label lable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shTiaoMa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shDemo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shQuestion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shClass;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tel;
     }
 }

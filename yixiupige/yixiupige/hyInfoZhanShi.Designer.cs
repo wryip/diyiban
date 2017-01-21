@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.czMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.czyMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.czXH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.caName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.czMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.czyMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,10 +80,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -134,20 +138,6 @@
             this.panel1.Size = new System.Drawing.Size(917, 880);
             this.panel1.TabIndex = 0;
             // 
-            // czMoney
-            // 
-            this.czMoney.DataPropertyName = "czMoney";
-            this.czMoney.HeaderText = "充值金额";
-            this.czMoney.Name = "czMoney";
-            this.czMoney.ReadOnly = true;
-            // 
-            // czyMoney
-            // 
-            this.czyMoney.DataPropertyName = "czyMoney";
-            this.czyMoney.HeaderText = "余额";
-            this.czyMoney.Name = "czyMoney";
-            this.czyMoney.ReadOnly = true;
-            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -170,9 +160,12 @@
             this.dataGridView2.Location = new System.Drawing.Point(12, 596);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView2.RowTemplate.Height = 27;
             this.dataGridView2.Size = new System.Drawing.Size(896, 235);
             this.dataGridView2.TabIndex = 47;
+            this.dataGridView2.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_CellMouseClick);
+            this.dataGridView2.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView2_RowContextMenuStripNeeded);
             // 
             // czXH
             // 
@@ -195,12 +188,26 @@
             this.caName.Name = "caName";
             this.caName.ReadOnly = true;
             // 
+            // czMoney
+            // 
+            this.czMoney.DataPropertyName = "czMoney";
+            this.czMoney.HeaderText = "充值金额";
+            this.czMoney.Name = "czMoney";
+            this.czMoney.ReadOnly = true;
+            // 
             // czCount
             // 
             this.czCount.DataPropertyName = "czCount";
             this.czCount.HeaderText = "充值次数";
             this.czCount.Name = "czCount";
             this.czCount.ReadOnly = true;
+            // 
+            // czyMoney
+            // 
+            this.czyMoney.DataPropertyName = "czyMoney";
+            this.czyMoney.HeaderText = "余额";
+            this.czyMoney.Name = "czyMoney";
+            this.czyMoney.ReadOnly = true;
             // 
             // czyCount
             // 
@@ -262,9 +269,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 328);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(896, 236);
             this.dataGridView1.TabIndex = 44;
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            this.dataGridView1.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView1_RowContextMenuStripNeeded);
             // 
             // pictureBox1
             // 
@@ -563,6 +573,20 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "会员姓名";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 30);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(144, 26);
+            this.toolStripMenuItem1.Text = "打印预览";
+            // 
             // hyInfoZhanShi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -578,6 +602,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -635,6 +660,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
 
     }
 }

@@ -19,5 +19,9 @@ namespace BLL
         {
             return dal.selectAllList(cardNo);
         }
+        public bool deleteInfoModel(string cardNo)
+        {
+            return dal.deleteInfoModel(cardNo);
+        }
     }
 }

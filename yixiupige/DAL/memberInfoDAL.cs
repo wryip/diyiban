@@ -247,5 +247,87 @@ namespace DAL
             }
             return result;
         }
+        public bool deleteInfoModel(string scardNo)
+        {
+            bool result = false;
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@membercardNo",scardNo),
+            };
+            string str = "delete from memberInfo where membercardNo=@membercardNo";
+            if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
+            {
+                result = true;
+            }
+            return result;
+        }
+        public List<shMemberInfo> selectForIdList(string sousuo, bool mohu)
+        {
+            List<shMemberInfo> list = new List<shMemberInfo>();
+            string str = "";
+            shMemberInfo model;
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@membercardNo",sousuo),
+            new SqlParameter("@memberName",sousuo),
+            new SqlParameter("@memberTel",sousuo)
+            };
+            if (mohu)
+            {
+                str = "select * from memberInfo where membercardNo like '%'+@membercardNo+'%' or memberName like '%'+@memberName+'%' or  memberTel like '%'+@memberTel+'%'";
+            }
+            else
+            {
+                str = "select * from memberInfo where membercardNo=@membercardNo or memberName=@memberName or memberTel=@memberTel";
+            }
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    model = new shMemberInfo();
+                    model.Name = read["memberName"].ToString().Trim();
+                    model.CardNo = read["membercardNo"].ToString().Trim();
+                    model.Tel = read["memberTel"].ToString().Trim();
+                    list.Add(model);
+                }
+            }
+            return list;
+        }
+        public memberInfoModel SelectId(string card)
+        {
+            memberInfoModel model=new memberInfoModel();
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@membercardNo",card),
+            };
+            string str = "select * from memberInfo where membercardNo=@membercardNo";
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    model.memberCardNo = read[0].ToString();
+                    model.memberName = read[1].ToString();
+                    model.memberTel = read[2].ToString();
+                    model.memberDocument = read[3].ToString();
+                    model.birDate = read[4].ToString();
+                    model.cardDate = read[5].ToString();
+                    model.memberSex = read[6].ToString();
+                    model.rebate = read[7].ToString();
+                    model.endDate = read[8].ToString();
+                    model.fuwuBate = read[9].ToString();
+                    model.toUpMoney = read[10].ToString();
+                    model.cardMoney = read[11].ToString();
+                    model.dianName = read[12].ToString();
+                    model.cardType = read[13].ToString();
+                    model.saleMan = read[14].ToString();
+                    model.memberType = read[15].ToString();
+                    model.address = read[16].ToString();
+                    model.remark = read[17].ToString();
+                    model.imageUrl = read[18].ToString();
+                    model.password = read[19].ToString();
+                    model.zhuangtai = read[20].ToString();
+                }
+            }
+            return model;
+        }
     }
 }

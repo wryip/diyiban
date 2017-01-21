@@ -16,6 +16,8 @@ using ZXing;
 using ZXing.QrCode;
 using ZXing.Common;
 using ZXing.Rendering;
+using BLL;
+using MODEL;
 //[code=csharp]using System;
 namespace yixiupige
 {
@@ -46,6 +48,7 @@ namespace yixiupige
         //IVideoSource iVideoSource = null;
 
         #endregion
+        public memberInfoBLL bll=new memberInfoBLL();
         public shglform()
         {
             InitializeComponent();
@@ -72,6 +75,10 @@ namespace yixiupige
         List<string> list = new List<string>();
         private void shglform_Load(object sender, EventArgs e)
         {
+            dataGridView3.Visible = false;
+            radioButton1.Checked = true;
+            textBox1.ReadOnly = true;
+            textBox2.ReadOnly = true;
             try
             {
                 //连接//开启摄像头
@@ -132,7 +139,7 @@ namespace yixiupige
             //}
             //tsslPath.Text = "已经保存至：" + path;
             string sb = "";
-            string[] ss = DateTime.Now.ToString().Split(new char[] { '/', ':',' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] ss = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':',' ' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var s in ss)
             {
                 sb += s;
@@ -157,6 +164,65 @@ namespace yixiupige
         private void groupBox5_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                textBox1.Text = "";
+                textBox1.ReadOnly = true;
+                textBox2.Text = "";
+                textBox2.ReadOnly = true;
+            }
+            else
+            {
+                textBox1.ReadOnly = false;
+                textBox2.ReadOnly = false;
+            }
+        }
+        public List<shMemberInfo> listSousuo;
+        private void textBox3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string sousuo = textBox3.Text.Trim();
+                bool mohu = checkBox1.Checked;
+                listSousuo = bll.selectForIdList(sousuo, mohu);
+                if (listSousuo.Count == 0)
+                {
+                    MessageBox.Show("没有相对应信息！");
+                    return;
+                }
+                dataGridView3.DataSource = listSousuo;
+                dataGridView3.Visible = true;
+            }
+        }
+
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            dataGridView3.Visible = false;
+            string card=listSousuo[index].CardNo;
+            memberInfoModel model = bll.SelectId(card);
+            textBox4.Text = model.memberName;
+            textBox5.Text = model.memberCardNo;
+            textBox6.Text = model.memberTel;
+            textBox7.Text = model.rebate;
+            textBox10.Text = model.cardType;
+            textBox11.Text = model.memberType;
+            textBox12.Text = model.cardDate;
+            pictureBox1.ImageLocation = model.imageUrl;
+            if (model.cardType.Trim() == "计次卡")
+            {
+                textBox8.Text = model.toUpMoney;
+                textBox9.Text = "0";
+            }
+            else if (model.cardType.Trim() == "储值卡")
+            {
+                textBox8.Text = "0";
+                textBox9.Text = model.toUpMoney;
+            }
         }
         #region
         //        private DataTable m_Code128 = new DataTable();

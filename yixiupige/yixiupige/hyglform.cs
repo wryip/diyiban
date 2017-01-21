@@ -68,6 +68,7 @@ namespace yixiupige
             hyzjForm hyzj = hyzjForm.Create();
             hyzj.Show();
             hyzj.Focus();
+            bindData();
         }
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -142,8 +143,15 @@ namespace yixiupige
                 dataGridView1.Rows[j].Selected = false;
                 //dataGridView1.Rows[j].ContextMenuStrip = null;
             }
-            dataGridView1.Rows[e.RowIndex].Selected = true;
-            id = e.RowIndex;
+            try 
+            {
+                dataGridView1.Rows[e.RowIndex].Selected = true;
+                id = e.RowIndex;
+            }
+            catch
+            {
+                return;
+            }
         }
 
         private void 会员充值ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -192,7 +200,12 @@ namespace yixiupige
             if (pas.Trim() == "admin888")
             {
                 //删除该会员
-                //bool result = infobll.deleteInfoModel(cardNo);
+                bool result = infobll.deleteInfoModel(cardNo);
+                if (result)
+                {
+                    MessageBox.Show("删除成功！");
+                    bindData();
+                }
             }
             else
             {

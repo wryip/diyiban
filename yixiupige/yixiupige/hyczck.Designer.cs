@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox12 = new System.Windows.Forms.TextBox();
             this.czXH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.caName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,7 +69,12 @@
             this.czDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czSalman = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.删除本条 = new System.Windows.Forms.ToolStripMenuItem();
+            this.全部删除 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -333,17 +338,12 @@
             this.dataGridView1.Location = new System.Drawing.Point(13, 381);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(800, 232);
             this.dataGridView1.TabIndex = 7;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(602, 125);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(133, 25);
-            this.textBox12.TabIndex = 1;
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            this.dataGridView1.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView1_RowContextMenuStripNeeded);
             // 
             // czXH
             // 
@@ -422,6 +422,36 @@
             this.czNo.Name = "czNo";
             this.czNo.ReadOnly = true;
             // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(602, 125);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
+            this.textBox12.Size = new System.Drawing.Size(133, 25);
+            this.textBox12.TabIndex = 1;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.删除本条,
+            this.全部删除});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(182, 84);
+            // 
+            // 删除本条
+            // 
+            this.删除本条.Name = "删除本条";
+            this.删除本条.Size = new System.Drawing.Size(181, 26);
+            this.删除本条.Text = "删除本条";
+            this.删除本条.Click += new System.EventHandler(this.删除本条_Click);
+            // 
+            // 全部删除
+            // 
+            this.全部删除.Name = "全部删除";
+            this.全部删除.Size = new System.Drawing.Size(181, 26);
+            this.全部删除.Text = "全部删除";
+            // 
             // hyczck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -462,6 +492,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.hyczck_FormClosed);
             this.Load += new System.EventHandler(this.hyczck_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -510,5 +541,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn czDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn czSalman;
         private System.Windows.Forms.DataGridViewTextBoxColumn czNo;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 删除本条;
+        private System.Windows.Forms.ToolStripMenuItem 全部删除;
     }
 }
