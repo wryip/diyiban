@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,10 +17,13 @@ namespace yixiupige
         {
             InitializeComponent();
         }
-        private static jbcszjForm jbcszj;
+        public delegate void databind();
+        public static databind bind;
         //设置单例模式
-        public static jbcszjForm Create()
+        private static jbcszjForm jbcszj;
+        public static jbcszjForm Create(databind action)
         {
+            bind = action;
             if (jbcszj==null)
             {
                 jbcszj = new jbcszjForm();
@@ -39,6 +43,24 @@ namespace yixiupige
         private void TCbutton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        jbcsBLL bll = new jbcsBLL();
+        private void TJbutton_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Trim() != "")
+            {
+                bool result = bll.addIteam(textBox1.Text.Trim(),this.Text);
+                if (result)
+                {
+                    MessageBox.Show("添加成功！");
+                    this.Close();
+                    bind();
+                    return;
+                }
+                MessageBox.Show("添加失败！");
+                return;
+            }
+            MessageBox.Show("请填写信息！");
         }
     }
 }

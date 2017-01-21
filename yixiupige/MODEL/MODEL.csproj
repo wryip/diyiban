@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GoodInfo.cs" />
+    <Compile Include="jbcs.cs" />
     <Compile Include="LoginUser.cs" />
     <Compile Include="memberInfoModel.cs" />
     <Compile Include="memberToUpModel.cs" />

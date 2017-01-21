@@ -157,6 +157,12 @@
     <Compile Include="jbcsForm.Designer.cs">
       <DependentUpon>jbcsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="jbcsxgFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jbcsxgFrom.Designer.cs">
+      <DependentUpon>jbcsxgFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="jbcszjForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     <Compile Include="zjspForm、.Designer.cs">
       <DependentUpon>zjspForm、.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="jbcsxgFrom.resx">
+      <DependentUpon>jbcsxgFrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="zjspForm、.resx">
       <DependentUpon>zjspForm、.cs</DependentUpon>
     </EmbeddedResource>

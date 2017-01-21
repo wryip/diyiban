@@ -212,7 +212,7 @@ namespace yixiupige
             textBox10.Text = model.cardType;
             textBox11.Text = model.memberType;
             textBox12.Text = model.cardDate;
-            pictureBox1.ImageLocation = model.imageUrl;
+            //pictureBox1.ImageLocation = model.imageUrl;
             if (model.cardType.Trim() == "计次卡")
             {
                 textBox8.Text = model.toUpMoney;
