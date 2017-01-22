@@ -48,8 +48,23 @@ namespace yixiupige
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = gdbll.Getlist(gd);
         }
+        GoodTypeInfoBll gtbll = new GoodTypeInfoBll();
         private void spform_Load(object sender, EventArgs e)
         {
+            TreeNode child;
+
+
+            List<string> list = gtbll.SelecNode(); ;
+            TreeNode parent = treeView1.Nodes[0];
+            //TreeNode parent=new TreeNode();
+            //parent.Text = "全部";
+            //treeView1.Nodes.Add(parent);           
+            foreach (var i in list)
+            {
+                child = new TreeNode();
+                child.Text =i;
+                parent.Nodes.Add(child);
+            }
             _load();
             
         }
@@ -157,7 +172,22 @@ namespace yixiupige
 
         private void treeView1_Click(object sender, EventArgs e)
         {
-            _load();
+
+            //_load();
+            
+        }
+
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            string cardTepe = e.Node.Text;
+            GoodInfo gd = new GoodInfo()
+            {
+                Gtype=cardTepe
+            };
+            List<GoodInfo> list = gdbll.Getlist(gd);
+            
+            dataGridView1.DataSource = gdbll.Getlist(gd);
+           
         }
 
       

@@ -30,6 +30,8 @@ namespace yixiupige
         spform sp = new spform();
         private void zjspForm__Load(object sender, EventArgs e)
         {
+            GoodTypeInfoBll dtbll = new GoodTypeInfoBll();
+            typetextBox.DataSource = dtbll.SelecNode();
             GoodInfo gd=null;
             notextBox.Text = (10000 + gdbll.Getlist(gd).Count).ToString();
         }

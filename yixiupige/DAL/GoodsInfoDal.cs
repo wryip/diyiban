@@ -29,6 +29,17 @@ namespace DAL
                    sql += " where Gname like @name";
                    listp.Add(new SqlParameter("@name","%"+ gd.Gname+"%"));
                }
+               if (!string.IsNullOrEmpty(gd.Gtype))
+               {
+                  
+                   if (gd.Gtype != "全部")
+                   {
+                       sql += " where Gtype=@type";
+                       listp.Add(new SqlParameter("@type",gd.Gtype));
+                   }
+                 
+                  
+               }
            }
            DataSet ds= SqlHelper.GetDataSet(sql,listp.ToArray());
            DataTable dt = ds.Tables[0];
@@ -83,14 +94,14 @@ namespace DAL
        }
        public int Update(GoodInfo gd)
        {
-           string sql = "update GoodInfo set Gname=@name,Gbid=@bid,Gsum=@sum,Gremark=@remark where Gno=@no";
+           string sql = "update GoodInfo set Gname=@name,Gbid=@bid,Gtype=@type,Gremark=@remark where Gno=@no";
            SqlParameter[] sp = { 
                                      new SqlParameter("@name",gd.Gname),
-                                     new SqlParameter("@bid",gd.Gid),
+                                     new SqlParameter("@bid",gd.Gbid),
                                      new SqlParameter("@price",gd.Gprice),
-                                     new SqlParameter("@sum",gd.Gsum),
+                                     new SqlParameter("@type",gd.Gtype),
                                      new SqlParameter("@no",gd.Gno),
-                                     new SqlParameter("@remark",gd.Gremark),
+                                     new SqlParameter("@remark",gd.Gremark)
                                     
                                 };
            return SqlHelper.ExecuteNonQuery(sql,sp);

@@ -54,7 +54,13 @@ namespace yixiupige
             {
                
                 Gno = notextBox.Text.ToString(),
-                Gname=null
+               Gname=nametextBox.Text.ToString(),
+               Gbid=Convert.ToDecimal(bidtextBox.Text),
+               Gprice=Convert.ToDecimal(pricetextBox.Text),
+               Gtype=typetextBox.Text.ToString(),
+               Gremark=remarktextBox.Text.ToString()
+               
+
             };
             if (gdbll.Alter(gd))
             {
@@ -66,7 +72,8 @@ namespace yixiupige
 
         private void xgspFrom_Load(object sender, EventArgs e)
         {
-            
+            GoodTypeInfoBll gtbll=new GoodTypeInfoBll();
+            typetextBox.DataSource = gtbll.SelecNode();
         }
 
         private void xgspFrom_FormClosed(object sender, FormClosedEventArgs e)

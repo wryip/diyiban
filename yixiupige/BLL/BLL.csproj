@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GoodInfoBLL.cs" />
+    <Compile Include="GoodTypeInfoBll.cs" />
     <Compile Include="LoginUser.cs" />
     <Compile Include="memberCZMoneyBLL.cs" />
     <Compile Include="memberInfoBLL.cs" />

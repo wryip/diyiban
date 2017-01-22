@@ -40,10 +40,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.notextBox = new System.Windows.Forms.TextBox();
-            this.typetextBox = new System.Windows.Forms.TextBox();
             this.sumtextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.typetextBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -147,13 +147,6 @@
             this.notextBox.Size = new System.Drawing.Size(100, 21);
             this.notextBox.TabIndex = 11;
             // 
-            // typetextBox
-            // 
-            this.typetextBox.Location = new System.Drawing.Point(314, 66);
-            this.typetextBox.Name = "typetextBox";
-            this.typetextBox.Size = new System.Drawing.Size(100, 21);
-            this.typetextBox.TabIndex = 12;
-            // 
             // sumtextBox
             // 
             this.sumtextBox.Location = new System.Drawing.Point(314, 107);
@@ -180,15 +173,23 @@
             this.button2.Text = "退出";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // typetextBox
+            // 
+            this.typetextBox.FormattingEnabled = true;
+            this.typetextBox.Location = new System.Drawing.Point(314, 66);
+            this.typetextBox.Name = "typetextBox";
+            this.typetextBox.Size = new System.Drawing.Size(100, 20);
+            this.typetextBox.TabIndex = 16;
+            // 
             // zjspForm_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(458, 302);
+            this.Controls.Add(this.typetextBox);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.sumtextBox);
-            this.Controls.Add(this.typetextBox);
             this.Controls.Add(this.notextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -226,9 +227,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox notextBox;
-        private System.Windows.Forms.TextBox typetextBox;
         private System.Windows.Forms.TextBox sumtextBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox typetextBox;
     }
 }

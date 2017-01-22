@@ -35,13 +35,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.nametextBox = new System.Windows.Forms.TextBox();
             this.notextBox = new System.Windows.Forms.TextBox();
-            this.typetextBox = new System.Windows.Forms.TextBox();
             this.bidtextBox = new System.Windows.Forms.TextBox();
             this.pricetextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.remarktextBox = new System.Windows.Forms.TextBox();
+            this.typetextBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -105,13 +105,6 @@
             this.notextBox.Size = new System.Drawing.Size(177, 21);
             this.notextBox.TabIndex = 6;
             // 
-            // typetextBox
-            // 
-            this.typetextBox.Location = new System.Drawing.Point(112, 102);
-            this.typetextBox.Name = "typetextBox";
-            this.typetextBox.Size = new System.Drawing.Size(177, 21);
-            this.typetextBox.TabIndex = 7;
-            // 
             // bidtextBox
             // 
             this.bidtextBox.Location = new System.Drawing.Point(112, 140);
@@ -163,18 +156,26 @@
             this.remarktextBox.Size = new System.Drawing.Size(177, 85);
             this.remarktextBox.TabIndex = 13;
             // 
+            // typetextBox
+            // 
+            this.typetextBox.FormattingEnabled = true;
+            this.typetextBox.Location = new System.Drawing.Point(112, 96);
+            this.typetextBox.Name = "typetextBox";
+            this.typetextBox.Size = new System.Drawing.Size(177, 20);
+            this.typetextBox.TabIndex = 14;
+            // 
             // xgspFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 398);
+            this.Controls.Add(this.typetextBox);
             this.Controls.Add(this.remarktextBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pricetextBox);
             this.Controls.Add(this.bidtextBox);
-            this.Controls.Add(this.typetextBox);
             this.Controls.Add(this.notextBox);
             this.Controls.Add(this.nametextBox);
             this.Controls.Add(this.label5);
@@ -202,12 +203,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox nametextBox;
         private System.Windows.Forms.TextBox notextBox;
-        private System.Windows.Forms.TextBox typetextBox;
         private System.Windows.Forms.TextBox bidtextBox;
         private System.Windows.Forms.TextBox pricetextBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox remarktextBox;
+        private System.Windows.Forms.ComboBox typetextBox;
     }
 }

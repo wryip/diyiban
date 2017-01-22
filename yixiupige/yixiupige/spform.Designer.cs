@@ -29,13 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("鞋垫");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("袜子");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("鞋油");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("全部", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("全部");
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -80,18 +74,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeView1.Location = new System.Drawing.Point(7, 21);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "spXieDian";
-            treeNode1.Text = "鞋垫";
-            treeNode2.Name = "spWaZi";
-            treeNode2.Text = "袜子";
-            treeNode3.Name = "spXieYou";
-            treeNode3.Text = "鞋油";
-            treeNode4.Name = "spAll";
-            treeNode4.Text = "全部";
+            treeNode1.Name = "spAll";
+            treeNode1.Text = "全部";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode1});
             this.treeView1.Size = new System.Drawing.Size(117, 509);
             this.treeView1.TabIndex = 0;
+            this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
             this.treeView1.Click += new System.EventHandler(this.treeView1_Click);
             // 
             // groupBox2

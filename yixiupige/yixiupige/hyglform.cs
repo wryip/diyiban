@@ -200,6 +200,11 @@ namespace yixiupige
             }
         }
 
+        private void treeView1_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
         
     }
 }
