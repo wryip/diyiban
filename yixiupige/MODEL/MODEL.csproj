@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fuwuModel.cs" />
     <Compile Include="GoodInfo.cs" />
     <Compile Include="jbcs.cs" />
     <Compile Include="LoginUser.cs" />
@@ -47,6 +48,7 @@
     <Compile Include="memberType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="shMemberInfo.cs" />
+    <Compile Include="staffTable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

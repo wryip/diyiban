@@ -54,7 +54,20 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.shNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shTiaoMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shDemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.textBox20 = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.textBox19 = new System.Windows.Forms.TextBox();
@@ -63,7 +76,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
@@ -104,6 +116,10 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.videoSourcePlayer1 = new AForge.Controls.VideoSourcePlayer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.cardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,22 +137,6 @@
             this.lsNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsTiaoMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shTiaoMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shDemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.cardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -147,12 +147,13 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -423,9 +424,89 @@
             this.dataGridView2.Size = new System.Drawing.Size(1451, 267);
             this.dataGridView2.TabIndex = 0;
             // 
+            // shNo
+            // 
+            this.shNo.HeaderText = "编号";
+            this.shNo.Name = "shNo";
+            this.shNo.ReadOnly = true;
+            this.shNo.Width = 70;
+            // 
+            // shTiaoMa
+            // 
+            this.shTiaoMa.HeaderText = "条码";
+            this.shTiaoMa.Name = "shTiaoMa";
+            this.shTiaoMa.ReadOnly = true;
+            // 
+            // shDemo
+            // 
+            this.shDemo.HeaderText = "服务项目";
+            this.shDemo.Name = "shDemo";
+            this.shDemo.ReadOnly = true;
+            this.shDemo.Width = 300;
+            // 
+            // shCount
+            // 
+            this.shCount.HeaderText = "点数";
+            this.shCount.Name = "shCount";
+            this.shCount.ReadOnly = true;
+            // 
+            // shMoney
+            // 
+            this.shMoney.HeaderText = "金额";
+            this.shMoney.Name = "shMoney";
+            this.shMoney.ReadOnly = true;
+            this.shMoney.Width = 70;
+            // 
+            // shPay
+            // 
+            this.shPay.HeaderText = "应付";
+            this.shPay.Name = "shPay";
+            this.shPay.ReadOnly = true;
+            this.shPay.Width = 70;
+            // 
+            // shNumber
+            // 
+            this.shNumber.HeaderText = "架号";
+            this.shNumber.Name = "shNumber";
+            this.shNumber.ReadOnly = true;
+            this.shNumber.Width = 70;
+            // 
+            // shQuestion
+            // 
+            this.shQuestion.HeaderText = "常见问题";
+            this.shQuestion.Name = "shQuestion";
+            this.shQuestion.ReadOnly = true;
+            this.shQuestion.Width = 300;
+            // 
+            // shMark
+            // 
+            this.shMark.HeaderText = "备注信息";
+            this.shMark.Name = "shMark";
+            this.shMark.ReadOnly = true;
+            // 
+            // shType
+            // 
+            this.shType.HeaderText = "品牌";
+            this.shType.Name = "shType";
+            this.shType.ReadOnly = true;
+            // 
+            // shColor
+            // 
+            this.shColor.HeaderText = "颜色";
+            this.shColor.Name = "shColor";
+            this.shColor.ReadOnly = true;
+            this.shColor.Width = 70;
+            // 
+            // shClass
+            // 
+            this.shClass.HeaderText = "类别";
+            this.shClass.Name = "shClass";
+            this.shClass.ReadOnly = true;
+            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.numericUpDown1);
             this.groupBox3.Controls.Add(this.textBox20);
             this.groupBox3.Controls.Add(this.label24);
             this.groupBox3.Controls.Add(this.textBox19);
@@ -434,7 +515,6 @@
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.textBox16);
             this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.textBox14);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.textBox18);
             this.groupBox3.Controls.Add(this.textBox17);
@@ -460,6 +540,13 @@
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "收活信息";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(55, 48);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(114, 25);
+            this.numericUpDown1.TabIndex = 9;
             // 
             // textBox20
             // 
@@ -506,6 +593,7 @@
             this.textBox13.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox13.Size = new System.Drawing.Size(309, 20);
             this.textBox13.TabIndex = 6;
+            this.textBox13.Click += new System.EventHandler(this.textBox13_Click);
             // 
             // label14
             // 
@@ -526,6 +614,7 @@
             this.textBox16.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox16.Size = new System.Drawing.Size(309, 20);
             this.textBox16.TabIndex = 6;
+            this.textBox16.Click += new System.EventHandler(this.textBox16_Click);
             // 
             // label20
             // 
@@ -536,14 +625,6 @@
             this.label20.Size = new System.Drawing.Size(67, 15);
             this.label20.TabIndex = 5;
             this.label20.Text = "其他服务";
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(55, 51);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(112, 25);
-            this.textBox14.TabIndex = 4;
             // 
             // label17
             // 
@@ -560,6 +641,7 @@
             this.textBox18.Location = new System.Drawing.Point(444, 104);
             this.textBox18.Margin = new System.Windows.Forms.Padding(4);
             this.textBox18.Name = "textBox18";
+            this.textBox18.ReadOnly = true;
             this.textBox18.Size = new System.Drawing.Size(69, 25);
             this.textBox18.TabIndex = 4;
             // 
@@ -568,6 +650,7 @@
             this.textBox17.Location = new System.Drawing.Point(444, 78);
             this.textBox17.Margin = new System.Windows.Forms.Padding(4);
             this.textBox17.Name = "textBox17";
+            this.textBox17.ReadOnly = true;
             this.textBox17.Size = new System.Drawing.Size(69, 25);
             this.textBox17.TabIndex = 4;
             // 
@@ -612,16 +695,6 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "黑",
-            "白",
-            "红",
-            "橙",
-            "黄",
-            "绿",
-            "蓝",
-            "紫",
-            "粉"});
             this.comboBox3.Location = new System.Drawing.Point(401, 19);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox3.Name = "comboBox3";
@@ -641,12 +714,6 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "361",
-            "阿迪达斯",
-            "安踏",
-            "乔丹",
-            "彪马"});
             this.comboBox2.Location = new System.Drawing.Point(229, 19);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
@@ -666,10 +733,6 @@
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "皮衣",
-            "皮鞋",
-            "皮包"});
             this.comboBox4.Location = new System.Drawing.Point(229, 50);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox4.Name = "comboBox4";
@@ -689,10 +752,6 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "皮衣",
-            "皮鞋",
-            "皮包"});
             this.comboBox1.Location = new System.Drawing.Point(55, 18);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
@@ -982,6 +1041,43 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "历史消费记录";
             // 
+            // dataGridView3
+            // 
+            this.dataGridView3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cardNo,
+            this.name,
+            this.tel});
+            this.dataGridView3.Location = new System.Drawing.Point(444, 0);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowTemplate.Height = 27;
+            this.dataGridView3.Size = new System.Drawing.Size(560, 150);
+            this.dataGridView3.TabIndex = 1;
+            this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
+            // 
+            // cardNo
+            // 
+            this.cardNo.DataPropertyName = "CardNo";
+            this.cardNo.HeaderText = "卡号";
+            this.cardNo.Name = "cardNo";
+            this.cardNo.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.DataPropertyName = "Name";
+            this.name.HeaderText = "姓名";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // tel
+            // 
+            this.tel.DataPropertyName = "Tel";
+            this.tel.HeaderText = "电话";
+            this.tel.Name = "tel";
+            this.tel.ReadOnly = true;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -1114,122 +1210,6 @@
             this.lsTiaoMa.Name = "lsTiaoMa";
             this.lsTiaoMa.ReadOnly = true;
             // 
-            // shNo
-            // 
-            this.shNo.HeaderText = "编号";
-            this.shNo.Name = "shNo";
-            this.shNo.ReadOnly = true;
-            this.shNo.Width = 70;
-            // 
-            // shTiaoMa
-            // 
-            this.shTiaoMa.HeaderText = "条码";
-            this.shTiaoMa.Name = "shTiaoMa";
-            this.shTiaoMa.ReadOnly = true;
-            // 
-            // shDemo
-            // 
-            this.shDemo.HeaderText = "服务项目";
-            this.shDemo.Name = "shDemo";
-            this.shDemo.ReadOnly = true;
-            this.shDemo.Width = 300;
-            // 
-            // shCount
-            // 
-            this.shCount.HeaderText = "点数";
-            this.shCount.Name = "shCount";
-            this.shCount.ReadOnly = true;
-            // 
-            // shMoney
-            // 
-            this.shMoney.HeaderText = "金额";
-            this.shMoney.Name = "shMoney";
-            this.shMoney.ReadOnly = true;
-            this.shMoney.Width = 70;
-            // 
-            // shPay
-            // 
-            this.shPay.HeaderText = "应付";
-            this.shPay.Name = "shPay";
-            this.shPay.ReadOnly = true;
-            this.shPay.Width = 70;
-            // 
-            // shNumber
-            // 
-            this.shNumber.HeaderText = "架号";
-            this.shNumber.Name = "shNumber";
-            this.shNumber.ReadOnly = true;
-            this.shNumber.Width = 70;
-            // 
-            // shQuestion
-            // 
-            this.shQuestion.HeaderText = "常见问题";
-            this.shQuestion.Name = "shQuestion";
-            this.shQuestion.ReadOnly = true;
-            this.shQuestion.Width = 300;
-            // 
-            // shMark
-            // 
-            this.shMark.HeaderText = "备注信息";
-            this.shMark.Name = "shMark";
-            this.shMark.ReadOnly = true;
-            // 
-            // shType
-            // 
-            this.shType.HeaderText = "品牌";
-            this.shType.Name = "shType";
-            this.shType.ReadOnly = true;
-            // 
-            // shColor
-            // 
-            this.shColor.HeaderText = "颜色";
-            this.shColor.Name = "shColor";
-            this.shColor.ReadOnly = true;
-            this.shColor.Width = 70;
-            // 
-            // shClass
-            // 
-            this.shClass.HeaderText = "类别";
-            this.shClass.Name = "shClass";
-            this.shClass.ReadOnly = true;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cardNo,
-            this.name,
-            this.tel});
-            this.dataGridView3.Location = new System.Drawing.Point(444, 0);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowTemplate.Height = 27;
-            this.dataGridView3.Size = new System.Drawing.Size(560, 150);
-            this.dataGridView3.TabIndex = 1;
-            this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
-            // 
-            // cardNo
-            // 
-            this.cardNo.DataPropertyName = "CardNo";
-            this.cardNo.HeaderText = "卡号";
-            this.cardNo.Name = "cardNo";
-            this.cardNo.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.DataPropertyName = "Name";
-            this.name.HeaderText = "姓名";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // tel
-            // 
-            this.tel.DataPropertyName = "Tel";
-            this.tel.HeaderText = "电话";
-            this.tel.Name = "tel";
-            this.tel.ReadOnly = true;
-            // 
             // shglform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -1260,13 +1240,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1294,7 +1275,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.TextBox textBox17;
@@ -1381,5 +1361,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cardNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn tel;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

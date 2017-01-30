@@ -72,6 +72,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddFuWuType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFuWuType.Designer.cs">
+      <DependentUpon>AddFuWuType.cs</DependentUpon>
+    </Compile>
     <Compile Include="baseClass.cs" />
     <Compile Include="cxspForm.cs">
       <SubType>Form</SubType>
@@ -102,6 +108,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fuwuEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fuwuEdit.Designer.cs">
+      <DependentUpon>fuwuEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="glyszForm.cs">
       <SubType>Form</SubType>
@@ -145,6 +157,12 @@
     <Compile Include="hylxedit.Designer.cs">
       <DependentUpon>hylxedit.cs</DependentUpon>
     </Compile>
+    <Compile Include="hyxgFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hyxgFrom.Designer.cs">
+      <DependentUpon>hyxgFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="hyzjForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +186,12 @@
     </Compile>
     <Compile Include="jbcszjForm.Designer.cs">
       <DependentUpon>jbcszjForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jbfuCheckBoxFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jbfuCheckBoxFrom.Designer.cs">
+      <DependentUpon>jbfuCheckBoxFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="jcform.cs">
       <SubType>Form</SubType>
@@ -308,8 +332,20 @@
     <Compile Include="zjspForm、.Designer.cs">
       <DependentUpon>zjspForm、.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddFuWuType.resx">
+      <DependentUpon>AddFuWuType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fuwuEdit.resx">
+      <DependentUpon>fuwuEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hyxgFrom.resx">
+      <DependentUpon>hyxgFrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="jbcsxgFrom.resx">
       <DependentUpon>jbcsxgFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jbfuCheckBoxFrom.resx">
+      <DependentUpon>jbfuCheckBoxFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="zjspForm、.resx">
       <DependentUpon>zjspForm、.cs</DependentUpon>

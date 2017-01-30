@@ -49,6 +49,7 @@ namespace yixiupige
 
         #endregion
         public memberInfoBLL bll=new memberInfoBLL();
+        fuwuBLL fuwubl = new fuwuBLL();
         public shglform()
         {
             InitializeComponent();
@@ -73,8 +74,11 @@ namespace yixiupige
             return _danli;
         }
         List<string> list = new List<string>();
+        public jbcsBLL jbbll = new jbcsBLL();
+        staffInfoBLL staffbll = new staffInfoBLL();
         private void shglform_Load(object sender, EventArgs e)
         {
+            //1品牌2颜色3常见问题4商品5寄存（收活类别）6员工工种
             dataGridView3.Visible = false;
             radioButton1.Checked = true;
             textBox1.ReadOnly = true;
@@ -94,6 +98,26 @@ namespace yixiupige
             catch (ApplicationException)
             {
                 videoDevices = null;
+            }
+            List<jbcs> listtype = jbbll.selectList(5);
+            foreach (var iteam in listtype)
+            {
+                comboBox1.Items.Add(iteam.AllType);
+            }
+            listtype = jbbll.selectList(1);
+            foreach (var iteam in listtype)
+            {
+                comboBox2.Items.Add(iteam.AllType);
+            }
+            listtype = jbbll.selectList(2);
+            foreach (var iteam in listtype)
+            {
+                comboBox3.Items.Add(iteam.AllType);
+            }
+            listtype = staffbll.selectSH();
+            foreach (var iteam in listtype)
+            {
+                comboBox4.Items.Add(iteam.AllType);
             }
         }
         private void CameraConn()
@@ -209,9 +233,9 @@ namespace yixiupige
             textBox5.Text = model.memberCardNo;
             textBox6.Text = model.memberTel;
             textBox7.Text = model.rebate;
-            textBox10.Text = model.cardType;
-            textBox11.Text = model.memberType;
-            textBox12.Text = model.cardDate;
+            textBox12.Text = model.cardType;
+            textBox10.Text = model.memberType;
+            textBox11.Text = model.cardDate;
             //pictureBox1.ImageLocation = model.imageUrl;
             if (model.cardType.Trim() == "计次卡")
             {
@@ -222,6 +246,58 @@ namespace yixiupige
             {
                 textBox8.Text = "0";
                 textBox9.Text = model.toUpMoney;
+            }
+        }
+
+        private void textBox13_Click(object sender, EventArgs e)
+        {
+            if (textBox4.Text.Trim() == "" && radioButton2.Checked == false)
+            {
+                MessageBox.Show("清先查找会员！");
+                return;
+            }
+            jbfuCheckBoxFrom shouhuojb = jbfuCheckBoxFrom.CreateForm(jbFuWuCount);
+            shouhuojb.ShowDialog();
+            shouhuojb.Focus();
+        }
+        //计算基本服务的价格，将名称与价格进行显示
+        public void jbFuWuCount(string model)
+        {
+            textBox13.Text = model;
+            int money = 0;
+            string type = textBox10.Text.Trim();
+            List<fuwuModel> list = fuwubl.selectAllList();
+            string[] name = model.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var iteam in list)
+            {
+                foreach (var itname in name)
+                {
+                    if (itname.Trim() == iteam.Name.Trim())
+                    {
+                        string neirong = iteam.neirong.Trim();
+                        //不同卡对应的钱
+                        string[] str = neirong.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                        foreach (var iteamdan in str)
+                        {
+                            if (iteamdan.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)[0].Trim() == type)
+                            {
+                                money += Convert.ToInt32(iteamdan.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)[1]);
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+            textBox17.Text = money.ToString();
+        }
+
+        private void textBox16_Click(object sender, EventArgs e)
+        {
+            if (textBox4.Text.Trim() == "" && radioButton2.Checked == false)
+            {
+                MessageBox.Show("清先查找会员！");
+                return;
             }
         }
         #region

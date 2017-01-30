@@ -121,6 +121,13 @@ namespace yixiupige
                 return;
             }
             bool result = bll.seleteIteam(neirong);
+            if (result)
+            {
+                dataBind();
+                MessageBox.Show("删除成功！");
+                return;
+            }
+            MessageBox.Show("删除失败1");
         }
        
        
