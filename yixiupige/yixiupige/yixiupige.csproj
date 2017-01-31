@@ -78,7 +78,19 @@
     <Compile Include="AddFuWuType.Designer.cs">
       <DependentUpon>AddFuWuType.cs</DependentUpon>
     </Compile>
+    <Compile Include="addQtFuWu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addQtFuWu.Designer.cs">
+      <DependentUpon>addQtFuWu.cs</DependentUpon>
+    </Compile>
     <Compile Include="baseClass.cs" />
+    <Compile Include="cjQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cjQuestion.Designer.cs">
+      <DependentUpon>cjQuestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="cxspForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +114,12 @@
     </Compile>
     <Compile Include="dxform.Designer.cs">
       <DependentUpon>dxform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditQtFuWu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditQtFuWu.Designer.cs">
+      <DependentUpon>EditQtFuWu.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -248,6 +266,18 @@
     <Compile Include="qtForm.Designer.cs">
       <DependentUpon>qtForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="qtfuCheckBoxFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="qtfuCheckBoxFrom.Designer.cs">
+      <DependentUpon>qtfuCheckBoxFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QtMoney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QtMoney.Designer.cs">
+      <DependentUpon>QtMoney.cs</DependentUpon>
+    </Compile>
     <Compile Include="shglform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,6 +365,15 @@
     <EmbeddedResource Include="AddFuWuType.resx">
       <DependentUpon>AddFuWuType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="addQtFuWu.resx">
+      <DependentUpon>addQtFuWu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cjQuestion.resx">
+      <DependentUpon>cjQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditQtFuWu.resx">
+      <DependentUpon>EditQtFuWu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fuwuEdit.resx">
       <DependentUpon>fuwuEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,6 +385,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="jbfuCheckBoxFrom.resx">
       <DependentUpon>jbfuCheckBoxFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="qtfuCheckBoxFrom.resx">
+      <DependentUpon>qtfuCheckBoxFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QtMoney.resx">
+      <DependentUpon>QtMoney.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="zjspForm、.resx">
       <DependentUpon>zjspForm、.cs</DependentUpon>

@@ -48,6 +48,7 @@
     <Compile Include="memberInfoDAL.cs" />
     <Compile Include="memberTypeDAl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QtFuWuDAL.cs" />
     <Compile Include="SqlHelper.cs" />
     <Compile Include="staffTableDAL.cs" />
   </ItemGroup>
