@@ -134,6 +134,7 @@
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.kinyaoo123456DataSet1 = new yixiupige.kinyaoo123456DataSet();
             this.lsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsDemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -149,8 +150,7 @@
             this.lsSuperMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lsTiaoMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kinyaoo123456DataSet1 = new yixiupige.kinyaoo123456DataSet();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -459,6 +459,7 @@
             this.button4.TabIndex = 1;
             this.button4.Text = "保存";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -645,19 +646,19 @@
             this.删除本条ToolStripMenuItem,
             this.删除全部ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 52);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 56);
             // 
             // 删除本条ToolStripMenuItem
             // 
             this.删除本条ToolStripMenuItem.Name = "删除本条ToolStripMenuItem";
-            this.删除本条ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.删除本条ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.删除本条ToolStripMenuItem.Text = "删除本条";
             this.删除本条ToolStripMenuItem.Click += new System.EventHandler(this.删除本条ToolStripMenuItem_Click);
             // 
             // 删除全部ToolStripMenuItem
             // 
             this.删除全部ToolStripMenuItem.Name = "删除全部ToolStripMenuItem";
-            this.删除全部ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.删除全部ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.删除全部ToolStripMenuItem.Text = "删除全部";
             // 
             // groupBox3
@@ -935,6 +936,7 @@
             this.button2.TabIndex = 0;
             this.button2.Text = "购买商品";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -1259,8 +1261,7 @@
             this.lsPerson,
             this.lsSuperMark,
             this.lsNo,
-            this.lsCardNo,
-            this.lsTiaoMa});
+            this.lsCardNo});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.Location = new System.Drawing.Point(4, 26);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
@@ -1271,106 +1272,119 @@
             this.dataGridView1.Size = new System.Drawing.Size(1000, 192);
             this.dataGridView1.TabIndex = 0;
             // 
+            // kinyaoo123456DataSet1
+            // 
+            this.kinyaoo123456DataSet1.DataSetName = "kinyaoo123456DataSet";
+            this.kinyaoo123456DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // lsName
             // 
+            this.lsName.DataPropertyName = "LSName";
             this.lsName.HeaderText = "姓名";
             this.lsName.Name = "lsName";
             this.lsName.ReadOnly = true;
             // 
             // lsTime
             // 
+            this.lsTime.DataPropertyName = "LSDate";
             this.lsTime.HeaderText = "时间";
             this.lsTime.Name = "lsTime";
             this.lsTime.ReadOnly = true;
             // 
             // lsDemo
             // 
+            this.lsDemo.DataPropertyName = "LSStaff";
             this.lsDemo.HeaderText = "服务项目";
             this.lsDemo.Name = "lsDemo";
             this.lsDemo.ReadOnly = true;
             // 
             // lsCount
             // 
+            this.lsCount.DataPropertyName = "LSNumberCount";
             this.lsCount.HeaderText = "点数";
             this.lsCount.Name = "lsCount";
             this.lsCount.ReadOnly = true;
             // 
             // lsMoney
             // 
+            this.lsMoney.DataPropertyName = "LSMoney";
             this.lsMoney.HeaderText = "金额";
             this.lsMoney.Name = "lsMoney";
             this.lsMoney.ReadOnly = true;
             // 
             // lsPay
             // 
+            this.lsPay.DataPropertyName = "LSYMoney";
             this.lsPay.HeaderText = "应付";
             this.lsPay.Name = "lsPay";
             this.lsPay.ReadOnly = true;
             // 
             // lsNumber
             // 
-            this.lsNumber.HeaderText = "架号";
+            this.lsNumber.DataPropertyName = "LSCount";
+            this.lsNumber.HeaderText = "数量";
             this.lsNumber.Name = "lsNumber";
             this.lsNumber.ReadOnly = true;
             // 
             // lsType
             // 
+            this.lsType.DataPropertyName = "LSPinPai";
             this.lsType.HeaderText = "品牌";
             this.lsType.Name = "lsType";
             this.lsType.ReadOnly = true;
             // 
             // lsColor
             // 
+            this.lsColor.DataPropertyName = "LSColor";
             this.lsColor.HeaderText = "颜色";
             this.lsColor.Name = "lsColor";
             this.lsColor.ReadOnly = true;
             // 
             // lsQuestion
             // 
+            this.lsQuestion.DataPropertyName = "LSQuestion";
             this.lsQuestion.HeaderText = "问题";
             this.lsQuestion.Name = "lsQuestion";
             this.lsQuestion.ReadOnly = true;
             // 
             // lsMark
             // 
+            this.lsMark.DataPropertyName = "LSRemark";
             this.lsMark.HeaderText = "备注";
             this.lsMark.Name = "lsMark";
             this.lsMark.ReadOnly = true;
             // 
             // lsPerson
             // 
+            this.lsPerson.DataPropertyName = "LSSalesman";
             this.lsPerson.HeaderText = "业务员";
             this.lsPerson.Name = "lsPerson";
             this.lsPerson.ReadOnly = true;
             // 
             // lsSuperMark
             // 
+            this.lsSuperMark.DataPropertyName = "LSMultipleName";
             this.lsSuperMark.HeaderText = "连锁店";
             this.lsSuperMark.Name = "lsSuperMark";
             this.lsSuperMark.ReadOnly = true;
             // 
             // lsNo
             // 
+            this.lsNo.DataPropertyName = "LSDanNumber";
             this.lsNo.HeaderText = "单号";
             this.lsNo.Name = "lsNo";
             this.lsNo.ReadOnly = true;
             // 
             // lsCardNo
             // 
+            this.lsCardNo.DataPropertyName = "LSCardNumber";
             this.lsCardNo.HeaderText = "卡号";
             this.lsCardNo.Name = "lsCardNo";
             this.lsCardNo.ReadOnly = true;
             // 
-            // lsTiaoMa
+            // printDocument1
             // 
-            this.lsTiaoMa.HeaderText = "条码";
-            this.lsTiaoMa.Name = "lsTiaoMa";
-            this.lsTiaoMa.ReadOnly = true;
-            // 
-            // kinyaoo123456DataSet1
-            // 
-            this.kinyaoo123456DataSet1.DataSetName = "kinyaoo123456DataSet";
-            this.kinyaoo123456DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // shglform
             // 
@@ -1477,22 +1491,6 @@
         private AForge.Controls.VideoSourcePlayer videoSourcePlayer1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsDemo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsMoney;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsPay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsQuestion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsMark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsPerson;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsSuperMark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsCardNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsTiaoMa;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label26;
@@ -1541,5 +1539,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn shColor;
         private System.Windows.Forms.DataGridViewTextBoxColumn shType;
         private System.Windows.Forms.DataGridViewTextBoxColumn shImgUrl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsDemo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsQuestion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsPerson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsSuperMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsCardNo;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

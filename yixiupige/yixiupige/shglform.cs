@@ -25,10 +25,12 @@ namespace yixiupige
     public partial class shglform : Form
     {
         public static string Path;
+        //次卡相对应的金额
         public static double ckmoney;
         public static int jishu = 1;
         public static bool huaka = false;
-        EncodingOptions options = null;
+        //EncodingOptions options = null;
+        QrCodeEncodingOptions option;
         BarcodeWriter writer = null; 
         #region//定义变量
         private FilterInfoCollection videoDevices;
@@ -58,16 +60,18 @@ namespace yixiupige
         public shglform()
         {
             InitializeComponent();
-            options = new EncodingOptions
+            //options = new EncodingOptions
+            option=new QrCodeEncodingOptions
             {
-                //DisableECI = true,  
-                //CharacterSet = "UTF-8",  
-                Width = pictureBoxQr.Width,
+                DisableECI = true,
+                CharacterSet = "UTF-8",
+                Width = pictureBoxQr.Height,
                 Height = pictureBoxQr.Height
             };
             writer = new BarcodeWriter();
-            writer.Format = BarcodeFormat.ITF;//改变条形码
-            writer.Options = options;  
+            writer.Format = BarcodeFormat.QR_CODE;//二维码
+            //writer.Format = BarcodeFormat.ITF;//改变条形码条形码
+            writer.Options = option;  
         }         
         private static shglform _danli = null;
         public static shglform CreateForm()
@@ -279,12 +283,12 @@ namespace yixiupige
             model.ImgUrl = Path;
             pictureBox1.ImageLocation = Path;
             GridView2Bind(model);
-            string sb = "";
-            string[] ss = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':',' ' }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (var s in ss)
-            {
-                sb += s;
-            }
+            string sb = "http//:www.baidu.com";
+            //string[] ss = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':',' ' }, StringSplitOptions.RemoveEmptyEntries);
+            //foreach (var s in ss)
+            //{
+            //    sb += s;
+            //}
             Bitmap bitmap = writer.Write(sb);
             pictureBoxQr.Image = bitmap;
             jishu++;
@@ -556,6 +560,89 @@ namespace yixiupige
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             pictureBox1.ImageLocation = dataGridView2.Rows[e.RowIndex].Cells[14].Value.ToString();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked&&textBox1.Text==""&&textBox2.Text=="")
+            {
+                DialogResult result= MessageBox.Show("散客用户名和密码均为空，是否使用默认？","提示信息",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    textBox1.Text = "[默认用户名]";
+                    textBox2.Text = "[默认电话号]";
+                }
+                else
+                {
+                    return;
+                }
+            }
+            string sb = "";
+            string[] ss = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var s in ss)
+            {
+                sb += s;
+            }
+            Random rad = new Random();
+            sb += rad.Next(1000, 9999);
+            List<shInfoList> listjieshu = (List<shInfoList>)dataGridView2.DataSource;
+            List<LiShiConsumption> listLS = new List<LiShiConsumption>();
+            LiShiConsumption model;
+            foreach (var iteam in listjieshu)
+            {
+                model = new LiShiConsumption();
+                model.LSName = textBox4.Text.Trim() == "" ? textBox1.Text.Trim() : textBox4.Text.Trim();
+                model.LSDate = DateTime.Now.ToString("yyyy MM dd HH:mm:ss");
+                model.LSStaff = iteam.FuWuName;
+                model.LSNumberCount = "0";
+                model.LSMoney = iteam.CountMoney.ToString();
+                model.LSYMoney = iteam.YMoney.ToString();
+                model.LSCount = iteam.Count.ToString();
+                model.LSPinPai = iteam.PinPai;
+                model.LSColor = iteam.Color;
+                model.LSSalesman = comboBox4.Text;
+                model.LSCardNumber = textBox5.Text.Trim() == "" ? "散客" : textBox5.Text.Trim();
+                //
+                //
+                //
+                //此处需要连锁店明，后期导入
+                model.LSMultipleName = "连锁店名";
+                model.LSQuestion = iteam.CJQuestion;
+                model.LSRemark = iteam.Remark;                
+                model.LSDanNumber = sb;                
+                if (iteam.JiCun == true)
+                {
+                    if (dateTimePicker1.Value.Day == DateTime.Now.Day)
+                    {
+                        MessageBox.Show("有物品需要寄存，请更改去件日期！");
+                        return;
+                    }
+                }
+                listLS.Add(model);
+            }
+            dataBindgridview1(listLS);
+        }
+        public void dataBindgridview1(List<LiShiConsumption> list)
+        {
+            dataGridView1.DataSource = list;
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Pen blackPen = new Pen(Color.Black, 3);
+            //使用的是57mm的纸，相当于190像素
+            Rectangle[] rects =
+             {
+                 new Rectangle( 30,50,30,50), //参数说明：左边距，上边距，右边距，底边距
+                 new Rectangle(35,55,35,55),
+             };
+            e.Graphics.DrawRectangles(blackPen, rects);
+            e.Graphics.DrawString("一休皮革收据小票", new Font("Segoe UI", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(30, 30));//其中10为左边距，30为上边距
+
         }
         #region
         //        private DataTable m_Code128 = new DataTable();
