@@ -23,5 +23,6 @@ namespace MODEL
         public string LSRemark { get; set; }
         public string LSDanNumber { get; set; }
         public string LSCardNumber { get; set; }
+        public string ImgUrl { get; set; }
     }
 }

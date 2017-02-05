@@ -241,5 +241,9 @@ namespace BLL
         {
             return dal.SelectId(card);
         }
+        public bool XFmoney(string cardNumber, string Xmoney)
+        {
+            return dal.XFmoney(cardNumber, Xmoney);            
+        }
     }
 }
