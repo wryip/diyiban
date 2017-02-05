@@ -64,5 +64,59 @@ namespace yixiupige
         {
             _danli = null;
         }
+
+        private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+            int i = dataGridView1.Rows.Count;
+            for (int j = 0; j < i; j++)
+            {
+                dataGridView1.Rows[j].Selected = false;
+            }
+            try
+            {
+                dataGridView1.Rows[e.RowIndex].Selected = true;
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        private void dataGridView2_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+            int i = dataGridView2.Rows.Count;
+            for (int j = 0; j < i; j++)
+            {
+                dataGridView2.Rows[j].Selected = false;
+            }
+            try
+            {
+                dataGridView2.Rows[e.RowIndex].Selected = true;
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                DataGridViewRowContextMenuStripNeededEventArgs ee;
+                ee = new DataGridViewRowContextMenuStripNeededEventArgs(e.RowIndex);
+                this.dataGridView1_RowContextMenuStripNeeded(e.Location,ee);
+            }
+        }
+
+        private void dataGridView2_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                DataGridViewRowContextMenuStripNeededEventArgs ee;
+                ee = new DataGridViewRowContextMenuStripNeededEventArgs(e.RowIndex);
+                this.dataGridView2_RowContextMenuStripNeeded(e.Location, ee);
+            }
+        }
     }
 }

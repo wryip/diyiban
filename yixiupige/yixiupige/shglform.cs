@@ -16,12 +16,21 @@ using ZXing;
 using ZXing.QrCode;
 using ZXing.Common;
 using ZXing.Rendering;
+using BLL;
+using MODEL;
+using System.IO;
 //[code=csharp]using System;
 namespace yixiupige
 {
     public partial class shglform : Form
     {
-        EncodingOptions options = null;
+        public static string Path;
+        //次卡相对应的金额
+        public static double ckmoney;
+        public static int jishu = 1;
+        public static bool huaka = false;
+        //EncodingOptions options = null;
+        QrCodeEncodingOptions option;
         BarcodeWriter writer = null; 
         #region//定义变量
         private FilterInfoCollection videoDevices;
@@ -46,19 +55,23 @@ namespace yixiupige
         //IVideoSource iVideoSource = null;
 
         #endregion
+        public memberInfoBLL bll=new memberInfoBLL();
+        fuwuBLL fuwubl = new fuwuBLL();
         public shglform()
         {
             InitializeComponent();
-            options = new EncodingOptions
+            //options = new EncodingOptions
+            option=new QrCodeEncodingOptions
             {
-                //DisableECI = true,  
-                //CharacterSet = "UTF-8",  
-                Width = pictureBoxQr.Width,
+                DisableECI = true,
+                CharacterSet = "UTF-8",
+                Width = pictureBoxQr.Height,
                 Height = pictureBoxQr.Height
             };
             writer = new BarcodeWriter();
-            writer.Format = BarcodeFormat.ITF;//改变条形码
-            writer.Options = options;  
+            writer.Format = BarcodeFormat.QR_CODE;//二维码
+            //writer.Format = BarcodeFormat.ITF;//改变条形码条形码
+            writer.Options = option;  
         }         
         private static shglform _danli = null;
         public static shglform CreateForm()
@@ -70,8 +83,15 @@ namespace yixiupige
             return _danli;
         }
         List<string> list = new List<string>();
+        public jbcsBLL jbbll = new jbcsBLL();
+        staffInfoBLL staffbll = new staffInfoBLL();
         private void shglform_Load(object sender, EventArgs e)
         {
+            //1品牌2颜色3常见问题4商品5寄存（收活类别）6员工工种
+            dataGridView3.Visible = false;
+            radioButton1.Checked = true;
+            textBox1.ReadOnly = true;
+            textBox2.ReadOnly = true;
             try
             {
                 //连接//开启摄像头
@@ -87,6 +107,26 @@ namespace yixiupige
             catch (ApplicationException)
             {
                 videoDevices = null;
+            }
+            List<jbcs> listtype = jbbll.selectList(5);
+            foreach (var iteam in listtype)
+            {
+                comboBox1.Items.Add(iteam.AllType);
+            }
+            listtype = jbbll.selectList(1);
+            foreach (var iteam in listtype)
+            {
+                comboBox2.Items.Add(iteam.AllType);
+            }
+            listtype = jbbll.selectList(2);
+            foreach (var iteam in listtype)
+            {
+                comboBox3.Items.Add(iteam.AllType);
+            }
+            listtype = staffbll.selectSH();
+            foreach (var iteam in listtype)
+            {
+                comboBox4.Items.Add(iteam.AllType);
             }
         }
         private void CameraConn()
@@ -111,9 +151,54 @@ namespace yixiupige
         {
 
         }
-
+        private void videoSourcePlayer1_NewFrame(object sender, ref Bitmap image)
+        {
+            Bitmap bitmap = (Bitmap)image.Clone();
+            //pictureBox1.Image = bitmap;
+            //image.Dispose();
+            #region//图片保存
+            Bitmap newImage = new Bitmap(320, 240);
+            Graphics draw = Graphics.FromImage(newImage);
+            draw.DrawImage(bitmap, 0, 0);
+            draw.Dispose();
+            string dirpath = "E:\\mymemberimg";
+            if (!Directory.Exists(dirpath))
+                Directory.CreateDirectory(dirpath);
+            string[] name = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string name1 = "";
+            foreach (var ite in name)
+            {
+                name1 += ite.ToString();
+            }
+            string path = dirpath + "\\" + name1 + ".bmp";
+            if (newImage != null)
+                newImage.Save(path, System.Drawing.Imaging.ImageFormat.Bmp);
+            Path = path;
+            //bool result = modelbll.AddMemberInfo(model);
+            //if (result)
+            //{
+            //    MessageBox.Show("添加成功！");
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("添加失败，请稍后再试！");
+            //}
+            #endregion
+            //try
+            //{
+            //    pictureBox1.Image = bitmap;
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("保存图像失败!\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            videoSourcePlayer1.NewFrame -= new AForge.Controls.VideoSourcePlayer.NewFrameHandler(videoSourcePlayer1_NewFrame);
+        }
         private void button1_Click(object sender, EventArgs e)
         {
+            videoSourcePlayer1.NewFrame += new AForge.Controls.VideoSourcePlayer.NewFrameHandler(videoSourcePlayer1_NewFrame);
+            #region         
             //DirectoryInfo di = new DirectoryInfo("c:\\AMCap");
             //if (!di.Exists)
             //{
@@ -131,14 +216,100 @@ namespace yixiupige
             //    video.GrabImage(pictureBox1.Handle, path);
             //}
             //tsslPath.Text = "已经保存至：" + path;
-            string sb = "";
-            string[] ss = DateTime.Now.ToString().Split(new char[] { '/', ':',' ' }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (var s in ss)
+            #endregion
+            if (textBox17.Text.Trim() == "" && textBox18.Text.Trim() == "")
             {
-                sb += s;
+                MessageBox.Show("金额不能为空！");
+                return;
             }
+            DialogResult result= MessageBox.Show("是否寄存", "提示信息", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+            shInfoList model = new shInfoList();
+            if (result == DialogResult.OK)
+            {
+                model.JiCun = true;
+            }
+            else
+            {
+                model.JiCun = false;
+            }
+            model.Id = jishu;
+            model.FuWuName = textBox13.Text.Trim() + textBox16.Text;
+            #region//是会员或者不是会员的话
+            if (radioButton1.Checked)
+            {
+                if (textBox12.Text.Trim() == "计次卡")
+                {
+                    model.CiCount = Convert.ToInt32(textBox17.Text.Trim() == "" ? "0" : textBox17.Text.Trim()) + Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
+                    model.CountMoney = (Convert.ToInt32(textBox17.Text.Trim() == "" ? "0" : textBox17.Text.Trim()) * Convert.ToInt32(numericUpDown1.Value) + Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim())) * ckmoney;
+                    if (huaka)
+                    {
+                        model.YMoney = 0;
+                    }
+                    else
+                    {
+                        model.YMoney = Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim()) * ckmoney;
+                    }
+                }
+                else if (textBox12.Text.Trim() == "储值卡")
+                {
+                    model.CiCount = 0;
+                    model.CountMoney = Convert.ToInt32(textBox17.Text.Trim() == "" ? "0" : textBox17.Text.Trim()) * Convert.ToInt32(numericUpDown1.Value) + Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
+                    if (huaka)
+                    {
+                        model.YMoney = 0;
+                    }
+                    else
+                    {
+                        model.YMoney = Convert.ToDouble(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
+                    }
+                }
+            }
+            else
+            {
+                model.CiCount = 0;
+                model.CountMoney = Convert.ToInt32(textBox17.Text.Trim() == "" ? "0" : textBox17.Text.Trim()) * Convert.ToInt32(numericUpDown1.Value) + Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
+                model.YMoney = Convert.ToInt32(textBox17.Text.Trim() == "" ? "0" : textBox17.Text.Trim()) * Convert.ToInt32(numericUpDown1.Value) + Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
+            }
+            #endregion
+
+            model.FuKuan = false;
+            model.Count = Convert.ToInt32(numericUpDown1.Value);
+            model.PaiNumber = textBox15.Text;
+            model.CJQuestion = textBox19.Text;
+            model.Remark = textBox20.Text;
+            model.Type = comboBox1.Text;
+            model.PinPai = comboBox2.Text;
+            model.Color = comboBox3.Text;
+            model.ImgUrl = Path;
+            pictureBox1.ImageLocation = Path;
+            GridView2Bind(model);
+            string sb = "http//:www.baidu.com";
+            //string[] ss = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':',' ' }, StringSplitOptions.RemoveEmptyEntries);
+            //foreach (var s in ss)
+            //{
+            //    sb += s;
+            //}
             Bitmap bitmap = writer.Write(sb);
             pictureBoxQr.Image = bitmap;
+            jishu++;
+        }
+        public void GridView2Bind(shInfoList model)
+        {
+            List<shInfoList> list = new List<shInfoList>();
+            if (dataGridView2.Rows.Count == 0)
+            {
+                list.Add(model);
+                dataGridView2.DataSource = list;
+            }
+            else
+            {
+                for (int i = 0; i < dataGridView2.Rows.Count; i++)
+                {
+                    list.Add((shInfoList)dataGridView2.Rows[i].DataBoundItem);
+                }
+                list.Add(model);
+                dataGridView2.DataSource = list;
+            }
         }
         public void Decode(PictureBox pictureBox1)
         {
@@ -156,6 +327,321 @@ namespace yixiupige
 
         private void groupBox5_Enter(object sender, EventArgs e)
         {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                textBox1.Text = "";
+                textBox1.ReadOnly = true;
+                textBox2.Text = "";
+                textBox2.ReadOnly = true;
+            }
+            else
+            {
+                textBox1.ReadOnly = false;
+                textBox2.ReadOnly = false;
+            }
+        }
+        public List<shMemberInfo> listSousuo;
+        private void textBox3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string sousuo = textBox3.Text.Trim();
+                bool mohu = checkBox1.Checked;
+                listSousuo = bll.selectForIdList(sousuo, mohu);
+                if (listSousuo.Count == 0)
+                {
+                    MessageBox.Show("没有相对应信息！");
+                    return;
+                }
+                dataGridView3.DataSource = listSousuo;
+                dataGridView3.Visible = true;
+            }
+        }
+
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            dataGridView3.Visible = false;
+            string card=listSousuo[index].CardNo;
+            memberInfoModel model = bll.SelectId(card);
+            ckmoney = Convert.ToDouble(model.cardMoney) / Convert.ToDouble(model.toUpMoney);
+            textBox4.Text = model.memberName;
+            textBox5.Text = model.memberCardNo;
+            textBox6.Text = model.memberTel;
+            textBox7.Text = model.rebate;
+            textBox12.Text = model.cardType;
+            textBox10.Text = model.memberType;
+            textBox11.Text = model.cardDate;
+            //pictureBox1.ImageLocation = model.imageUrl;
+            if (model.cardType.Trim() == "计次卡")
+            {
+                textBox8.Text = model.toUpMoney;
+                textBox9.Text = "0";
+            }
+            else if (model.cardType.Trim() == "储值卡")
+            {
+                textBox8.Text = "0";
+                textBox9.Text = model.toUpMoney;
+            }
+        }
+
+        private void textBox13_Click(object sender, EventArgs e)
+        {
+            if (textBox4.Text.Trim() == "" && radioButton2.Checked == false)
+            {
+                MessageBox.Show("清先查找会员！");
+                return;
+            }
+            jbfuCheckBoxFrom shouhuojb = jbfuCheckBoxFrom.CreateForm(jbFuWuCount);
+            shouhuojb.ShowDialog();
+            shouhuojb.Focus();
+        }
+        //计算基本服务的价格，将名称与价格进行显示
+        public void jbFuWuCount(string model)
+        {
+            textBox13.Text = model;
+            int money = 0;
+            string type = textBox10.Text.Trim();
+            List<fuwuModel> list = fuwubl.selectAllList();
+            string[] name = model.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var iteam in list)
+            {
+                foreach (var itname in name)
+                {
+                    if (itname.Trim() == iteam.Name.Trim())
+                    {
+                        string neirong = iteam.neirong.Trim();
+                        //不同卡对应的钱
+                        string[] str = neirong.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                        foreach (var iteamdan in str)
+                        {
+                            if (iteamdan.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)[0].Trim() == type)
+                            {
+                                money += Convert.ToInt32(iteamdan.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)[1]);
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+            textBox17.Text = money.ToString();
+        }
+        public void qtfuwumoney(string name,int money,bool result)
+        {
+            huaka = result;
+            textBox16.Text = name;
+            textBox18.Text = money.ToString();
+        }
+        private void textBox16_Click(object sender, EventArgs e)
+        {
+            if (textBox4.Text.Trim() == "" && radioButton2.Checked == false)
+            {
+                MessageBox.Show("清先查找会员！");
+                return;
+            }
+            qtfuCheckBoxFrom qtfuwu = qtfuCheckBoxFrom.CreateForm(qtfuwumoney);
+            qtfuwu.Show();
+            qtfuwu.Focus();
+        }
+        public void cjquestion(string name)
+        {
+            textBox19.Text = name;
+        }
+        private void textBox19_Click(object sender, EventArgs e)
+        {
+            if (textBox4.Text.Trim() == "" && radioButton2.Checked == false)
+            {
+                MessageBox.Show("清先查找会员！");
+                return;
+            }
+            cjQuestion cjquest = cjQuestion.CreateForm(cjquestion);
+            cjquest.ShowDialog();
+            cjquest.Focus();
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 1 || e.ColumnIndex == 6)
+            {
+                dataGridView2.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !Convert.ToBoolean(dataGridView2.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+            }
+            
+        }
+        #region//右键单击datagridview
+        private void dataGridView2_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+            int i = dataGridView2.Rows.Count;
+            for (int j = 0; j < i; j++)
+            {
+                dataGridView2.Rows[j].Selected = false;
+                //dataGridView1.Rows[j].ContextMenuStrip = null;
+            }
+            try
+            {
+                dataGridView2.Rows[e.RowIndex].Selected = true;
+                //id = e.RowIndex;
+            }
+            catch
+            {
+                return;
+            }
+        }
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+            if (e.Button == MouseButtons.Right)
+            {
+                //if (this.ContextMenuStrip != null && this.ContextMenuStripNeeded != null)
+                //{
+                //int rowIndex = this.GetRowIndexAt(e.Location);  // 计算行号  
+                //int colIndex = this.GetColIndexAt(e.Location);  // 计算列号  this.ContextMenuStrip, rowIndex, colIndex
+                DataGridViewRowContextMenuStripNeededEventArgs ee;  // 事件参数  
+                ee = new DataGridViewRowContextMenuStripNeededEventArgs(1);
+                this.dataGridView2_RowContextMenuStripNeeded(e.Location, ee);  // 引发自定义事件，执行事件方法  
+                //}
+
+            }
+        }
+        #endregion
+
+        private void 删除本条ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("请选择一条记录！");
+                return;
+            }
+            List<shInfoList> list1 = new List<shInfoList>();
+            int index = dataGridView2.SelectedRows[0].Index;
+            for (int i = 0; i < dataGridView2.Rows.Count; i++)
+            {
+                if (i == index)
+                {
+                    continue;
+                }
+                shInfoList model = (shInfoList)dataGridView2.Rows[i].DataBoundItem;
+                list1.Add(model);
+            }
+            dataGridView2.DataSource = list1;
+        }
+
+        private void dataGridView2_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            dataviewRowsChange();
+        }
+
+        private void dataGridView2_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            dataviewRowsChange();
+        }
+        public void dataviewRowsChange()
+        {
+            List<shInfoList> list = (List<shInfoList>)dataGridView2.DataSource;
+            int hjje = 0;
+            int hjcs = 0;
+            int yfje = 0;
+            foreach (var iteam in list)
+            {
+                hjje += Convert.ToInt32(iteam.CountMoney);
+                hjcs += Convert.ToInt32(iteam.CiCount);
+                yfje += Convert.ToInt32(iteam.YMoney);
+            }
+            textBox14.Text = hjje.ToString();
+            textBox21.Text = hjcs.ToString();
+            textBox22.Text = yfje.ToString();
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            pictureBox1.ImageLocation = dataGridView2.Rows[e.RowIndex].Cells[14].Value.ToString();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked&&textBox1.Text==""&&textBox2.Text=="")
+            {
+                DialogResult result= MessageBox.Show("散客用户名和密码均为空，是否使用默认？","提示信息",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    textBox1.Text = "[默认用户名]";
+                    textBox2.Text = "[默认电话号]";
+                }
+                else
+                {
+                    return;
+                }
+            }
+            string sb = "";
+            string[] ss = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var s in ss)
+            {
+                sb += s;
+            }
+            Random rad = new Random();
+            sb += rad.Next(1000, 9999);
+            List<shInfoList> listjieshu = (List<shInfoList>)dataGridView2.DataSource;
+            List<LiShiConsumption> listLS = new List<LiShiConsumption>();
+            LiShiConsumption model;
+            foreach (var iteam in listjieshu)
+            {
+                model = new LiShiConsumption();
+                model.LSName = textBox4.Text.Trim() == "" ? textBox1.Text.Trim() : textBox4.Text.Trim();
+                model.LSDate = DateTime.Now.ToString("yyyy MM dd HH:mm:ss");
+                model.LSStaff = iteam.FuWuName;
+                model.LSNumberCount = "0";
+                model.LSMoney = iteam.CountMoney.ToString();
+                model.LSYMoney = iteam.YMoney.ToString();
+                model.LSCount = iteam.Count.ToString();
+                model.LSPinPai = iteam.PinPai;
+                model.LSColor = iteam.Color;
+                model.LSSalesman = comboBox4.Text;
+                model.LSCardNumber = textBox5.Text.Trim() == "" ? "散客" : textBox5.Text.Trim();
+                //
+                //
+                //
+                //此处需要连锁店明，后期导入
+                model.LSMultipleName = "连锁店名";
+                model.LSQuestion = iteam.CJQuestion;
+                model.LSRemark = iteam.Remark;                
+                model.LSDanNumber = sb;                
+                if (iteam.JiCun == true)
+                {
+                    if (dateTimePicker1.Value.Day == DateTime.Now.Day)
+                    {
+                        MessageBox.Show("有物品需要寄存，请更改去件日期！");
+                        return;
+                    }
+                }
+                listLS.Add(model);
+            }
+            dataBindgridview1(listLS);
+        }
+        public void dataBindgridview1(List<LiShiConsumption> list)
+        {
+            dataGridView1.DataSource = list;
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Pen blackPen = new Pen(Color.Black, 3);
+            //使用的是57mm的纸，相当于190像素
+            Rectangle[] rects =
+             {
+                 new Rectangle( 30,50,30,50), //参数说明：左边距，上边距，右边距，底边距
+                 new Rectangle(35,55,35,55),
+             };
+            e.Graphics.DrawRectangles(blackPen, rects);
+            e.Graphics.DrawString("一休皮革收据小票", new Font("Segoe UI", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(30, 30));//其中10为左边距，30为上边距
 
         }
         #region

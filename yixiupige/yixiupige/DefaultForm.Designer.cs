@@ -42,6 +42,7 @@
             this.员工管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.寄存收费toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.提成管理toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.牌号管理toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.财务管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.提成管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.寄存收费ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,7 +87,6 @@
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.牌号管理toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -107,7 +107,7 @@
             this.基本设置ToolStripMenuItem,
             this.财务管理ToolStripMenuItem,
             this.系统帮助ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(12, 1);
+            this.menuStrip1.Location = new System.Drawing.Point(12, -2);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(373, 31);
@@ -165,49 +165,55 @@
             // 基本参数ToolStripMenuItem
             // 
             this.基本参数ToolStripMenuItem.Name = "基本参数ToolStripMenuItem";
-            this.基本参数ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.基本参数ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.基本参数ToolStripMenuItem.Text = "基本参数";
             this.基本参数ToolStripMenuItem.Click += new System.EventHandler(this.基本参数ToolStripMenuItem_Click);
             // 
             // 分类服务ToolStripMenuItem
             // 
             this.分类服务ToolStripMenuItem.Name = "分类服务ToolStripMenuItem";
-            this.分类服务ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.分类服务ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.分类服务ToolStripMenuItem.Text = "分类服务";
             this.分类服务ToolStripMenuItem.Click += new System.EventHandler(this.分类服务ToolStripMenuItem_Click);
             // 
             // 其他服务ToolStripMenuItem
             // 
             this.其他服务ToolStripMenuItem.Name = "其他服务ToolStripMenuItem";
-            this.其他服务ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.其他服务ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.其他服务ToolStripMenuItem.Text = "其他服务";
             this.其他服务ToolStripMenuItem.Click += new System.EventHandler(this.其他ToolStripMenuItem_Click);
             // 
             // 架号管理ToolStripMenuItem
             // 
             this.架号管理ToolStripMenuItem.Name = "架号管理ToolStripMenuItem";
-            this.架号管理ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.架号管理ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.架号管理ToolStripMenuItem.Text = "架号管理";
             this.架号管理ToolStripMenuItem.Click += new System.EventHandler(this.架号管理ToolStripMenuItem_Click);
             // 
             // 员工管理ToolStripMenuItem
             // 
             this.员工管理ToolStripMenuItem.Name = "员工管理ToolStripMenuItem";
-            this.员工管理ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.员工管理ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.员工管理ToolStripMenuItem.Text = "员工管理";
             this.员工管理ToolStripMenuItem.Click += new System.EventHandler(this.员工管理ToolStripMenuItem_Click);
             // 
             // 寄存收费toolStripMenuItem1
             // 
             this.寄存收费toolStripMenuItem1.Name = "寄存收费toolStripMenuItem1";
-            this.寄存收费toolStripMenuItem1.Size = new System.Drawing.Size(144, 26);
+            this.寄存收费toolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
             this.寄存收费toolStripMenuItem1.Text = "寄存收费";
             // 
             // 提成管理toolStripMenuItem2
             // 
             this.提成管理toolStripMenuItem2.Name = "提成管理toolStripMenuItem2";
-            this.提成管理toolStripMenuItem2.Size = new System.Drawing.Size(144, 26);
+            this.提成管理toolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
             this.提成管理toolStripMenuItem2.Text = "提成管理";
+            // 
+            // 牌号管理toolStripMenuItem1
+            // 
+            this.牌号管理toolStripMenuItem1.Name = "牌号管理toolStripMenuItem1";
+            this.牌号管理toolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
+            this.牌号管理toolStripMenuItem1.Text = "牌号管理";
             // 
             // 财务管理ToolStripMenuItem
             // 
@@ -592,12 +598,6 @@
             this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
             this.toolStripStatusLabel6.Size = new System.Drawing.Size(167, 20);
             this.toolStripStatusLabel6.Text = "toolStripStatusLabel6";
-            // 
-            // 牌号管理toolStripMenuItem1
-            // 
-            this.牌号管理toolStripMenuItem1.Name = "牌号管理toolStripMenuItem1";
-            this.牌号管理toolStripMenuItem1.Size = new System.Drawing.Size(144, 26);
-            this.牌号管理toolStripMenuItem1.Text = "牌号管理";
             // 
             // DefaultForm
             // 

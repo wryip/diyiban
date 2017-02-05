@@ -44,6 +44,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.typetextBox = new System.Windows.Forms.ComboBox();
+            this.zjbutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -181,11 +182,22 @@
             this.typetextBox.Size = new System.Drawing.Size(100, 20);
             this.typetextBox.TabIndex = 16;
             // 
+            // zjbutton
+            // 
+            this.zjbutton.Location = new System.Drawing.Point(421, 65);
+            this.zjbutton.Name = "zjbutton";
+            this.zjbutton.Size = new System.Drawing.Size(51, 23);
+            this.zjbutton.TabIndex = 17;
+            this.zjbutton.Text = "增加";
+            this.zjbutton.UseVisualStyleBackColor = true;
+            this.zjbutton.Click += new System.EventHandler(this.zjbutton_Click);
+            // 
             // zjspForm_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 302);
+            this.ClientSize = new System.Drawing.Size(494, 302);
+            this.Controls.Add(this.zjbutton);
             this.Controls.Add(this.typetextBox);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -231,5 +243,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox typetextBox;
+        private System.Windows.Forms.Button zjbutton;
     }
 }

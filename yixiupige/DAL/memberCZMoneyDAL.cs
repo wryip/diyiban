@@ -62,5 +62,18 @@ namespace DAL
             }
             return list;
         }
+        public bool deleteInfoModel(string cardNo)
+        {
+            bool result = false;
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@czId",cardNo),
+            };
+            string str = "delete from memberToUpMoney where czId=@czId";
+            if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
+            {
+                result = true;
+            }
+            return result;
+        }
     }
 }

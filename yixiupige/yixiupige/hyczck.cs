@@ -18,6 +18,7 @@ namespace yixiupige
         {
             InitializeComponent();
         }
+        public static List<memberToUpModel> Alllist = new List<memberToUpModel>();
         private static hyczck _danli = null;
         public static memberInfoModel model1;
         public static hyczck Create(memberInfoModel model)
@@ -104,7 +105,8 @@ namespace yixiupige
         }
         public void dataBind()
         {
-            dataGridView1.DataSource = bll1.selectAllList(textBox4.Text.Trim());
+            Alllist = bll1.selectAllList(textBox4.Text.Trim());
+            dataGridView1.DataSource = Alllist;
         }
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
@@ -116,6 +118,63 @@ namespace yixiupige
             {
                 textBox3.Text = textBox6.Text;
             }            
+        }
+
+        private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+            int i = dataGridView1.Rows.Count;
+            for (int j = 0; j < i; j++)
+            {
+                dataGridView1.Rows[j].Selected = false;
+            }
+            try
+            {
+                dataGridView1.Rows[e.RowIndex].Selected = true;
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                //if (this.ContextMenuStrip != null && this.ContextMenuStripNeeded != null)
+                //{
+                //int rowIndex = this.GetRowIndexAt(e.Location);  // 计算行号  
+                //int colIndex = this.GetColIndexAt(e.Location);  // 计算列号  this.ContextMenuStrip, rowIndex, colIndex
+                DataGridViewRowContextMenuStripNeededEventArgs ee;  // 事件参数  
+                ee = new DataGridViewRowContextMenuStripNeededEventArgs(1);
+                this.dataGridView1_RowContextMenuStripNeeded(e.Location, ee);  // 引发自定义事件，执行事件方法  
+                //}
+
+            }
+        }
+        public void deletePassword(string pas, string cardNo)
+        {
+            if (pas.Trim() == "admin888")
+            {
+                memberCZMoneyBLL infobll = new memberCZMoneyBLL();
+                //删除该会员
+                bool result = infobll.deleteInfoModel(cardNo);
+                if (result)
+                {
+                    MessageBox.Show("删除成功！");
+                    dataBind();
+                }
+            }
+            else
+            {
+                MessageBox.Show("密码错误，删除失败！");
+            }
+        }
+        private void 删除本条_Click(object sender, EventArgs e)
+        {
+            memberToUpModel model = Alllist[dataGridView1.SelectedRows[0].Index];
+            caocuofrom caozuo = caocuofrom.Create(deletePassword,model.czId.ToString());
+            caozuo.Show();
         }
     }
 }

@@ -39,13 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fuwuBLL.cs" />
     <Compile Include="GoodInfoBLL.cs" />
+    <Compile Include="jbcsBLL.cs" />
     <Compile Include="GoodTypeInfoBll.cs" />
     <Compile Include="LoginUser.cs" />
     <Compile Include="memberCZMoneyBLL.cs" />
     <Compile Include="memberInfoBLL.cs" />
     <Compile Include="memberTypeCURD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QtFuWuBLL.cs" />
+    <Compile Include="staffInfoBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

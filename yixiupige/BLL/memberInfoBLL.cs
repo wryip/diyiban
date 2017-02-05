@@ -12,6 +12,7 @@ namespace BLL
     public class memberInfoBLL
     {
         memberInfoDAL dal = new memberInfoDAL();
+        //添加
         public bool AddMemberInfo(memberInfoModel model)
         {
             bool result = false;
@@ -23,12 +24,14 @@ namespace BLL
         {
             return dal.selectInfoCollect(cardTepe);
         }
+        //修改的时候进行提交
         public bool EditMemberInfo(memberInfoModel model)
         {
             bool result = false;
             result = dal.EditMemberInfo(model);
             return result;
         }
+        //会员查找
         public List<memberInfoModel> hyczModel(string neirong, string tiaojian, int mouhu, string xiaodate, string dadate)
         {
             List<memberInfoModel> list = new List<memberInfoModel>();
@@ -218,15 +221,25 @@ namespace BLL
             }
             return list;
         }
+        //会员充值
         public bool hyczMoney(string cardno, int money)
         {
             bool result = false;
             result = dal.hyczMoney(cardno,money);
             return result;
         }
-        //public bool deleteInfoModel(string cardNo)
-        //{
- 
-        //}
+        //会员删除
+        public bool deleteInfoModel(string cardNo)
+        {
+            return dal.deleteInfoModel(cardNo);
+        }
+        public List<shMemberInfo> selectForIdList(string sousuo,bool mohu)
+        {
+            return dal.selectForIdList(sousuo, mohu);
+        }
+        public memberInfoModel SelectId(string card)
+        {
+            return dal.SelectId(card);
+        }
     }
 }

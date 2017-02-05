@@ -65,5 +65,12 @@ namespace yixiupige
             }
 
         }
+
+        private void zjbutton_Click(object sender, EventArgs e)
+        {
+            jbcsForm jbcs = jbcsForm.Create();
+            jbcs.Show();
+            jbcs.Focus();
+        }
     }
 }
