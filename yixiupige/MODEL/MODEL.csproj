@@ -39,9 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bdpjModel.cs" />
     <Compile Include="fuwuModel.cs" />
     <Compile Include="GoodInfo.cs" />
     <Compile Include="jbcs.cs" />
+    <Compile Include="JCInfoModel.cs" />
     <Compile Include="LiShiConsumption.cs" />
     <Compile Include="LoginUser.cs" />
     <Compile Include="memberInfoModel.cs" />

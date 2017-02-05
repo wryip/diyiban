@@ -329,5 +329,19 @@ namespace DAL
             }
             return model;
         }
+        public bool XFmoney(string cardNumber, string Xmoney)
+        {
+            bool result = false;
+            string str = "update memberInfo set toUpMoney=@toUpMoney where membercardNo=@membercardNo"; 
+            SqlParameter[] pms=new SqlParameter[]{
+            new SqlParameter("@toUpMoney",Xmoney),
+            new SqlParameter("@membercardNo",cardNumber)
+            };
+            if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
+            {
+                result = true;
+            }
+            return result;
+        }
     }
 }

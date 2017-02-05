@@ -24,12 +24,18 @@ namespace yixiupige
 {
     public partial class shglform : Form
     {
+        //寄存管理的业务处理曾对象
+        JCInfoBLL jcbll = new JCInfoBLL();
+        public static List<LiShiConsumption> DYList=new List<LiShiConsumption>();
         public static string Path;
+        //将写有寄存的信息加入到该list集合中
+        public static List<shInfoList> jclist = new List<shInfoList>();
         //次卡相对应的金额
         public static double ckmoney;
         public static int jishu = 1;
         public static bool huaka = false;
         //EncodingOptions options = null;
+        LSConsumptionBLL lsbll = new LSConsumptionBLL();
         QrCodeEncodingOptions option;
         BarcodeWriter writer = null; 
         #region//定义变量
@@ -283,14 +289,14 @@ namespace yixiupige
             model.ImgUrl = Path;
             pictureBox1.ImageLocation = Path;
             GridView2Bind(model);
-            string sb = "http//:www.baidu.com";
-            //string[] ss = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':',' ' }, StringSplitOptions.RemoveEmptyEntries);
-            //foreach (var s in ss)
-            //{
-            //    sb += s;
-            //}
-            Bitmap bitmap = writer.Write(sb);
-            pictureBoxQr.Image = bitmap;
+            //string sb = "http//:www.baidu.com";
+            ////string[] ss = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':',' ' }, StringSplitOptions.RemoveEmptyEntries);
+            ////foreach (var s in ss)
+            ////{
+            ////    sb += s;
+            ////}
+            //Bitmap bitmap = writer.Write(sb);
+            //pictureBoxQr.Image = bitmap;
             jishu++;
         }
         public void GridView2Bind(shInfoList model)
@@ -586,6 +592,11 @@ namespace yixiupige
             Random rad = new Random();
             sb += rad.Next(1000, 9999);
             List<shInfoList> listjieshu = (List<shInfoList>)dataGridView2.DataSource;
+            if (listjieshu.Count == 0)
+            {
+                MessageBox.Show("无数据！");
+                return;
+            }
             List<LiShiConsumption> listLS = new List<LiShiConsumption>();
             LiShiConsumption model;
             foreach (var iteam in listjieshu)
@@ -593,6 +604,7 @@ namespace yixiupige
                 model = new LiShiConsumption();
                 model.LSName = textBox4.Text.Trim() == "" ? textBox1.Text.Trim() : textBox4.Text.Trim();
                 model.LSDate = DateTime.Now.ToString("yyyy MM dd HH:mm:ss");
+                model.ImgUrl = iteam.ImgUrl;
                 model.LSStaff = iteam.FuWuName;
                 model.LSNumberCount = "0";
                 model.LSMoney = iteam.CountMoney.ToString();
@@ -612,15 +624,56 @@ namespace yixiupige
                 model.LSDanNumber = sb;                
                 if (iteam.JiCun == true)
                 {
+                    jclist.Add(iteam);
                     if (dateTimePicker1.Value.Day == DateTime.Now.Day)
                     {
                         MessageBox.Show("有物品需要寄存，请更改去件日期！");
                         return;
                     }
+                    //如果有寄存并且日期正确，那么再次将需要寄存的项加入到集合中，放入寄存管理内
                 }
                 listLS.Add(model);
             }
-            dataBindgridview1(listLS);
+            //需要减去卡上余额
+            bool xiaofeiresult = false;
+            int oldmoney = Convert.ToInt32(textBox9.Text.Trim());
+            int Xmoney = oldmoney - Convert.ToInt32(textBox22.Text.Trim());
+            int oldccount = Convert.ToInt32(textBox8.Text.Trim());
+            int Scount = oldccount - Convert.ToInt32(textBox21.Text.Trim());
+            string cardNumber = textBox5.Text.Trim();
+            if (Xmoney < 0 || Scount < 0)
+            {
+                MessageBox.Show("余额不足！");
+                return;
+            }
+            //减去消费金额
+            if (oldmoney == 0)
+            {
+                xiaofeiresult=bll.XFmoney(cardNumber, Scount.ToString());
+            }
+            else if (oldccount == 0)
+            {
+                xiaofeiresult=bll.XFmoney(cardNumber, Xmoney.ToString());
+            }
+            if (!xiaofeiresult)
+            {
+                MessageBox.Show("消费失败！");
+                return;
+            }
+            //将寄存数据添加到寄存数据表中
+            bool addjcresult = jcbll.addJCList(jclist, textBox5.Text.Trim(), textBox4.Text.Trim() == "" ? textBox1.Text.Trim() : textBox4.Text.Trim(), dateTimePicker1.Text.ToString());
+            //将数据添加到消费记录里面
+            bool resultls = lsbll.AddList(listLS);
+            if (resultls)
+            {
+                //将刚刚消费的数据添加到消费记录里面
+                dataBindgridview1(listLS);
+                DYList = listLS;
+            }
+            string websb = "http//:www.baidu.com";
+            Bitmap bitmap = writer.Write(websb);
+            pictureBoxQr.Image = bitmap;
+            dataGridView2.DataSource=new List<shInfoList>();
         }
         public void dataBindgridview1(List<LiShiConsumption> list)
         {
@@ -630,7 +683,7 @@ namespace yixiupige
         {
 
         }
-
+        //打印小票
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Pen blackPen = new Pen(Color.Black, 3);
@@ -642,7 +695,45 @@ namespace yixiupige
              };
             e.Graphics.DrawRectangles(blackPen, rects);
             e.Graphics.DrawString("一休皮革收据小票", new Font("Segoe UI", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(30, 30));//其中10为左边距，30为上边距
+            foreach (var iteam in DYList)
+            {
+                e.Graphics.DrawString(iteam.LSStaff+"--X"+iteam.LSCount+"金额："+iteam.LSMoney, new Font("Segoe UI", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(30, 30));//其中10为左边距，30为上边距
+            }
+            e.Graphics.DrawString("合计金额：" + textBox14.Text + "/r/n合计次数：" + textBox21.Text + "/r/n应付金额：" + textBox22.Text, new Font("Segoe UI", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(30, 30));//其中10为左边距，30为上边距
+            e.Graphics.DrawImage(pictureBoxQr.Image, new System.Drawing.Point(70, 100));
+        }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (textBox5.ToString().Trim() == "")
+            {
+                MessageBox.Show("请先查找会员！");
+                return;
+            }
+            dataGridView1.DataSource = lsbll.selectAllList(textBox5.Text.Trim());
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            //{
+            //    dataGridView1.Rows[i].Selected = false;
+            //}
+            //dataGridView1.Rows[e.RowIndex].Selected = true;
+            pictureBox1.ImageLocation = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //string cardno = textBox5.Text.Trim();
+            //if (cardno == "")
+            //{
+            //    MessageBox.Show("请先选择会员！");
+            //    return;
+            //}
+            bdpjFrom bdpj = bdpjFrom.Create();
+            bdpj.Show();
+            bdpj.Focus();
         }
         #region
         //        private DataTable m_Code128 = new DataTable();

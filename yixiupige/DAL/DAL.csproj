@@ -43,7 +43,9 @@
     <Compile Include="fuwuDAL.cs" />
     <Compile Include="GoodsInfoDal.cs" />
     <Compile Include="jbcsDAL.cs" />
+    <Compile Include="JCInfoDAL.cs" />
     <Compile Include="LoginUserDAl.cs" />
+    <Compile Include="LSConsumptionDAL.cs" />
     <Compile Include="memberCZMoneyDAL.cs" />
     <Compile Include="memberInfoDAL.cs" />
     <Compile Include="memberTypeDAl.cs" />

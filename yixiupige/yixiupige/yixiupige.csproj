@@ -85,6 +85,12 @@
       <DependentUpon>addQtFuWu.cs</DependentUpon>
     </Compile>
     <Compile Include="baseClass.cs" />
+    <Compile Include="bdpjFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bdpjFrom.Designer.cs">
+      <DependentUpon>bdpjFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="cjQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -367,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="addQtFuWu.resx">
       <DependentUpon>addQtFuWu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bdpjFrom.resx">
+      <DependentUpon>bdpjFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="cjQuestion.resx">
       <DependentUpon>cjQuestion.cs</DependentUpon>
