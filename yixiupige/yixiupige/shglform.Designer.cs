@@ -127,14 +127,12 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.videoSourcePlayer1 = new AForge.Controls.VideoSourcePlayer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.cardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.kinyaoo123456DataSet1 = new yixiupige.kinyaoo123456DataSet();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.button5 = new System.Windows.Forms.Button();
             this.lsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsDemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,6 +149,8 @@
             this.lsNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Imgurl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kinyaoo123456DataSet1 = new yixiupige.kinyaoo123456DataSet();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxQr = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
@@ -684,9 +684,19 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(55, 48);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(114, 25);
             this.numericUpDown1.TabIndex = 9;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // textBox20
             // 
@@ -1184,6 +1194,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "历史消费记录";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(119, -2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 29);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "更多";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // dataGridView3
             // 
             this.dataGridView3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1257,25 +1277,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(992, 184);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // kinyaoo123456DataSet1
-            // 
-            this.kinyaoo123456DataSet1.DataSetName = "kinyaoo123456DataSet";
-            this.kinyaoo123456DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(119, -2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 29);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "更多";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // lsName
             // 
@@ -1388,6 +1389,15 @@
             this.Imgurl.HeaderText = "图片路径";
             this.Imgurl.Name = "Imgurl";
             this.Imgurl.ReadOnly = true;
+            // 
+            // kinyaoo123456DataSet1
+            // 
+            this.kinyaoo123456DataSet1.DataSetName = "kinyaoo123456DataSet";
+            this.kinyaoo123456DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // pictureBox1
             // 

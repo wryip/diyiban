@@ -22,5 +22,8 @@ namespace MODEL
         public string jcZT { get; set; }
         public string jcAddress { get; set; }
         public string jcImgUrl { get; set; }
+        public string jcDanNumber { get; set; }
+        public string jcPaiNumber { get; set; }
+        public string jcRemark { get; set; }
     }
 }

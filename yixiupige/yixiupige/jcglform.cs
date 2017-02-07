@@ -72,5 +72,47 @@ namespace yixiupige
             //dataGridView1.Rows[e.RowIndex].Selected = true;
             pictureBox1.ImageLocation = dataGridView1.Rows[e.RowIndex].Cells["jcImgUrl"].Value.ToString();
         }
+
+        private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+            dataGridView1.Rows[e.RowIndex].Selected = true;
+        }
+
+        private void 查找寄存ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            jcSelectFrom jcselect = jcSelectFrom.CreateForm(dataviewBind);
+            jcselect.Show();
+            jcselect.Focus();
+        }
+        public void dataviewBind(List<JCInfoModel> list)
+        {
+            dataGridView1.DataSource=list;
+        }
+        //刷新数据
+        public void dataviewBind1()
+        {
+            List<JCInfoModel> list = jcinfobll.selectAllList("全部");
+            dataGridView1.DataSource = list;
+        }
+        private void 寄存取走ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridView1.Rows[0].Cells["glDanNo"].Value);
+            qzjcFrom qzjc = qzjcFrom.CreateForm(id, dataviewBind1);
+            qzjc.Show();
+            qzjc.Focus();
+        }
+
+        private void 修改寄存ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridView1.Rows[0].Cells["glDanNo"].Value);
+            UpdatejcFrom qzjc = UpdatejcFrom.CreateForm(id, dataviewBind1);
+            qzjc.Show();
+            qzjc.Focus();
+        }
+
+        private void 增加寄存ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

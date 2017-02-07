@@ -299,6 +299,7 @@ namespace yixiupige
             //pictureBoxQr.Image = bitmap;
             jishu++;
         }
+        //向datagridview2里面累加数据
         public void GridView2Bind(shInfoList model)
         {
             List<shInfoList> list = new List<shInfoList>();
@@ -661,7 +662,8 @@ namespace yixiupige
                 return;
             }
             //将寄存数据添加到寄存数据表中
-            bool addjcresult = jcbll.addJCList(jclist, textBox5.Text.Trim(), textBox4.Text.Trim() == "" ? textBox1.Text.Trim() : textBox4.Text.Trim(), dateTimePicker1.Text.ToString());
+            bool addjcresult = jcbll.addJCList(jclist, textBox5.Text.Trim(), textBox4.Text.Trim() == "" ? textBox1.Text.Trim() : textBox4.Text.Trim(), dateTimePicker1.Text.ToString(),sb);
+            jclist = new List<shInfoList>();
             //将数据添加到消费记录里面
             bool resultls = lsbll.AddList(listLS);
             if (resultls)
@@ -681,7 +683,9 @@ namespace yixiupige
         }
         private void button2_Click(object sender, EventArgs e)
         {
-
+            spSalesFrom spsale = spSalesFrom.CreateForm();
+            spsale.Show();
+            spsale.Focus();
         }
         //打印小票
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

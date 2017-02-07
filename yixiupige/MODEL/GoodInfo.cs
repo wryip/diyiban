@@ -12,10 +12,12 @@ namespace MODEL
        public string Gno { get; set; }
        public string Gname { get; set; }
        public string Gtype { get; set; }
+       //售价
        public decimal Gprice { get; set; }
        public int Gstock { get; set; }
        public int Gsum { get; set; }
        public string Gremark { get; set; }
+       //进价
        public decimal Gbid { get; set; }
        public int Gtypeid { get; set; }
     }

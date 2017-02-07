@@ -42,8 +42,8 @@
     <Compile Include="fuwuBLL.cs" />
     <Compile Include="GoodInfoBLL.cs" />
     <Compile Include="jbcsBLL.cs" />
-    <Compile Include="GoodTypeInfoBll.cs" />
     <Compile Include="JCInfoBLL.cs" />
+    <Compile Include="GoodTypeInfoBll.cs" />
     <Compile Include="LoginUser.cs" />
     <Compile Include="LSConsumptionBLL.cs" />
     <Compile Include="memberCZMoneyBLL.cs" />

@@ -78,6 +78,12 @@
     <Compile Include="AddFuWuType.Designer.cs">
       <DependentUpon>AddFuWuType.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddjcFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddjcFrom.Designer.cs">
+      <DependentUpon>AddjcFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="addQtFuWu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,12 @@
     <Compile Include="jcglform.Designer.cs">
       <DependentUpon>jcglform.cs</DependentUpon>
     </Compile>
+    <Compile Include="jcSelectFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jcSelectFrom.Designer.cs">
+      <DependentUpon>jcSelectFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="jcsfForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +296,12 @@
     <Compile Include="QtMoney.Designer.cs">
       <DependentUpon>QtMoney.cs</DependentUpon>
     </Compile>
+    <Compile Include="qzjcFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="qzjcFrom.Designer.cs">
+      <DependentUpon>qzjcFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="shglform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +326,12 @@
     <Compile Include="spform.Designer.cs">
       <DependentUpon>spform.cs</DependentUpon>
     </Compile>
+    <Compile Include="spSalesFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="spSalesFrom.Designer.cs">
+      <DependentUpon>spSalesFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="szpassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,6 +349,12 @@
     </Compile>
     <Compile Include="tjform.Designer.cs">
       <DependentUpon>tjform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdatejcFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdatejcFrom.Designer.cs">
+      <DependentUpon>UpdatejcFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="xiugaimember.cs">
       <SubType>Form</SubType>
@@ -371,6 +401,9 @@
     <EmbeddedResource Include="AddFuWuType.resx">
       <DependentUpon>AddFuWuType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddjcFrom.resx">
+      <DependentUpon>AddjcFrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="addQtFuWu.resx">
       <DependentUpon>addQtFuWu.cs</DependentUpon>
     </EmbeddedResource>
@@ -395,11 +428,23 @@
     <EmbeddedResource Include="jbfuCheckBoxFrom.resx">
       <DependentUpon>jbfuCheckBoxFrom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="jcSelectFrom.resx">
+      <DependentUpon>jcSelectFrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="qtfuCheckBoxFrom.resx">
       <DependentUpon>qtfuCheckBoxFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QtMoney.resx">
       <DependentUpon>QtMoney.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="qzjcFrom.resx">
+      <DependentUpon>qzjcFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="spSalesFrom.resx">
+      <DependentUpon>spSalesFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdatejcFrom.resx">
+      <DependentUpon>UpdatejcFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="zjspForm、.resx">
       <DependentUpon>zjspForm、.cs</DependentUpon>

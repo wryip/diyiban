@@ -28,31 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("全部");
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("全部");
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.glNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcDanNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glQianKuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcPaiNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glDemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glDanNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcImgUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.查找寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.寄存取走ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.修改寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.增加寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.取消取走ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打印预览ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -67,39 +80,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1820, 676);
             this.panel1.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.glNo,
-            this.glCardNo,
-            this.glName,
-            this.glQianKuan,
-            this.glClass,
-            this.glType,
-            this.glColor,
-            this.glDemo,
-            this.glDate,
-            this.glMark,
-            this.glQuestion,
-            this.glTel,
-            this.glDanNo,
-            this.jcImgUrl});
-            this.dataGridView1.Location = new System.Drawing.Point(8, 26);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1468, 615);
-            this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // groupBox4
             // 
@@ -116,48 +96,44 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "寄存信息";
             // 
-            // treeView1
+            // dataGridView1
             // 
-            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeView1.Location = new System.Drawing.Point(11, 24);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(4);
-            this.treeView1.Name = "treeView1";
-            treeNode10.Name = "treeAll";
-            treeNode10.Text = "全部";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10});
-            this.treeView1.Size = new System.Drawing.Size(248, 374);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox3.Controls.Add(this.treeView1);
-            this.groupBox3.Location = new System.Drawing.Point(29, 16);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(267, 406);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "寄存分类";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox2.Controls.Add(this.pictureBox1);
-            this.groupBox2.Location = new System.Drawing.Point(29, 430);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(267, 235);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "图片预览";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.glNo,
+            this.jcDanNumber,
+            this.glCardNo,
+            this.glName,
+            this.glQianKuan,
+            this.glClass,
+            this.glType,
+            this.jcPaiNumber,
+            this.glColor,
+            this.glDemo,
+            this.glDate,
+            this.glMark,
+            this.jcRemark,
+            this.glQuestion,
+            this.glTel,
+            this.glDanNo,
+            this.jcImgUrl});
+            this.dataGridView1.Location = new System.Drawing.Point(8, 26);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1468, 615);
+            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView1_RowContextMenuStripNeeded);
             // 
             // glNo
             // 
@@ -166,6 +142,13 @@
             this.glNo.Name = "glNo";
             this.glNo.ReadOnly = true;
             this.glNo.Width = 111;
+            // 
+            // jcDanNumber
+            // 
+            this.jcDanNumber.DataPropertyName = "jcDanNumber";
+            this.jcDanNumber.HeaderText = "单号";
+            this.jcDanNumber.Name = "jcDanNumber";
+            this.jcDanNumber.ReadOnly = true;
             // 
             // glCardNo
             // 
@@ -207,6 +190,13 @@
             this.glType.ReadOnly = true;
             this.glType.Width = 111;
             // 
+            // jcPaiNumber
+            // 
+            this.jcPaiNumber.DataPropertyName = "jcPaiNumber";
+            this.jcPaiNumber.HeaderText = "牌号";
+            this.jcPaiNumber.Name = "jcPaiNumber";
+            this.jcPaiNumber.ReadOnly = true;
+            // 
             // glColor
             // 
             this.glColor.DataPropertyName = "jcColor";
@@ -238,6 +228,13 @@
             this.glMark.Name = "glMark";
             this.glMark.ReadOnly = true;
             this.glMark.Width = 111;
+            // 
+            // jcRemark
+            // 
+            this.jcRemark.DataPropertyName = "jcRemark";
+            this.jcRemark.HeaderText = "备注";
+            this.jcRemark.Name = "jcRemark";
+            this.jcRemark.ReadOnly = true;
             // 
             // glQuestion
             // 
@@ -271,6 +268,109 @@
             this.jcImgUrl.ReadOnly = true;
             this.jcImgUrl.Visible = false;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.查找寄存ToolStripMenuItem,
+            this.寄存取走ToolStripMenuItem,
+            this.修改寄存ToolStripMenuItem,
+            this.增加寄存ToolStripMenuItem,
+            this.删除寄存ToolStripMenuItem,
+            this.取消取走ToolStripMenuItem,
+            this.打印预览ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(182, 214);
+            // 
+            // 查找寄存ToolStripMenuItem
+            // 
+            this.查找寄存ToolStripMenuItem.Name = "查找寄存ToolStripMenuItem";
+            this.查找寄存ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.查找寄存ToolStripMenuItem.Text = "查找寄存";
+            this.查找寄存ToolStripMenuItem.Click += new System.EventHandler(this.查找寄存ToolStripMenuItem_Click);
+            // 
+            // 寄存取走ToolStripMenuItem
+            // 
+            this.寄存取走ToolStripMenuItem.Name = "寄存取走ToolStripMenuItem";
+            this.寄存取走ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.寄存取走ToolStripMenuItem.Text = "寄存取走";
+            this.寄存取走ToolStripMenuItem.Click += new System.EventHandler(this.寄存取走ToolStripMenuItem_Click);
+            // 
+            // 修改寄存ToolStripMenuItem
+            // 
+            this.修改寄存ToolStripMenuItem.Name = "修改寄存ToolStripMenuItem";
+            this.修改寄存ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.修改寄存ToolStripMenuItem.Text = "修改寄存";
+            this.修改寄存ToolStripMenuItem.Click += new System.EventHandler(this.修改寄存ToolStripMenuItem_Click);
+            // 
+            // 增加寄存ToolStripMenuItem
+            // 
+            this.增加寄存ToolStripMenuItem.Name = "增加寄存ToolStripMenuItem";
+            this.增加寄存ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.增加寄存ToolStripMenuItem.Text = "增加寄存";
+            this.增加寄存ToolStripMenuItem.Click += new System.EventHandler(this.增加寄存ToolStripMenuItem_Click);
+            // 
+            // 删除寄存ToolStripMenuItem
+            // 
+            this.删除寄存ToolStripMenuItem.Name = "删除寄存ToolStripMenuItem";
+            this.删除寄存ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.删除寄存ToolStripMenuItem.Text = "删除寄存";
+            // 
+            // 取消取走ToolStripMenuItem
+            // 
+            this.取消取走ToolStripMenuItem.Name = "取消取走ToolStripMenuItem";
+            this.取消取走ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.取消取走ToolStripMenuItem.Text = "取消取走";
+            // 
+            // 打印预览ToolStripMenuItem
+            // 
+            this.打印预览ToolStripMenuItem.Name = "打印预览ToolStripMenuItem";
+            this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.打印预览ToolStripMenuItem.Text = "打印预览";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox3.Controls.Add(this.treeView1);
+            this.groupBox3.Location = new System.Drawing.Point(29, 16);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(267, 406);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "寄存分类";
+            // 
+            // treeView1
+            // 
+            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeView1.Location = new System.Drawing.Point(11, 24);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(4);
+            this.treeView1.Name = "treeView1";
+            treeNode1.Name = "treeAll";
+            treeNode1.Text = "全部";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            this.treeView1.Size = new System.Drawing.Size(248, 374);
+            this.treeView1.TabIndex = 0;
+            this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.pictureBox1);
+            this.groupBox2.Location = new System.Drawing.Point(29, 430);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(267, 235);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "图片预览";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(11, 26);
@@ -286,7 +386,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1843, 701);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "jcglform";
@@ -294,8 +394,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.jcglform_FormClosing);
             this.Load += new System.EventHandler(this.jcglform_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -311,21 +412,32 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 查找寄存ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 寄存取走ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 修改寄存ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 增加寄存ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 删除寄存ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 取消取走ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 打印预览ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn glNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcDanNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn glCardNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn glName;
         private System.Windows.Forms.DataGridViewTextBoxColumn glQianKuan;
         private System.Windows.Forms.DataGridViewTextBoxColumn glClass;
         private System.Windows.Forms.DataGridViewTextBoxColumn glType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcPaiNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn glColor;
         private System.Windows.Forms.DataGridViewTextBoxColumn glDemo;
         private System.Windows.Forms.DataGridViewTextBoxColumn glDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn glMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcRemark;
         private System.Windows.Forms.DataGridViewTextBoxColumn glQuestion;
         private System.Windows.Forms.DataGridViewTextBoxColumn glTel;
         private System.Windows.Forms.DataGridViewTextBoxColumn glDanNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn jcImgUrl;
-        private System.Windows.Forms.PictureBox pictureBox1;
 
     }
 }
