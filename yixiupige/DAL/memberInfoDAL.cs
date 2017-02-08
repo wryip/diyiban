@@ -343,5 +343,38 @@ namespace DAL
             }
             return result;
         }
+        public string selectType(string cardno)
+        {
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@memberCardNo",cardno)
+            };
+            string str = "select memberType from memberInfo where memberCardNo=@memberCardNo";
+            object obj=SqlHelper.ExecuteScalar(str, pms);
+            string read = obj == null ? "无卡" : obj.ToString();
+            return read;
+        }
+        public List<DXmemberModel> SelectDXList()
+        {
+            int i = 1;
+            List<DXmemberModel> list = new List<DXmemberModel>();
+            DXmemberModel model;
+            string str = "select memberCardNo,memberName,memberTel from memberInfo";
+            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            while (read.Read())
+            {
+                if(read.HasRows)
+                {
+                    model = new DXmemberModel();
+                    model.No = i;
+                    model.CardNumber = read["memberCardNo"].ToString();
+                    model.MemberName = read["MemberName"].ToString();
+                    model.TelPhone = read["memberTel"].ToString();
+                    model.SendInfo = false;
+                    i++;
+                    list.Add(model);
+                }
+            }
+            return list;
+        }
     }
 }

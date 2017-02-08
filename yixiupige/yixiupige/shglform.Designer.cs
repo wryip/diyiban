@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -46,6 +47,7 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.lable = new System.Windows.Forms.Label();
+            this.pictureBoxQr = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.textBox22 = new System.Windows.Forms.TextBox();
             this.textBox21 = new System.Windows.Forms.TextBox();
@@ -59,21 +61,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.shId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shJiCun = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.shFuWuName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shCiCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shOuntMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shYMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shFuKuan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.shCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shPaiNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shPinPai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shImgUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.删除本条ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除全部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -151,12 +138,28 @@
             this.Imgurl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kinyaoo123456DataSet1 = new yixiupige.kinyaoo123456DataSet();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxQr = new System.Windows.Forms.PictureBox();
+            this.shId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shJiCun = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.shFuWuName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shCiCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shOuntMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shYMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shFuKuan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.shCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shPaiNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YMPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shPinPai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shImgUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxQr)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -170,8 +173,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kinyaoo123456DataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxQr)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -191,6 +192,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1820, 676);
             this.panel1.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(1019, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(265, 136);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
             // 
             // panel3
             // 
@@ -344,6 +355,17 @@
             this.lable.TabIndex = 0;
             this.lable.Text = "顾客类型";
             // 
+            // pictureBoxQr
+            // 
+            this.pictureBoxQr.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxQr.Location = new System.Drawing.Point(1475, 581);
+            this.pictureBoxQr.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxQr.Name = "pictureBoxQr";
+            this.pictureBoxQr.Size = new System.Drawing.Size(341, 92);
+            this.pictureBoxQr.TabIndex = 16;
+            this.pictureBoxQr.TabStop = false;
+            // 
             // groupBox5
             // 
             this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -484,6 +506,7 @@
             this.shFuKuan,
             this.shCount,
             this.shPaiNumber,
+            this.YMPerson,
             this.shQuestion,
             this.shRemark,
             this.shPinPai,
@@ -504,122 +527,6 @@
             this.dataGridView2.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView2_RowContextMenuStripNeeded);
             this.dataGridView2.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView2_RowsAdded);
             this.dataGridView2.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView2_RowsRemoved);
-            // 
-            // shId
-            // 
-            this.shId.DataPropertyName = "Id";
-            this.shId.HeaderText = "编号";
-            this.shId.Name = "shId";
-            this.shId.ReadOnly = true;
-            this.shId.Width = 70;
-            // 
-            // shJiCun
-            // 
-            this.shJiCun.DataPropertyName = "JiCun";
-            this.shJiCun.HeaderText = "寄存";
-            this.shJiCun.Name = "shJiCun";
-            this.shJiCun.ReadOnly = true;
-            this.shJiCun.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.shJiCun.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // shFuWuName
-            // 
-            this.shFuWuName.DataPropertyName = "FuWuName";
-            this.shFuWuName.HeaderText = "服务项目";
-            this.shFuWuName.Name = "shFuWuName";
-            this.shFuWuName.ReadOnly = true;
-            this.shFuWuName.Width = 300;
-            // 
-            // shCiCount
-            // 
-            this.shCiCount.DataPropertyName = "CiCount";
-            this.shCiCount.HeaderText = "次数";
-            this.shCiCount.Name = "shCiCount";
-            this.shCiCount.ReadOnly = true;
-            // 
-            // shOuntMoney
-            // 
-            this.shOuntMoney.DataPropertyName = "CountMoney";
-            this.shOuntMoney.HeaderText = "小计";
-            this.shOuntMoney.Name = "shOuntMoney";
-            this.shOuntMoney.ReadOnly = true;
-            this.shOuntMoney.Width = 70;
-            // 
-            // shYMoney
-            // 
-            this.shYMoney.DataPropertyName = "YMoney";
-            this.shYMoney.HeaderText = "应付";
-            this.shYMoney.Name = "shYMoney";
-            this.shYMoney.ReadOnly = true;
-            this.shYMoney.Width = 70;
-            // 
-            // shFuKuan
-            // 
-            this.shFuKuan.DataPropertyName = "FuKuan";
-            this.shFuKuan.HeaderText = "付款";
-            this.shFuKuan.Name = "shFuKuan";
-            this.shFuKuan.ReadOnly = true;
-            this.shFuKuan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.shFuKuan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.shFuKuan.Width = 70;
-            // 
-            // shCount
-            // 
-            this.shCount.DataPropertyName = "Count";
-            this.shCount.HeaderText = "数量";
-            this.shCount.Name = "shCount";
-            this.shCount.ReadOnly = true;
-            // 
-            // shPaiNumber
-            // 
-            this.shPaiNumber.DataPropertyName = "PaiNumber";
-            this.shPaiNumber.HeaderText = "牌号";
-            this.shPaiNumber.Name = "shPaiNumber";
-            this.shPaiNumber.ReadOnly = true;
-            // 
-            // shQuestion
-            // 
-            this.shQuestion.DataPropertyName = "CJQuestion";
-            this.shQuestion.HeaderText = "常见问题";
-            this.shQuestion.Name = "shQuestion";
-            this.shQuestion.ReadOnly = true;
-            this.shQuestion.Width = 300;
-            // 
-            // shRemark
-            // 
-            this.shRemark.DataPropertyName = "Remark";
-            this.shRemark.HeaderText = "备注信息";
-            this.shRemark.Name = "shRemark";
-            this.shRemark.ReadOnly = true;
-            // 
-            // shPinPai
-            // 
-            this.shPinPai.DataPropertyName = "PinPai";
-            this.shPinPai.HeaderText = "品牌";
-            this.shPinPai.Name = "shPinPai";
-            this.shPinPai.ReadOnly = true;
-            // 
-            // shColor
-            // 
-            this.shColor.DataPropertyName = "Color";
-            this.shColor.HeaderText = "颜色";
-            this.shColor.Name = "shColor";
-            this.shColor.ReadOnly = true;
-            this.shColor.Width = 70;
-            // 
-            // shType
-            // 
-            this.shType.DataPropertyName = "Type";
-            this.shType.HeaderText = "类别";
-            this.shType.Name = "shType";
-            this.shType.ReadOnly = true;
-            // 
-            // shImgUrl
-            // 
-            this.shImgUrl.DataPropertyName = "ImgUrl";
-            this.shImgUrl.HeaderText = "图片路径";
-            this.shImgUrl.Name = "shImgUrl";
-            this.shImgUrl.ReadOnly = true;
             // 
             // contextMenuStrip1
             // 
@@ -1399,26 +1306,128 @@
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // pictureBox1
+            // shId
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(1019, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(265, 136);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
+            this.shId.DataPropertyName = "Id";
+            this.shId.HeaderText = "编号";
+            this.shId.Name = "shId";
+            this.shId.ReadOnly = true;
+            this.shId.Width = 70;
             // 
-            // pictureBoxQr
+            // shJiCun
             // 
-            this.pictureBoxQr.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxQr.Location = new System.Drawing.Point(1475, 581);
-            this.pictureBoxQr.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxQr.Name = "pictureBoxQr";
-            this.pictureBoxQr.Size = new System.Drawing.Size(341, 92);
-            this.pictureBoxQr.TabIndex = 16;
-            this.pictureBoxQr.TabStop = false;
+            this.shJiCun.DataPropertyName = "JiCun";
+            this.shJiCun.HeaderText = "寄存";
+            this.shJiCun.Name = "shJiCun";
+            this.shJiCun.ReadOnly = true;
+            this.shJiCun.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.shJiCun.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // shFuWuName
+            // 
+            this.shFuWuName.DataPropertyName = "FuWuName";
+            this.shFuWuName.HeaderText = "服务项目";
+            this.shFuWuName.Name = "shFuWuName";
+            this.shFuWuName.ReadOnly = true;
+            this.shFuWuName.Width = 300;
+            // 
+            // shCiCount
+            // 
+            this.shCiCount.DataPropertyName = "CiCount";
+            this.shCiCount.HeaderText = "次数";
+            this.shCiCount.Name = "shCiCount";
+            this.shCiCount.ReadOnly = true;
+            // 
+            // shOuntMoney
+            // 
+            this.shOuntMoney.DataPropertyName = "CountMoney";
+            this.shOuntMoney.HeaderText = "小计";
+            this.shOuntMoney.Name = "shOuntMoney";
+            this.shOuntMoney.ReadOnly = true;
+            this.shOuntMoney.Width = 70;
+            // 
+            // shYMoney
+            // 
+            this.shYMoney.DataPropertyName = "YMoney";
+            this.shYMoney.HeaderText = "应付";
+            this.shYMoney.Name = "shYMoney";
+            this.shYMoney.ReadOnly = true;
+            this.shYMoney.Width = 70;
+            // 
+            // shFuKuan
+            // 
+            this.shFuKuan.DataPropertyName = "FuKuan";
+            this.shFuKuan.HeaderText = "付款";
+            this.shFuKuan.Name = "shFuKuan";
+            this.shFuKuan.ReadOnly = true;
+            this.shFuKuan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.shFuKuan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.shFuKuan.Width = 70;
+            // 
+            // shCount
+            // 
+            this.shCount.DataPropertyName = "Count";
+            this.shCount.HeaderText = "数量";
+            this.shCount.Name = "shCount";
+            this.shCount.ReadOnly = true;
+            // 
+            // shPaiNumber
+            // 
+            this.shPaiNumber.DataPropertyName = "PaiNumber";
+            this.shPaiNumber.HeaderText = "牌号";
+            this.shPaiNumber.Name = "shPaiNumber";
+            this.shPaiNumber.ReadOnly = true;
+            // 
+            // YMPerson
+            // 
+            this.YMPerson.DataPropertyName = "YMPerson";
+            this.YMPerson.HeaderText = "业务员";
+            this.YMPerson.Name = "YMPerson";
+            this.YMPerson.ReadOnly = true;
+            // 
+            // shQuestion
+            // 
+            this.shQuestion.DataPropertyName = "CJQuestion";
+            this.shQuestion.HeaderText = "常见问题";
+            this.shQuestion.Name = "shQuestion";
+            this.shQuestion.ReadOnly = true;
+            this.shQuestion.Width = 300;
+            // 
+            // shRemark
+            // 
+            this.shRemark.DataPropertyName = "Remark";
+            this.shRemark.HeaderText = "备注信息";
+            this.shRemark.Name = "shRemark";
+            this.shRemark.ReadOnly = true;
+            // 
+            // shPinPai
+            // 
+            this.shPinPai.DataPropertyName = "PinPai";
+            this.shPinPai.HeaderText = "品牌";
+            this.shPinPai.Name = "shPinPai";
+            this.shPinPai.ReadOnly = true;
+            // 
+            // shColor
+            // 
+            this.shColor.DataPropertyName = "Color";
+            this.shColor.HeaderText = "颜色";
+            this.shColor.Name = "shColor";
+            this.shColor.ReadOnly = true;
+            this.shColor.Width = 70;
+            // 
+            // shType
+            // 
+            this.shType.DataPropertyName = "Type";
+            this.shType.HeaderText = "类别";
+            this.shType.Name = "shType";
+            this.shType.ReadOnly = true;
+            // 
+            // shImgUrl
+            // 
+            this.shImgUrl.DataPropertyName = "ImgUrl";
+            this.shImgUrl.HeaderText = "图片路径";
+            this.shImgUrl.Name = "shImgUrl";
+            this.shImgUrl.ReadOnly = true;
             // 
             // shglform
             // 
@@ -1437,12 +1446,14 @@
             this.Load += new System.EventHandler(this.shglform_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxQr)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -1459,8 +1470,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kinyaoo123456DataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxQr)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1558,21 +1567,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 删除本条ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除全部ToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shId;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn shJiCun;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shFuWuName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shCiCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shOuntMoney;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shYMoney;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn shFuKuan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shPaiNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shQuestion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shRemark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shPinPai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shImgUrl;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridViewTextBoxColumn lsName;
@@ -1591,5 +1585,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lsNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn lsCardNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Imgurl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shId;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn shJiCun;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shFuWuName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shCiCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shOuntMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shYMoney;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn shFuKuan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shPaiNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YMPerson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shQuestion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shRemark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shPinPai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shImgUrl;
     }
 }

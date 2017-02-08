@@ -35,6 +35,8 @@ namespace BLL
                 model.jcDanNumber = danNumber;
                 model.jcPaiNumber = iteam.PaiNumber;
                 model.jcRemark = iteam.Remark;
+                model.jcQuestion = iteam.CJQuestion;
+                model.jcPression = iteam.YMPerson;
                 list1.Add(model);
             }
             return dal.addJCList(list1);
@@ -97,6 +99,20 @@ namespace BLL
         public bool UpdateInfoModel(JCInfoModel model)
         {
             return dal.UpdateInfoModel(model);
+        }
+        public bool deleteIDIteam(string id)
+        {
+            return dal.deleteIDIteam(Convert.ToInt32(id.Trim()));
+        }
+
+        /// <summary>
+        /// 取消取走
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool UpdateIDIteam(string id)
+        {
+            return dal.UpdateIDIteam(Convert.ToInt32(id.Trim()));
         }
     }
 }

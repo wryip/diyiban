@@ -23,5 +23,6 @@ namespace MODEL
         public string PinPai { get; set; }
         public string Color { get; set; }
         public string ImgUrl { get; set; }
+        public string YMPerson { get; set; }
     }
 }

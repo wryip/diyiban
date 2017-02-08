@@ -25,5 +25,7 @@ namespace MODEL
         public string jcDanNumber { get; set; }
         public string jcPaiNumber { get; set; }
         public string jcRemark { get; set; }
+        public string jcQuestion { get; set; }
+        public string jcPression { get; set; }
     }
 }

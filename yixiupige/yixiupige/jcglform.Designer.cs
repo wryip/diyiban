@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("全部");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("全部");
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.glNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcPression = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcDanNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -106,6 +108,8 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.glNo,
+            this.jcQuestion,
+            this.jcPression,
             this.jcDanNumber,
             this.glCardNo,
             this.glName,
@@ -142,6 +146,20 @@
             this.glNo.Name = "glNo";
             this.glNo.ReadOnly = true;
             this.glNo.Width = 111;
+            // 
+            // jcQuestion
+            // 
+            this.jcQuestion.DataPropertyName = "jcQuestion";
+            this.jcQuestion.HeaderText = "常见问题";
+            this.jcQuestion.Name = "jcQuestion";
+            this.jcQuestion.ReadOnly = true;
+            // 
+            // jcPression
+            // 
+            this.jcPression.DataPropertyName = "jcPression";
+            this.jcPression.HeaderText = "业务员";
+            this.jcPression.Name = "jcPression";
+            this.jcPression.ReadOnly = true;
             // 
             // jcDanNumber
             // 
@@ -315,12 +333,14 @@
             this.删除寄存ToolStripMenuItem.Name = "删除寄存ToolStripMenuItem";
             this.删除寄存ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.删除寄存ToolStripMenuItem.Text = "删除寄存";
+            this.删除寄存ToolStripMenuItem.Click += new System.EventHandler(this.删除寄存ToolStripMenuItem_Click);
             // 
             // 取消取走ToolStripMenuItem
             // 
             this.取消取走ToolStripMenuItem.Name = "取消取走ToolStripMenuItem";
             this.取消取走ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.取消取走ToolStripMenuItem.Text = "取消取走";
+            this.取消取走ToolStripMenuItem.Click += new System.EventHandler(this.取消取走ToolStripMenuItem_Click);
             // 
             // 打印预览ToolStripMenuItem
             // 
@@ -349,10 +369,10 @@
             this.treeView1.Location = new System.Drawing.Point(11, 24);
             this.treeView1.Margin = new System.Windows.Forms.Padding(4);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "treeAll";
-            treeNode1.Text = "全部";
+            treeNode2.Name = "treeAll";
+            treeNode2.Text = "全部";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(248, 374);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
@@ -422,6 +442,8 @@
         private System.Windows.Forms.ToolStripMenuItem 取消取走ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 打印预览ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn glNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcQuestion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcPression;
         private System.Windows.Forms.DataGridViewTextBoxColumn jcDanNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn glCardNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn glName;

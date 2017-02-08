@@ -41,21 +41,21 @@ namespace yixiupige
         //调入图片
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog od = new OpenFileDialog();
-            od.Title = "请选择文件";
-            od.Multiselect = false;
-            od.Filter = "图片问价|*.jpg";
-            od.ShowDialog();
-            string path = od.FileName;
-            if (path == "")
-            {
-                return;
-            }
-            pictureBox1.ImageLocation = path;
             
 
-        }
 
+        }
+        //OpenFileDialog od = new OpenFileDialog();
+        //    od.Title = "请选择文件";
+        //    od.Multiselect = false;
+        //    od.Filter = "图片文件|*.jpg";
+        //    od.ShowDialog();
+        //    string path = od.FileName;
+        //    if (path == "")
+        //    {
+        //        return;
+        //    }
+        //    pictureBox1.ImageLocation = path;
         private void lsdzjForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             lsdzj = null;

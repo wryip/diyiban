@@ -286,6 +286,7 @@ namespace yixiupige
             model.Type = comboBox1.Text;
             model.PinPai = comboBox2.Text;
             model.Color = comboBox3.Text;
+            model.YMPerson = comboBox4.Text;
             model.ImgUrl = Path;
             pictureBox1.ImageLocation = Path;
             GridView2Bind(model);
@@ -613,7 +614,7 @@ namespace yixiupige
                 model.LSCount = iteam.Count.ToString();
                 model.LSPinPai = iteam.PinPai;
                 model.LSColor = iteam.Color;
-                model.LSSalesman = comboBox4.Text;
+                model.LSSalesman = iteam.YMPerson;
                 model.LSCardNumber = textBox5.Text.Trim() == "" ? "散客" : textBox5.Text.Trim();
                 //
                 //
@@ -675,7 +676,9 @@ namespace yixiupige
             string websb = "http//:www.baidu.com";
             Bitmap bitmap = writer.Write(websb);
             pictureBoxQr.Image = bitmap;
+            printDocument1.Print();
             dataGridView2.DataSource=new List<shInfoList>();
+            
         }
         public void dataBindgridview1(List<LiShiConsumption> list)
         {
@@ -690,6 +693,7 @@ namespace yixiupige
         //打印小票
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+            int i = 1;
             Pen blackPen = new Pen(Color.Black, 3);
             //使用的是57mm的纸，相当于190像素
             Rectangle[] rects =
@@ -697,14 +701,19 @@ namespace yixiupige
                  new Rectangle( 30,50,30,50), //参数说明：左边距，上边距，右边距，底边距
                  new Rectangle(35,55,35,55),
              };
-            e.Graphics.DrawRectangles(blackPen, rects);
-            e.Graphics.DrawString("一休皮革收据小票", new Font("Segoe UI", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(30, 30));//其中10为左边距，30为上边距
+            //e.Graphics.DrawRectangles(blackPen, rects);
+            e.Graphics.DrawString("一休皮革收据小票", new Font("Segoe UI", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(8, 30));//其中10为左边距，30为上边距
             foreach (var iteam in DYList)
             {
-                e.Graphics.DrawString(iteam.LSStaff+"--X"+iteam.LSCount+"金额："+iteam.LSMoney, new Font("Segoe UI", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(30, 30));//其中10为左边距，30为上边距
+                e.Graphics.DrawString(iteam.LSStaff + "--X" + iteam.LSCount + "金额：" + iteam.LSMoney, new Font("Segoe UI",8, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(5, 60+i*15));//其中10为左边距，30为上边距
+                i++;
             }
-            e.Graphics.DrawString("合计金额：" + textBox14.Text + "/r/n合计次数：" + textBox21.Text + "/r/n应付金额：" + textBox22.Text, new Font("Segoe UI", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(30, 30));//其中10为左边距，30为上边距
-            e.Graphics.DrawImage(pictureBoxQr.Image, new System.Drawing.Point(70, 100));
+            e.Graphics.DrawString("合计金额：" + textBox14.Text , new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(5, 60 + i * 15));//其中10为左边距，30为上边距
+            i++;
+            e.Graphics.DrawString("合计次数：" + textBox21.Text, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(5, 60 + i * 15));//其中10为左边距，30为上边距
+            i++;
+            e.Graphics.DrawString("应付金额：" + textBox22.Text, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(5, 60 + i * 15));//其中10为左边距，30为上边距
+            e.Graphics.DrawImage(pictureBoxQr.Image, new Rectangle(new System.Drawing.Point(5, i*15+100),new Size(150,150)));
         }
 
         private void button5_Click(object sender, EventArgs e)

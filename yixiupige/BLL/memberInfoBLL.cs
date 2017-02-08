@@ -19,7 +19,7 @@ namespace BLL
             result=dal.AddMemberInfo(model);
             return result;
         }
-        //返回莫中卡类型的所有集合，例如所有金卡或者银卡
+        //返回某种卡类型的所有集合，例如所有金卡或者银卡
         public List<memberInfoModel> selectInfoCollect(string cardTepe)
         {
             return dal.selectInfoCollect(cardTepe);
@@ -244,6 +244,18 @@ namespace BLL
         public bool XFmoney(string cardNumber, string Xmoney)
         {
             return dal.XFmoney(cardNumber, Xmoney);            
+        }
+        public string selectType(string cardno)
+        {
+            return dal.selectType(cardno);
+        }
+        /// <summary>
+        /// 返回发送短信的内容
+        /// </summary>
+        /// <returns></returns>
+        public List<DXmemberModel> SelectDXList()
+        {
+            return dal.SelectDXList();
         }
     }
 }
