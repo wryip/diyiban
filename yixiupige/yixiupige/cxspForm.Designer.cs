@@ -59,6 +59,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // comboBox1
             // 
@@ -85,7 +86,10 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "cxspForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "查询商品";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.cxspForm_FormClosed);
+            this.Load += new System.EventHandler(this.cxspForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

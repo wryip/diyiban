@@ -30,8 +30,8 @@ namespace yixiupige
         spform sp = new spform();
         private void zjspForm__Load(object sender, EventArgs e)
         {
-            GoodTypeInfoBll dtbll = new GoodTypeInfoBll();
-            typetextBox.DataSource = dtbll.SelecNode();
+            jbcsBLL jbcsbll = new jbcsBLL();
+            typetextBox.DataSource = jbcsbll.selectnode();
             GoodInfo gd=null;
             notextBox.Text = (10000 + gdbll.Getlist(gd).Count).ToString();
         }
@@ -65,12 +65,28 @@ namespace yixiupige
             }
 
         }
-
+        private void loadevent()
+        {
+            jbcsBLL jbcsbll = new jbcsBLL();
+            typetextBox.DataSource = jbcsbll.selectnode();
+        }
+      
         private void zjbutton_Click(object sender, EventArgs e)
         {
             jbcsForm jbcs = jbcsForm.Create();
+            jbcs.Loadevent += loadevent;
             jbcs.Show();
             jbcs.Focus();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void typetextBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

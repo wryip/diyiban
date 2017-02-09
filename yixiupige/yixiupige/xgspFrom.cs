@@ -30,7 +30,7 @@ namespace yixiupige
         }
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
         GoodInfoBLL gdbll = new GoodInfoBLL();
         public  void Add(GoodInfo gd)

@@ -28,11 +28,14 @@ namespace yixiupige
             }
             return jbcs;
         }
+        public event Action Loadevent;
+     
         private void button1_Click(object sender, EventArgs e)
         {
 
             jbcszjForm jbcszj = jbcszjForm.Create(dataBind);
             jbcszj.Text = listBox1.SelectedItem.ToString();
+
             jbcszj.Show();
             jbcszj.Focus();
         }
@@ -45,6 +48,7 @@ namespace yixiupige
         private void jbcsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             jbcs = null;
+            Loadevent();
         }
 
         private void jbcsForm_Load(object sender, EventArgs e)

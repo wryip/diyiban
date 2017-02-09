@@ -48,13 +48,13 @@ namespace yixiupige
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = gdbll.Getlist(gd);
         }
-        GoodTypeInfoBll gtbll = new GoodTypeInfoBll();
+        jbcsBLL jbcsbll = new jbcsBLL();
         private void spform_Load(object sender, EventArgs e)
         {
             TreeNode child;
 
 
-            List<string> list = gtbll.SelecNode(); ;
+            List<string> list = jbcsbll.selectnode();
             TreeNode parent = treeView1.Nodes[0];
             //TreeNode parent=new TreeNode();
             //parent.Text = "全部";

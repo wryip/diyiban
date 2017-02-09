@@ -173,6 +173,7 @@
             this.button2.TabIndex = 15;
             this.button2.Text = "退出";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // typetextBox
             // 
@@ -181,6 +182,7 @@
             this.typetextBox.Name = "typetextBox";
             this.typetextBox.Size = new System.Drawing.Size(100, 20);
             this.typetextBox.TabIndex = 16;
+            this.typetextBox.SelectedIndexChanged += new System.EventHandler(this.typetextBox_SelectedIndexChanged);
             // 
             // zjbutton
             // 
@@ -217,6 +219,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "zjspForm_";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "增加商品";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.zjspForm__FormClosed);
             this.Load += new System.EventHandler(this.zjspForm__Load);

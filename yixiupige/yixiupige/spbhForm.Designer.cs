@@ -200,6 +200,7 @@
             this.button2.TabIndex = 17;
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // spbhForm
             // 
@@ -227,6 +228,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MinimizeBox = false;
             this.Name = "spbhForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "商品补货";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.spbhForm_FormClosed);
             this.Load += new System.EventHandler(this.spbhForm_Load);

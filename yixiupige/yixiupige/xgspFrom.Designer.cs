@@ -186,6 +186,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "xgspFrom";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "修改商品";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.xgspFrom_FormClosed);
             this.Load += new System.EventHandler(this.xgspFrom_Load);

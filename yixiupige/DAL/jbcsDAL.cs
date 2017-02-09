@@ -60,6 +60,19 @@ namespace DAL
             }
             return list;
         }
+        public List<string> selectNodes()
+        {
+            var read = SqlHelper.ExecuteReader("select text from jbcstable");
+            List<string> List = new List<string>();
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    List.Add(read[0].ToString());
+                }
+            }
+            return List;
+        }
         public bool updateIteam(string old, string xin)
         {
             bool result = false;
