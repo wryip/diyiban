@@ -12,8 +12,8 @@ namespace DAL
     {
         public bool addJCList(List<JCInfoModel> list)
         {
-            bool result = false;
-            string str = "insert into JCInfoTable(jcCardNumber,jcName,jcQMoney,jcType,jcPinPai,jcColor,jcStaff,jcBeginDate,jcEndDate,jcZT,jcAddress,jcImgUrl,jcDanNumber,jcPaiNumber,jcRemark) values(@jcCardNumber,@jcName,@jcQMoney,@jcType,@jcPinPai,@jcColor,@jcStaff,@jcBeginDate,@jcEndDate,@jcZT,@jcAddress,@jcImgUrl,@jcDanNumber,@jcPaiNumber,@jcRemark)";
+            bool result = true;
+            string str = "insert into JCInfoTable(jcCardNumber,jcName,jcQMoney,jcType,jcPinPai,jcColor,jcStaff,jcBeginDate,jcEndDate,jcZT,jcAddress,jcImgUrl,jcDanNumber,jcPaiNumber,jcRemark,jcQuestion,jcPression) values(@jcCardNumber,@jcName,@jcQMoney,@jcType,@jcPinPai,@jcColor,@jcStaff,@jcBeginDate,@jcEndDate,@jcZT,@jcAddress,@jcImgUrl,@jcDanNumber,@jcPaiNumber,@jcRemark,@jcQuestion,@jcPression)";
             SqlParameter[] pms;
             foreach (var iteam in list)
             { 
@@ -32,7 +32,9 @@ namespace DAL
                 new SqlParameter("@jcImgUrl",iteam.jcImgUrl),
                 new SqlParameter("@jcDanNumber",iteam.jcDanNumber),
                 new SqlParameter("@jcPaiNumber",iteam.jcPaiNumber),
-                new SqlParameter("@jcRemark",iteam.jcRemark)
+                new SqlParameter("@jcRemark",iteam.jcRemark),
+                new SqlParameter("@jcQuestion",iteam.jcQuestion),
+                new SqlParameter("@jcPression",iteam.jcPression)
                 };
                 if (!(SqlHelper.ExecuteNonQuery(str, pms) > 0))
                 {
@@ -79,6 +81,8 @@ namespace DAL
                     model.jcDanNumber = read["jcDanNumber"].ToString();
                     model.jcPaiNumber = read["jcPaiNumber"].ToString();
                     model.jcRemark = read["jcRemark"].ToString();
+                    model.jcPression = read["jcPression"].ToString();
+                    model.jcQuestion = read["jcQuestion"].ToString();
                     i++;
                     list.Add(model);
                 }
@@ -217,6 +221,8 @@ namespace DAL
                     model.jcDanNumber = read["jcDanNumber"].ToString();
                     model.jcPaiNumber = read["jcPaiNumber"].ToString();
                     model.jcRemark = read["jcRemark"].ToString();
+                    model.jcPression = read["jcPression"].ToString();
+                    model.jcQuestion = read["jcQuestion"].ToString();
                     i++;
                     list.Add(model);
                 }
@@ -253,6 +259,8 @@ namespace DAL
                     model.jcDanNumber = read["jcDanNumber"].ToString();
                     model.jcPaiNumber = read["jcPaiNumber"].ToString();
                     model.jcRemark = read["jcRemark"].ToString();
+                    model.jcPression = read["jcPression"].ToString();
+                    model.jcQuestion = read["jcQuestion"].ToString();
                 }
             }
             return model;
@@ -288,6 +296,38 @@ namespace DAL
             new SqlParameter("@jcRemark",model.jcRemark),
             new SqlParameter("@jcImgUrl",model.jcImgUrl),
             new SqlParameter("@jcID",model.jcID)
+            };
+            if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
+            {
+                result = true;
+            }
+            return result;
+        }
+        /// <summary>
+        /// 删除一条记录
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool deleteIDIteam(int id)
+        {
+            bool result = false;
+            string str = "delete from JCInfoTable where jcID=@jcID";
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@jcID",id)
+            };
+            if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
+            {
+                result = true;
+            }
+            return result;
+        }
+        public bool UpdateIDIteam(int id)
+        {
+            bool result = false;
+            string str = "update JCInfoTable set jcZT=@jcZT where jcID=@jcID";
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@jcID",id),
+            new SqlParameter("@jcZT","未取走")
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {

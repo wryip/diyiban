@@ -38,15 +38,9 @@
             this.lxr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lxdh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dz = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dxzd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dxnr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zjdy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yldy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dynr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.spid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jcsj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DYContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SPID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +73,7 @@
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -93,6 +88,7 @@
             this.button2.Text = "\r\n修改";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -117,122 +113,90 @@
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(12, 100);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(629, 352);
+            this.groupBox1.Size = new System.Drawing.Size(816, 352);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "店铺列表";
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.mc,
             this.lxr,
             this.lxdh,
             this.dz,
-            this.dxzd,
-            this.dxnr,
-            this.dy,
-            this.zjdy,
-            this.yldy,
-            this.dynr,
-            this.spid,
-            this.jcsj,
-            this.bz});
+            this.bz,
+            this.DYContent,
+            this.SPID});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 17);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 21);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(623, 332);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(810, 328);
             this.dataGridView1.TabIndex = 0;
             // 
             // mc
             // 
+            this.mc.DataPropertyName = "DPName";
             this.mc.HeaderText = "名称";
             this.mc.Name = "mc";
             this.mc.ReadOnly = true;
             // 
             // lxr
             // 
+            this.lxr.DataPropertyName = "DPPerson";
             this.lxr.HeaderText = "联系人";
             this.lxr.Name = "lxr";
             this.lxr.ReadOnly = true;
             // 
             // lxdh
             // 
+            this.lxdh.DataPropertyName = "DPTel";
             this.lxdh.HeaderText = "联系电话";
             this.lxdh.Name = "lxdh";
             this.lxdh.ReadOnly = true;
             // 
             // dz
             // 
+            this.dz.DataPropertyName = "DPAddress";
             this.dz.HeaderText = "地址";
             this.dz.Name = "dz";
             this.dz.ReadOnly = true;
             // 
-            // dxzd
-            // 
-            this.dxzd.HeaderText = "短信自动";
-            this.dxzd.Name = "dxzd";
-            this.dxzd.ReadOnly = true;
-            // 
-            // dxnr
-            // 
-            this.dxnr.HeaderText = "短信内容";
-            this.dxnr.Name = "dxnr";
-            this.dxnr.ReadOnly = true;
-            // 
-            // dy
-            // 
-            this.dy.HeaderText = "打印";
-            this.dy.Name = "dy";
-            this.dy.ReadOnly = true;
-            // 
-            // zjdy
-            // 
-            this.zjdy.HeaderText = "直接打印";
-            this.zjdy.Name = "zjdy";
-            this.zjdy.ReadOnly = true;
-            // 
-            // yldy
-            // 
-            this.yldy.HeaderText = "预览打印";
-            this.yldy.Name = "yldy";
-            this.yldy.ReadOnly = true;
-            // 
-            // dynr
-            // 
-            this.dynr.HeaderText = "打印内容";
-            this.dynr.Name = "dynr";
-            this.dynr.ReadOnly = true;
-            // 
-            // spid
-            // 
-            this.spid.HeaderText = "视频ID";
-            this.spid.Name = "spid";
-            this.spid.ReadOnly = true;
-            // 
-            // jcsj
-            // 
-            this.jcsj.HeaderText = "寄存时间";
-            this.jcsj.Name = "jcsj";
-            this.jcsj.ReadOnly = true;
-            // 
             // bz
             // 
+            this.bz.DataPropertyName = "DPRemark";
             this.bz.HeaderText = "备注";
             this.bz.Name = "bz";
             this.bz.ReadOnly = true;
             // 
+            // DYContent
+            // 
+            this.DYContent.DataPropertyName = "DPContent";
+            this.DYContent.HeaderText = "打印内容";
+            this.DYContent.Name = "DYContent";
+            this.DYContent.ReadOnly = true;
+            // 
+            // SPID
+            // 
+            this.SPID.DataPropertyName = "DPPicture";
+            this.SPID.HeaderText = "视频ID";
+            this.SPID.Name = "SPID";
+            this.SPID.ReadOnly = true;
+            // 
             // lsdglForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(653, 464);
+            this.ClientSize = new System.Drawing.Size(840, 476);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -241,6 +205,7 @@
             this.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.MaximizeBox = false;
             this.Name = "lsdglForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "连锁店管理";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.lsdglForm_FormClosed);
             this.Load += new System.EventHandler(this.lsdglForm_Load);
@@ -262,14 +227,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lxr;
         private System.Windows.Forms.DataGridViewTextBoxColumn lxdh;
         private System.Windows.Forms.DataGridViewTextBoxColumn dz;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dxzd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dxnr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zjdy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn yldy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dynr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn spid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcsj;
         private System.Windows.Forms.DataGridViewTextBoxColumn bz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DYContent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SPID;
     }
 }

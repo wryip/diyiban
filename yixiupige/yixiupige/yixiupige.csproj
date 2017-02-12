@@ -84,6 +84,12 @@
     <Compile Include="AddjcFrom.Designer.cs">
       <DependentUpon>AddjcFrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddPhonNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPhonNumber.Designer.cs">
+      <DependentUpon>AddPhonNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="addQtFuWu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,12 @@
     </Compile>
     <Compile Include="DefaultForm.Designer.cs">
       <DependentUpon>DefaultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DPUpdateFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DPUpdateFrom.Designer.cs">
+      <DependentUpon>DPUpdateFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="dxform.cs">
       <SubType>Form</SubType>
@@ -404,6 +416,9 @@
     <EmbeddedResource Include="AddjcFrom.resx">
       <DependentUpon>AddjcFrom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddPhonNumber.resx">
+      <DependentUpon>AddPhonNumber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="addQtFuWu.resx">
       <DependentUpon>addQtFuWu.cs</DependentUpon>
     </EmbeddedResource>
@@ -412,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="cjQuestion.resx">
       <DependentUpon>cjQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DPUpdateFrom.resx">
+      <DependentUpon>DPUpdateFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditQtFuWu.resx">
       <DependentUpon>EditQtFuWu.cs</DependentUpon>
@@ -648,6 +666,10 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{ddf3ca34-3b59-46c6-98f0-b09f74e5eb84}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Commond\Commond.csproj">
+      <Project>{9d4b158d-1d46-4930-9685-708071ea440b}</Project>
+      <Name>Commond</Name>
     </ProjectReference>
     <ProjectReference Include="..\MODEL\MODEL.csproj">
       <Project>{302fa470-2512-4f1b-b463-4061e4370f18}</Project>

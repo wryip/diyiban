@@ -20,8 +20,10 @@ namespace yixiupige
         public UpdatejcFrom()
         {
             InitializeComponent();
-            CheckForIllegalCrossThreadCalls = false;
+            //CheckForIllegalCrossThreadCalls = false;
         }
+        memberInfoBLL memberinfo = new memberInfoBLL();
+        fuwuBLL fuwubl = new fuwuBLL();
         bool resultupdate = false;
         private FilterInfoCollection videoDevices;
         public static string Path = "";
@@ -102,6 +104,11 @@ namespace yixiupige
             //}
             #endregion
             videoSourcePlayer1.NewFrame -= new AForge.Controls.VideoSourcePlayer.NewFrameHandler(videoSourcePlayer1_NewFrame);
+            
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            videoSourcePlayer1.NewFrame += new AForge.Controls.VideoSourcePlayer.NewFrameHandler(videoSourcePlayer1_NewFrame);
             model.jcName = textBox1.Text;
             model.jcCardNumber = textBox3.Text;
             model.jcPinPai = textBox4.Text;
@@ -110,20 +117,17 @@ namespace yixiupige
             model.jcType = textBox9.Text;
             model.jcStaff = textBox10.Text;
             model.jcRemark = textBox11.Text;
+            while (Path == "")
+            {
+                Thread.Sleep(1000);
+            }
             model.jcImgUrl = Path;
             resultupdate = bll.UpdateInfoModel(model);
             if (resultupdate)
             {
                 MessageBox.Show("修改成功！");
+                this.Close();
             }
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            videoSourcePlayer1.NewFrame += new AForge.Controls.VideoSourcePlayer.NewFrameHandler(videoSourcePlayer1_NewFrame);
-            //while (resultupdate)
-            //{
-            //    this.Close();
-            //}
         }
         List<string> list = new List<string>();
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -161,6 +165,43 @@ namespace yixiupige
 
             videoSourcePlayer1.VideoSource = videoSource;
             videoSourcePlayer1.Start();
+        }
+
+        private void textBox10_Click(object sender, EventArgs e)
+        {
+            jbfuCheckBoxFrom shouhuojb = jbfuCheckBoxFrom.CreateForm(jbFuWuCount);
+            shouhuojb.ShowDialog();
+            shouhuojb.Focus();
+        }
+        public void jbFuWuCount(string model1)
+        {
+            textBox10.Text = model1;
+            int money = 0;
+            string type = memberinfo.selectType(model.jcCardNumber.Trim()).Trim();
+            List<fuwuModel> list = fuwubl.selectAllList();
+            string[] name = model1.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var iteam in list)
+            {
+                foreach (var itname in name)
+                {
+                    if (itname.Trim() == iteam.Name.Trim())
+                    {
+                        string neirong = iteam.neirong.Trim();
+                        //不同卡对应的钱
+                        string[] str = neirong.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                        foreach (var iteamdan in str)
+                        {
+                            if (iteamdan.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)[0].Trim() == type)
+                            {
+                                money += Convert.ToInt32(iteamdan.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)[1]);
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+            textBox8.Text = money.ToString();
         }
     }
 }

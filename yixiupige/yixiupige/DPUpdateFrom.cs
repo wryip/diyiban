@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AForge.Video.DirectShow;
+using BLL;
+using MODEL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,72 +10,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using AForge.Video.DirectShow;
-using MODEL;
-using BLL;
 
 namespace yixiupige
 {
-    public partial class lsdzjForm : Form
+    public partial class DPUpdateFrom : Form
     {
-        public lsdzjForm()
+        public DPUpdateFrom()
         {
             InitializeComponent();
         }
+        public static DianPu model1;
         public delegate void databind();
         public static databind bind;
         DPInfoBLL dpbll = new DPInfoBLL();
         private FilterInfoCollection videoDevices;
-        private static lsdzjForm lsdzj;
-        public static lsdzjForm Create(databind bind1)
+        private static DPUpdateFrom lsdzj;
+        public static DPUpdateFrom Create(databind bind1, DianPu model)
         {
+            model1 = model;
             bind = bind1;
-            if (lsdzj==null)
+            if (lsdzj == null)
             {
-                lsdzj = new lsdzjForm();
+                lsdzj = new DPUpdateFrom();
             }
             return lsdzj;
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        List<string> list=new List<string>();
+        private void DPUpdateFrom_Load(object sender, EventArgs e)
         {
-
-        }
-
-        //退出程序
-        private void tcbutton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        //调入图片
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-
-
-        }
-        //OpenFileDialog od = new OpenFileDialog();
-        //    od.Title = "请选择文件";
-        //    od.Multiselect = false;
-        //    od.Filter = "图片文件|*.jpg";
-        //    od.ShowDialog();
-        //    string path = od.FileName;
-        //    if (path == "")
-        //    {
-        //        return;
-        //    }
-        //    pictureBox1.ImageLocation = path;
-        private void lsdzjForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            videoSourcePlayer1.SignalToStop();
-            videoSourcePlayer1.WaitForStop();
-            lsdzj = null;
-        }
-        List<string> list = new List<string>();
-        private void lsdzjForm_Load(object sender, EventArgs e)
-        {
+            dpmcBox.ReadOnly = true;
+            dpmcBox.Text = model1.DPName;
+            lxrBox.Text = model1.DPPerson;
+            lxdhBox.Text = model1.DPTel;
+            dpdztBox.Text = model1.DPAddress;
+            bzxxBox.Text = model1.DPRemark;
+            textBox1.Text = model1.DPContent;
             try
             {
                 //连接//开启摄像头
@@ -83,33 +55,45 @@ namespace yixiupige
                 {
                     list.Add(device.Name);
                 }
-                CameraConn(0);
+                CameraConn(-1);
             }
             catch (ApplicationException)
             {
                 videoDevices = null;
-            }
+            }           
             foreach (var iteam in list)
             {
                 comboBox1.Items.Add(iteam);
             }
-            comboBox1.SelectedIndex = 0;
+            comboBox1.Text = model1.DPPicture;
         }
         private void CameraConn(int i)
         {
-            VideoCaptureDevice videoSource = new VideoCaptureDevice(videoDevices[i].MonikerString);
+            VideoCaptureDevice videoSource;
+            if (i < 0)
+            {
+                videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
+            }
+            else
+            {
+               videoSource = new VideoCaptureDevice(videoDevices[i].MonikerString);
+            }
             videoSource.DesiredFrameSize = new Size(320, 240);
             videoSource.DesiredFrameRate = 1;
 
             videoSourcePlayer1.VideoSource = videoSource;
             videoSourcePlayer1.Start();
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void DPUpdateFrom_FormClosing(object sender, FormClosingEventArgs e)
         {
             videoSourcePlayer1.SignalToStop();
             videoSourcePlayer1.WaitForStop();
-            CameraConn(comboBox1.SelectedIndex);
+            lsdzj = null;
+        }
+
+        private void tcbutton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void bcbutton_Click(object sender, EventArgs e)
@@ -127,15 +111,22 @@ namespace yixiupige
                 MessageBox.Show("请将信息填写完整！");
                 return;
             }
-            bool result = dpbll.AddModel(model);
+            bool result = dpbll.UpdateModel(model);
             if (result)
             {
-                MessageBox.Show("添加成功！");
+                MessageBox.Show("修改成功！");
                 bind();
                 this.Close();
                 return;
             }
-            MessageBox.Show("添加失败！");
+            MessageBox.Show("修改失败！");
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            videoSourcePlayer1.SignalToStop();
+            videoSourcePlayer1.WaitForStop();
+            CameraConn(comboBox1.SelectedIndex);
         }
     }
 }

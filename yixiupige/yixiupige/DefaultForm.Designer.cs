@@ -38,41 +38,23 @@
             this.基本参数ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.分类服务ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.其他服务ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.架号管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.员工管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.寄存收费toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.提成管理toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.牌号管理toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.财务管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.提成管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.寄存收费ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.营业日报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.服务统计报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.管理营业日报ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.管理服务统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.注册ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -87,6 +69,15 @@
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -105,7 +96,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.系统管理ToolStripMenuItem,
             this.基本设置ToolStripMenuItem,
-            this.财务管理ToolStripMenuItem,
             this.系统帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(12, -2);
             this.menuStrip1.Name = "menuStrip1";
@@ -129,7 +119,7 @@
             // 
             this.系统设置ToolStripMenuItem.Name = "系统设置ToolStripMenuItem";
             this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.系统设置ToolStripMenuItem.Text = "系统设置";
+            this.系统设置ToolStripMenuItem.Text = "连锁店设置";
             this.系统设置ToolStripMenuItem.Click += new System.EventHandler(this.系统设置ToolStripMenuItem_Click);
             // 
             // 管理员设置ToolStripMenuItem
@@ -153,11 +143,9 @@
             this.基本参数ToolStripMenuItem,
             this.分类服务ToolStripMenuItem,
             this.其他服务ToolStripMenuItem,
-            this.架号管理ToolStripMenuItem,
             this.员工管理ToolStripMenuItem,
             this.寄存收费toolStripMenuItem1,
-            this.提成管理toolStripMenuItem2,
-            this.牌号管理toolStripMenuItem1});
+            this.提成管理toolStripMenuItem2});
             this.基本设置ToolStripMenuItem.Name = "基本设置ToolStripMenuItem";
             this.基本设置ToolStripMenuItem.Size = new System.Drawing.Size(81, 27);
             this.基本设置ToolStripMenuItem.Text = "基本设置";
@@ -183,13 +171,6 @@
             this.其他服务ToolStripMenuItem.Text = "其他服务";
             this.其他服务ToolStripMenuItem.Click += new System.EventHandler(this.其他ToolStripMenuItem_Click);
             // 
-            // 架号管理ToolStripMenuItem
-            // 
-            this.架号管理ToolStripMenuItem.Name = "架号管理ToolStripMenuItem";
-            this.架号管理ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.架号管理ToolStripMenuItem.Text = "架号管理";
-            this.架号管理ToolStripMenuItem.Click += new System.EventHandler(this.架号管理ToolStripMenuItem_Click);
-            // 
             // 员工管理ToolStripMenuItem
             // 
             this.员工管理ToolStripMenuItem.Name = "员工管理ToolStripMenuItem";
@@ -209,63 +190,6 @@
             this.提成管理toolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
             this.提成管理toolStripMenuItem2.Text = "提成管理";
             // 
-            // 牌号管理toolStripMenuItem1
-            // 
-            this.牌号管理toolStripMenuItem1.Name = "牌号管理toolStripMenuItem1";
-            this.牌号管理toolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
-            this.牌号管理toolStripMenuItem1.Text = "牌号管理";
-            // 
-            // 财务管理ToolStripMenuItem
-            // 
-            this.财务管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.提成管理ToolStripMenuItem,
-            this.寄存收费ToolStripMenuItem,
-            this.营业日报表ToolStripMenuItem,
-            this.服务统计报表ToolStripMenuItem,
-            this.管理营业日报ToolStripMenuItem,
-            this.管理服务统计ToolStripMenuItem});
-            this.财务管理ToolStripMenuItem.Name = "财务管理ToolStripMenuItem";
-            this.财务管理ToolStripMenuItem.Size = new System.Drawing.Size(81, 27);
-            this.财务管理ToolStripMenuItem.Text = "财务管理";
-            // 
-            // 提成管理ToolStripMenuItem
-            // 
-            this.提成管理ToolStripMenuItem.Name = "提成管理ToolStripMenuItem";
-            this.提成管理ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
-            this.提成管理ToolStripMenuItem.Text = "提成管理";
-            this.提成管理ToolStripMenuItem.Click += new System.EventHandler(this.提成管理ToolStripMenuItem_Click);
-            // 
-            // 寄存收费ToolStripMenuItem
-            // 
-            this.寄存收费ToolStripMenuItem.Name = "寄存收费ToolStripMenuItem";
-            this.寄存收费ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
-            this.寄存收费ToolStripMenuItem.Text = "寄存收费";
-            this.寄存收费ToolStripMenuItem.Click += new System.EventHandler(this.寄存收费ToolStripMenuItem_Click);
-            // 
-            // 营业日报表ToolStripMenuItem
-            // 
-            this.营业日报表ToolStripMenuItem.Name = "营业日报表ToolStripMenuItem";
-            this.营业日报表ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
-            this.营业日报表ToolStripMenuItem.Text = "营业日报表";
-            // 
-            // 服务统计报表ToolStripMenuItem
-            // 
-            this.服务统计报表ToolStripMenuItem.Name = "服务统计报表ToolStripMenuItem";
-            this.服务统计报表ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
-            this.服务统计报表ToolStripMenuItem.Text = "服务统计报表";
-            // 
-            // 管理营业日报ToolStripMenuItem
-            // 
-            this.管理营业日报ToolStripMenuItem.Name = "管理营业日报ToolStripMenuItem";
-            this.管理营业日报ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
-            this.管理营业日报ToolStripMenuItem.Text = "管理营业日报";
-            // 
-            // 管理服务统计ToolStripMenuItem
-            // 
-            this.管理服务统计ToolStripMenuItem.Name = "管理服务统计ToolStripMenuItem";
-            this.管理服务统计ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
-            this.管理服务统计ToolStripMenuItem.Text = "管理服务统计";
-            // 
             // 系统帮助ToolStripMenuItem
             // 
             this.系统帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -279,19 +203,19 @@
             // 帮助ToolStripMenuItem
             // 
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
+            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.帮助ToolStripMenuItem.Text = "帮助";
             // 
             // 注册ToolStripMenuItem
             // 
             this.注册ToolStripMenuItem.Name = "注册ToolStripMenuItem";
-            this.注册ToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
+            this.注册ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.注册ToolStripMenuItem.Text = "注册";
             // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.关于ToolStripMenuItem.Text = "关于";
             // 
             // panel1
@@ -339,145 +263,45 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.AutoSize = false;
-            this.toolStripButton1.Image = global::yixiupige.Properties.Resources.png_0009;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(75, 75);
-            this.toolStripButton1.Text = "收活管理";
-            this.toolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
             // toolStripButton2
             // 
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(6, 94);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.AutoSize = false;
-            this.toolStripButton3.Image = global::yixiupige.Properties.Resources.png_0010;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(75, 75);
-            this.toolStripButton3.Text = "会员管理";
-            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 94);
             // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.AutoSize = false;
-            this.toolStripButton4.Image = global::yixiupige.Properties.Resources.png_0012;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(75, 75);
-            this.toolStripButton4.Text = "寄存上架";
-            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 94);
-            // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.AutoSize = false;
-            this.toolStripButton5.Image = global::yixiupige.Properties.Resources.png_0007;
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(75, 75);
-            this.toolStripButton5.Text = "寄存管理";
-            this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 94);
             // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.AutoSize = false;
-            this.toolStripButton6.Image = global::yixiupige.Properties.Resources.png_0555;
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(75, 75);
-            this.toolStripButton6.Text = "商品管理";
-            this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
-            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 94);
-            // 
-            // toolStripButton7
-            // 
-            this.toolStripButton7.AutoSize = false;
-            this.toolStripButton7.Image = global::yixiupige.Properties.Resources.png_0008;
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(75, 75);
-            this.toolStripButton7.Text = "短信平台";
-            this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 94);
             // 
-            // toolStripButton8
-            // 
-            this.toolStripButton8.AutoToolTip = false;
-            this.toolStripButton8.Image = global::yixiupige.Properties.Resources.png_0014;
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(79, 91);
-            this.toolStripButton8.Text = "统计报表";
-            this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
-            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 94);
             // 
-            // toolStripButton9
-            // 
-            this.toolStripButton9.AutoSize = false;
-            this.toolStripButton9.Image = global::yixiupige.Properties.Resources.png_0037;
-            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(75, 75);
-            this.toolStripButton9.Text = "计算器";
-            this.toolStripButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
-            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 94);
-            // 
-            // toolStripButton10
-            // 
-            this.toolStripButton10.AutoSize = false;
-            this.toolStripButton10.Image = global::yixiupige.Properties.Resources.png_0013;
-            this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton10.Name = "toolStripButton10";
-            this.toolStripButton10.Size = new System.Drawing.Size(75, 75);
-            this.toolStripButton10.Text = "退出";
-            this.toolStripButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton10.Click += new System.EventHandler(this.toolStripButton10_Click);
             // 
             // toolStripSeparator8
             // 
@@ -599,6 +423,106 @@
             this.toolStripStatusLabel6.Size = new System.Drawing.Size(167, 20);
             this.toolStripStatusLabel6.Text = "toolStripStatusLabel6";
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.AutoSize = false;
+            this.toolStripButton1.Image = global::yixiupige.Properties.Resources.png_0009;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(75, 75);
+            this.toolStripButton1.Text = "收活管理";
+            this.toolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.AutoSize = false;
+            this.toolStripButton3.Image = global::yixiupige.Properties.Resources.png_0010;
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(75, 75);
+            this.toolStripButton3.Text = "会员管理";
+            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.AutoSize = false;
+            this.toolStripButton4.Image = global::yixiupige.Properties.Resources.png_0012;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(75, 75);
+            this.toolStripButton4.Text = "寄存上架";
+            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.AutoSize = false;
+            this.toolStripButton5.Image = global::yixiupige.Properties.Resources.png_0007;
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(75, 75);
+            this.toolStripButton5.Text = "寄存管理";
+            this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.AutoSize = false;
+            this.toolStripButton6.Image = global::yixiupige.Properties.Resources.png_0555;
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(75, 75);
+            this.toolStripButton6.Text = "商品管理";
+            this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.AutoSize = false;
+            this.toolStripButton7.Image = global::yixiupige.Properties.Resources.png_0008;
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(75, 75);
+            this.toolStripButton7.Text = "短信平台";
+            this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.AutoToolTip = false;
+            this.toolStripButton8.Image = global::yixiupige.Properties.Resources.png_0014;
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(79, 91);
+            this.toolStripButton8.Text = "统计报表";
+            this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.AutoSize = false;
+            this.toolStripButton9.Image = global::yixiupige.Properties.Resources.png_0037;
+            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.Size = new System.Drawing.Size(75, 75);
+            this.toolStripButton9.Text = "计算器";
+            this.toolStripButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
+            // 
+            // toolStripButton10
+            // 
+            this.toolStripButton10.AutoSize = false;
+            this.toolStripButton10.Image = global::yixiupige.Properties.Resources.png_0013;
+            this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton10.Name = "toolStripButton10";
+            this.toolStripButton10.Size = new System.Drawing.Size(75, 75);
+            this.toolStripButton10.Text = "退出";
+            this.toolStripButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton10.Click += new System.EventHandler(this.toolStripButton10_Click);
+            // 
             // DefaultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -644,15 +568,7 @@
         private System.Windows.Forms.ToolStripMenuItem 基本参数ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 分类服务ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 其他服务ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 架号管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 员工管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 财务管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 提成管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 寄存收费ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 营业日报表ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 服务统计报表ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 管理营业日报ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 管理服务统计ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 系统帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 注册ToolStripMenuItem;
@@ -692,6 +608,5 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ToolStripMenuItem 寄存收费toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 提成管理toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem 牌号管理toolStripMenuItem1;
     }
 }

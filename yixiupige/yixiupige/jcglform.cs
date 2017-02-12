@@ -112,7 +112,70 @@ namespace yixiupige
 
         private void 增加寄存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            AddjcFrom addjc = AddjcFrom.CreateForm();
+            addjc.Show();
+            addjc.Focus();
+        }
 
+        private void 删除寄存ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JCInfoModel model = (JCInfoModel)dataGridView1.SelectedRows[0].DataBoundItem;
+            caocuofrom caozuo = caocuofrom.Create(deletePassword, model.jcID.ToString());
+            caozuo.Show();
+        }
+        public void deletePassword(string pas, string cardNo)
+        {
+            if (pas.Trim() == "admin888")
+            {
+                //删除该会员
+                bool result = jcinfobll.deleteIDIteam(cardNo);
+                if (result)
+                {
+                    MessageBox.Show("删除成功！");
+                    dataviewBind1();
+                }
+                else
+                {
+                    MessageBox.Show("删除失败！");
+                }
+            }
+            else
+            {
+                MessageBox.Show("密码错误，删除失败！");
+            }
+        }
+
+        private void 取消取走ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JCInfoModel model = (JCInfoModel)dataGridView1.SelectedRows[0].DataBoundItem;
+            if (model.jcZT == "未取走")
+            {
+                MessageBox.Show("该物品并未取走，不能执行此操作！");
+                return;
+            }
+            caocuofrom caozuo = caocuofrom.Create(updateZT, model.jcID.ToString());
+            caozuo.Show();
+        }
+        public void updateZT(string pas, string cardNo)
+        {
+            if (pas.Trim() == "admin888")
+            {
+                //取消取走
+                bool result = jcinfobll.UpdateIDIteam(cardNo);
+                if (result)
+                {
+                    MessageBox.Show("修改成功！");
+                    dataviewBind1();
+                }
+                else
+                {
+                    MessageBox.Show("修改失败！");
+                }
+            }
+            else
+            {
+                MessageBox.Show("密码错误，修改失败！");
+            }
         }
     }
 }
