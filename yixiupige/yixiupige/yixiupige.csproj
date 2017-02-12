@@ -127,6 +127,12 @@
     <Compile Include="DefaultForm.Designer.cs">
       <DependentUpon>DefaultForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DPUpdateFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DPUpdateFrom.Designer.cs">
+      <DependentUpon>DPUpdateFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="dxform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -421,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="cjQuestion.resx">
       <DependentUpon>cjQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DPUpdateFrom.resx">
+      <DependentUpon>DPUpdateFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditQtFuWu.resx">
       <DependentUpon>EditQtFuWu.cs</DependentUpon>

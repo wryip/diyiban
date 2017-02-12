@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DPInfoBLL.cs" />
     <Compile Include="fuwuBLL.cs" />
     <Compile Include="GoodInfoBLL.cs" />
     <Compile Include="jbcsBLL.cs" />
@@ -54,6 +55,10 @@
     <Compile Include="staffInfoBLL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Commond\Commond.csproj">
+      <Project>{9d4b158d-1d46-4930-9685-708071ea440b}</Project>
+      <Name>Commond</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{2c00d49e-45a3-47e5-ae82-90f207d82baf}</Project>
       <Name>DAL</Name>

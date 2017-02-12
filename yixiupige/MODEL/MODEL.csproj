@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bdpjModel.cs" />
+    <Compile Include="DianPu.cs" />
     <Compile Include="DXmemberModel.cs" />
     <Compile Include="fuwuModel.cs" />
     <Compile Include="GoodInfo.cs" />

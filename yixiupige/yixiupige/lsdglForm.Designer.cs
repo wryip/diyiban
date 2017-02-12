@@ -73,6 +73,7 @@
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -87,6 +88,7 @@
             this.button2.Text = "\r\n修改";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -132,50 +134,59 @@
             this.SPID});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 21);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(810, 328);
             this.dataGridView1.TabIndex = 0;
             // 
             // mc
             // 
+            this.mc.DataPropertyName = "DPName";
             this.mc.HeaderText = "名称";
             this.mc.Name = "mc";
             this.mc.ReadOnly = true;
             // 
             // lxr
             // 
+            this.lxr.DataPropertyName = "DPPerson";
             this.lxr.HeaderText = "联系人";
             this.lxr.Name = "lxr";
             this.lxr.ReadOnly = true;
             // 
             // lxdh
             // 
+            this.lxdh.DataPropertyName = "DPTel";
             this.lxdh.HeaderText = "联系电话";
             this.lxdh.Name = "lxdh";
             this.lxdh.ReadOnly = true;
             // 
             // dz
             // 
+            this.dz.DataPropertyName = "DPAddress";
             this.dz.HeaderText = "地址";
             this.dz.Name = "dz";
             this.dz.ReadOnly = true;
             // 
             // bz
             // 
+            this.bz.DataPropertyName = "DPRemark";
             this.bz.HeaderText = "备注";
             this.bz.Name = "bz";
             this.bz.ReadOnly = true;
             // 
             // DYContent
             // 
+            this.DYContent.DataPropertyName = "DPContent";
             this.DYContent.HeaderText = "打印内容";
             this.DYContent.Name = "DYContent";
             this.DYContent.ReadOnly = true;
             // 
             // SPID
             // 
+            this.SPID.DataPropertyName = "DPPicture";
             this.SPID.HeaderText = "视频ID";
             this.SPID.Name = "SPID";
             this.SPID.ReadOnly = true;
@@ -194,6 +205,7 @@
             this.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.MaximizeBox = false;
             this.Name = "lsdglForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "连锁店管理";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.lsdglForm_FormClosed);
             this.Load += new System.EventHandler(this.lsdglForm_Load);

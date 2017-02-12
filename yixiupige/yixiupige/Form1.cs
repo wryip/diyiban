@@ -20,7 +20,7 @@ namespace yixiupige
         {
             InitializeComponent();
         }
-
+        DPInfoBLL dpbll = new DPInfoBLL();
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -34,7 +34,7 @@ namespace yixiupige
         private void button1_Click(object sender, EventArgs e)
         {         
             LoginUser User=new LoginUser();
-            if (User.SelectUser(textBox2.Text.Trim(), textBox1.Text.Trim(), comboBox1.SelectedText.Trim()))
+            if (User.SelectUser(textBox2.Text.Trim(), textBox1.Text.Trim(), comboBox1.Text.Trim()))
             {
                 DefaultForm _default2 = DefaultForm.CreateForm(fromclose);
                 _default2.Show();
@@ -48,6 +48,16 @@ namespace yixiupige
         public void fromclose()
         {
             this.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            List<string> str = dpbll.selectDPName();
+            foreach (var iteam in str)
+            {
+                comboBox1.Items.Add(iteam);
+            }
+            comboBox1.SelectedIndex = 0;
         }
     }
 }
