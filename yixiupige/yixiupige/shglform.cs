@@ -19,11 +19,14 @@ using ZXing.Rendering;
 using BLL;
 using MODEL;
 using System.IO;
+using Commond;
 //[code=csharp]using System;
 namespace yixiupige
 {
     public partial class shglform : Form
     {
+        //员工提成
+        //public static int tcMoney = 0;
         //寄存管理的业务处理曾对象
         JCInfoBLL jcbll = new JCInfoBLL();
         public static List<LiShiConsumption> DYList=new List<LiShiConsumption>();
@@ -31,7 +34,7 @@ namespace yixiupige
         //将写有寄存的信息加入到该list集合中
         public static List<shInfoList> jclist = new List<shInfoList>();
         //次卡相对应的金额
-        public static double ckmoney;
+        public static double ckmoney=0;
         public static int jishu = 1;
         public static bool huaka = false;
         //EncodingOptions options = null;
@@ -137,6 +140,15 @@ namespace yixiupige
         }
         private void CameraConn()
         {
+            //new FilterInfo(videoDevices[0].MonikerString);
+            FilterInfo state = new FilterInfo(videoDevices[0].MonikerString);
+            foreach (FilterInfo device in videoDevices)
+            {
+                if (device.Name.Trim() == FilterClass.PicImg.Trim())
+                {
+                    state = device;
+                }
+            }
             VideoCaptureDevice videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
             videoSource.DesiredFrameSize = new Size(320, 240);
             videoSource.DesiredFrameRate = 1;
@@ -303,6 +315,32 @@ namespace yixiupige
         //向datagridview2里面累加数据
         public void GridView2Bind(shInfoList model)
         {
+            List<shInfoList> list = new List<shInfoList>();
+            if (dataGridView2.Rows.Count == 0)
+            {
+                list.Add(model);
+                dataGridView2.DataSource = list;
+            }
+            else
+            {
+                for (int i = 0; i < dataGridView2.Rows.Count; i++)
+                {
+                    list.Add((shInfoList)dataGridView2.Rows[i].DataBoundItem);
+                }
+                list.Add(model);
+                dataGridView2.DataSource = list;
+            }
+        }
+        public void GridView2BindSP(shInfoList model,bool result)
+        {
+            model.YMPerson = comboBox4.Text.Trim();
+            //ckmoney
+            if (textBox12.Text.Trim() == "计次卡"&&result)
+            {
+                model.CiCount = Convert.ToInt32(Math.Ceiling(model.CountMoney / ckmoney));
+            }
+            int count = dataGridView2.Rows.Count + 1;
+            model.Id = count;
             List<shInfoList> list = new List<shInfoList>();
             if (dataGridView2.Rows.Count == 0)
             {
@@ -620,7 +658,7 @@ namespace yixiupige
                 //
                 //
                 //此处需要连锁店明，后期导入
-                model.LSMultipleName = "连锁店名";
+                model.LSMultipleName = FilterClass.DianPu1.UserName;
                 model.LSQuestion = iteam.CJQuestion;
                 model.LSRemark = iteam.Remark;                
                 model.LSDanNumber = sb;                
@@ -686,7 +724,7 @@ namespace yixiupige
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            spSalesFrom spsale = spSalesFrom.CreateForm();
+            spSalesFrom spsale = spSalesFrom.CreateForm(GridView2BindSP);
             spsale.Show();
             spsale.Focus();
         }
@@ -723,7 +761,8 @@ namespace yixiupige
                 MessageBox.Show("请先查找会员！");
                 return;
             }
-            dataGridView1.DataSource = lsbll.selectAllList(textBox5.Text.Trim());
+            string name = FilterClass.DianPu1.UserName;
+            dataGridView1.DataSource = lsbll.selectAllList(textBox5.Text.Trim(), name);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -1,5 +1,6 @@
 ﻿using AForge.Video.DirectShow;
 using BLL;
+using Commond;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -159,6 +160,14 @@ namespace yixiupige
         }
         private void CameraConn()
         {
+            FilterInfo state = new FilterInfo(videoDevices[0].MonikerString);
+            foreach (FilterInfo device in videoDevices)
+            {
+                if (device.Name.Trim() == FilterClass.PicImg.Trim())
+                {
+                    state = device;
+                }
+            }
             VideoCaptureDevice videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
             videoSource.DesiredFrameSize = new Size(320, 240);
             videoSource.DesiredFrameRate = 1;

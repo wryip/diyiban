@@ -35,13 +35,13 @@ namespace yixiupige
         {
            List<GoodInfo> list=gdbll.Getlist(gd);
            GoodInfo gds = list[0];
-            nametextBox.Text = gds.Gname.ToString();
-            notextBox.Text = gds.Gno.ToString();
-            pricetextBox.Text = gds.Gprice.ToString();
-            bidtextBox.Text = gds.Gbid.ToString();
-            remarktextBox.Text = gds.Gremark.ToString();
-            typetextBox.Text = gds.Gtype.ToString();
-            sumtextBox.Text = gds.Gsum.ToString();
+            nametextBox.Text = gds.Gname.ToString().Trim();
+            notextBox.Text = gds.Gno.ToString().Trim();
+            pricetextBox.Text = gds.Gprice.ToString().Trim();
+            bidtextBox.Text = gds.Gbid.ToString().Trim();
+            remarktextBox.Text = gds.Gremark.ToString().Trim();
+            typetextBox.Text = gds.Gtype.ToString().Trim();
+            sumtextBox.Text = gds.Gsum.ToString().Trim();
         }
         spform sp = new spform();
         public event Action Loadevent;

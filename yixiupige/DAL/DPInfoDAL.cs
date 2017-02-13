@@ -98,5 +98,14 @@ namespace DAL
             }
             return list;
         }
+        public string selectPicImg(string name)
+        {
+            string str = "select DPPicture from DPInfo where DPName=@DPName";
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",name)
+            };
+            object ss = SqlHelper.ExecuteScalar(str, pms);
+            return ss == null ? "" : ss.ToString();
+        }
     }
 }

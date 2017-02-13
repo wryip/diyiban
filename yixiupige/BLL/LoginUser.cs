@@ -15,31 +15,29 @@ namespace BLL
         public bool SelectUser(string LoginName, string UserPwd, string UserName)
         {
             //LoginUserDAl userdal=new LoginUserDAl();
-            MODEL.LoginUser user = userdal.SelectUser(UserName);
+            MODEL.LoginUser user = userdal.SelectUser(LoginName, UserPwd,UserName);
             if (user != null)
             {
-                if (user.UserPwd == UserPwd && user.UserName == UserName && user.LoginName == LoginName)
-                {
-                    filter(user);
-                    return true;
-                }
-                else
-                {
-                    if (LoginName == "admin" && UserPwd == "admin" && UserName=="admin")
-                    {
-                        filter(user);
-                        return true;
-                    }
-                    return false;
-                }
+                //if (user.LoginName.Trim() == "admin" && user.UserPwd.Trim() == "admin" && user.UserName.Trim() == "admin")
+                //    {
+                filter(user,user.UserName);
+                return true;
+                //}
+                //filter(user);
+                //return true;
+                //return false;
+                
             }
             else
             {
                 return false;
             }
         }
-        public void filter(MODEL.LoginUser model)
+        public void filter(MODEL.LoginUser model,string dpname)
         {
+            DPInfoBLL bll = new DPInfoBLL();
+            string pict = bll.selectPicImg(dpname);
+            FilterClass.PicImg = pict;
             //将登陆人的信息保存在过滤器中，在用户执行其他操作时进行权限过滤
             FilterClass.DianPu1 = model;
         }
@@ -54,6 +52,10 @@ namespace BLL
         public bool AddUserIteam(MODEL.LoginUser model)
         {
             return userdal.AddUserIteam(model);
+        }
+        public bool UpdateIteam(MODEL.LoginUser model)
+        {
+            return userdal.UpdateIteam(model);
         }
     }
 }

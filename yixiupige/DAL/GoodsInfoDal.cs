@@ -120,5 +120,42 @@ namespace DAL
                                 };
            return SqlHelper.ExecuteNonQuery(sql, sp);
        }
+       public List<GoodInfo> GetlistJQ(GoodInfo gd)
+       {
+           List<SqlParameter> listp = new List<SqlParameter>();
+           List<GoodInfo> list = new List<GoodInfo>();
+           string sql = "select * from GoodInfo";
+           if (!string.IsNullOrEmpty(gd.Gno))
+           {
+               sql += " where Gno=@no";
+               listp.Add(new SqlParameter("@no", gd.Gno.Trim()));
+           }
+           if (!string.IsNullOrEmpty(gd.Gname))
+           {
+               sql += " where Gname=@name";
+               listp.Add(new SqlParameter("@name", gd.Gname.Trim()));
+           }
+           DataSet ds = SqlHelper.GetDataSet(sql, listp.ToArray());
+           DataTable dt = ds.Tables[0];
+           foreach (DataRow row in dt.Rows)
+           {
+               list.Add(
+                   new GoodInfo()
+                   {
+                       Gid = Convert.ToInt32(row["Gid"]),
+                       Gname = row["Gname"].ToString(),
+                       Gno = row["Gno"].ToString(),
+                       Gprice = Convert.ToDecimal(row["Gprice"]),
+                       Gremark = row["Gremark"].ToString(),
+                       Gstock = Convert.ToInt32(row["Gstock"]),
+                       Gsum = Convert.ToInt32(row["Gsum"]),
+                       Gtype = row["Gtype"].ToString(),
+                       Gbid = Convert.ToDecimal(row["Gbid"])
+
+                   }
+                   );
+           }
+           return list;
+       }
     }
 }

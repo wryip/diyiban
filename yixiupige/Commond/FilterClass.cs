@@ -10,9 +10,10 @@ namespace Commond
     public static  class FilterClass
     {
         public static LoginUser DianPu1 { get; set; }
+        public static string PicImg { get; set; }
         public static bool isadmin()
         {
-            if (DianPu1.UserName == "admin" && DianPu1.UserPwd == "admin" && DianPu1.LoginName=="admin")
+            if (DianPu1.UserName.Trim() == "admin" && DianPu1.UserPwd.Trim() == "admin" && DianPu1.LoginName.Trim()=="admin")
             {
                 return true;
             }

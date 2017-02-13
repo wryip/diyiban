@@ -44,13 +44,14 @@ namespace DAL
             }
             return result;
         }
-        public List<LiShiConsumption> selectAllList(string cardNo)
+        public List<LiShiConsumption> selectAllList(string cardNo,string name)
         {
             List<LiShiConsumption> list = new List<LiShiConsumption>();
             LiShiConsumption model;
-            string str = "select * from LSConsumption where LSCardNumber=@LSCardNumber";
+            string str = "select * from LSConsumption where LSCardNumber=@LSCardNumber and LSMultipleName=@LSMultipleName";
             SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@LSCardNumber",cardNo)
+            new SqlParameter("@LSCardNumber",cardNo),
+            new SqlParameter("@LSMultipleName",name)
             };
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())

@@ -27,9 +27,9 @@ namespace BLL
         {
             return dal.seleteIteam(neirong);
         }
-        public List<string> selectnode()
-        {
-            return dal.selectNodes();
-        }
+        //public List<string> selectnode()
+        //{
+        //    return dal.selectNodes();
+        //}
     }
 }

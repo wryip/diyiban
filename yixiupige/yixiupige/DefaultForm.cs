@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Commond;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -57,6 +58,11 @@ namespace yixiupige
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            if (!FilterClass.shgl())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
             shglform shouhuo = shglform.CreateForm();
             shouhuo.MdiParent = this;
             shouhuo.Parent = panel3;
@@ -67,6 +73,11 @@ namespace yixiupige
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
+            if (!FilterClass.hygl())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
             hyglform huiyuan = hyglform.CreateForm();
             huiyuan.MdiParent = this;
             huiyuan.Parent = panel3;
@@ -76,7 +87,11 @@ namespace yixiupige
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-
+            if (!FilterClass.jcsj())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
             jcform jicun = jcform.CreateForm();
             jicun.MdiParent = this;
             jicun.Parent = panel3;
@@ -86,6 +101,11 @@ namespace yixiupige
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
+            if (!FilterClass.jcgl())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
             jcglform jicunguanli = jcglform.CreateForm();
             jicunguanli.MdiParent = this;
             jicunguanli.Parent = panel3;
@@ -96,6 +116,11 @@ namespace yixiupige
 
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
+            if (!FilterClass.spgl())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
             spform shangpinguanli = spform.CreateForm();
             shangpinguanli.MdiParent = this;
             shangpinguanli.Parent = panel3;
@@ -106,6 +131,11 @@ namespace yixiupige
 
         private void toolStripButton7_Click(object sender, EventArgs e)
         {
+            if (!FilterClass.dxgl())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
             dxform duanxinguanli = dxform.CreateForm();
             duanxinguanli.MdiParent = this;
             duanxinguanli.Parent = panel3;
@@ -115,6 +145,11 @@ namespace yixiupige
 
         private void toolStripButton8_Click(object sender, EventArgs e)
         {
+            if (!FilterClass.tjbb())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
             tjform tongjibaobiao = tjform.CreateForm();
             tongjibaobiao.MdiParent = this;
             tongjibaobiao.Parent = panel3;
@@ -137,6 +172,11 @@ namespace yixiupige
         //显示管理员设置窗口
         private void 管理员设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!FilterClass.glysz())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
             glyszForm glygl = glyszForm.Create();
             glygl.Show();
             glygl.Focus();
@@ -144,6 +184,11 @@ namespace yixiupige
         //显示连锁店管理窗口
         private void 系统设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!FilterClass.lsdsz())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
             lsdglForm lsdgl = lsdglForm.Create();
             lsdgl.Show();
             lsdgl.Focus();
@@ -151,6 +196,11 @@ namespace yixiupige
 
         private void 数据库管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!FilterClass.sjkgl())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
             sjkglForm sjkgl = sjkglForm.Create();
             sjkgl.Show();
             sjkgl.Focus();
@@ -158,6 +208,11 @@ namespace yixiupige
 
         private void 基本参数ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!FilterClass.jbcs())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
             jbcsForm jbcs = jbcsForm.Create();
             jbcs.Show();
             jbcs.Focus();
@@ -165,6 +220,11 @@ namespace yixiupige
 
         private void 分类服务ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!FilterClass.flgl())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
             hyflglfwForm hyflgl = hyflglfwForm.Create();
             hyflgl.Show();
             hyflgl.Focus();
@@ -172,6 +232,11 @@ namespace yixiupige
 
         private void 其他ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!FilterClass.qtfw())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
             qtForm qt = qtForm.Create();
             qt.Show();
             qt.Focus();
@@ -193,6 +258,11 @@ namespace yixiupige
 
         private void 员工管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!FilterClass.yggl())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
             ygglForm yggl = ygglForm.Create();
             yggl.Show();
             yggl.Focus();
@@ -213,6 +283,15 @@ namespace yixiupige
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void 提成管理toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (!FilterClass.tcgl())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
         }
     }
 }

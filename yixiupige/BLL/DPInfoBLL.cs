@@ -31,5 +31,9 @@ namespace BLL
         {
             return dal.selectDPName();
         }
+        public string selectPicImg(string name)
+        {
+            return dal.selectPicImg(name);
+        }
     }
 }

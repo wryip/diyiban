@@ -28,7 +28,7 @@ namespace yixiupige
             }
             return jbcs;
         }
-        public event Action Loadevent;
+        //public event Action Loadevent;
      
         private void button1_Click(object sender, EventArgs e)
         {
@@ -48,7 +48,7 @@ namespace yixiupige
         private void jbcsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             jbcs = null;
-            Loadevent();
+            //Loadevent();
         }
 
         private void jbcsForm_Load(object sender, EventArgs e)

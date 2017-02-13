@@ -139,6 +139,7 @@
             this.kinyaoo123456DataSet1 = new yixiupige.kinyaoo123456DataSet();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.shId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TCMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shJiCun = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.shFuWuName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shCiCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -498,6 +499,7 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.shId,
+            this.TCMoney,
             this.shJiCun,
             this.shFuWuName,
             this.shCiCount,
@@ -1314,6 +1316,14 @@
             this.shId.ReadOnly = true;
             this.shId.Width = 70;
             // 
+            // TCMoney
+            // 
+            this.TCMoney.DataPropertyName = "TCMoney";
+            this.TCMoney.HeaderText = "TCMoney";
+            this.TCMoney.Name = "TCMoney";
+            this.TCMoney.ReadOnly = true;
+            this.TCMoney.Visible = false;
+            // 
             // shJiCun
             // 
             this.shJiCun.DataPropertyName = "JiCun";
@@ -1586,6 +1596,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lsCardNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Imgurl;
         private System.Windows.Forms.DataGridViewTextBoxColumn shId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TCMoney;
         private System.Windows.Forms.DataGridViewCheckBoxColumn shJiCun;
         private System.Windows.Forms.DataGridViewTextBoxColumn shFuWuName;
         private System.Windows.Forms.DataGridViewTextBoxColumn shCiCount;

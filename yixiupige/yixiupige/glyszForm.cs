@@ -33,7 +33,7 @@ namespace yixiupige
         //窗体加载
         private void glyszForm_Load(object sender, EventArgs e)
         {
-            string name = "";
+            //string name = "";
             groupBox2.Text="管理员列表-有"+dataGridView1.RowCount+"条";
             if (FilterClass.isadmin())
             {
@@ -248,7 +248,180 @@ namespace yixiupige
             {
                 model.yggl = true;
             }
-            bool result = AddUserIteam(model);
+            bool result = logbll.AddUserIteam(model);
+            if (result)
+            {
+                MessageBox.Show("添加成功!");
+                databind(comboBox1.Text.Trim());
+                return;
+            }
+            MessageBox.Show("添加失败!");
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                MODEL.LoginUser model = (MODEL.LoginUser)dataGridView1.SelectedRows[0].DataBoundItem;
+                DataXS(model);
+                return;
+            }
+            MessageBox.Show("请选择一行数据！");
+        }
+        public void DataXS(MODEL.LoginUser model)
+        {
+            textBox1.Text = model.LoginName;
+            textBox2.Text = model.UserPwd;
+            textBox3.Text = model.UserPwd;
+            if (model.shgl)
+            {
+                shglcheckBox.Checked=true;
+            }
+            if (model.hygl)
+            {
+                hyglcheckBox.Checked = true;
+            }
+            if (model.jcsj)
+            {
+                jcsjcheckBox.Checked = true;
+            }
+            if (model.jcgl)
+            {
+                jcglcheckBox.Checked = true;
+            }
+            if (model.spgl)
+            {
+                spglcheckBox.Checked = true;
+            }
+            if (model.tjbb)
+            {
+                tjbbcheckBox.Checked = true;
+            }
+            if (model.dxgl)
+            {
+                dxglcheckBox.Checked = true;
+            }
+            if (model.tcgl)
+            {
+                tcglcheckBox.Checked = true;
+            }
+            if (model.glysz)
+            {
+                glyszcheckBox.Checked = true;
+            }
+            if (model.lsdsz)
+            {
+                lsdszcheckBox.Checked = true;
+            }
+            if (model.sjkgl)
+            {
+                sjkglcheckBox.Checked = true;
+            }
+            if (model.jbcs)
+            {
+                jbcscheckBox.Checked = true;
+            }
+            if (model.qtfw)
+            {
+                qtcheckBox.Checked = true;
+            }
+            if (model.flgl)
+            {
+                flcheckBox.Checked = true;
+            }
+            if (model.yggl)
+            {
+                ygcheckBox.Checked = true;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("请选择一行数据！");               
+                return;
+            }
+            MODEL.LoginUser model1 = (MODEL.LoginUser)dataGridView1.SelectedRows[0].DataBoundItem;
+            int id = model1.ID;
+            if (textBox2.Text != textBox3.Text)
+            {
+                MessageBox.Show("两次密码不一致！");
+                return;
+            }
+            MODEL.LoginUser model = new MODEL.LoginUser();
+            model.UserName = comboBox1.Text;
+            model.LoginName = textBox1.Text.Trim();
+            model.UserPwd = textBox2.Text.Trim();
+            if (shglcheckBox.Checked)
+            {
+                model.shgl = true;
+            }
+            if (hyglcheckBox.Checked)
+            {
+                model.hygl = true;
+            }
+            if (jcsjcheckBox.Checked)
+            {
+                model.jcsj = true;
+            }
+            if (jcglcheckBox.Checked)
+            {
+                model.jcgl = true;
+            }
+            if (spglcheckBox.Checked)
+            {
+                model.spgl = true;
+            }
+            if (tjbbcheckBox.Checked)
+            {
+                model.tjbb = true;
+            }
+            if (dxglcheckBox.Checked)
+            {
+                model.dxgl = true;
+            }
+            if (tcglcheckBox.Checked)
+            {
+                model.tcgl = true;
+            }
+            if (glyszcheckBox.Checked)
+            {
+                model.glysz = true;
+            }
+            if (lsdszcheckBox.Checked)
+            {
+                model.lsdsz = true;
+            }
+            if (sjkglcheckBox.Checked)
+            {
+                model.sjkgl = true;
+            }
+            if (jbcscheckBox.Checked)
+            {
+                model.jbcs = true;
+            }
+            if (qtcheckBox.Checked)
+            {
+                model.qtfw = true;
+            }
+            if (flcheckBox.Checked)
+            {
+                model.flgl = true;
+            }
+            if (ygcheckBox.Checked)
+            {
+                model.yggl = true;
+            }
+            model.ID = id;
+            bool result = logbll.UpdateIteam(model);
+            if (result)
+            {
+                MessageBox.Show("修改成功!");
+                databind(comboBox1.Text.Trim());
+                return;
+            }
+            MessageBox.Show("修改失败!");
         }
     }
 }

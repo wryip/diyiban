@@ -1,5 +1,6 @@
 ﻿using AForge.Video.DirectShow;
 using BLL;
+using Commond;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,7 @@ namespace yixiupige
             }
             return hyzj;
         }
-
+        DPInfoBLL dpbll = new DPInfoBLL();
         public memberInfoBLL modelbll = new memberInfoBLL();
         public memberTypeCURD bll = new memberTypeCURD();
         public string password;
@@ -153,6 +154,14 @@ namespace yixiupige
         }
         private void CameraConn()
         {
+            FilterInfo state = new FilterInfo(videoDevices[0].MonikerString);
+            foreach (FilterInfo device in videoDevices)
+            {
+                if (device.Name.Trim() == FilterClass.PicImg.Trim())
+                {
+                    state = device;
+                }
+            }
             VideoCaptureDevice videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
             videoSource.DesiredFrameSize = new Size(160, 120);
             videoSource.DesiredFrameRate = 1;
@@ -204,6 +213,21 @@ namespace yixiupige
             dateTimePicker1.Enabled = false;
             szmmbutton.Enabled = false;
             #endregion
+            //连锁店名初始化
+            if (FilterClass.isadmin())
+            {
+                List<string> strdp = dpbll.selectDPName();
+                foreach (var iteam in strdp)
+                {
+                    lsdcomboBox.Items.Add(iteam);
+                }
+                lsdcomboBox.SelectedIndex = 0;
+            }
+            else
+            {
+                lsdcomboBox.Text = FilterClass.DianPu1.UserName;
+                lsdcomboBox.Enabled = false;
+            }
         }
 
         private void videoSourcePlayer1_NewFrame(object sender, ref Bitmap image)

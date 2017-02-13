@@ -15,9 +15,9 @@ namespace BLL
         {
             return dal.AddList(listLS);
         }
-        public List<LiShiConsumption> selectAllList(string cardNo)
+        public List<LiShiConsumption> selectAllList(string cardNo,string name)
         {
-            return dal.selectAllList(cardNo);
+            return dal.selectAllList(cardNo, name);
         }
         //返回不大票据的信息
         public List<bdpjModel> selectBDPJ()

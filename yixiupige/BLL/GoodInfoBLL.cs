@@ -14,6 +14,10 @@ namespace BLL
        {
            return gddal.Getlist(gd);
        }
+       public List<GoodInfo> GetlistJQ(GoodInfo gd)
+       {
+           return gddal.GetlistJQ(gd);
+       }
        public bool Add(GoodInfo gd)
        {
            return gddal.Insert(gd) > 0;

@@ -54,7 +54,7 @@ namespace yixiupige
             TreeNode child;
 
 
-            List<string> list = jbcsbll.selectnode();
+            List<jbcs> list = jbcsbll.selectList(4);
             TreeNode parent = treeView1.Nodes[0];
             //TreeNode parent=new TreeNode();
             //parent.Text = "全部";
@@ -62,7 +62,7 @@ namespace yixiupige
             foreach (var i in list)
             {
                 child = new TreeNode();
-                child.Text =i;
+                child.Text =i.AllType;
                 parent.Nodes.Add(child);
             }
             _load();

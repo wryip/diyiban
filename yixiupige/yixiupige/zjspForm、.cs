@@ -31,7 +31,11 @@ namespace yixiupige
         private void zjspForm__Load(object sender, EventArgs e)
         {
             jbcsBLL jbcsbll = new jbcsBLL();
-            typetextBox.DataSource = jbcsbll.selectnode();
+            List<jbcs> list=jbcsbll.selectList(4);
+            foreach(var iteam in list)
+            {
+                typetextBox.Items.Add(iteam.AllType);
+            }            
             GoodInfo gd=null;
             notextBox.Text = (10000 + gdbll.Getlist(gd).Count).ToString();
         }
@@ -68,13 +72,13 @@ namespace yixiupige
         private void loadevent()
         {
             jbcsBLL jbcsbll = new jbcsBLL();
-            typetextBox.DataSource = jbcsbll.selectnode();
+            typetextBox.DataSource = jbcsbll.selectList(4);
         }
       
         private void zjbutton_Click(object sender, EventArgs e)
         {
             jbcsForm jbcs = jbcsForm.Create();
-            jbcs.Loadevent += loadevent;
+            //jbcs.Loadevent += loadevent;
             jbcs.Show();
             jbcs.Focus();
         }
