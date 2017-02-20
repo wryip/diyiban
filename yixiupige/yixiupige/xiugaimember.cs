@@ -21,6 +21,8 @@ namespace yixiupige
         {
             InitializeComponent();
         }
+        staffInfoBLL staff = new staffInfoBLL();
+        DPInfoBLL dpbll = new DPInfoBLL();
         public delegate void binddata();
         public static binddata bdata;
         private static xiugaimember hyzj;
@@ -66,6 +68,24 @@ namespace yixiupige
             #endregion
             #region//窗口打开的时候初始化的内容
             //初始化会员分类
+            if (FilterClass.isadmin())
+            {
+                List<string> strdp = dpbll.selectDPName();
+                foreach (var iteam in strdp)
+                {
+                    lsdcomboBox.Items.Add(iteam);
+                }
+            }
+            else
+            {
+                lsdcomboBox.Text = modelmember.dianName;
+                lsdcomboBox.Enabled = false;
+            }
+            List<jbcs> listname = staff.selectSH();
+            foreach (var iteam in listname)
+            {
+                ywycomboBox.Items.Add(iteam.AllType);
+            }
             hykhtextBox.Text = modelmember.memberCardNo;
             hykhtextBox.ReadOnly = true;
             hyxmtextBox.Text = modelmember.memberName;
@@ -88,7 +108,7 @@ namespace yixiupige
             bzxxtextBox.Text = modelmember.remark;
             dwtextBox.Text = modelmember.address;
             ywycomboBox.Text = modelmember.saleMan;
-            lsdcomboBox.Text = modelmember.dianName;
+            
             csrqdateTimePicker.Text = modelmember.birDate.Trim();
             bkrqdateTimePicker.Text = modelmember.cardDate.Trim();
             if (modelmember.password.Trim() != "")

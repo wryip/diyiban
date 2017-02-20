@@ -16,7 +16,7 @@ namespace BLL
         {
             //LoginUserDAl userdal=new LoginUserDAl();
             MODEL.LoginUser user = userdal.SelectUser(LoginName, UserPwd,UserName);
-            if (user != null)
+            if (user.LoginName != null)
             {
                 //if (user.LoginName.Trim() == "admin" && user.UserPwd.Trim() == "admin" && user.UserName.Trim() == "admin")
                 //    {
@@ -36,8 +36,9 @@ namespace BLL
         public void filter(MODEL.LoginUser model,string dpname)
         {
             DPInfoBLL bll = new DPInfoBLL();
-            string pict = bll.selectPicImg(dpname);
-            FilterClass.PicImg = pict;
+            string[] pict = bll.selectPicImg(dpname);
+            FilterClass.PicImg = pict[0];
+            FilterClass.DXInfo = pict[1];
             //将登陆人的信息保存在过滤器中，在用户执行其他操作时进行权限过滤
             FilterClass.DianPu1 = model;
         }

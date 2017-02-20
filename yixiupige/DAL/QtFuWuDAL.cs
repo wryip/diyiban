@@ -1,4 +1,5 @@
-﻿using MODEL;
+﻿using Commond;
+using MODEL;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -13,10 +14,11 @@ namespace DAL
         public bool AddModel(qtFuWuModel model)
         {
             bool result = false;
-            string str = "insert into QtFuWu(QtName,QtTc) values(@QtName,@QtTc)";
+            string str = "insert into QtFuWu(QtName,QtTc,DPName) values(@QtName,@QtTc,@DPName)";
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@QtName",model.QtName),
-            new SqlParameter("@QtTc",model.QtTc)
+            new SqlParameter("@QtTc",model.QtTc),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
@@ -28,8 +30,11 @@ namespace DAL
         {
             List<qtFuWuModel> list = new List<qtFuWuModel>();
             qtFuWuModel model;
-            string str = "select * from QtFuWu";
-            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            };
+            string str = "select * from QtFuWu where DPName=@DPName";
+            SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
                 if (read.HasRows)
@@ -45,10 +50,11 @@ namespace DAL
         public bool EditModel(qtFuWuModel model)
         {
             bool result = false;
-            string str = "update QtFuWu set QtTc=@QtTc where QtName=@QtName";
+            string str = "update QtFuWu set QtTc=@QtTc where QtName=@QtName and DPName=@DPName";
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@QtName",model.QtName),
-            new SqlParameter("@QtTc",model.QtTc)
+            new SqlParameter("@QtTc",model.QtTc),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
@@ -59,9 +65,10 @@ namespace DAL
         public bool deleteModel(string name)
         {
             bool result = false;
-            string str = "delete from QtFuWu where QtName=@QtName";
+            string str = "delete from QtFuWu where QtName=@QtName and DPName=@DPName";
             SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@QtName",name.Trim())
+            new SqlParameter("@QtName",name.Trim()),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
@@ -73,8 +80,11 @@ namespace DAL
         {
             List<string> list = new List<string>();
             string name;
-            string str = "select QtName from QtFuWu";
-            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            };
+            string str = "select QtName from QtFuWu where DPName=@DPName";
+            SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
                 if (read.HasRows)

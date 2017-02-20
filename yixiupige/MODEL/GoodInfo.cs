@@ -14,7 +14,9 @@ namespace MODEL
        public string Gtype { get; set; }
        //售价
        public decimal Gprice { get; set; }
+       //库存
        public int Gstock { get; set; }
+       //总数
        public int Gsum { get; set; }
        public string Gremark { get; set; }
        //进价

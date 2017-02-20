@@ -221,6 +221,90 @@ namespace BLL
             }
             return list;
         }
+        public List<memberInfoModel> tjbbOfbk(string begindate, string enddate, string yginfo)
+        {
+            List<memberInfoModel> list1 = dal.tjbbOfbk(yginfo);
+            List<memberInfoModel> list = new List<memberInfoModel>();  
+            string pattern = @"[\d]+";
+            Regex regex = new Regex(pattern, RegexOptions.None);
+            int dyear = Convert.ToInt32(regex.Matches(enddate)[0].Value);
+            int dmonth = Convert.ToInt32(regex.Matches(enddate)[1].Value);
+            int dday = Convert.ToInt32(regex.Matches(enddate)[2].Value);
+            int xyear = Convert.ToInt32(regex.Matches(begindate)[0].Value);
+            int xmonth = Convert.ToInt32(regex.Matches(begindate)[1].Value);
+            int xday = Convert.ToInt32(regex.Matches(begindate)[2].Value);
+            foreach (var iteam in list1)
+            {
+                int year = Convert.ToInt32(regex.Matches(iteam.cardDate.Trim())[0].Value);
+                int month = Convert.ToInt32(regex.Matches(iteam.cardDate.Trim())[1].Value);
+                int day = Convert.ToInt32(regex.Matches(iteam.cardDate.Trim())[2].Value);
+                if (year < xyear || year > dyear)
+                {
+                    continue;
+                }
+                else
+                {
+                    if (dyear == xyear)
+                    {
+                        if (month > dmonth || month < xmonth)
+                        {
+                            continue;
+                        }
+                        if (day > dday || day < xday)
+                        {
+                            continue;
+                        }
+                        list.Add(iteam);
+                        continue;
+                    }
+                    if (year == dyear)
+                    {
+                        if (month > dmonth)
+                        {
+                            continue;
+                        }
+                        else if (month < dmonth)
+                        {
+                            list.Add(iteam);
+                        }
+                        else
+                        {
+                            if (day > dday)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                list.Add(iteam);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (month < xmonth)
+                        {
+                            continue;
+                        }
+                        else if (month > xmonth)
+                        {
+                            list.Add(iteam);
+                        }
+                        else
+                        {
+                            if (day < xday)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                list.Add(iteam);
+                            }
+                        }
+                    }
+                }
+            }         
+            return list;
+        }
         //会员充值
         public bool hyczMoney(string cardno, int money)
         {
@@ -241,6 +325,7 @@ namespace BLL
         {
             return dal.SelectId(card);
         }
+        //消费
         public bool XFmoney(string cardNumber, string Xmoney)
         {
             return dal.XFmoney(cardNumber, Xmoney);            

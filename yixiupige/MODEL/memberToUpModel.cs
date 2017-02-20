@@ -19,5 +19,6 @@ namespace MODEL
         public string czType { get; set; }
         public string czDate { get; set; }
         public string czSaleman { get; set; }
+        public string dianpu { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MODEL;
+﻿using Commond;
+using MODEL;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -20,9 +21,10 @@ namespace DAL
             new SqlParameter("@stTel",model.stTel),
             new SqlParameter("@stType",model.stType),
             new SqlParameter("@stAdd",model.stAdd),
-            new SqlParameter("@stRemark",model.stRemark)
+            new SqlParameter("@stRemark",model.stRemark),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
-            string str = "insert into staffTable(stName,stDocument,stSex,stTel,stType,stAdd,stRemark) values(@stName,@stDocument,@stSex,@stTel,@stType,@stAdd,@stRemark)";
+            string str = "insert into staffTable(stName,stDocument,stSex,stTel,stType,stAdd,stRemark,DPName) values(@stName,@stDocument,@stSex,@stTel,@stType,@stAdd,@stRemark,@DPName)";
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
                 result = true;
@@ -33,8 +35,11 @@ namespace DAL
         {
             List<staffTable> list = new List<staffTable>();
             staffTable model;
-            string str = "select * from staffTable";
-            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            };
+            string str = "select * from staffTable where DPName=@DPName";
+            SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
                 if (read.HasRows)
@@ -64,7 +69,7 @@ namespace DAL
             new SqlParameter("@stAdd",model.stAdd),
             new SqlParameter("@stRemark",model.stRemark),
             new SqlParameter("@Id",model.Id),
-            new SqlParameter("@stType",model.stType)
+            new SqlParameter("@stType",model.stType),
             };
             string str = "update staffTable set stName=@stName,stDocument=@stDocument,stSex=@stSex,stTel=@stTel,stType=@stType,stAdd=@stAdd,stRemark=@stRemark where Id=@Id";
             if (SqlHelper.ExecuteNonQuery(str, pms)>0)
@@ -94,8 +99,11 @@ namespace DAL
         {
             List<jbcs> list = new List<jbcs>();
             jbcs model;
-            string str = "select stName from staffTable";
-            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            };
+            string str = "select stName from staffTable where DPName=@DPName";
+            SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
                 if (read.HasRows)

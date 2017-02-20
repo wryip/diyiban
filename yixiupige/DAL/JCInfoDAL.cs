@@ -1,4 +1,5 @@
-﻿using MODEL;
+﻿using Commond;
+using MODEL;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -13,7 +14,7 @@ namespace DAL
         public bool addJCList(List<JCInfoModel> list)
         {
             bool result = true;
-            string str = "insert into JCInfoTable(jcCardNumber,jcName,jcQMoney,jcType,jcPinPai,jcColor,jcStaff,jcBeginDate,jcEndDate,jcZT,jcAddress,jcImgUrl,jcDanNumber,jcPaiNumber,jcRemark,jcQuestion,jcPression) values(@jcCardNumber,@jcName,@jcQMoney,@jcType,@jcPinPai,@jcColor,@jcStaff,@jcBeginDate,@jcEndDate,@jcZT,@jcAddress,@jcImgUrl,@jcDanNumber,@jcPaiNumber,@jcRemark,@jcQuestion,@jcPression)";
+            string str = "insert into JCInfoTable(jcCardNumber,jcName,jcQMoney,jcType,jcPinPai,jcColor,jcStaff,jcBeginDate,jcEndDate,jcZT,jcAddress,jcImgUrl,jcDanNumber,jcPaiNumber,jcRemark,jcQuestion,jcPression,DPName) values(@jcCardNumber,@jcName,@jcQMoney,@jcType,@jcPinPai,@jcColor,@jcStaff,@jcBeginDate,@jcEndDate,@jcZT,@jcAddress,@jcImgUrl,@jcDanNumber,@jcPaiNumber,@jcRemark,@jcQuestion,@jcPression,@DPName)";
             SqlParameter[] pms;
             foreach (var iteam in list)
             { 
@@ -34,7 +35,8 @@ namespace DAL
                 new SqlParameter("@jcPaiNumber",iteam.jcPaiNumber),
                 new SqlParameter("@jcRemark",iteam.jcRemark),
                 new SqlParameter("@jcQuestion",iteam.jcQuestion),
-                new SqlParameter("@jcPression",iteam.jcPression)
+                new SqlParameter("@jcPression",iteam.jcPression),
+                new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
                 };
                 if (!(SqlHelper.ExecuteNonQuery(str, pms) > 0))
                 {
@@ -47,17 +49,29 @@ namespace DAL
         public List<JCInfoModel> selectAllList(string type)
         {
             int i = 1;
+            string str;
             List<JCInfoModel> list=new List<JCInfoModel>();
             JCInfoModel model;
-            string str = "select * from JCInfoTable where jcType=@jcType and jcZT=@jcZT";
+            SqlParameter[] pms; 
+
             if (type.Trim() == "全部")
             {
-                str = "select * from JCInfoTable where jcZT=@jcZT";
-            }
-            SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@jcType",type.Trim()),
-            new SqlParameter("@jcZT","未取走")
+                str = "select * from JCInfoTable where jcZT=@jcZT and DPName=@DPName";
+                pms = new SqlParameter[] { 
+            //new SqlParameter("@jcType",type.Trim()),
+            new SqlParameter("@jcZT","未取走"),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
+            }
+            else
+            {
+                str = "select * from JCInfoTable where jcType=@jcType and jcZT=@jcZT and DPName=@DPName";
+                pms = new SqlParameter[] { 
+            new SqlParameter("@jcType",type.Trim()),
+            new SqlParameter("@jcZT","未取走"),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            };
+            }
             SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
@@ -134,33 +148,38 @@ namespace DAL
                 if (jc && qz)
                 {
                     //str = "select * from memberInfo where memberName like '%'+@memberName+'%'";
-                    str = "select * from JCInfoTable where " + type1 + " like '%'+@" + type1 + "+'%'";
+                    str = "select * from JCInfoTable where " + type1 + " like '%'+@" + type1 + "+'%' and DPName=@DPName";
                     string pmstype = "@" + type1;
                     pms = new SqlParameter[] { 
-                    new SqlParameter(pmstype,neirong)
+                    new SqlParameter(pmstype,neirong),
+                    new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
                     };
                 }
                 else if (jc)
                 {
-                    str = "select * from JCInfoTable where " + type1 + " like '%'+@" + type1 + "+'%' and jcZT=@jcZT";
+                    str = "select * from JCInfoTable where " + type1 + " like '%'+@" + type1 + "+'%' and jcZT=@jcZT and DPName=@DPName";
                     string pmstype = "@" + type1;
                     pms = new SqlParameter[] { 
                     new SqlParameter(pmstype,neirong),
-                    new SqlParameter("@jcZT","未取走")
+                    new SqlParameter("@jcZT","未取走"),
+                    new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
                     };
                 }
                 else if (qz)
                 {
-                    str = "select * from JCInfoTable where " + type1 + " like '%'+@" + type1 + "+'%' and jcZT=@jcZT";
+                    str = "select * from JCInfoTable where " + type1 + " like '%'+@" + type1 + "+'%' and jcZT=@jcZT and DPName=@DPName";
                     string pmstype = "@" + type1;
                     pms = new SqlParameter[] { 
                     new SqlParameter(pmstype,neirong),
-                    new SqlParameter("@jcZT","已取走")
+                    new SqlParameter("@jcZT","已取走"),
+                    new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
                     };
                 }
                 else
                 {
-                    pms = new SqlParameter[] { };
+                    pms = new SqlParameter[] { 
+                    new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+                    };
                 }
             }
             else
@@ -169,33 +188,38 @@ namespace DAL
                 if (jc && qz)
                 {
                     //str = "select * from memberInfo where memberName like '%'+@memberName+'%'";
-                    str = "select * from JCInfoTable where " + type1 + "=@"+type1;
+                    str = "select * from JCInfoTable where " + type1 + "=@" + type1 + " and DPName=@DPName";
                     string pmstype = "@" + type1;
                     pms = new SqlParameter[] { 
-                    new SqlParameter(pmstype,neirong)
+                    new SqlParameter(pmstype,neirong),
+                     new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
                     };
                 }
                 else if (jc)
                 {
-                    str = "select * from JCInfoTable where " + type1 + "=@" + type1 + " and jcZT=@jcZT";
+                    str = "select * from JCInfoTable where " + type1 + "=@" + type1 + " and jcZT=@jcZT and DPName=@DPName";
                     string pmstype = "@" + type1;
                     pms = new SqlParameter[] { 
                     new SqlParameter(pmstype,neirong),
-                    new SqlParameter("@jcZT","未取走")
+                    new SqlParameter("@jcZT","未取走"),
+                     new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
                     };
                 }
                 else if (qz)
                 {
-                    str = "select * from JCInfoTable where " + type1 + "=@" + type1 + " and jcZT=@jcZT";
+                    str = "select * from JCInfoTable where " + type1 + "=@" + type1 + " and jcZT=@jcZT and DPName=@DPName";
                     string pmstype = "@" + type1;
                     pms = new SqlParameter[] { 
                     new SqlParameter(pmstype,neirong),
-                    new SqlParameter("@jcZT","已取走")
+                    new SqlParameter("@jcZT","已取走"),
+                     new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
                     };
                 }
                 else
                 {
-                    pms = new SqlParameter[] { };
+                    pms = new SqlParameter[] { 
+                     new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+                    };
                 }
             }
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
@@ -334,6 +358,272 @@ namespace DAL
                 result = true;
             }
             return result;
+        }
+        //寄存信息在统计列表中显示
+        public List<JCInfoModel> selectTJ(string yginfo,string jctype)
+        {
+            int i = 1;
+            string str;
+            List<JCInfoModel> list = new List<JCInfoModel>();
+            JCInfoModel model;
+            SqlParameter[] pms;
+            if (FilterClass.DianPu1.UserName.Trim() == "admin")
+            {
+                if (jctype.Trim() == "全部")
+                {
+                    if (yginfo.Trim() == "全部")
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT";
+                        pms = new SqlParameter[] { 
+            //new SqlParameter("@jcType",type.Trim()),
+            new SqlParameter("@jcZT","未取走")
+            };
+                    }
+                    else
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT and jcPression=@jcPression";
+                        pms = new SqlParameter[] { 
+            //new SqlParameter("@jcType",type.Trim()),
+            new SqlParameter("@jcZT","未取走"),
+            new SqlParameter("@jcPression",yginfo.Trim())
+            };
+                    }
+
+                }
+                else
+                {
+                    if (yginfo.Trim() == "全部")
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT and jcType=@jcType";
+                        pms = new SqlParameter[] { 
+            new SqlParameter("@jcType",jctype.Trim()),
+            new SqlParameter("@jcZT","未取走")
+            };
+                    }
+                    else
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT and jcPression=@jcPression and jcType=@jcType";
+                        pms = new SqlParameter[] { 
+            new SqlParameter("@jcType",jctype.Trim()),
+            new SqlParameter("@jcZT","未取走"),
+            new SqlParameter("@jcPression",yginfo.Trim())
+            };
+                    }
+                }
+            }
+            else
+            {
+                if (jctype.Trim() == "全部")
+                {
+                    if (yginfo.Trim() == "全部")
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT and DPName=@DPName";
+                        pms = new SqlParameter[] { 
+            //new SqlParameter("@jcType",type.Trim()),
+            new SqlParameter("@jcZT","未取走"),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            };
+                    }
+                    else 
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT and DPName=@DPName and jcPression=@jcPression";
+                        pms = new SqlParameter[] { 
+            //new SqlParameter("@jcType",type.Trim()),
+            new SqlParameter("@jcZT","未取走"),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim()),
+            new SqlParameter("@jcPression",yginfo.Trim())
+            };
+                    }
+                   
+                }
+                else
+                {
+                    if (yginfo.Trim() == "全部")
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT and DPName=@DPName and jcType=@jcType";
+                        pms = new SqlParameter[] { 
+            new SqlParameter("@jcType",jctype.Trim()),
+            new SqlParameter("@jcZT","未取走"),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            };
+                    }
+                    else
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT and DPName=@DPName and jcPression=@jcPression and jcType=@jcType";
+                        pms = new SqlParameter[] { 
+            new SqlParameter("@jcType",jctype.Trim()),
+            new SqlParameter("@jcZT","未取走"),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim()),
+            new SqlParameter("@jcPression",yginfo.Trim())
+            };
+                    }
+                }
+            }
+            
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    model = new JCInfoModel();
+                    model.jcNo = i;
+                    model.jcID = Convert.ToInt32(read["jcID"]);
+                    model.jcCardNumber = read["jcCardNumber"].ToString();
+                    model.jcName = read["jcName"].ToString();
+                    model.jcQMoney = read["jcQMoney"].ToString();
+                    model.jcType = read["jcType"].ToString();
+                    model.jcPinPai = read["jcPinPai"].ToString();
+                    model.jcColor = read["jcColor"].ToString();
+                    model.jcStaff = read["jcStaff"].ToString();
+                    model.jcBeginDate = read["jcBeginDate"].ToString();
+                    model.jcEndDate = read["jcEndDate"].ToString();
+                    model.jcZT = read["jcZT"].ToString();
+                    model.jcAddress = read["jcAddress"].ToString();
+                    model.jcImgUrl = read["jcImgUrl"].ToString();
+                    model.jcDanNumber = read["jcDanNumber"].ToString();
+                    model.jcPaiNumber = read["jcPaiNumber"].ToString();
+                    model.jcRemark = read["jcRemark"].ToString();
+                    model.jcPression = read["jcPression"].ToString();
+                    model.jcQuestion = read["jcQuestion"].ToString();
+                    model.lsdm = read["DPName"].ToString();
+                    i++;
+                    list.Add(model);
+                }
+            }
+            return list;
+        }
+        //寄存取走在统计列表中显示
+        public List<JCInfoModel> selectQZTJ(string yginfo, string jctype)
+        {
+            int i = 1;
+            string str;
+            List<JCInfoModel> list = new List<JCInfoModel>();
+            JCInfoModel model;
+            SqlParameter[] pms;
+            if (FilterClass.DianPu1.UserName.Trim() == "admin")
+            {
+                if (jctype.Trim() == "全部")
+                {
+                    if (yginfo.Trim() == "全部")
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT";
+                        pms = new SqlParameter[] { 
+            //new SqlParameter("@jcType",type.Trim()),
+            new SqlParameter("@jcZT","已取走")
+            };
+                    }
+                    else
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT and jcPression=@jcPression";
+                        pms = new SqlParameter[] { 
+            //new SqlParameter("@jcType",type.Trim()),
+            new SqlParameter("@jcZT","已取走"),
+            new SqlParameter("@jcPression",yginfo.Trim())
+            };
+                    }
+
+                }
+                else
+                {
+                    if (yginfo.Trim() == "全部")
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT and jcType=@jcType";
+                        pms = new SqlParameter[] { 
+            new SqlParameter("@jcType",jctype.Trim()),
+            new SqlParameter("@jcZT","已取走")
+            };
+                    }
+                    else
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT and jcPression=@jcPression and jcType=@jcType";
+                        pms = new SqlParameter[] { 
+            new SqlParameter("@jcType",jctype.Trim()),
+            new SqlParameter("@jcZT","已取走"),
+            new SqlParameter("@jcPression",yginfo.Trim())
+            };
+                    }
+                }
+            }
+            else
+            {
+                if (jctype.Trim() == "全部")
+                {
+                    if (yginfo.Trim() == "全部")
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT and DPName=@DPName";
+                        pms = new SqlParameter[] { 
+            //new SqlParameter("@jcType",type.Trim()),
+            new SqlParameter("@jcZT","已取走"),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            };
+                    }
+                    else
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT and DPName=@DPName and jcPression=@jcPression";
+                        pms = new SqlParameter[] { 
+            //new SqlParameter("@jcType",type.Trim()),
+            new SqlParameter("@jcZT","已取走"),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim()),
+            new SqlParameter("@jcPression",yginfo.Trim())
+            };
+                    }
+
+                }
+                else
+                {
+                    if (yginfo.Trim() == "全部")
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT and DPName=@DPName and jcType=@jcType";
+                        pms = new SqlParameter[] { 
+            new SqlParameter("@jcType",jctype.Trim()),
+            new SqlParameter("@jcZT","已取走"),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            };
+                    }
+                    else
+                    {
+                        str = "select * from JCInfoTable where jcZT=@jcZT and DPName=@DPName and jcPression=@jcPression and jcType=@jcType";
+                        pms = new SqlParameter[] { 
+            new SqlParameter("@jcType",jctype.Trim()),
+            new SqlParameter("@jcZT","已取走"),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim()),
+            new SqlParameter("@jcPression",yginfo.Trim())
+            };
+                    }
+                }
+            }
+
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    model = new JCInfoModel();
+                    model.jcNo = i;
+                    model.jcID = Convert.ToInt32(read["jcID"]);
+                    model.jcCardNumber = read["jcCardNumber"].ToString();
+                    model.jcName = read["jcName"].ToString();
+                    model.jcQMoney = read["jcQMoney"].ToString();
+                    model.jcType = read["jcType"].ToString();
+                    model.jcPinPai = read["jcPinPai"].ToString();
+                    model.jcColor = read["jcColor"].ToString();
+                    model.jcStaff = read["jcStaff"].ToString();
+                    model.jcBeginDate = read["jcBeginDate"].ToString();
+                    model.jcEndDate = read["jcEndDate"].ToString();
+                    model.jcZT = read["jcZT"].ToString();
+                    model.jcAddress = read["jcAddress"].ToString();
+                    model.jcImgUrl = read["jcImgUrl"].ToString();
+                    model.jcDanNumber = read["jcDanNumber"].ToString();
+                    model.jcPaiNumber = read["jcPaiNumber"].ToString();
+                    model.jcRemark = read["jcRemark"].ToString();
+                    model.jcPression = read["jcPression"].ToString();
+                    model.jcQuestion = read["jcQuestion"].ToString();
+                    model.lsdm = read["DPName"].ToString();
+                    i++;
+                    list.Add(model);
+                }
+            }
+            return list;
         }
     }
 }

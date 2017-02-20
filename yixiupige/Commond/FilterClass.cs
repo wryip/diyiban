@@ -11,6 +11,7 @@ namespace Commond
     {
         public static LoginUser DianPu1 { get; set; }
         public static string PicImg { get; set; }
+        public static string DXInfo { get; set; }
         public static bool isadmin()
         {
             if (DianPu1.UserName.Trim() == "admin" && DianPu1.UserPwd.Trim() == "admin" && DianPu1.LoginName.Trim()=="admin")

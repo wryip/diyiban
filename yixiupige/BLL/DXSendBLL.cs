@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using Commond;
+using DAL;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -9,26 +10,26 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class LSConsumptionBLL
+    public class DXSendBLL
     {
-        LSConsumptionDAL dal = new LSConsumptionDAL();
-        public bool AddList(List<LiShiConsumption> listLS)
+        DXSendDAL dal = new DXSendDAL();
+        public void AddList(List<DXmemberModel> list,string str)
         {
-            return dal.AddList(listLS);
+            string dianpu = FilterClass.DianPu1.UserName.Trim();
+            string person=FilterClass.DianPu1.LoginName.Trim();
+            foreach (var iteam in list)
+            {
+                iteam.Content = str;
+                iteam.Date = DateTime.Now.Year + "年" + DateTime.Now.Month + "月" + DateTime.Now.Day + "日";
+                iteam.DianPu = dianpu;
+                iteam.SaleMan = person;
+            }
+            dal.AddList(list);
         }
-        public List<LiShiConsumption> selectAllList(string cardNo,string name)
+        public List<DXmemberModel> selectListTJ(string begindate,string enddate,string yginfo)
         {
-            return dal.selectAllList(cardNo, name);
-        }
-        //返回不大票据的信息
-        public List<bdpjModel> selectBDPJ()
-        {
-            return dal.selectBDPJ();
-        }
-        public List<LiShiConsumption> selectTJ(string begindate,string enddate,string yginfo)
-        {
-            List<LiShiConsumption> list1 = dal.selectTJ(yginfo);
-            List<LiShiConsumption> list = new List<LiShiConsumption>();
+            List<DXmemberModel> list1 = dal.selectListTJ(yginfo);
+            List<DXmemberModel> list = new List<DXmemberModel>();
             string pattern = @"[\d]+";
             Regex regex = new Regex(pattern, RegexOptions.None);
             int dyear = Convert.ToInt32(regex.Matches(enddate)[0].Value);
@@ -39,9 +40,9 @@ namespace BLL
             int xday = Convert.ToInt32(regex.Matches(begindate)[2].Value);
             foreach (var iteam in list1)
             {
-                int year = Convert.ToInt32(regex.Matches(iteam.LSDate.Trim())[0].Value);
-                int month = Convert.ToInt32(regex.Matches(iteam.LSDate.Trim())[1].Value);
-                int day = Convert.ToInt32(regex.Matches(iteam.LSDate.Trim())[2].Value);
+                int year = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[0].Value);
+                int month = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[1].Value);
+                int day = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[2].Value);
                 if (year < xyear || year > dyear)
                 {
                     continue;
@@ -106,7 +107,7 @@ namespace BLL
                         }
                     }
                 }
-            }         
+            }      
             return list;
         }
     }

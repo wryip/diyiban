@@ -150,7 +150,7 @@ namespace yixiupige
                 MessageBox.Show("无权操作！");
                 return;
             }
-            tjform tongjibaobiao = tjform.CreateForm();
+            tjfrom tongjibaobiao = tjfrom.CreateForm();
             tongjibaobiao.MdiParent = this;
             tongjibaobiao.Parent = panel3;
             tongjibaobiao.WindowState = FormWindowState.Maximized;

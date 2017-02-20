@@ -27,5 +27,6 @@ namespace MODEL
         public string jcRemark { get; set; }
         public string jcQuestion { get; set; }
         public string jcPression { get; set; }
+        public string lsdm { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MODEL;
+﻿using Commond;
+using MODEL;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -29,10 +30,11 @@ namespace DAL
                 case "员工分类": typeclass = 6;
                     break;
             }
-            string str = "insert into jbcstable(text,type) values(@text,@type)";
+            string str = "insert into jbcstable(text,type,DPName) values(@text,@type,@DPName)";
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@text",neirong),
-            new SqlParameter("@type",typeclass)
+            new SqlParameter("@type",typeclass),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
@@ -45,9 +47,10 @@ namespace DAL
             List<jbcs> list = new List<jbcs>();
             jbcs model;
             SqlParameter[] pms = new SqlParameter[] {
-            new SqlParameter("@type",type)
+            new SqlParameter("@type",type),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
-            string str = "select text from jbcstable where type=@type";
+            string str = "select text from jbcstable where type=@type and DPName=@DPName";
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
@@ -76,7 +79,7 @@ namespace DAL
         public bool updateIteam(string old, string xin)
         {
             bool result = false;
-            string str = "update jbcstable set text='" + xin.Trim() + "' where text='" + old .Trim()+ "'";
+            string str = "update jbcstable set text='" + xin.Trim() + "' where text='" + old.Trim() + "' and DPName='" + FilterClass.DianPu1.UserName.Trim() + "'";
             if (SqlHelper.ExecuteNonQuery(str) > 0)
             {
                 result = true;
@@ -86,9 +89,10 @@ namespace DAL
         public bool seleteIteam(string neirong)
         {
             bool result = false;
-            string str = "delete jbcstable where text=@text";
+            string str = "delete jbcstable where text=@text and DPName=@DPName";
             SqlParameter[] pms = new SqlParameter[] {
-            new SqlParameter("@text",neirong.Trim())
+            new SqlParameter("@text",neirong.Trim()),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
             if (SqlHelper.ExecuteNonQuery(str,pms) > 0)
             {

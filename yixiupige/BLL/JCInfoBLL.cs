@@ -114,5 +114,173 @@ namespace BLL
         {
             return dal.UpdateIDIteam(Convert.ToInt32(id.Trim()));
         }
+        public List<JCInfoModel> selectTJ(string begindate, string enddate, string yginfo,string jctype)
+        {
+            List<JCInfoModel> list1 = dal.selectTJ(yginfo, jctype);
+            List<JCInfoModel> list = new List<JCInfoModel>();
+            string pattern = @"[\d]+";
+            Regex regex = new Regex(pattern, RegexOptions.None);
+            int dyear = Convert.ToInt32(regex.Matches(enddate)[0].Value);
+            int dmonth = Convert.ToInt32(regex.Matches(enddate)[1].Value);
+            int dday = Convert.ToInt32(regex.Matches(enddate)[2].Value);
+            int xyear = Convert.ToInt32(regex.Matches(begindate)[0].Value);
+            int xmonth = Convert.ToInt32(regex.Matches(begindate)[1].Value);
+            int xday = Convert.ToInt32(regex.Matches(begindate)[2].Value);
+            foreach (var iteam in list1)
+            {
+                int year = Convert.ToInt32(regex.Matches(iteam.jcBeginDate.Trim())[0].Value);
+                int month = Convert.ToInt32(regex.Matches(iteam.jcBeginDate.Trim())[1].Value);
+                int day = Convert.ToInt32(regex.Matches(iteam.jcBeginDate.Trim())[2].Value);
+                if (year < xyear || year > dyear)
+                {
+                    continue;
+                }
+                else
+                {
+                    if (dyear == xyear)
+                    {
+                        if (month > dmonth || month < xmonth)
+                        {
+                            continue;
+                        }
+                        if (day > dday || day < xday)
+                        {
+                            continue;
+                        }
+                        list.Add(iteam);
+                        continue;
+                    }
+                    if (year == dyear)
+                    {
+                        if (month > dmonth)
+                        {
+                            continue;
+                        }
+                        else if (month < dmonth)
+                        {
+                            list.Add(iteam);
+                        }
+                        else
+                        {
+                            if (day > dday)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                list.Add(iteam);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (month < xmonth)
+                        {
+                            continue;
+                        }
+                        else if (month > xmonth)
+                        {
+                            list.Add(iteam);
+                        }
+                        else
+                        {
+                            if (day < xday)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                list.Add(iteam);
+                            }
+                        }
+                    }
+                }
+            }      
+            return list;
+        }
+        public List<JCInfoModel> selectQZTJ(string begindate, string enddate, string yginfo, string jctype)
+        {
+            List<JCInfoModel> list1 = dal.selectQZTJ(yginfo, jctype);
+            List<JCInfoModel> list = new List<JCInfoModel>();
+            string pattern = @"[\d]+";
+            Regex regex = new Regex(pattern, RegexOptions.None);
+            int dyear = Convert.ToInt32(regex.Matches(enddate)[0].Value);
+            int dmonth = Convert.ToInt32(regex.Matches(enddate)[1].Value);
+            int dday = Convert.ToInt32(regex.Matches(enddate)[2].Value);
+            int xyear = Convert.ToInt32(regex.Matches(begindate)[0].Value);
+            int xmonth = Convert.ToInt32(regex.Matches(begindate)[1].Value);
+            int xday = Convert.ToInt32(regex.Matches(begindate)[2].Value);
+            foreach (var iteam in list1)
+            {
+                int year = Convert.ToInt32(regex.Matches(iteam.jcBeginDate.Trim())[0].Value);
+                int month = Convert.ToInt32(regex.Matches(iteam.jcBeginDate.Trim())[1].Value);
+                int day = Convert.ToInt32(regex.Matches(iteam.jcBeginDate.Trim())[2].Value);
+                if (year < xyear || year > dyear)
+                {
+                    continue;
+                }
+                else
+                {
+                    if (dyear == xyear)
+                    {
+                        if (month > dmonth || month < xmonth)
+                        {
+                            continue;
+                        }
+                        if (day > dday || day < xday)
+                        {
+                            continue;
+                        }
+                        list.Add(iteam);
+                        continue;
+                    }
+                    if (year == dyear)
+                    {
+                        if (month > dmonth)
+                        {
+                            continue;
+                        }
+                        else if (month < dmonth)
+                        {
+                            list.Add(iteam);
+                        }
+                        else
+                        {
+                            if (day > dday)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                list.Add(iteam);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (month < xmonth)
+                        {
+                            continue;
+                        }
+                        else if (month > xmonth)
+                        {
+                            list.Add(iteam);
+                        }
+                        else
+                        {
+                            if (day < xday)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                list.Add(iteam);
+                            }
+                        }
+                    }
+                }
+            }
+            return list;
+        }
     }
 }

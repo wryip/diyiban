@@ -34,6 +34,7 @@ namespace yixiupige
             }
             return hyzj;
         }
+        staffInfoBLL staffbll = new staffInfoBLL();
         DPInfoBLL dpbll = new DPInfoBLL();
         public memberInfoBLL modelbll = new memberInfoBLL();
         public memberTypeCURD bll = new memberTypeCURD();
@@ -124,7 +125,12 @@ namespace yixiupige
                 #endregion
                 Bitmap newImage = new Bitmap(160, 120);
                 Graphics draw = Graphics.FromImage(newImage);
-                draw.DrawImage(bitmap, 0, 0);
+                if (bitmap == null)
+                {
+                    MessageBox.Show("请采集照片！");
+                    return;
+                }
+                draw.DrawImage(bitmap, 0, 0);                
                 draw.Dispose();
                 string dirpath = "E:\\mymemberimg";
                 if (!Directory.Exists(dirpath))
@@ -196,7 +202,10 @@ namespace yixiupige
             List<string> list1 = bll.selectNodes();
             str = list1.ToArray();           
             hyflcomboBox.Items.AddRange(str);
-            hyflcomboBox.SelectedIndex = 0;
+            if (hyflcomboBox.Items.Count > 0)
+            {
+                hyflcomboBox.SelectedIndex = 0;
+            }            
             string name = hyflcomboBox.Text;
             memberType mode = bll.EditMember(name);
             spzktextBox.Text = mode.memberRebate;
@@ -228,6 +237,12 @@ namespace yixiupige
                 lsdcomboBox.Text = FilterClass.DianPu1.UserName;
                 lsdcomboBox.Enabled = false;
             }
+            List<jbcs> listname = staffbll.selectSH();
+            foreach (var iteam in listname)
+            {
+                ywycomboBox.Items.Add(iteam.AllType);
+            }
+            ywycomboBox.SelectedIndex = 0;
         }
 
         private void videoSourcePlayer1_NewFrame(object sender, ref Bitmap image)

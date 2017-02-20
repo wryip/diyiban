@@ -29,32 +29,36 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.SendInfo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dxName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dxCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dxNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button9 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dxTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dxNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DianPu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SaleMan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dxCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dxName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dxTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SendInfo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -66,28 +70,29 @@
             this.panel1.Size = new System.Drawing.Size(1820, 676);
             this.panel1.TabIndex = 0;
             // 
-            // SendInfo
+            // groupBox2
             // 
-            this.SendInfo.DataPropertyName = "SendInfo";
-            this.SendInfo.HeaderText = "选择";
-            this.SendInfo.Name = "SendInfo";
-            this.SendInfo.ReadOnly = true;
-            this.SendInfo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.SendInfo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dxName
-            // 
-            this.dxName.DataPropertyName = "memberName";
-            this.dxName.HeaderText = "姓名";
-            this.dxName.Name = "dxName";
-            this.dxName.ReadOnly = true;
-            // 
-            // dxCardNo
-            // 
-            this.dxCardNo.DataPropertyName = "CardNumber";
-            this.dxCardNo.HeaderText = "卡号";
-            this.dxCardNo.Name = "dxCardNo";
-            this.dxCardNo.ReadOnly = true;
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.groupBox4);
+            this.groupBox2.Controls.Add(this.button11);
+            this.groupBox2.Controls.Add(this.button10);
+            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.button9);
+            this.groupBox2.Controls.Add(this.button6);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.groupBox3);
+            this.groupBox2.Location = new System.Drawing.Point(971, 8);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(845, 660);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "短信操作";
             // 
             // groupBox4
             // 
@@ -118,13 +123,6 @@
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox2.Size = new System.Drawing.Size(809, 308);
             this.textBox2.TabIndex = 0;
-            // 
-            // dxNo
-            // 
-            this.dxNo.DataPropertyName = "No";
-            this.dxNo.HeaderText = "编号";
-            this.dxNo.Name = "dxNo";
-            this.dxNo.ReadOnly = true;
             // 
             // button11
             // 
@@ -169,18 +167,6 @@
             this.button2.Text = "反选";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(9, 26);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(811, 84);
-            this.textBox1.TabIndex = 0;
-            // 
             // button9
             // 
             this.button9.Location = new System.Drawing.Point(559, 194);
@@ -191,6 +177,17 @@
             this.button9.Text = "全部删除";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(347, 194);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(100, 29);
+            this.button6.TabIndex = 2;
+            this.button6.Text = "删除号码";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button1
             // 
@@ -226,70 +223,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "短信内容【0】总字数【64】";
             // 
-            // dxTel
+            // textBox1
             // 
-            this.dxTel.DataPropertyName = "TelPhone";
-            this.dxTel.HeaderText = "电话";
-            this.dxTel.Name = "dxTel";
-            this.dxTel.ReadOnly = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.groupBox4);
-            this.groupBox2.Controls.Add(this.button11);
-            this.groupBox2.Controls.Add(this.button10);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button9);
-            this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Location = new System.Drawing.Point(971, 8);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(845, 660);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "短信操作";
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(347, 194);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 29);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "删除号码";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dxNo,
-            this.dxCardNo,
-            this.dxName,
-            this.dxTel,
-            this.SendInfo});
-            this.dataGridView1.Location = new System.Drawing.Point(9, 26);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(939, 618);
-            this.dataGridView1.TabIndex = 0;
+            this.textBox1.Location = new System.Drawing.Point(9, 26);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(811, 84);
+            this.textBox1.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -305,13 +249,109 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "会员信息";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dxNo,
+            this.DianPu,
+            this.Content,
+            this.SaleMan,
+            this.Date,
+            this.dxCardNo,
+            this.dxName,
+            this.dxTel,
+            this.SendInfo});
+            this.dataGridView1.Location = new System.Drawing.Point(9, 26);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(939, 618);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // dxNo
+            // 
+            this.dxNo.DataPropertyName = "No";
+            this.dxNo.HeaderText = "编号";
+            this.dxNo.Name = "dxNo";
+            this.dxNo.ReadOnly = true;
+            // 
+            // DianPu
+            // 
+            this.DianPu.DataPropertyName = "DianPu";
+            this.DianPu.HeaderText = "DianPu";
+            this.DianPu.Name = "DianPu";
+            this.DianPu.ReadOnly = true;
+            this.DianPu.Visible = false;
+            // 
+            // Content
+            // 
+            this.Content.DataPropertyName = "Content";
+            this.Content.HeaderText = "Content";
+            this.Content.Name = "Content";
+            this.Content.ReadOnly = true;
+            this.Content.Visible = false;
+            // 
+            // SaleMan
+            // 
+            this.SaleMan.DataPropertyName = "SaleMan";
+            this.SaleMan.HeaderText = "SaleMan";
+            this.SaleMan.Name = "SaleMan";
+            this.SaleMan.ReadOnly = true;
+            this.SaleMan.Visible = false;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            this.Date.Visible = false;
+            // 
+            // dxCardNo
+            // 
+            this.dxCardNo.DataPropertyName = "CardNumber";
+            this.dxCardNo.HeaderText = "卡号";
+            this.dxCardNo.Name = "dxCardNo";
+            this.dxCardNo.ReadOnly = true;
+            // 
+            // dxName
+            // 
+            this.dxName.DataPropertyName = "memberName";
+            this.dxName.HeaderText = "姓名";
+            this.dxName.Name = "dxName";
+            this.dxName.ReadOnly = true;
+            // 
+            // dxTel
+            // 
+            this.dxTel.DataPropertyName = "TelPhone";
+            this.dxTel.HeaderText = "电话";
+            this.dxTel.Name = "dxTel";
+            this.dxTel.ReadOnly = true;
+            // 
+            // SendInfo
+            // 
+            this.SendInfo.DataPropertyName = "SendInfo";
+            this.SendInfo.HeaderText = "选择";
+            this.SendInfo.Name = "SendInfo";
+            this.SendInfo.ReadOnly = true;
+            this.SendInfo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.SendInfo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // dxform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1843, 691);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "dxform";
@@ -319,14 +359,14 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.dxform_FormClosing);
             this.Load += new System.EventHandler(this.dxform_Load);
             this.panel1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -350,6 +390,10 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dxNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DianPu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Content;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SaleMan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn dxCardNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dxName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dxTel;

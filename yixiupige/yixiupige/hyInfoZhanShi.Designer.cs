@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.czXH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,9 +43,10 @@
             this.czDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czSalman = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
@@ -80,13 +82,28 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LSNo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsDemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsSuperMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Imgurl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -94,10 +111,10 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.dataGridView2);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.textBox15);
             this.panel1.Controls.Add(this.textBox12);
@@ -138,6 +155,43 @@
             this.panel1.Size = new System.Drawing.Size(917, 880);
             this.panel1.TabIndex = 0;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.lsName,
+            this.LSNo1,
+            this.lsTime,
+            this.lsDemo,
+            this.lsCount,
+            this.lsMoney,
+            this.lsPay,
+            this.lsNumber,
+            this.lsType,
+            this.lsColor,
+            this.lsQuestion,
+            this.lsMark,
+            this.lsPerson,
+            this.lsSuperMark,
+            this.lsNo,
+            this.lsCardNo,
+            this.Imgurl});
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridView1.Location = new System.Drawing.Point(15, 326);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(893, 248);
+            this.dataGridView1.TabIndex = 48;
+            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -162,7 +216,7 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView2.RowTemplate.Height = 27;
-            this.dataGridView2.Size = new System.Drawing.Size(896, 235);
+            this.dataGridView2.Size = new System.Drawing.Size(896, 279);
             this.dataGridView2.TabIndex = 47;
             this.dataGridView2.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_CellMouseClick);
             this.dataGridView2.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView2_RowContextMenuStripNeeded);
@@ -244,6 +298,20 @@
             this.czNo.Name = "czNo";
             this.czNo.ReadOnly = true;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 30);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(144, 26);
+            this.toolStripMenuItem1.Text = "打印预览";
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -261,20 +329,6 @@
             this.label18.Size = new System.Drawing.Size(67, 15);
             this.label18.TabIndex = 45;
             this.label18.Text = "消费记录";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 328);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(896, 236);
-            this.dataGridView1.TabIndex = 44;
-            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
-            this.dataGridView1.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView1_RowContextMenuStripNeeded);
             // 
             // pictureBox1
             // 
@@ -573,19 +627,125 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "会员姓名";
             // 
-            // contextMenuStrip1
+            // lsName
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 30);
+            this.lsName.DataPropertyName = "LSName";
+            this.lsName.HeaderText = "姓名";
+            this.lsName.Name = "lsName";
+            this.lsName.ReadOnly = true;
             // 
-            // toolStripMenuItem1
+            // LSNo1
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(144, 26);
-            this.toolStripMenuItem1.Text = "打印预览";
+            this.LSNo1.DataPropertyName = "LSNo";
+            this.LSNo1.HeaderText = "编号";
+            this.LSNo1.Name = "LSNo1";
+            this.LSNo1.ReadOnly = true;
+            this.LSNo1.Visible = false;
+            // 
+            // lsTime
+            // 
+            this.lsTime.DataPropertyName = "LSDate";
+            this.lsTime.HeaderText = "时间";
+            this.lsTime.Name = "lsTime";
+            this.lsTime.ReadOnly = true;
+            // 
+            // lsDemo
+            // 
+            this.lsDemo.DataPropertyName = "LSStaff";
+            this.lsDemo.HeaderText = "服务项目";
+            this.lsDemo.Name = "lsDemo";
+            this.lsDemo.ReadOnly = true;
+            // 
+            // lsCount
+            // 
+            this.lsCount.DataPropertyName = "LSNumberCount";
+            this.lsCount.HeaderText = "点数";
+            this.lsCount.Name = "lsCount";
+            this.lsCount.ReadOnly = true;
+            // 
+            // lsMoney
+            // 
+            this.lsMoney.DataPropertyName = "LSMoney";
+            this.lsMoney.HeaderText = "金额";
+            this.lsMoney.Name = "lsMoney";
+            this.lsMoney.ReadOnly = true;
+            // 
+            // lsPay
+            // 
+            this.lsPay.DataPropertyName = "LSYMoney";
+            this.lsPay.HeaderText = "应付";
+            this.lsPay.Name = "lsPay";
+            this.lsPay.ReadOnly = true;
+            // 
+            // lsNumber
+            // 
+            this.lsNumber.DataPropertyName = "LSCount";
+            this.lsNumber.HeaderText = "数量";
+            this.lsNumber.Name = "lsNumber";
+            this.lsNumber.ReadOnly = true;
+            // 
+            // lsType
+            // 
+            this.lsType.DataPropertyName = "LSPinPai";
+            this.lsType.HeaderText = "品牌";
+            this.lsType.Name = "lsType";
+            this.lsType.ReadOnly = true;
+            // 
+            // lsColor
+            // 
+            this.lsColor.DataPropertyName = "LSColor";
+            this.lsColor.HeaderText = "颜色";
+            this.lsColor.Name = "lsColor";
+            this.lsColor.ReadOnly = true;
+            // 
+            // lsQuestion
+            // 
+            this.lsQuestion.DataPropertyName = "LSQuestion";
+            this.lsQuestion.HeaderText = "问题";
+            this.lsQuestion.Name = "lsQuestion";
+            this.lsQuestion.ReadOnly = true;
+            // 
+            // lsMark
+            // 
+            this.lsMark.DataPropertyName = "LSRemark";
+            this.lsMark.HeaderText = "备注";
+            this.lsMark.Name = "lsMark";
+            this.lsMark.ReadOnly = true;
+            // 
+            // lsPerson
+            // 
+            this.lsPerson.DataPropertyName = "LSSalesman";
+            this.lsPerson.HeaderText = "业务员";
+            this.lsPerson.Name = "lsPerson";
+            this.lsPerson.ReadOnly = true;
+            // 
+            // lsSuperMark
+            // 
+            this.lsSuperMark.DataPropertyName = "LSMultipleName";
+            this.lsSuperMark.HeaderText = "连锁店";
+            this.lsSuperMark.Name = "lsSuperMark";
+            this.lsSuperMark.ReadOnly = true;
+            // 
+            // lsNo
+            // 
+            this.lsNo.DataPropertyName = "LSDanNumber";
+            this.lsNo.HeaderText = "单号";
+            this.lsNo.Name = "lsNo";
+            this.lsNo.ReadOnly = true;
+            // 
+            // lsCardNo
+            // 
+            this.lsCardNo.DataPropertyName = "LSCardNumber";
+            this.lsCardNo.HeaderText = "卡号";
+            this.lsCardNo.Name = "lsCardNo";
+            this.lsCardNo.ReadOnly = true;
+            // 
+            // Imgurl
+            // 
+            this.Imgurl.DataPropertyName = "ImgUrl";
+            this.Imgurl.HeaderText = "图片路径";
+            this.Imgurl.Name = "Imgurl";
+            this.Imgurl.ReadOnly = true;
             // 
             // hyInfoZhanShi
             // 
@@ -594,15 +754,16 @@
             this.ClientSize = new System.Drawing.Size(942, 899);
             this.Controls.Add(this.panel1);
             this.Name = "hyInfoZhanShi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "会员信息窗口";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.hyInfoZhanShi_FormClosing);
             this.Load += new System.EventHandler(this.hyInfoZhanShi_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -624,7 +785,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn czNo;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.TextBox textBox12;
@@ -662,6 +822,24 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LSNo1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsDemo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsQuestion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsPerson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsSuperMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsCardNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Imgurl;
 
     }
 }

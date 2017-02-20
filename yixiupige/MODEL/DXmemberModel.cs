@@ -13,5 +13,9 @@ namespace MODEL
         public string MemberName { get; set; }
         public string TelPhone { get; set; }
         public bool SendInfo { get; set; }
+        public string Date { get; set; }
+        public string SaleMan { get; set; }
+        public string Content { get; set; }
+        public string DianPu { get; set; }
     }
 }

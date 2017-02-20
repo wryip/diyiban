@@ -41,7 +41,9 @@ namespace yixiupige
             bidtextBox.Text = gds.Gbid.ToString().Trim();
             remarktextBox.Text = gds.Gremark.ToString().Trim();
             typetextBox.Text = gds.Gtype.ToString().Trim();
-            sumtextBox.Text = gds.Gsum.ToString().Trim();
+            //目前剩余的库存
+            sumtextBox.Text = gds.Gstock.ToString().Trim();
+            label9.Text = gds.Gsum.ToString().Trim();
         }
         spform sp = new spform();
         public event Action Loadevent;
@@ -62,7 +64,9 @@ namespace yixiupige
                 Gbid = Convert.ToDecimal(bidtextBox.Text),
                 Gremark = remarktextBox.Text.ToString(),
                 Gtype = typetextBox.Text.ToString(),
-                Gsum = Convert.ToInt32(sumtextBox.Text)
+                //目前剩余的商品数量
+                Gstock = Convert.ToInt32(sumtextBox.Text),
+                Gsum=Convert.ToInt32(label9.Text.Trim())
 
             };
             if (gdbll.Adds(Convert.ToInt32(addtextBox.Text), gd))

@@ -1,4 +1,5 @@
-﻿using MODEL;
+﻿using Commond;
+using MODEL;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -18,9 +19,10 @@ namespace DAL
             new SqlParameter("@memberType",user.memberTypechild),
             new SqlParameter("@memberCardMoney",user.memberCardMoney),
             new SqlParameter("@memberRebate",user.memberRebate),
-            new SqlParameter("@memberTopUp",user.memberTopUp)
+            new SqlParameter("@memberTopUp",user.memberTopUp),
+             new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
-            if (SqlHelper.ExecuteNonQuery("insert into memberType(memberName,memberType,memberCardMoney,memberRebate,memberTopUp) values(@memberName,@memberType,@memberCardMoney,@memberRebate,@memberTopUp)", pms) > 0)
+            if (SqlHelper.ExecuteNonQuery("insert into memberType(memberName,memberType,memberCardMoney,memberRebate,memberTopUp,DPName) values(@memberName,@memberType,@memberCardMoney,@memberRebate,@memberTopUp,@DPName)", pms) > 0)
             {
                 result=true;
             }
@@ -31,9 +33,10 @@ namespace DAL
         {
             memberType result = new memberType();
             SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@memberName",name)
+            new SqlParameter("@memberName",name),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
-            var read= SqlHelper.ExecuteReader("select * from memberType where memberName=@memberName", pms);
+            var read = SqlHelper.ExecuteReader("select * from memberType where memberName=@memberName and DPName=@DPName", pms);
             while (read.Read())
             {
                 if (read.HasRows)
@@ -55,9 +58,10 @@ namespace DAL
             new SqlParameter("@memberType",user.memberTypechild),
             new SqlParameter("@memberCardMoney",user.memberCardMoney),
             new SqlParameter("@memberRebate",user.memberRebate),
-            new SqlParameter("@memberTopUp",user.memberTopUp)
+            new SqlParameter("@memberTopUp",user.memberTopUp),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
-            if (SqlHelper.ExecuteNonQuery("update memberType set memberType=@memberType,memberCardMoney=@memberCardMoney,memberRebate=@memberRebate,memberTopUp=@memberTopUp where memberName=@memberName", pms) > 0)
+            if (SqlHelper.ExecuteNonQuery("update memberType set memberType=@memberType,memberCardMoney=@memberCardMoney,memberRebate=@memberRebate,memberTopUp=@memberTopUp where memberName=@memberName and DPName=@DPName", pms) > 0)
             {
                 result = true;
             }
@@ -67,9 +71,10 @@ namespace DAL
         {
             bool result = false;
             SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@memberName",name)
+            new SqlParameter("@memberName",name),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
-            if (SqlHelper.ExecuteNonQuery("delete from memberType where memberName=@memberName", pms) > 0)
+            if (SqlHelper.ExecuteNonQuery("delete from memberType where memberName=@memberName and DPName=@DPName", pms) > 0)
             {
                 result = true;
             }
@@ -77,7 +82,10 @@ namespace DAL
         }
         public List<string> selectNodes()
         {
-            var read = SqlHelper.ExecuteReader("select memberName from memberType");
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            };
+            var read = SqlHelper.ExecuteReader("select memberName from memberType where DPName=@DPName",pms);
             List<string> List = new List<string>();
             while (read.Read())
             {

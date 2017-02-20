@@ -9,27 +9,54 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class LSConsumptionBLL
+    public class TJBBBLL
     {
-        LSConsumptionDAL dal = new LSConsumptionDAL();
-        public bool AddList(List<LiShiConsumption> listLS)
+        memberCZMoneyDAL czdal = new memberCZMoneyDAL();
+        memberInfoDAL hybkdal = new memberInfoDAL();
+        JCInfoDAL jcdal = new JCInfoDAL();
+        public List<TJBBSR> selectTJBB(string begindate, string enddate, string yginfo,string lbtype)
         {
-            return dal.AddList(listLS);
-        }
-        public List<LiShiConsumption> selectAllList(string cardNo,string name)
-        {
-            return dal.selectAllList(cardNo, name);
-        }
-        //返回不大票据的信息
-        public List<bdpjModel> selectBDPJ()
-        {
-            return dal.selectBDPJ();
-        }
-        public List<LiShiConsumption> selectTJ(string begindate,string enddate,string yginfo)
-        {
-            List<LiShiConsumption> list1 = dal.selectTJ(yginfo);
-            List<LiShiConsumption> list = new List<LiShiConsumption>();
+            List<TJBBSR> list = new List<TJBBSR>();
+            List<TJBBSR> list1 = new List<TJBBSR>();
+            TJBBSR model;
+            List<memberToUpModel> listcz = czdal.selectTJ(yginfo);
+            List<memberInfoModel> listbk = hybkdal.tjbbOfbk(yginfo);
+            List<JCInfoModel> listjc = jcdal.selectQZTJ(yginfo, lbtype);
+            #region//将数据首先存放在list1中
+            foreach (var iteam in listcz)
+            {
+                model = new TJBBSR();
+                model.Name = "会员充值，姓名[" + iteam.czName.Trim() + "],卡号[" + iteam.czNo.Trim() + "]";
+                model.Date = iteam.czDate;
+                model.Money = iteam.czMoney;
+                model.SaleMan = iteam.czSaleman;
+                model.DianPu = iteam.dianpu;
+                list1.Add(model);
+            }
+            foreach (var iteam in listbk)
+            {
+                model = new TJBBSR();
+                model.Name = "会员办卡，姓名[" + iteam.memberName.Trim() + "],卡号[" + iteam.memberCardNo.Trim() + "]";
+                model.Date = iteam.cardDate;
+                model.Money = iteam.toUpMoney;
+                model.SaleMan = iteam.saleMan;
+                model.DianPu = iteam.dianName;
+                list1.Add(model);
+            }
+            foreach (var iteam in listjc)
+            {
+                model = new TJBBSR();
+                model.Name = iteam.jcName.Trim() + "," + iteam.jcCardNumber.Trim() + "," + iteam.jcStaff.Trim();
+                model.Date = iteam.jcBeginDate;
+                model.Money = iteam.jcQMoney;
+                model.SaleMan = iteam.jcPression;
+                model.DianPu = iteam.lsdm;
+                list1.Add(model);
+            }
+            #endregion
+            #region//时间过滤
             string pattern = @"[\d]+";
+            int i = 1;
             Regex regex = new Regex(pattern, RegexOptions.None);
             int dyear = Convert.ToInt32(regex.Matches(enddate)[0].Value);
             int dmonth = Convert.ToInt32(regex.Matches(enddate)[1].Value);
@@ -39,9 +66,10 @@ namespace BLL
             int xday = Convert.ToInt32(regex.Matches(begindate)[2].Value);
             foreach (var iteam in list1)
             {
-                int year = Convert.ToInt32(regex.Matches(iteam.LSDate.Trim())[0].Value);
-                int month = Convert.ToInt32(regex.Matches(iteam.LSDate.Trim())[1].Value);
-                int day = Convert.ToInt32(regex.Matches(iteam.LSDate.Trim())[2].Value);
+                iteam.No = i.ToString();
+                int year = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[0].Value);
+                int month = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[1].Value);
+                int day = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[2].Value);
                 if (year < xyear || year > dyear)
                 {
                     continue;
@@ -106,7 +134,9 @@ namespace BLL
                         }
                     }
                 }
-            }         
+                i++;
+            }
+            #endregion
             return list;
         }
     }

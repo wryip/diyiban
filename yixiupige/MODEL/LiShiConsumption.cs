@@ -8,6 +8,7 @@ namespace MODEL
 {
     public class LiShiConsumption
     {
+        public string LSNo { get; set; }
         public string LSName { get; set; }
         public string LSDate { get; set; }
         public string LSStaff { get; set; }

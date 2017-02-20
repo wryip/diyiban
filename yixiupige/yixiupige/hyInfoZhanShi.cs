@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Commond;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace yixiupige
         {
             InitializeComponent();
         }
+        LSConsumptionBLL lsbll = new LSConsumptionBLL();
         public static memberInfoModel model1;
         private static hyInfoZhanShi _danli = null;
         memberCZMoneyBLL bll1 = new memberCZMoneyBLL();
@@ -55,6 +57,8 @@ namespace yixiupige
                 label12.Text = "剩余次数";
             }
             dataBind();
+            string name = FilterClass.DianPu1.UserName;
+            dataGridView1.DataSource = lsbll.selectAllList(textBox2.Text.Trim(), name);
         }
         public void dataBind()
         {

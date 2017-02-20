@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MODEL;
 using System.Data;
 using System.Data.SqlClient;
+using Commond;
 namespace DAL
 {
     public class GoodsInfoDal
@@ -21,23 +22,30 @@ namespace DAL
            {
                if (!string.IsNullOrEmpty(gd.Gno))
                {
-                   sql += " where Gno like @no";
+                   sql += " where Gno like @no and DPName=@DPName";
                    listp.Add(new SqlParameter("@no", "%"+gd.Gno+"%"));
+                   listp.Add(new SqlParameter("@DPName", FilterClass.DianPu1.UserName.Trim()));
                }
                if (!string.IsNullOrEmpty(gd.Gname))
                {
-                   sql += " where Gname like @name";
+                   sql += " where Gname like @name and DPName=@DPName";
                    listp.Add(new SqlParameter("@name","%"+ gd.Gname+"%"));
+                   listp.Add(new SqlParameter("@DPName", FilterClass.DianPu1.UserName.Trim()));
                }
                if (!string.IsNullOrEmpty(gd.Gtype))
                {
-                  
+
                    if (gd.Gtype != "全部")
                    {
-                       sql += " where Gtype=@type";
-                       listp.Add(new SqlParameter("@type",gd.Gtype));
+                       sql += " where Gtype=@type and DPName=@DPName";
+                       listp.Add(new SqlParameter("@type", gd.Gtype));
+                       listp.Add(new SqlParameter("@DPName", FilterClass.DianPu1.UserName.Trim()));
                    }
-                 
+                   else
+                   {
+                       sql += " where DPName=@DPName";
+                       listp.Add(new SqlParameter("@DPName", FilterClass.DianPu1.UserName.Trim()));
+                   }
                   
                }
            }
@@ -68,7 +76,7 @@ namespace DAL
         //增加
        public int Insert(GoodInfo gd)
        {
-           string sql = "insert into GoodInfo(Gname,Gbid,Gprice,Gsum,Gtype,Gno,Gremark,Gstock) values(@name,@bid,@price,@sum,@type,@no,@remark,@stock)";
+           string sql = "insert into GoodInfo(Gname,Gbid,Gprice,Gsum,Gtype,Gno,Gremark,Gstock,DPName) values(@name,@bid,@price,@sum,@type,@no,@remark,@stock,@DPName)";
            SqlParameter[] ps =
             {
                new SqlParameter("@name",gd.Gname),
@@ -78,7 +86,8 @@ namespace DAL
                new SqlParameter("@type",gd.Gtype),
                new SqlParameter("@no",gd.Gno),
                new SqlParameter("@remark",gd.Gremark),
-               new SqlParameter("@stock",gd.Gstock)
+               new SqlParameter("@stock",gd.Gstock),
+               new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
            return SqlHelper.ExecuteNonQuery(sql, ps);
        }
@@ -94,14 +103,15 @@ namespace DAL
        }
        public int Update(GoodInfo gd)
        {
-           string sql = "update GoodInfo set Gname=@name,Gbid=@bid,Gtype=@type,Gremark=@remark where Gno=@no";
+           string sql = "update GoodInfo set Gname=@name,Gbid=@bid,Gtype=@type,Gremark=@remark where Gno=@no and DPName=@DPName";
            SqlParameter[] sp = { 
                                      new SqlParameter("@name",gd.Gname),
                                      new SqlParameter("@bid",gd.Gbid),
                                      new SqlParameter("@price",gd.Gprice),
                                      new SqlParameter("@type",gd.Gtype),
                                      new SqlParameter("@no",gd.Gno),
-                                     new SqlParameter("@remark",gd.Gremark)
+                                     new SqlParameter("@remark",gd.Gremark),
+                                     new SqlParameter("@DPName", FilterClass.DianPu1.UserName.Trim())
                                     
                                 };
            return SqlHelper.ExecuteNonQuery(sql,sp);
@@ -110,12 +120,14 @@ namespace DAL
        }
        public int Updates(int _add,GoodInfo gd)
        {
-           int _a = gd.Gsum + _add;
-           string sql = "update GoodInfo set Gsum=@sum,Gstock=@stock where Gno=@no";
+           int _a = gd.Gstock + _add;
+           int _b = gd.Gsum + _add;
+           string sql = "update GoodInfo set Gsum=@sum,Gstock=@stock where Gno=@no and DPName=@DPName";
            SqlParameter[] sp = { 
                                     new SqlParameter("@no",gd.Gno),
-                                    new SqlParameter("@sum",_a),
-                                    new SqlParameter("@stock",_a)
+                                    new SqlParameter("@sum",_b),
+                                    new SqlParameter("@stock",_a),
+                                    new SqlParameter("@DPName", FilterClass.DianPu1.UserName.Trim())
                                     
                                 };
            return SqlHelper.ExecuteNonQuery(sql, sp);
@@ -127,13 +139,15 @@ namespace DAL
            string sql = "select * from GoodInfo";
            if (!string.IsNullOrEmpty(gd.Gno))
            {
-               sql += " where Gno=@no";
+               sql += " where Gno=@no and DPName=@DPName";
                listp.Add(new SqlParameter("@no", gd.Gno.Trim()));
+               listp.Add(new SqlParameter("@DPName", FilterClass.DianPu1.UserName.Trim()));
            }
            if (!string.IsNullOrEmpty(gd.Gname))
            {
-               sql += " where Gname=@name";
+               sql += " where Gname=@name and DPName=@DPName";
                listp.Add(new SqlParameter("@name", gd.Gname.Trim()));
+               listp.Add(new SqlParameter("@DPName", FilterClass.DianPu1.UserName.Trim()));
            }
            DataSet ds = SqlHelper.GetDataSet(sql, listp.ToArray());
            DataTable dt = ds.Tables[0];

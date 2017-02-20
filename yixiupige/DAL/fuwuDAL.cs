@@ -1,4 +1,5 @@
-﻿using MODEL;
+﻿using Commond;
+using MODEL;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -15,9 +16,10 @@ namespace DAL
             bool result = false;
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@Name",model.Name),
-            new SqlParameter("@neirong",model.neirong)
+            new SqlParameter("@neirong",model.neirong),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
-            string str = "insert into fuwuInfo(Name,neirong) values(@Name,@neirong)";
+            string str = "insert into fuwuInfo(Name,neirong,DPName) values(@Name,@neirong,@DPName)";
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
                 result = true;
@@ -28,8 +30,11 @@ namespace DAL
         {
             List<fuwuModel> list = new List<fuwuModel>();
             fuwuModel model;
-            string str = "select * from fuwuInfo";
-            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            string str = "select * from fuwuInfo where DPName=@DPName";
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            };
+            SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
                 if (read.HasRows)
@@ -45,9 +50,10 @@ namespace DAL
         public fuwuModel selectIteam(string name)
         {
             fuwuModel model = new fuwuModel();
-            string str = "select * from fuwuInfo where Name=@Name";
+            string str = "select * from fuwuInfo where Name=@Name and DPName=@DPName";
             SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@Name",name.Trim())
+            new SqlParameter("@Name",name.Trim()),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
@@ -65,9 +71,10 @@ namespace DAL
             bool result = false;
             SqlParameter[] pms = new SqlParameter[] {
             new SqlParameter("@neirong",model.neirong),
-            new SqlParameter("@Name",model.Name)
+            new SqlParameter("@Name",model.Name),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
-            string str = "update fuwuInfo set neirong=@neirong where Name=@Name";
+            string str = "update fuwuInfo set neirong=@neirong where Name=@Name and DPName=@DPName";
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
                 result = true;
@@ -77,9 +84,10 @@ namespace DAL
         public bool deleteIteam(string name)
         {
             bool result = false;
-            string str = "delete from fuwuInfo where Name=@Name";
+            string str = "delete from fuwuInfo where Name=@Name and DPName=@DPName";
             SqlParameter[] pms = new SqlParameter[] {
-            new SqlParameter("@Name",name)
+            new SqlParameter("@Name",name),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {

@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DPInfoDAL.cs" />
+    <Compile Include="DXSendDAL.cs" />
     <Compile Include="fuwuDAL.cs" />
     <Compile Include="GoodsInfoDal.cs" />
     <Compile Include="jbcsDAL.cs" />
@@ -57,6 +58,10 @@
     <Compile Include="staffTableDAL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Commond\Commond.csproj">
+      <Project>{9d4b158d-1d46-4930-9685-708071ea440b}</Project>
+      <Name>Commond</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MODEL\MODEL.csproj">
       <Project>{302fa470-2512-4f1b-b463-4061e4370f18}</Project>
       <Name>MODEL</Name>
