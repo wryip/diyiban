@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MODEL;
 using BLL;
+using Commond;
 namespace yixiupige
 {
     public partial class spbhForm : Form
@@ -17,6 +18,7 @@ namespace yixiupige
         {
             InitializeComponent();
         }
+        TJBBBLL tjbbbll = new TJBBBLL();
         private static spbhForm spbh;
         public static spbhForm Create()
         {
@@ -73,6 +75,19 @@ namespace yixiupige
             {
                 sp._load();
                 Loadevent();
+                InHuoTJ jinhuo = new InHuoTJ()
+                {
+                    HuoCount = addtextBox.Text.Trim(),
+                    HuoDate = DateTime.Now.Year + "年" + DateTime.Now.Month + "月" + DateTime.Now.Day + "日",
+                    HuoDianName = FilterClass.DianPu1.UserName.Trim(),
+                    HuoMoney = bidtextBox.Text.Trim(),
+                    HuoName = nametextBox.Text.ToString().Trim(),
+                    HuoNumber = notextBox.Text.ToString().Trim(),
+                    HuoSale = FilterClass.DianPu1.LoginName.Trim(),
+                    HuoSum = sumtextBox.Text.Trim(),
+                    HuoType = typetextBox.Text.ToString().Trim()
+                };
+                tjbbbll.AddIteam(jinhuo);
                 MessageBox.Show("补货成功！");
             }
         }

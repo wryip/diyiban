@@ -34,5 +34,9 @@ namespace BLL
        {
            return gddal.Updates(_add,gd) > 0;
        }
+       public void UpdateXF(string no,int count)
+       {
+           gddal.UpdateXF( no, count);
+       }
     }
 }

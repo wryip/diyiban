@@ -162,7 +162,7 @@ namespace yixiupige
             model.Remark = "";
             model.PinPai = "";
             model.Color = "";
-            model.ImgUrl = "";
+            model.ImgUrl = dataGridView1.SelectedRows[0].Cells["Gid"].Value.ToString();
             model.YMPerson = "";
             model.TCMoney = Convert.ToDouble(textBox3.Text.Trim() == "" ? "0" : textBox3.Text.Trim());
             if (radioButton1.Checked)

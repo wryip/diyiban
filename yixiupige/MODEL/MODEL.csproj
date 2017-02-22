@@ -44,6 +44,7 @@
     <Compile Include="DXmemberModel.cs" />
     <Compile Include="fuwuModel.cs" />
     <Compile Include="GoodInfo.cs" />
+    <Compile Include="InHuoTJ.cs" />
     <Compile Include="jbcs.cs" />
     <Compile Include="JCInfoModel.cs" />
     <Compile Include="LiShiConsumption.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="memberToUpModel.cs" />
     <Compile Include="memberType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PutHuo.cs" />
     <Compile Include="qtFuWuModel.cs" />
     <Compile Include="shInfoList.cs" />
     <Compile Include="shMemberInfo.cs" />

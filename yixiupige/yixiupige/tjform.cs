@@ -18,6 +18,8 @@ namespace yixiupige
         public string enddate { get; set; }
         public string yginfo { get; set; }
         public string lbinfo { get; set; }
+        staffInfoBLL staffbll=new staffInfoBLL();
+        TJBBBLL inhuo = new TJBBBLL();
         DXSendBLL dxbll = new DXSendBLL();
         TJBBBLL tjbll = new TJBBBLL();
         LSConsumptionBLL lsbll = new LSConsumptionBLL();
@@ -41,7 +43,7 @@ namespace yixiupige
         }
         private void tjform_Load(object sender, EventArgs e)
         {
-            List<jbcs> list = jbcsbll.selectList(6);
+            List<jbcs> list = staffbll.selectSH();
             comboBox1.Items.Add("全部");
             comboBox2.Items.Add("全部");
             foreach (var iteam in list)
@@ -102,12 +104,16 @@ namespace yixiupige
         //商品进货
         private void spjhdata()
         {
-            throw new NotImplementedException();
+            List<InHuoTJ> list = new List<InHuoTJ>();
+            list = inhuo.selectListTJ(begindate, enddate, yginfo);
+            dataGridView10.DataSource = list;
         }
         //商品销售
         private void spxsdata()
         {
-            throw new NotImplementedException();
+            List<PutHuo> list = new List<PutHuo>();
+            list = inhuo.SelectListXS(begindate, enddate, yginfo);
+            dataGridView9.DataSource = list;
         }
         //短信统计
         private void dxtjdata()

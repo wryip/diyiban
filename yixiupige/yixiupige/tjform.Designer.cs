@@ -145,15 +145,6 @@
             this.DianPu2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.dataGridView8 = new System.Windows.Forms.DataGridView();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.dataGridView9 = new System.Windows.Forms.DataGridView();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.dataGridView10 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.No1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MemberName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -163,6 +154,36 @@
             this.SaleMan1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DianPu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SendInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.dataGridView9 = new System.Windows.Forms.DataGridView();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.dataGridView10 = new System.Windows.Forms.DataGridView();
+            this.BH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HuoNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HuoName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HuoType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HuoMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HuoCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HuoSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HuoDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HuoSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HuoDianName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.PutBH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PubPersonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutDianName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -1269,103 +1290,6 @@
             this.dataGridView8.Size = new System.Drawing.Size(1795, 586);
             this.dataGridView8.TabIndex = 0;
             // 
-            // tabPage9
-            // 
-            this.tabPage9.Controls.Add(this.dataGridView9);
-            this.tabPage9.Location = new System.Drawing.Point(4, 25);
-            this.tabPage9.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1795, 586);
-            this.tabPage9.TabIndex = 8;
-            this.tabPage9.Text = "商品销售";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView9
-            // 
-            this.dataGridView9.AllowUserToAddRows = false;
-            this.dataGridView9.AllowUserToDeleteRows = false;
-            this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView9.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView9.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView9.Name = "dataGridView9";
-            this.dataGridView9.ReadOnly = true;
-            this.dataGridView9.RowTemplate.Height = 23;
-            this.dataGridView9.Size = new System.Drawing.Size(1795, 586);
-            this.dataGridView9.TabIndex = 0;
-            // 
-            // tabPage10
-            // 
-            this.tabPage10.Controls.Add(this.dataGridView10);
-            this.tabPage10.Location = new System.Drawing.Point(4, 25);
-            this.tabPage10.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(1795, 586);
-            this.tabPage10.TabIndex = 9;
-            this.tabPage10.Text = "商品进货";
-            this.tabPage10.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView10
-            // 
-            this.dataGridView10.AllowUserToAddRows = false;
-            this.dataGridView10.AllowUserToDeleteRows = false;
-            this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView10.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView10.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView10.Name = "dataGridView10";
-            this.dataGridView10.ReadOnly = true;
-            this.dataGridView10.RowTemplate.Height = 23;
-            this.dataGridView10.Size = new System.Drawing.Size(1795, 586);
-            this.dataGridView10.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(599, 11);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 31);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "统计";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(305, 21);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 15);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "结束时间：";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(389, 15);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(163, 25);
-            this.dateTimePicker2.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 15);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "起始时间：";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(103, 15);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(163, 25);
-            this.dateTimePicker1.TabIndex = 5;
-            // 
             // No1
             // 
             this.No1.DataPropertyName = "No";
@@ -1431,6 +1355,275 @@
             this.SendInfo.Name = "SendInfo";
             this.SendInfo.ReadOnly = true;
             this.SendInfo.Visible = false;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.dataGridView9);
+            this.tabPage9.Location = new System.Drawing.Point(4, 25);
+            this.tabPage9.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(1795, 586);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "商品销售";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView9
+            // 
+            this.dataGridView9.AllowUserToAddRows = false;
+            this.dataGridView9.AllowUserToDeleteRows = false;
+            this.dataGridView9.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView9.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PutBH,
+            this.PutNo,
+            this.PutName,
+            this.PutType,
+            this.PutMoney,
+            this.PutCount,
+            this.PutCardNo,
+            this.PubPersonName,
+            this.PutDate,
+            this.PutSale,
+            this.PutDianName});
+            this.dataGridView9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView9.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView9.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView9.Name = "dataGridView9";
+            this.dataGridView9.ReadOnly = true;
+            this.dataGridView9.RowTemplate.Height = 23;
+            this.dataGridView9.Size = new System.Drawing.Size(1795, 586);
+            this.dataGridView9.TabIndex = 0;
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.dataGridView10);
+            this.tabPage10.Location = new System.Drawing.Point(4, 25);
+            this.tabPage10.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Size = new System.Drawing.Size(1795, 586);
+            this.tabPage10.TabIndex = 9;
+            this.tabPage10.Text = "商品进货";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView10
+            // 
+            this.dataGridView10.AllowUserToAddRows = false;
+            this.dataGridView10.AllowUserToDeleteRows = false;
+            this.dataGridView10.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView10.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BH,
+            this.HuoNumber,
+            this.HuoName,
+            this.HuoType,
+            this.HuoMoney,
+            this.HuoCount,
+            this.HuoSum,
+            this.HuoDate,
+            this.HuoSale,
+            this.HuoDianName});
+            this.dataGridView10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView10.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView10.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView10.Name = "dataGridView10";
+            this.dataGridView10.ReadOnly = true;
+            this.dataGridView10.RowTemplate.Height = 23;
+            this.dataGridView10.Size = new System.Drawing.Size(1795, 586);
+            this.dataGridView10.TabIndex = 0;
+            // 
+            // BH
+            // 
+            this.BH.DataPropertyName = "BH";
+            this.BH.HeaderText = "编号";
+            this.BH.Name = "BH";
+            this.BH.ReadOnly = true;
+            // 
+            // HuoNumber
+            // 
+            this.HuoNumber.DataPropertyName = "HuoNumber";
+            this.HuoNumber.HeaderText = "货号";
+            this.HuoNumber.Name = "HuoNumber";
+            this.HuoNumber.ReadOnly = true;
+            // 
+            // HuoName
+            // 
+            this.HuoName.DataPropertyName = "HuoName";
+            this.HuoName.HeaderText = "货物名称";
+            this.HuoName.Name = "HuoName";
+            this.HuoName.ReadOnly = true;
+            // 
+            // HuoType
+            // 
+            this.HuoType.DataPropertyName = "HuoType";
+            this.HuoType.HeaderText = "类型";
+            this.HuoType.Name = "HuoType";
+            this.HuoType.ReadOnly = true;
+            // 
+            // HuoMoney
+            // 
+            this.HuoMoney.DataPropertyName = "HuoMoney";
+            this.HuoMoney.HeaderText = "金额";
+            this.HuoMoney.Name = "HuoMoney";
+            this.HuoMoney.ReadOnly = true;
+            // 
+            // HuoCount
+            // 
+            this.HuoCount.DataPropertyName = "HuoCount";
+            this.HuoCount.HeaderText = "数量";
+            this.HuoCount.Name = "HuoCount";
+            this.HuoCount.ReadOnly = true;
+            // 
+            // HuoSum
+            // 
+            this.HuoSum.DataPropertyName = "HuoSum";
+            this.HuoSum.HeaderText = "库存";
+            this.HuoSum.Name = "HuoSum";
+            this.HuoSum.ReadOnly = true;
+            // 
+            // HuoDate
+            // 
+            this.HuoDate.DataPropertyName = "HuoDate";
+            this.HuoDate.HeaderText = "日期";
+            this.HuoDate.Name = "HuoDate";
+            this.HuoDate.ReadOnly = true;
+            // 
+            // HuoSale
+            // 
+            this.HuoSale.DataPropertyName = "HuoSale";
+            this.HuoSale.HeaderText = "业务员";
+            this.HuoSale.Name = "HuoSale";
+            this.HuoSale.ReadOnly = true;
+            // 
+            // HuoDianName
+            // 
+            this.HuoDianName.DataPropertyName = "HuoDianName";
+            this.HuoDianName.HeaderText = "连锁店名";
+            this.HuoDianName.Name = "HuoDianName";
+            this.HuoDianName.ReadOnly = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(599, 11);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 31);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "统计";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(305, 21);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 15);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "结束时间：";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(389, 15);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(163, 25);
+            this.dateTimePicker2.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 15);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "起始时间：";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(103, 15);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(163, 25);
+            this.dateTimePicker1.TabIndex = 5;
+            // 
+            // PutBH
+            // 
+            this.PutBH.DataPropertyName = "PutBH";
+            this.PutBH.HeaderText = "编号";
+            this.PutBH.Name = "PutBH";
+            this.PutBH.ReadOnly = true;
+            // 
+            // PutNo
+            // 
+            this.PutNo.DataPropertyName = "PutNo";
+            this.PutNo.HeaderText = "库存号";
+            this.PutNo.Name = "PutNo";
+            this.PutNo.ReadOnly = true;
+            // 
+            // PutName
+            // 
+            this.PutName.DataPropertyName = "PutName";
+            this.PutName.HeaderText = "商品名称";
+            this.PutName.Name = "PutName";
+            this.PutName.ReadOnly = true;
+            // 
+            // PutType
+            // 
+            this.PutType.DataPropertyName = "PutType";
+            this.PutType.HeaderText = "类别";
+            this.PutType.Name = "PutType";
+            this.PutType.ReadOnly = true;
+            // 
+            // PutMoney
+            // 
+            this.PutMoney.DataPropertyName = "PutMoney";
+            this.PutMoney.HeaderText = "金额";
+            this.PutMoney.Name = "PutMoney";
+            this.PutMoney.ReadOnly = true;
+            // 
+            // PutCount
+            // 
+            this.PutCount.DataPropertyName = "PutCount";
+            this.PutCount.HeaderText = "数量";
+            this.PutCount.Name = "PutCount";
+            this.PutCount.ReadOnly = true;
+            // 
+            // PutCardNo
+            // 
+            this.PutCardNo.DataPropertyName = "PutCardNo";
+            this.PutCardNo.HeaderText = "卡号";
+            this.PutCardNo.Name = "PutCardNo";
+            this.PutCardNo.ReadOnly = true;
+            // 
+            // PubPersonName
+            // 
+            this.PubPersonName.DataPropertyName = "PubPersonName";
+            this.PubPersonName.HeaderText = "客户姓名";
+            this.PubPersonName.Name = "PubPersonName";
+            this.PubPersonName.ReadOnly = true;
+            // 
+            // PutDate
+            // 
+            this.PutDate.DataPropertyName = "PutDate";
+            this.PutDate.HeaderText = "日期";
+            this.PutDate.Name = "PutDate";
+            this.PutDate.ReadOnly = true;
+            // 
+            // PutSale
+            // 
+            this.PutSale.DataPropertyName = "PutSale";
+            this.PutSale.HeaderText = "业务员";
+            this.PutSale.Name = "PutSale";
+            this.PutSale.ReadOnly = true;
+            // 
+            // PutDianName
+            // 
+            this.PutDianName.DataPropertyName = "PutDianName";
+            this.PutDianName.HeaderText = "连锁店名";
+            this.PutDianName.Name = "PutDianName";
+            this.PutDianName.ReadOnly = true;
             // 
             // tjfrom
             // 
@@ -1607,6 +1800,27 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SaleMan1;
         private System.Windows.Forms.DataGridViewTextBoxColumn DianPu1;
         private System.Windows.Forms.DataGridViewTextBoxColumn SendInfo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HuoNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HuoName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HuoType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HuoMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HuoCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HuoSum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HuoDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HuoSale;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HuoDianName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutBH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutCardNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PubPersonName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutSale;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutDianName;
 
     }
 }

@@ -725,7 +725,65 @@ namespace yixiupige
             PirentDocumentClass.PirentSH(textBox14.Text, textBox21.Text, textBox22.Text, DYList, pictureBoxQr.Image,sb);
             //printDocument1.Print();
             dataGridView2.DataSource=new List<shInfoList>();
+            TJBBBuy(listjieshu);
             
+        }
+        public void TJBBBuy(List<shInfoList> list)
+        {
+            List<shInfoList> list1 = new List<shInfoList>();
+            foreach (var iteam in list)
+            {
+                int count = iteam.Count;
+                string no = iteam.ImgUrl.Trim();
+                if (iteam.FuWuName.Substring(0, 4) == "购买商品")
+                {
+                    PutHuo model = new PutHuo()
+                    {
+                        PutCardNo = textBox5.Text.Trim(),
+                        PutCount = iteam.Count.ToString(),
+                        PutDate = DateTime.Now.Year + "年" + DateTime.Now.Month + "月" + DateTime.Now.Day + "日",
+                        PutDianName = FilterClass.DianPu1.UserName.Trim(),
+                        PutMoney = iteam.CountMoney.ToString(),
+                        PutName = iteam.FuWuName.Split(new char[] { '[', ']' }, StringSplitOptions.RemoveEmptyEntries)[1],
+                        PutNo = iteam.ImgUrl.Trim(),
+                        PutSale = comboBox4.Text.Trim(),
+                        PutType = iteam.Type                        
+                        //PubPersonName = textBox4.Text.Trim()
+                    };
+                    if (radioButton1.Checked)
+                    {
+                        model.PubPersonName = textBox4.Text.Trim();
+                    }
+                    else
+                    {
+                        model.PubPersonName = textBox1.Text.Trim();
+                    }
+                    //首先应该减去数量
+                    SPDelete(no,count);
+                    //第二应该将纪录天交到表格中
+                    AddIteam(model);
+                }
+            }
+        }
+        /// <summary>
+        /// 购买商品成功之后，减去所属商品的数量
+        /// </summary>
+        /// <param name="no"></param>
+        /// <param name="dian"></param>
+        /// <param name="count"></param>
+        public void SPDelete(string no, int count)
+        {
+            GoodInfoBLL gbbll = new GoodInfoBLL();
+            gbbll.UpdateXF(no,count);
+        }
+        /// <summary>
+        /// 将购买商品的信息放入到表格记录里面
+        /// </summary>
+        /// <param name="model"></param>
+        public void AddIteam(PutHuo model)
+        {
+            TJBBBLL tjbb = new TJBBBLL();
+            tjbb.AddIteam(model);
         }
         public void dataBindgridview1(List<LiShiConsumption> list)
         {

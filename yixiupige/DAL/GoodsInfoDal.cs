@@ -171,5 +171,10 @@ namespace DAL
            }
            return list;
        }
+       public void UpdateXF(string no, int count)
+       {
+           string str = "update GoodInfo set Gstock=Gstock-" + count + "";
+           SqlHelper.ExecuteNonQuery(str);
+       }
     }
 }

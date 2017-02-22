@@ -11,6 +11,7 @@ namespace BLL
 {
     public class TJBBBLL
     {
+        TJBBDAL dal = new TJBBDAL();
         memberCZMoneyDAL czdal = new memberCZMoneyDAL();
         memberInfoDAL hybkdal = new memberInfoDAL();
         JCInfoDAL jcdal = new JCInfoDAL();
@@ -137,6 +138,182 @@ namespace BLL
                 i++;
             }
             #endregion
+            return list;
+        }
+        public void AddIteam(InHuoTJ jinhuo)
+        {
+            dal.AddIteam(jinhuo);
+        }
+        public List<InHuoTJ> selectListTJ(string begindate,string enddate,string yginfo)
+        {
+            List<InHuoTJ> list1 = dal.selectListTJ(yginfo);
+            List<InHuoTJ> list = new List<InHuoTJ>();
+            string pattern = @"[\d]+";
+            Regex regex = new Regex(pattern, RegexOptions.None);
+            int dyear = Convert.ToInt32(regex.Matches(enddate)[0].Value);
+            int dmonth = Convert.ToInt32(regex.Matches(enddate)[1].Value);
+            int dday = Convert.ToInt32(regex.Matches(enddate)[2].Value);
+            int xyear = Convert.ToInt32(regex.Matches(begindate)[0].Value);
+            int xmonth = Convert.ToInt32(regex.Matches(begindate)[1].Value);
+            int xday = Convert.ToInt32(regex.Matches(begindate)[2].Value);
+            foreach (var iteam in list1)
+            {
+                int year = Convert.ToInt32(regex.Matches(iteam.HuoDate.Trim())[0].Value);
+                int month = Convert.ToInt32(regex.Matches(iteam.HuoDate.Trim())[1].Value);
+                int day = Convert.ToInt32(regex.Matches(iteam.HuoDate.Trim())[2].Value);
+                if (year < xyear || year > dyear)
+                {
+                    continue;
+                }
+                else
+                {
+                    if (dyear == xyear)
+                    {
+                        if (month > dmonth || month < xmonth)
+                        {
+                            continue;
+                        }
+                        if (day > dday || day < xday)
+                        {
+                            continue;
+                        }
+                        list.Add(iteam);
+                        continue;
+                    }
+                    if (year == dyear)
+                    {
+                        if (month > dmonth)
+                        {
+                            continue;
+                        }
+                        else if (month < dmonth)
+                        {
+                            list.Add(iteam);
+                        }
+                        else
+                        {
+                            if (day > dday)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                list.Add(iteam);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (month < xmonth)
+                        {
+                            continue;
+                        }
+                        else if (month > xmonth)
+                        {
+                            list.Add(iteam);
+                        }
+                        else
+                        {
+                            if (day < xday)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                list.Add(iteam);
+                            }
+                        }
+                    }
+                }
+            }      
+            return list;
+        }
+        public void AddIteam(PutHuo model)
+        {
+            dal.AddIteam(model);
+        }
+        public List<PutHuo> SelectListXS(string begindate, string enddate, string yginfo)
+        {
+            List<PutHuo> list1 = dal.SelectListXS(yginfo.Trim());
+            List<PutHuo> list = new List<PutHuo>();
+            string pattern = @"[\d]+";
+            Regex regex = new Regex(pattern, RegexOptions.None);
+            int dyear = Convert.ToInt32(regex.Matches(enddate)[0].Value);
+            int dmonth = Convert.ToInt32(regex.Matches(enddate)[1].Value);
+            int dday = Convert.ToInt32(regex.Matches(enddate)[2].Value);
+            int xyear = Convert.ToInt32(regex.Matches(begindate)[0].Value);
+            int xmonth = Convert.ToInt32(regex.Matches(begindate)[1].Value);
+            int xday = Convert.ToInt32(regex.Matches(begindate)[2].Value);
+            foreach (var iteam in list1)
+            {
+                int year = Convert.ToInt32(regex.Matches(iteam.PutDate.Trim())[0].Value);
+                int month = Convert.ToInt32(regex.Matches(iteam.PutDate.Trim())[1].Value);
+                int day = Convert.ToInt32(regex.Matches(iteam.PutDate.Trim())[2].Value);
+                if (year < xyear || year > dyear)
+                {
+                    continue;
+                }
+                else
+                {
+                    if (dyear == xyear)
+                    {
+                        if (month > dmonth || month < xmonth)
+                        {
+                            continue;
+                        }
+                        if (day > dday || day < xday)
+                        {
+                            continue;
+                        }
+                        list.Add(iteam);
+                        continue;
+                    }
+                    if (year == dyear)
+                    {
+                        if (month > dmonth)
+                        {
+                            continue;
+                        }
+                        else if (month < dmonth)
+                        {
+                            list.Add(iteam);
+                        }
+                        else
+                        {
+                            if (day > dday)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                list.Add(iteam);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (month < xmonth)
+                        {
+                            continue;
+                        }
+                        else if (month > xmonth)
+                        {
+                            list.Add(iteam);
+                        }
+                        else
+                        {
+                            if (day < xday)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                list.Add(iteam);
+                            }
+                        }
+                    }
+                }
+            }      
             return list;
         }
     }
