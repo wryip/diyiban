@@ -33,12 +33,23 @@ namespace DAL
         }
         public List<staffTable> selectAllList()
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             List<staffTable> list = new List<staffTable>();
             staffTable model;
-            SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            SqlParameter[] pms;
+            string str;
+            if (dpname == "admin")
+            {
+                pms = new SqlParameter[] {};
+                str = "select * from staffTable";
+            }
+            else
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",dpname)
             };
-            string str = "select * from staffTable where DPName=@DPName";
+                str = "select * from staffTable where DPName=@DPName";
+            }
             SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
@@ -97,12 +108,23 @@ namespace DAL
         /// <returns></returns>
         public List<jbcs> selectSH()
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             List<jbcs> list = new List<jbcs>();
             jbcs model;
-            SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            SqlParameter[] pms;
+            string str;
+            if (dpname == "admin")
+            {
+                pms = new SqlParameter[] {  };
+                str = "select stName from staffTable";
+            }
+            else
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",dpname)
             };
-            string str = "select stName from staffTable where DPName=@DPName";
+                 str = "select stName from staffTable where DPName=@DPName";
+            }
             SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {

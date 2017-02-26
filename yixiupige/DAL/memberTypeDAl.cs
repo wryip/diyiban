@@ -31,12 +31,26 @@ namespace DAL
         //查询一个对象的详细信息
         public memberType EditMember(string name)
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             memberType result = new memberType();
-            SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@memberName",name),
-            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            SqlParameter[] pms;
+            string str;
+            if (dpname == "admin")
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@memberName",name)
             };
-            var read = SqlHelper.ExecuteReader("select * from memberType where memberName=@memberName and DPName=@DPName", pms);
+                str = "select * from memberType where memberName=@memberName";
+            }
+            else
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@memberName",name),
+            new SqlParameter("@DPName",dpname)
+            };
+                str = "select * from memberType where memberName=@memberName and DPName=@DPName";
+            }
+            var read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
                 if (read.HasRows)
@@ -82,10 +96,22 @@ namespace DAL
         }
         public List<string> selectNodes()
         {
-            SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            string dpname=FilterClass.DianPu1.UserName.Trim();
+            string str;
+            SqlParameter[] pms;
+            if (dpname == "admin")
+            {
+                str = "select memberName from memberType";
+                pms = new SqlParameter[] {  };
+            }
+            else
+            {
+                str = "select memberName from memberType where DPName=@DPName";
+                pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",dpname)
             };
-            var read = SqlHelper.ExecuteReader("select memberName from memberType where DPName=@DPName",pms);
+            }
+            var read = SqlHelper.ExecuteReader(str,pms);
             List<string> List = new List<string>();
             while (read.Read())
             {

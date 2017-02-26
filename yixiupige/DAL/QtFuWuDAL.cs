@@ -28,12 +28,23 @@ namespace DAL
         }
         public List<qtFuWuModel> SelectAllList()
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             List<qtFuWuModel> list = new List<qtFuWuModel>();
             qtFuWuModel model;
-            SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            SqlParameter[] pms;
+            string str;
+            if (dpname == "admin")
+            {
+                pms = new SqlParameter[] { };
+                str = "select * from QtFuWu";
+            }
+            else
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",dpname)
             };
-            string str = "select * from QtFuWu where DPName=@DPName";
+                str = "select * from QtFuWu where DPName=@DPName";
+            }
             SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
@@ -78,12 +89,23 @@ namespace DAL
         }
         public List<string> selectAllName()
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             List<string> list = new List<string>();
             string name;
-            SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            SqlParameter[] pms;
+            string str;
+            if (dpname == "admin")
+            {
+                pms = new SqlParameter[] { };
+                str = "select QtName from QtFuWu";
+            }
+            else
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",dpname)
             };
-            string str = "select QtName from QtFuWu where DPName=@DPName";
+                str = "select QtName from QtFuWu where DPName=@DPName";
+            }
             SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {

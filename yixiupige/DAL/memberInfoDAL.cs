@@ -46,6 +46,7 @@ namespace DAL
         }
         public List<memberInfoModel> selectInfoCollect(string cardTepe)
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             int i = 1;
             List<memberInfoModel> list = new List<memberInfoModel>();
             memberInfoModel model;
@@ -54,20 +55,38 @@ namespace DAL
             string str;
             if (cardTepe.Trim() == "全部")
             {
-                pms = new SqlParameter[] { 
-            new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
+                if (dpname == "admin")
+                {                    
+                    str = "select * from memberInfo";
+                    read = SqlHelper.ExecuteReader(str);
+                }
+                else
+                {
+                    pms = new SqlParameter[] { 
+            new SqlParameter("@dianName",dpname)
             };
-                str = "select * from memberInfo where dianName=@dianName";
-                read = SqlHelper.ExecuteReader(str,pms);
+                    str = "select * from memberInfo where dianName=@dianName";
+                    read = SqlHelper.ExecuteReader(str, pms);
+                }
             }
             else
             {
-                pms = new SqlParameter[] { 
-            new SqlParameter("@memberType",cardTepe),
-            new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
+                if (dpname == "admin")
+                {
+                    pms = new SqlParameter[] { 
+            new SqlParameter("@memberType",cardTepe)
             };
-                str = "select * from memberInfo where memberType=@memberType and dianName=@dianName";
-                read = SqlHelper.ExecuteReader(str, pms);
+                    str = "select * from memberInfo where memberType=@memberType";
+                    read = SqlHelper.ExecuteReader(str, pms);
+                }
+                else
+                {
+                    pms = new SqlParameter[] { 
+            new SqlParameter("@memberType",cardTepe)
+            };
+                    str = "select * from memberInfo where memberType=@memberType";
+                    read = SqlHelper.ExecuteReader(str, pms);
+                }
             }           
             while (read.Read())
             {
@@ -139,6 +158,7 @@ namespace DAL
         #region//会员查找
         public List<memberInfoModel> hyczModel(string neirong, string tiaojian, int mouhu)
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             int i = 1;
             List<memberInfoModel> list = new List<memberInfoModel>();
             memberInfoModel model;
@@ -147,73 +167,188 @@ namespace DAL
             switch (tiaojian)
             {
                 case "姓名":
-                    pms = new SqlParameter[] { 
-                    new SqlParameter("@memberName", neirong),
-                    new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
-                    };                    
-                    if (mouhu == 1)
+                    if (dpname == "admin")
                     {
-                        str = "select * from memberInfo where memberName like '%'+@memberName+'%' and dianName=@dianName";
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@memberName", neirong)
+                    };
                     }
                     else
                     {
-                        str = "select * from memberInfo where memberName=@memberName and dianName=@dianName";
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@memberName", neirong),
+                    new SqlParameter("@dianName",dpname)
+                    }; 
+                    }
+                    if (mouhu == 1)
+                    {
+                        if (dpname == "admin")
+                        {
+                            str = "select * from memberInfo where memberName like '%'+@memberName+'%'";
+                        }
+                        else
+                        {
+                            str = "select * from memberInfo where memberName like '%'+@memberName+'%' and dianName=@dianName";
+                        }
+                    }
+                    else
+                    {
+                        if (dpname == "admin")
+                        {
+                            str = "select * from memberInfo where memberName=@memberName";
+                        }
+                        else
+                        {
+                            str = "select * from memberInfo where memberName=@memberName and dianName=@dianName";
+                        }
                     }
                     break;
                 case "卡号":
-                    pms = new SqlParameter[] { 
-                    new SqlParameter("@memberCardNo", neirong),
-                    new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
-                    };
-                    if (mouhu == 1)
+                    if (dpname == "admin")
                     {
-                        str = "select * from memberInfo where memberCardNo like '%'+@memberCardNo+'%' and dianName=@dianName";
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@memberCardNo", neirong)
+                    };
                     }
                     else
                     {
-                        str = "select * from memberInfo where memberCardNo=@memberCardNo and dianName=@dianName";
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@memberCardNo", neirong),
+                    new SqlParameter("@dianName",dpname)
+                    };
+                    }
+                    if (mouhu == 1)
+                    {
+                        if (dpname == "admin")
+                        {
+                            str = "select * from memberInfo where memberCardNo like '%'+@memberCardNo+'%'";
+                        }
+                        else
+                        {
+                            str = "select * from memberInfo where memberCardNo like '%'+@memberCardNo+'%' and dianName=@dianName";
+                        }
+                    }
+                    else
+                    {
+                        if (dpname == "admin")
+                        {
+                            str = "select * from memberInfo where memberCardNo=@memberCardNo";
+                        }
+                        else
+                        {
+                            str = "select * from memberInfo where memberCardNo=@memberCardNo and dianName=@dianName";
+                        }
                     }
                     break;
                 case "电话":
-                    pms = new SqlParameter[] { 
-                    new SqlParameter("@memberTel", neirong),
-                    new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
-                    };
-                    if (mouhu == 1)
+                    if (dpname == "admin")
                     {
-                        str = "select * from memberInfo where memberTel like '%'+@memberTel+'%' and dianName=@dianName";
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@memberTel", neirong)
+                    };
                     }
                     else
                     {
-                        str = "select * from memberInfo where memberTel=@memberTel and dianName=@dianName";
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@memberTel", neirong),
+                    new SqlParameter("@dianName",dpname)
+                    };
+                        }
+                    if (mouhu == 1)
+                    {
+                        if (dpname == "admin")
+                        {
+                            str = "select * from memberInfo where memberTel like '%'+@memberTel+'%'";
+                        }
+                        else
+                        {
+                            str = "select * from memberInfo where memberTel like '%'+@memberTel+'%' and dianName=@dianName";
+                        }
+                    }
+                    else
+                    {
+                        if (dpname == "admin")
+                        {
+                            str = "select * from memberInfo where memberTel=@memberTel";
+                        }
+                        else
+                        {
+                            str = "select * from memberInfo where memberTel=@memberTel and dianName=@dianName";
+                        }
                     }
                     break;
                 case "备注":
-                    pms = new SqlParameter[] { 
-                    new SqlParameter("@remark", neirong),
-                    new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
-                    };
-                    if (mouhu == 1)
+                    if (dpname == "admin")
                     {
-                        str = "select * from memberInfo where remark like '%'+@remark+'%' and dianName=@dianName";
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@remark", neirong)
+                    };
                     }
                     else
                     {
-                        str = "select * from memberInfo where remark=@remark and dianName=@dianName";
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@remark", neirong),
+                    new SqlParameter("@dianName",dpname)
+                    };
+                    }
+                    if (mouhu == 1)
+                    {
+                        if (dpname == "admin")
+                        {
+                            str = "select * from memberInfo where remark like '%'+@remark+'%'";
+                        }
+                        else
+                        {
+                            str = "select * from memberInfo where remark like '%'+@remark+'%' and dianName=@dianName";
+                        }
+                    }
+                    else
+                    {
+                        if (dpname == "admin")
+                        {
+                            str = "select * from memberInfo where remark=@remark";
+                        }
+                        else
+                        {
+                            str = "select * from memberInfo where remark=@remark and dianName=@dianName";
+                        }
                     }
                     break;
                 case "业务员":
-                    pms = new SqlParameter[] { 
-                    new SqlParameter("@salesMan", neirong),
-                    new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
-                    };
-                    if (mouhu == 1)
+                    if (dpname == "admin")
                     {
-                        str = "select * from memberInfo where salesMan like '%'+@salesMan+'%' and dianName=@dianName";
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@salesMan", neirong)
+                    };
                     }
                     else
                     {
-                        str = "select * from memberInfo where salesMan=@salesMan and dianName=@dianName";
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@salesMan", neirong),
+                    new SqlParameter("@dianName",dpname)
+                    };
+                    }
+                    if (mouhu == 1)
+                    {
+                        if(dpname=="admin")
+                        {
+                            str = "select * from memberInfo where salesMan like '%'+@salesMan+'%'";
+                        }
+                        else
+                        {
+                            str = "select * from memberInfo where salesMan like '%'+@salesMan+'%' and dianName=@dianName";
+                        }
+                    }
+                    else
+                    {
+                        if (dpname == "admin")
+                        {
+                            str = "select * from memberInfo where salesMan=@salesMan";
+                        }
+                        else
+                        {
+                            str = "select * from memberInfo where salesMan=@salesMan and dianName=@dianName";
+                        }
                     }
                     break;
                 default: pms = new SqlParameter[] { 
@@ -286,22 +421,49 @@ namespace DAL
         }
         public List<shMemberInfo> selectForIdList(string sousuo, bool mohu)
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             List<shMemberInfo> list = new List<shMemberInfo>();
             string str = "";
             shMemberInfo model;
-            SqlParameter[] pms = new SqlParameter[] { 
+            SqlParameter[] pms;
+            if (dpname == "admin")
+            {
+                pms = new SqlParameter[] { 
             new SqlParameter("@membercardNo",sousuo),
             new SqlParameter("@memberName",sousuo),
-            new SqlParameter("@memberTel",sousuo),
-            new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
+            new SqlParameter("@memberTel",sousuo)
             };
-            if (mohu)
-            {
-                str = "select * from memberInfo where membercardNo like '%'+@membercardNo+'%' or memberName like '%'+@memberName+'%' or  memberTel like '%'+@memberTel+'%' and dianName=@dianName";
             }
             else
             {
-                str = "select * from memberInfo where membercardNo=@membercardNo or memberName=@memberName or memberTel=@memberTel and dianName=@dianName";
+                pms = new SqlParameter[] { 
+            new SqlParameter("@membercardNo",sousuo),
+            new SqlParameter("@memberName",sousuo),
+            new SqlParameter("@memberTel",sousuo),
+            new SqlParameter("@dianName",dpname)
+            };
+            }
+            if (mohu)
+            {
+                if (dpname == "admin")
+                {
+                    str = "select * from memberInfo where membercardNo like '%'+@membercardNo+'%' or memberName like '%'+@memberName+'%' or  memberTel like '%'+@memberTel+'%'";
+                }
+                else
+                {
+                    str = "select * from memberInfo where membercardNo like '%'+@membercardNo+'%' or memberName like '%'+@memberName+'%' or  memberTel like '%'+@memberTel+'%' and dianName=@dianName";
+                }
+            }
+            else
+            {
+                if (dpname == "admin")
+                {
+                    str = "select * from memberInfo where membercardNo=@membercardNo or memberName=@memberName or memberTel=@memberTel";
+                }
+                else
+                {
+                    str = "select * from memberInfo where membercardNo=@membercardNo or memberName=@memberName or memberTel=@memberTel and dianName=@dianName";
+                }
             }
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
@@ -319,12 +481,31 @@ namespace DAL
         }
         public memberInfoModel SelectId(string card)
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             memberInfoModel model=new memberInfoModel();
-            SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@membercardNo",card),
-            new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
+            SqlParameter[] pms;
+            if (dpname == "admin")
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@membercardNo",card)
             };
-            string str = "select * from memberInfo where membercardNo=@membercardNo and dianName=@dianName";
+            }
+            else
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@membercardNo",card),
+            new SqlParameter("@dianName",dpname)
+            };
+            }
+            string str;
+            if (dpname == "admin")
+            {
+                str = "select * from memberInfo where membercardNo=@membercardNo";
+            }
+            else
+                 str = "select * from memberInfo where membercardNo=@membercardNo and dianName=@dianName";
+            { 
+            }
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
@@ -372,28 +553,58 @@ namespace DAL
         }
         public string selectType(string cardno)
         {
-            SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@memberCardNo",cardno),
-            new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
+            string dpname = FilterClass.DianPu1.UserName.Trim();
+            SqlParameter[] pms;
+            if (dpname == "admin")
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@memberCardNo",cardno)
             };
-            string str = "select memberType from memberInfo where memberCardNo=@memberCardNo and dianName=@dianName";
+            }
+            else
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@memberCardNo",cardno),
+            new SqlParameter("@dianName",dpname)
+            };
+            }
+            string str;
+            if (dpname == "admin")
+            {
+                str = "select memberType from memberInfo where memberCardNo=@memberCardNo";
+            }
+            else
+            {
+                str = "select memberType from memberInfo where memberCardNo=@memberCardNo and dianName=@dianName";
+            }
             object obj=SqlHelper.ExecuteScalar(str, pms);
             string read = obj == null ? "无卡" : obj.ToString();
             return read;
         }
         public List<DXmemberModel> SelectDXList()
         {
+            string dpname = FilterClass.DianPu1.UserName.Trim();
             int i = 1;
             List<DXmemberModel> list = new List<DXmemberModel>();
-            DXmemberModel model;           
-            string str = "select memberCardNo,memberName,memberTel from memberInfo where dianName=@dianName";
-            SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
+            DXmemberModel model;
+            string str;
+            SqlParameter[] pms;
+            if (dpname == "admin")
+            {
+                str = "select memberCardNo,memberName,memberTel from memberInfo";
+                pms = new SqlParameter[] {  };
+            }
+            else
+            {
+                str = "select memberCardNo,memberName,memberTel from memberInfo where dianName=@dianName";
+                pms = new SqlParameter[] { 
+            new SqlParameter("@dianName",dpname)
             };
-            SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
+            }
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
-                if(read.HasRows)
+                if (read.HasRows)
                 {
                     model = new DXmemberModel();
                     model.No = i;

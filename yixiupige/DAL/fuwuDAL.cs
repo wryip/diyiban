@@ -11,6 +11,7 @@ namespace DAL
 {
     public class fuwuDAL
     {
+        //服务的DAL
         public bool AddModel(fuwuModel model)
         {
             bool result = false;
@@ -30,10 +31,20 @@ namespace DAL
         {
             List<fuwuModel> list = new List<fuwuModel>();
             fuwuModel model;
-            string str = "select * from fuwuInfo where DPName=@DPName";
-            SqlParameter[] pms = new SqlParameter[] { 
+            string str;
+            SqlParameter[] pms;
+            if (FilterClass.DianPu1.UserName.Trim()=="admin")
+            {
+                str = "select * from fuwuInfo";
+                pms = new SqlParameter[] { };
+            }
+            else
+            {
+                str = "select * from fuwuInfo where DPName=@DPName";
+                pms = new SqlParameter[] { 
             new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
+            }
             SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
@@ -50,11 +61,23 @@ namespace DAL
         public fuwuModel selectIteam(string name)
         {
             fuwuModel model = new fuwuModel();
-            string str = "select * from fuwuInfo where Name=@Name and DPName=@DPName";
-            SqlParameter[] pms = new SqlParameter[] { 
+            string str;
+            SqlParameter[] pms;
+            if (FilterClass.DianPu1.UserName.Trim()=="admin")
+            {
+                str = "select * from fuwuInfo where Name=@Name";
+                pms = new SqlParameter[] { 
+            new SqlParameter("@Name",name.Trim())
+            };
+            }
+            else
+            {
+                str = "select * from fuwuInfo where Name=@Name and DPName=@DPName";
+                pms = new SqlParameter[] { 
             new SqlParameter("@Name",name.Trim()),
             new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
+            }
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {

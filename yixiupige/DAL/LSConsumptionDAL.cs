@@ -49,11 +49,23 @@ namespace DAL
         {
             List<LiShiConsumption> list = new List<LiShiConsumption>();
             LiShiConsumption model;
-            string str = "select * from LSConsumption where LSCardNumber=@LSCardNumber and LSMultipleName=@LSMultipleName";
-            SqlParameter[] pms = new SqlParameter[] { 
+            string str ;
+            SqlParameter[] pms;
+            if (name.Trim() == "admin")
+            {
+                str = "select * from LSConsumption where LSCardNumber=@LSCardNumber";
+                pms = new SqlParameter[] { 
+            new SqlParameter("@LSCardNumber",cardNo)
+            };
+            }
+            else
+            {
+                str = "select * from LSConsumption where LSCardNumber=@LSCardNumber and LSMultipleName=@LSMultipleName";
+                pms = new SqlParameter[] { 
             new SqlParameter("@LSCardNumber",cardNo),
             new SqlParameter("@LSMultipleName",name)
             };
+            }
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
@@ -88,13 +100,24 @@ namespace DAL
         /// <returns></returns>
         public List<bdpjModel> selectBDPJ()
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             List<bdpjModel> list = new List<bdpjModel>();
             bdpjModel model;
-            string str = "select LSDanNumber,LSName,LSCardNumber from LSConsumption where LSMultipleName=@LSMultipleName group by LSDanNumber,LSName,LSCardNumber";
-            SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@LSMultipleName",FilterClass.DianPu1.UserName.Trim())
+            string str;
+            SqlParameter[] pms;
+            if (dpname == "admin")
+            {
+                str = "select LSDanNumber,LSName,LSCardNumber from LSConsumption group by LSDanNumber,LSName,LSCardNumber";
+                pms = new SqlParameter[] {  };
+            }
+            else
+            {
+                str = "select LSDanNumber,LSName,LSCardNumber from LSConsumption where LSMultipleName=@LSMultipleName group by LSDanNumber,LSName,LSCardNumber";
+                pms = new SqlParameter[] { 
+            new SqlParameter("@LSMultipleName",dpname)
             };
-            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            }
+            SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
                 if (read.HasRows)

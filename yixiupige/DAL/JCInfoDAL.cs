@@ -53,24 +53,44 @@ namespace DAL
             List<JCInfoModel> list=new List<JCInfoModel>();
             JCInfoModel model;
             SqlParameter[] pms; 
-
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             if (type.Trim() == "全部")
             {
-                str = "select * from JCInfoTable where jcZT=@jcZT and DPName=@DPName";
-                pms = new SqlParameter[] { 
-            //new SqlParameter("@jcType",type.Trim()),
-            new SqlParameter("@jcZT","未取走"),
-            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
-            };
+                if (dpname == "admin")
+                {
+                    str = "select * from JCInfoTable where jcZT=@jcZT";
+                    pms = new SqlParameter[] { 
+                    new SqlParameter("@jcZT","未取走")
+                    };
+                }
+                else
+                {
+                    str = "select * from JCInfoTable where jcZT=@jcZT and DPName=@DPName";
+                    pms = new SqlParameter[] { 
+                     new SqlParameter("@jcZT","未取走"),
+                     new SqlParameter("@DPName",dpname)
+                     };
+                }
             }
             else
             {
-                str = "select * from JCInfoTable where jcType=@jcType and jcZT=@jcZT and DPName=@DPName";
-                pms = new SqlParameter[] { 
-            new SqlParameter("@jcType",type.Trim()),
-            new SqlParameter("@jcZT","未取走"),
-            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
-            };
+                if (dpname == "admin")
+                {
+                    str = "select * from JCInfoTable where jcType=@jcType and jcZT=@jcZT";
+                    pms = new SqlParameter[] { 
+                    new SqlParameter("@jcType",type.Trim()),
+                    new SqlParameter("@jcZT","未取走")
+                    };
+                }
+                else
+                {
+                    str = "select * from JCInfoTable where jcType=@jcType and jcZT=@jcZT and DPName=@DPName";
+                    pms = new SqlParameter[] { 
+                    new SqlParameter("@jcType",type.Trim()),
+                    new SqlParameter("@jcZT","未取走"),
+                    new SqlParameter("@DPName",dpname)
+                    };
+                }
             }
             SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
@@ -114,6 +134,7 @@ namespace DAL
         /// <returns></returns>
         public List<JCInfoModel> jcContentSelect(bool mohu, bool jc, bool qz, string type, string neirong)
         {            
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             List<JCInfoModel> list = new List<JCInfoModel>();
             JCInfoModel model;
             int i = 1;
@@ -148,38 +169,80 @@ namespace DAL
                 if (jc && qz)
                 {
                     //str = "select * from memberInfo where memberName like '%'+@memberName+'%'";
-                    str = "select * from JCInfoTable where " + type1 + " like '%'+@" + type1 + "+'%' and DPName=@DPName";
-                    string pmstype = "@" + type1;
-                    pms = new SqlParameter[] { 
-                    new SqlParameter(pmstype,neirong),
-                    new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+                    if (dpname == "admin")
+                    {
+                        str = "select * from JCInfoTable where " + type1 + " like '%'+@" + type1 + "+'%'";
+                        string pmstype = "@" + type1;
+                        pms = new SqlParameter[] { 
+                    new SqlParameter(pmstype,neirong)
                     };
+                    }
+                    else
+                    {
+                        str = "select * from JCInfoTable where " + type1 + " like '%'+@" + type1 + "+'%' and DPName=@DPName";
+                        string pmstype = "@" + type1;
+                        pms = new SqlParameter[] { 
+                    new SqlParameter(pmstype,neirong),
+                    new SqlParameter("@DPName",dpname)
+                    };
+                    }
                 }
                 else if (jc)
                 {
-                    str = "select * from JCInfoTable where " + type1 + " like '%'+@" + type1 + "+'%' and jcZT=@jcZT and DPName=@DPName";
+                    if (dpname == "admin")                        
+                    {
+                        str = "select * from JCInfoTable where " + type1 + " like '%'+@" + type1 + "+'%' and jcZT=@jcZT";
+                        string pmstype = "@" + type1;
+                        pms = new SqlParameter[] { 
+                    new SqlParameter(pmstype,neirong),
+                    new SqlParameter("@jcZT","未取走")
+                    };
+                    }
+                    else
+                    {
+                        str = "select * from JCInfoTable where " + type1 + " like '%'+@" + type1 + "+'%' and jcZT=@jcZT and DPName=@DPName";
                     string pmstype = "@" + type1;
                     pms = new SqlParameter[] { 
                     new SqlParameter(pmstype,neirong),
                     new SqlParameter("@jcZT","未取走"),
-                    new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+                    new SqlParameter("@DPName",dpname)
                     };
+                    }
                 }
                 else if (qz)
                 {
-                    str = "select * from JCInfoTable where " + type1 + " like '%'+@" + type1 + "+'%' and jcZT=@jcZT and DPName=@DPName";
-                    string pmstype = "@" + type1;
-                    pms = new SqlParameter[] { 
+                    if (dpname == "admin")
+                    {
+                        str = "select * from JCInfoTable where " + type1 + " like '%'+@" + type1 + "+'%' and jcZT=@jcZT";
+                        string pmstype = "@" + type1;
+                        pms = new SqlParameter[] { 
+                    new SqlParameter(pmstype,neirong),
+                    new SqlParameter("@jcZT","已取走")
+                    };
+                    }
+                    else
+                    {
+                        str = "select * from JCInfoTable where " + type1 + " like '%'+@" + type1 + "+'%' and jcZT=@jcZT and DPName=@DPName";
+                        string pmstype = "@" + type1;
+                        pms = new SqlParameter[] { 
                     new SqlParameter(pmstype,neirong),
                     new SqlParameter("@jcZT","已取走"),
-                    new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+                    new SqlParameter("@DPName",dpname)
                     };
+                    }
                 }
                 else
                 {
-                    pms = new SqlParameter[] { 
-                    new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+                    if (dpname == "admin")
+                    {
+                        pms = new SqlParameter[] { };
+                    }
+                    else
+                    {
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@DPName",dpname)
                     };
+                    }
                 }
             }
             else
@@ -187,38 +250,73 @@ namespace DAL
                 //精确查找
                 if (jc && qz)
                 {
-                    //str = "select * from memberInfo where memberName like '%'+@memberName+'%'";
-                    str = "select * from JCInfoTable where " + type1 + "=@" + type1 + " and DPName=@DPName";
-                    string pmstype = "@" + type1;
-                    pms = new SqlParameter[] { 
-                    new SqlParameter(pmstype,neirong),
-                     new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+                    if (dpname == "admin")
+                    {
+                        //str = "select * from memberInfo where memberName like '%'+@memberName+'%'";
+                        str = "select * from JCInfoTable where " + type1 + "=@" + type1 + "";
+                        string pmstype = "@" + type1;
+                        pms = new SqlParameter[] { 
+                    new SqlParameter(pmstype,neirong)
                     };
+                    }
+                    else
+                    {
+                        //str = "select * from memberInfo where memberName like '%'+@memberName+'%'";
+                        str = "select * from JCInfoTable where " + type1 + "=@" + type1 + " and DPName=@DPName";
+                        string pmstype = "@" + type1;
+                        pms = new SqlParameter[] { 
+                    new SqlParameter(pmstype,neirong),
+                     new SqlParameter("@DPName",dpname)
+                    };
+                    }
                 }
                 else if (jc)
                 {
-                    str = "select * from JCInfoTable where " + type1 + "=@" + type1 + " and jcZT=@jcZT and DPName=@DPName";
-                    string pmstype = "@" + type1;
-                    pms = new SqlParameter[] { 
+                    if (dpname == "admin")
+                    {
+                        str = "select * from JCInfoTable where " + type1 + "=@" + type1 + " and jcZT=@jcZT";
+                        string pmstype = "@" + type1;
+                        pms = new SqlParameter[] { 
+                    new SqlParameter(pmstype,neirong),
+                    new SqlParameter("@jcZT","未取走")
+                    };
+                    }
+                    else
+                    {
+                        str = "select * from JCInfoTable where " + type1 + "=@" + type1 + " and jcZT=@jcZT and DPName=@DPName";
+                        string pmstype = "@" + type1;
+                        pms = new SqlParameter[] { 
                     new SqlParameter(pmstype,neirong),
                     new SqlParameter("@jcZT","未取走"),
-                     new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+                     new SqlParameter("@DPName",dpname)
                     };
+                    }
                 }
                 else if (qz)
                 {
-                    str = "select * from JCInfoTable where " + type1 + "=@" + type1 + " and jcZT=@jcZT and DPName=@DPName";
-                    string pmstype = "@" + type1;
-                    pms = new SqlParameter[] { 
+                    if (dpname == "admin")
+                    {
+                        str = "select * from JCInfoTable where " + type1 + "=@" + type1 + " and jcZT=@jcZT";
+                        string pmstype = "@" + type1;
+                        pms = new SqlParameter[] { 
+                    new SqlParameter(pmstype,neirong),
+                    new SqlParameter("@jcZT","已取走")
+                    };
+                    }
+                    else
+                    {
+                        str = "select * from JCInfoTable where " + type1 + "=@" + type1 + " and jcZT=@jcZT and DPName=@DPName";
+                        string pmstype = "@" + type1;
+                        pms = new SqlParameter[] { 
                     new SqlParameter(pmstype,neirong),
                     new SqlParameter("@jcZT","已取走"),
-                     new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+                     new SqlParameter("@DPName",dpname)
                     };
+                    }
                 }
                 else
                 {
                     pms = new SqlParameter[] { 
-                     new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
                     };
                 }
             }

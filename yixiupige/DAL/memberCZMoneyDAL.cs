@@ -35,14 +35,27 @@ namespace DAL
         }
         public List<memberToUpModel> selectAllList(string cardNo)
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             List<memberToUpModel> list = new List<memberToUpModel>();
             memberToUpModel model;
-            SqlParameter[] pms=new SqlParameter[]{
-            new SqlParameter("@czNo",cardNo),
-            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
-            };
+            SqlParameter[] pms;
             int i = 1;
-            string str = "select * from memberToUpMoney where czNo=@czNo and DPName=@DPName";
+            string str;
+            if (dpname == "admin")
+            {
+                pms = new SqlParameter[]{
+            new SqlParameter("@czNo",cardNo)
+            };
+                str = "select * from memberToUpMoney where czNo=@czNo";
+            }
+            else
+            {
+                pms = new SqlParameter[]{
+            new SqlParameter("@czNo",cardNo),
+            new SqlParameter("@DPName",dpname)
+            };
+                str = "select * from memberToUpMoney where czNo=@czNo and DPName=@DPName";
+            }
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
@@ -82,11 +95,12 @@ namespace DAL
         }
         public List<memberToUpModel> selectTJ(string yginfo)
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             List<memberToUpModel> list = new List<memberToUpModel>();
             memberToUpModel model;
             string str = "";
             SqlParameter[] pms;
-            if (FilterClass.DianPu1.UserName == "admin")
+            if (dpname == "admin")
             {
                 if (yginfo.Trim() != "全部")
                 {
@@ -108,14 +122,14 @@ namespace DAL
                     str = "select * from memberToUpMoney where czSaleman=@czSaleman and DPName=@DPName";
                     pms = new SqlParameter[]{
             new SqlParameter("@czSaleman",yginfo),
-            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            new SqlParameter("@DPName",dpname)
             };
                 }
                 else
                 {
                     str = "select * from memberToUpMoney where DPName=@DPName";
                     pms = new SqlParameter[]{
-            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            new SqlParameter("@DPName",dpname)
             };
                 }
             }

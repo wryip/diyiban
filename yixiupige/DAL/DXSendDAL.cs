@@ -11,6 +11,7 @@ namespace DAL
 {
     public class DXSendDAL
     {
+        //短信发送DAL
         public void AddList(List<DXmemberModel> list)
         {
             string str = "";

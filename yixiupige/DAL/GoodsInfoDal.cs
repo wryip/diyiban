@@ -18,33 +18,65 @@ namespace DAL
            List<SqlParameter> listp = new List<SqlParameter>();
            List<GoodInfo> list = new List<GoodInfo>();
            string sql = "select * from GoodInfo";
+           string dpname = FilterClass.DianPu1.UserName.Trim();
            if (gd!=null)
            {
                if (!string.IsNullOrEmpty(gd.Gno))
                {
-                   sql += " where Gno like @no and DPName=@DPName";
-                   listp.Add(new SqlParameter("@no", "%"+gd.Gno+"%"));
-                   listp.Add(new SqlParameter("@DPName", FilterClass.DianPu1.UserName.Trim()));
+                   if (dpname == "admin")
+                   {
+                       sql += " where Gno like @no";
+                       listp.Add(new SqlParameter("@no", "%" + gd.Gno + "%"));
+                   }
+                   else
+                   {
+                       sql += " where Gno like @no and DPName=@DPName";
+                       listp.Add(new SqlParameter("@no", "%" + gd.Gno + "%"));
+                       listp.Add(new SqlParameter("@DPName", dpname));
+                   }
                }
                if (!string.IsNullOrEmpty(gd.Gname))
                {
-                   sql += " where Gname like @name and DPName=@DPName";
-                   listp.Add(new SqlParameter("@name","%"+ gd.Gname+"%"));
-                   listp.Add(new SqlParameter("@DPName", FilterClass.DianPu1.UserName.Trim()));
+                   if (dpname == "admin")
+                   {
+                       sql += " where Gname like @name";
+                       listp.Add(new SqlParameter("@name", "%" + gd.Gname + "%"));
+                   }
+                   else
+                   {
+                       sql += " where Gname like @name and DPName=@DPName";
+                       listp.Add(new SqlParameter("@name", "%" + gd.Gname + "%"));
+                       listp.Add(new SqlParameter("@DPName", dpname));
+                   }
                }
                if (!string.IsNullOrEmpty(gd.Gtype))
                {
 
                    if (gd.Gtype != "全部")
                    {
-                       sql += " where Gtype=@type and DPName=@DPName";
-                       listp.Add(new SqlParameter("@type", gd.Gtype));
-                       listp.Add(new SqlParameter("@DPName", FilterClass.DianPu1.UserName.Trim()));
+                       if (dpname == "admin")
+                       {
+                           sql += " where Gtype=@type";
+                           listp.Add(new SqlParameter("@type", gd.Gtype));
+                       }
+                       else
+                       {
+                           sql += " where Gtype=@type and DPName=@DPName";
+                           listp.Add(new SqlParameter("@type", gd.Gtype));
+                           listp.Add(new SqlParameter("@DPName", dpname));
+                       }
                    }
                    else
                    {
-                       sql += " where DPName=@DPName";
-                       listp.Add(new SqlParameter("@DPName", FilterClass.DianPu1.UserName.Trim()));
+                       if (dpname == "admin")
+                       {
+                           
+                       }
+                       else
+                       {
+                           sql += " where DPName=@DPName";
+                           listp.Add(new SqlParameter("@DPName", dpname));
+                       }
                    }
                   
                }
@@ -137,17 +169,34 @@ namespace DAL
            List<SqlParameter> listp = new List<SqlParameter>();
            List<GoodInfo> list = new List<GoodInfo>();
            string sql = "select * from GoodInfo";
+           string dpname=FilterClass.DianPu1.UserName.Trim();
            if (!string.IsNullOrEmpty(gd.Gno))
            {
-               sql += " where Gno=@no and DPName=@DPName";
-               listp.Add(new SqlParameter("@no", gd.Gno.Trim()));
-               listp.Add(new SqlParameter("@DPName", FilterClass.DianPu1.UserName.Trim()));
+               if (dpname == "admin")
+               {
+                   sql += " where Gno=@no";
+                   listp.Add(new SqlParameter("@no", gd.Gno.Trim()));
+               }
+               else
+               {
+                   sql += " where Gno=@no and DPName=@DPName";
+                   listp.Add(new SqlParameter("@no", gd.Gno.Trim()));
+                   listp.Add(new SqlParameter("@DPName", dpname));
+               }
            }
            if (!string.IsNullOrEmpty(gd.Gname))
            {
-               sql += " where Gname=@name and DPName=@DPName";
-               listp.Add(new SqlParameter("@name", gd.Gname.Trim()));
-               listp.Add(new SqlParameter("@DPName", FilterClass.DianPu1.UserName.Trim()));
+               if (dpname == "admin")
+               {
+                   sql += " where Gname=@name";
+                   listp.Add(new SqlParameter("@name", gd.Gname.Trim()));
+               }
+               else
+               {
+                   sql += " where Gname=@name and DPName=@DPName";
+                   listp.Add(new SqlParameter("@name", gd.Gname.Trim()));
+                   listp.Add(new SqlParameter("@DPName", dpname));
+               }
            }
            DataSet ds = SqlHelper.GetDataSet(sql, listp.ToArray());
            DataTable dt = ds.Tables[0];

@@ -46,11 +46,24 @@ namespace DAL
         {
             List<jbcs> list = new List<jbcs>();
             jbcs model;
-            SqlParameter[] pms = new SqlParameter[] {
-            new SqlParameter("@type",type),
-            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
-            };
-            string str = "select text from jbcstable where type=@type and DPName=@DPName";
+            string dpname=FilterClass.DianPu1.UserName.Trim();
+            SqlParameter[] pms;
+            string str;
+            if (dpname == "admin")
+            {
+                pms = new SqlParameter[] {
+                 new SqlParameter("@type",type)
+                 };
+                str = "select text from jbcstable where type=@type";
+            }
+            else
+            {
+                pms = new SqlParameter[] {
+                new SqlParameter("@type",type),
+                new SqlParameter("@DPName",dpname)
+                 };
+                str = "select text from jbcstable where type=@type and DPName=@DPName";
+            }
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {

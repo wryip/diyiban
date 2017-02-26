@@ -10,6 +10,7 @@ namespace DAL
 {
     public class DPInfoDAL
     {
+        //店铺信息DAL
         public bool AddModel(DianPu model)
         {
             bool result = false;
