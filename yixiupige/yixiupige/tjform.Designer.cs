@@ -156,6 +156,17 @@
             this.SendInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.dataGridView9 = new System.Windows.Forms.DataGridView();
+            this.PutBH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PubPersonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PutDianName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.dataGridView10 = new System.Windows.Forms.DataGridView();
             this.BH = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -173,17 +184,7 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.PutBH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PutNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PutName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PutType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PutMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PutCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PutCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PubPersonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PutDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PutSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PutDianName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -208,6 +209,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label4);
@@ -218,42 +220,47 @@
             this.panel1.Controls.Add(this.dateTimePicker2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.Location = new System.Drawing.Point(10, 10);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1820, 676);
+            this.panel1.Size = new System.Drawing.Size(1365, 541);
             this.panel1.TabIndex = 0;
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(980, 13);
+            this.comboBox2.Location = new System.Drawing.Point(735, 10);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(161, 23);
+            this.comboBox2.Size = new System.Drawing.Size(122, 20);
             this.comboBox2.TabIndex = 11;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(768, 13);
+            this.comboBox1.Location = new System.Drawing.Point(576, 10);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(161, 23);
+            this.comboBox1.Size = new System.Drawing.Size(122, 20);
             this.comboBox1.TabIndex = 11;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(935, 18);
+            this.label4.Location = new System.Drawing.Point(701, 14);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 15);
+            this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 10;
             this.label4.Text = "类别：";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(719, 18);
+            this.label3.Location = new System.Drawing.Point(539, 14);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 15);
+            this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 10;
             this.label3.Text = "员工：";
             // 
@@ -271,21 +278,19 @@
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Controls.Add(this.tabPage10);
-            this.tabControl1.Location = new System.Drawing.Point(9, 50);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Location = new System.Drawing.Point(7, 40);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1803, 615);
+            this.tabControl1.Size = new System.Drawing.Size(1352, 492);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1795, 586);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(1344, 466);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "办卡统计";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -323,11 +328,10 @@
             this.rebate,
             this.dianName});
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1795, 586);
+            this.dataGridView1.Size = new System.Drawing.Size(1346, 469);
             this.dataGridView1.TabIndex = 0;
             // 
             // id
@@ -494,11 +498,10 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dataGridView2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1795, 586);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(1344, 466);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "充值统计";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -526,11 +529,10 @@
             this.czSaleman,
             this.dianpu});
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(1791, 582);
+            this.dataGridView2.Size = new System.Drawing.Size(1343, 466);
             this.dataGridView2.TabIndex = 0;
             // 
             // czId
@@ -622,10 +624,9 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dataGridView3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1795, 586);
+            this.tabPage3.Size = new System.Drawing.Size(1344, 466);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "寄存统计";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -659,11 +660,10 @@
             this.lsdm});
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowTemplate.Height = 23;
-            this.dataGridView3.Size = new System.Drawing.Size(1795, 586);
+            this.dataGridView3.Size = new System.Drawing.Size(1344, 466);
             this.dataGridView3.TabIndex = 0;
             // 
             // jcNo
@@ -817,10 +817,9 @@
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.dataGridView4);
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1795, 586);
+            this.tabPage4.Size = new System.Drawing.Size(1344, 466);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "取走统计";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -854,11 +853,10 @@
             this.dataGridViewTextBoxColumn20});
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowTemplate.Height = 23;
-            this.dataGridView4.Size = new System.Drawing.Size(1795, 586);
+            this.dataGridView4.Size = new System.Drawing.Size(1344, 466);
             this.dataGridView4.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -1012,10 +1010,9 @@
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.dataGridView6);
-            this.tabPage6.Location = new System.Drawing.Point(4, 25);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1795, 586);
+            this.tabPage6.Size = new System.Drawing.Size(1344, 466);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "消费统计";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1046,11 +1043,10 @@
             this.ImgUrl});
             this.dataGridView6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView6.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView6.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView6.Name = "dataGridView6";
             this.dataGridView6.ReadOnly = true;
             this.dataGridView6.RowTemplate.Height = 23;
-            this.dataGridView6.Size = new System.Drawing.Size(1795, 586);
+            this.dataGridView6.Size = new System.Drawing.Size(1344, 466);
             this.dataGridView6.TabIndex = 0;
             // 
             // LSNo
@@ -1180,10 +1176,9 @@
             // tabPage7
             // 
             this.tabPage7.Controls.Add(this.dataGridView7);
-            this.tabPage7.Location = new System.Drawing.Point(4, 25);
-            this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1795, 586);
+            this.tabPage7.Size = new System.Drawing.Size(1344, 466);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "收入统计";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1203,11 +1198,10 @@
             this.DianPu2});
             this.dataGridView7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView7.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView7.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView7.Name = "dataGridView7";
             this.dataGridView7.ReadOnly = true;
             this.dataGridView7.RowTemplate.Height = 23;
-            this.dataGridView7.Size = new System.Drawing.Size(1795, 586);
+            this.dataGridView7.Size = new System.Drawing.Size(1344, 466);
             this.dataGridView7.TabIndex = 0;
             // 
             // No
@@ -1257,10 +1251,9 @@
             // tabPage8
             // 
             this.tabPage8.Controls.Add(this.dataGridView8);
-            this.tabPage8.Location = new System.Drawing.Point(4, 25);
-            this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1795, 586);
+            this.tabPage8.Size = new System.Drawing.Size(1344, 466);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "短信统计";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1283,11 +1276,10 @@
             this.SendInfo});
             this.dataGridView8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView8.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView8.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView8.Name = "dataGridView8";
             this.dataGridView8.ReadOnly = true;
             this.dataGridView8.RowTemplate.Height = 23;
-            this.dataGridView8.Size = new System.Drawing.Size(1795, 586);
+            this.dataGridView8.Size = new System.Drawing.Size(1344, 466);
             this.dataGridView8.TabIndex = 0;
             // 
             // No1
@@ -1359,10 +1351,9 @@
             // tabPage9
             // 
             this.tabPage9.Controls.Add(this.dataGridView9);
-            this.tabPage9.Location = new System.Drawing.Point(4, 25);
-            this.tabPage9.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1795, 586);
+            this.tabPage9.Size = new System.Drawing.Size(1344, 466);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "商品销售";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -1387,166 +1378,11 @@
             this.PutDianName});
             this.dataGridView9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView9.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView9.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView9.Name = "dataGridView9";
             this.dataGridView9.ReadOnly = true;
             this.dataGridView9.RowTemplate.Height = 23;
-            this.dataGridView9.Size = new System.Drawing.Size(1795, 586);
+            this.dataGridView9.Size = new System.Drawing.Size(1344, 466);
             this.dataGridView9.TabIndex = 0;
-            // 
-            // tabPage10
-            // 
-            this.tabPage10.Controls.Add(this.dataGridView10);
-            this.tabPage10.Location = new System.Drawing.Point(4, 25);
-            this.tabPage10.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(1795, 586);
-            this.tabPage10.TabIndex = 9;
-            this.tabPage10.Text = "商品进货";
-            this.tabPage10.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView10
-            // 
-            this.dataGridView10.AllowUserToAddRows = false;
-            this.dataGridView10.AllowUserToDeleteRows = false;
-            this.dataGridView10.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView10.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.BH,
-            this.HuoNumber,
-            this.HuoName,
-            this.HuoType,
-            this.HuoMoney,
-            this.HuoCount,
-            this.HuoSum,
-            this.HuoDate,
-            this.HuoSale,
-            this.HuoDianName});
-            this.dataGridView10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView10.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView10.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView10.Name = "dataGridView10";
-            this.dataGridView10.ReadOnly = true;
-            this.dataGridView10.RowTemplate.Height = 23;
-            this.dataGridView10.Size = new System.Drawing.Size(1795, 586);
-            this.dataGridView10.TabIndex = 0;
-            // 
-            // BH
-            // 
-            this.BH.DataPropertyName = "BH";
-            this.BH.HeaderText = "编号";
-            this.BH.Name = "BH";
-            this.BH.ReadOnly = true;
-            // 
-            // HuoNumber
-            // 
-            this.HuoNumber.DataPropertyName = "HuoNumber";
-            this.HuoNumber.HeaderText = "货号";
-            this.HuoNumber.Name = "HuoNumber";
-            this.HuoNumber.ReadOnly = true;
-            // 
-            // HuoName
-            // 
-            this.HuoName.DataPropertyName = "HuoName";
-            this.HuoName.HeaderText = "货物名称";
-            this.HuoName.Name = "HuoName";
-            this.HuoName.ReadOnly = true;
-            // 
-            // HuoType
-            // 
-            this.HuoType.DataPropertyName = "HuoType";
-            this.HuoType.HeaderText = "类型";
-            this.HuoType.Name = "HuoType";
-            this.HuoType.ReadOnly = true;
-            // 
-            // HuoMoney
-            // 
-            this.HuoMoney.DataPropertyName = "HuoMoney";
-            this.HuoMoney.HeaderText = "金额";
-            this.HuoMoney.Name = "HuoMoney";
-            this.HuoMoney.ReadOnly = true;
-            // 
-            // HuoCount
-            // 
-            this.HuoCount.DataPropertyName = "HuoCount";
-            this.HuoCount.HeaderText = "数量";
-            this.HuoCount.Name = "HuoCount";
-            this.HuoCount.ReadOnly = true;
-            // 
-            // HuoSum
-            // 
-            this.HuoSum.DataPropertyName = "HuoSum";
-            this.HuoSum.HeaderText = "库存";
-            this.HuoSum.Name = "HuoSum";
-            this.HuoSum.ReadOnly = true;
-            // 
-            // HuoDate
-            // 
-            this.HuoDate.DataPropertyName = "HuoDate";
-            this.HuoDate.HeaderText = "日期";
-            this.HuoDate.Name = "HuoDate";
-            this.HuoDate.ReadOnly = true;
-            // 
-            // HuoSale
-            // 
-            this.HuoSale.DataPropertyName = "HuoSale";
-            this.HuoSale.HeaderText = "业务员";
-            this.HuoSale.Name = "HuoSale";
-            this.HuoSale.ReadOnly = true;
-            // 
-            // HuoDianName
-            // 
-            this.HuoDianName.DataPropertyName = "HuoDianName";
-            this.HuoDianName.HeaderText = "连锁店名";
-            this.HuoDianName.Name = "HuoDianName";
-            this.HuoDianName.ReadOnly = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(599, 11);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 31);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "统计";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(305, 21);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 15);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "结束时间：";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(389, 15);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(163, 25);
-            this.dateTimePicker2.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 15);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "起始时间：";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(103, 15);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(163, 25);
-            this.dateTimePicker1.TabIndex = 5;
             // 
             // PutBH
             // 
@@ -1625,13 +1461,169 @@
             this.PutDianName.Name = "PutDianName";
             this.PutDianName.ReadOnly = true;
             // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.dataGridView10);
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Size = new System.Drawing.Size(1344, 466);
+            this.tabPage10.TabIndex = 9;
+            this.tabPage10.Text = "商品进货";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView10
+            // 
+            this.dataGridView10.AllowUserToAddRows = false;
+            this.dataGridView10.AllowUserToDeleteRows = false;
+            this.dataGridView10.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView10.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BH,
+            this.HuoNumber,
+            this.HuoName,
+            this.HuoType,
+            this.HuoMoney,
+            this.HuoCount,
+            this.HuoSum,
+            this.HuoDate,
+            this.HuoSale,
+            this.HuoDianName});
+            this.dataGridView10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView10.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView10.Name = "dataGridView10";
+            this.dataGridView10.ReadOnly = true;
+            this.dataGridView10.RowTemplate.Height = 23;
+            this.dataGridView10.Size = new System.Drawing.Size(1344, 466);
+            this.dataGridView10.TabIndex = 0;
+            // 
+            // BH
+            // 
+            this.BH.DataPropertyName = "BH";
+            this.BH.HeaderText = "编号";
+            this.BH.Name = "BH";
+            this.BH.ReadOnly = true;
+            // 
+            // HuoNumber
+            // 
+            this.HuoNumber.DataPropertyName = "HuoNumber";
+            this.HuoNumber.HeaderText = "货号";
+            this.HuoNumber.Name = "HuoNumber";
+            this.HuoNumber.ReadOnly = true;
+            // 
+            // HuoName
+            // 
+            this.HuoName.DataPropertyName = "HuoName";
+            this.HuoName.HeaderText = "货物名称";
+            this.HuoName.Name = "HuoName";
+            this.HuoName.ReadOnly = true;
+            // 
+            // HuoType
+            // 
+            this.HuoType.DataPropertyName = "HuoType";
+            this.HuoType.HeaderText = "类型";
+            this.HuoType.Name = "HuoType";
+            this.HuoType.ReadOnly = true;
+            // 
+            // HuoMoney
+            // 
+            this.HuoMoney.DataPropertyName = "HuoMoney";
+            this.HuoMoney.HeaderText = "金额";
+            this.HuoMoney.Name = "HuoMoney";
+            this.HuoMoney.ReadOnly = true;
+            // 
+            // HuoCount
+            // 
+            this.HuoCount.DataPropertyName = "HuoCount";
+            this.HuoCount.HeaderText = "数量";
+            this.HuoCount.Name = "HuoCount";
+            this.HuoCount.ReadOnly = true;
+            // 
+            // HuoSum
+            // 
+            this.HuoSum.DataPropertyName = "HuoSum";
+            this.HuoSum.HeaderText = "库存";
+            this.HuoSum.Name = "HuoSum";
+            this.HuoSum.ReadOnly = true;
+            // 
+            // HuoDate
+            // 
+            this.HuoDate.DataPropertyName = "HuoDate";
+            this.HuoDate.HeaderText = "日期";
+            this.HuoDate.Name = "HuoDate";
+            this.HuoDate.ReadOnly = true;
+            // 
+            // HuoSale
+            // 
+            this.HuoSale.DataPropertyName = "HuoSale";
+            this.HuoSale.HeaderText = "业务员";
+            this.HuoSale.Name = "HuoSale";
+            this.HuoSale.ReadOnly = true;
+            // 
+            // HuoDianName
+            // 
+            this.HuoDianName.DataPropertyName = "HuoDianName";
+            this.HuoDianName.HeaderText = "连锁店名";
+            this.HuoDianName.Name = "HuoDianName";
+            this.HuoDianName.ReadOnly = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(449, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 25);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "统计";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(229, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "结束时间：";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(292, 12);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(123, 21);
+            this.dateTimePicker2.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "起始时间：";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(77, 12);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(123, 21);
+            this.dateTimePicker1.TabIndex = 5;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1048, 10);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 34);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "导出数据";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // tjfrom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1843, 691);
+            this.ClientSize = new System.Drawing.Size(1382, 553);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             //this.Name = "tjfrom";
@@ -1821,6 +1813,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PutDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn PutSale;
         private System.Windows.Forms.DataGridViewTextBoxColumn PutDianName;
+        private System.Windows.Forms.Button button2;
 
     }
 }

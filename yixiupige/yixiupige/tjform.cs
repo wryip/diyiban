@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Commond;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -162,6 +163,101 @@ namespace yixiupige
         {
             List<memberInfoModel> list = bkbll.tjbbOfbk(begindate, enddate, yginfo);
             dataGridView1.DataSource = list;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int selectIndex = tabControl1.SelectedIndex;
+            if (selectIndex == 0)
+            {
+                bool result=NPOIHelper.PrintDocument<memberInfoModel>((List < memberInfoModel >)dataGridView1.DataSource, "办卡统计");
+                if (result)
+                {
+                    MessageBox.Show("导出成功");
+                    return;
+                }
+                MessageBox.Show("导出失败");
+            }
+            else if (selectIndex == 1)
+            {
+                bool result = NPOIHelper.PrintDocument<memberToUpModel>((List<memberToUpModel>)dataGridView2.DataSource, "充值统计");
+                if (result)
+                {
+                    MessageBox.Show("导出成功");
+                    return;
+                }
+                MessageBox.Show("导出失败");
+            }
+            else if (selectIndex == 2)
+            {
+                bool result = NPOIHelper.PrintDocument<JCInfoModel>((List<JCInfoModel>)dataGridView3.DataSource, "寄存统计");
+                if (result)
+                {
+                    MessageBox.Show("导出成功");
+                    return;
+                }
+                MessageBox.Show("导出失败");
+            }
+            else if (selectIndex == 3)
+            {
+                bool result = NPOIHelper.PrintDocument<JCInfoModel>((List<JCInfoModel>)dataGridView4.DataSource, "取走统计");
+                if (result)
+                {
+                    MessageBox.Show("导出成功");
+                    return;
+                }
+                MessageBox.Show("导出失败");
+            }
+            else if (selectIndex == 4)
+            {
+                bool result = NPOIHelper.PrintDocument<LiShiConsumption>((List<LiShiConsumption>)dataGridView6.DataSource, "消费统计");
+                if (result)
+                {
+                    MessageBox.Show("导出成功");
+                    return;
+                }
+                MessageBox.Show("导出失败");
+            }
+            else if (selectIndex == 5)
+            {
+                bool result = NPOIHelper.PrintDocument<TJBBSR>((List<TJBBSR>)dataGridView7.DataSource, "收入统计");
+                if (result)
+                {
+                    MessageBox.Show("导出成功");
+                    return;
+                }
+                MessageBox.Show("导出失败");
+            }
+            else if (selectIndex == 6)
+            {
+                bool result = NPOIHelper.PrintDocument<DXmemberModel>((List<DXmemberModel>)dataGridView8.DataSource, "短信统计");
+                if (result)
+                {
+                    MessageBox.Show("导出成功");
+                    return;
+                }
+                MessageBox.Show("导出失败");
+            }
+            else if (selectIndex == 7)
+            {
+                bool result = NPOIHelper.PrintDocument<PutHuo>((List<PutHuo>)dataGridView9.DataSource, "商品销售");
+                if (result)
+                {
+                    MessageBox.Show("导出成功");
+                    return;
+                }
+                MessageBox.Show("导出失败");
+            }
+            else
+            {
+                bool result = NPOIHelper.PrintDocument<InHuoTJ>((List<InHuoTJ>)dataGridView10.DataSource, "商品进货");
+                if (result)
+                {
+                    MessageBox.Show("导出成功");
+                    return;
+                }
+                MessageBox.Show("导出失败");
+            }
         }
     }
 }

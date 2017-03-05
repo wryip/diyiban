@@ -38,74 +38,17 @@ namespace BLL
             int xyear = Convert.ToInt32(regex.Matches(begindate)[0].Value);
             int xmonth = Convert.ToInt32(regex.Matches(begindate)[1].Value);
             int xday = Convert.ToInt32(regex.Matches(begindate)[2].Value);
+            DateTime bigdate = new DateTime(dyear, dmonth, dday);
+            DateTime smalldate = new DateTime(xyear, xmonth, xday);
             foreach (var iteam in list1)
             {
                 int year = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[0].Value);
                 int month = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[1].Value);
                 int day = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[2].Value);
-                if (year < xyear || year > dyear)
+                DateTime nowdate = new DateTime(year, month, day);
+                if (DateTime.Compare(smalldate, nowdate) <= 0 && DateTime.Compare(bigdate, nowdate) >= 0)
                 {
-                    continue;
-                }
-                else
-                {
-                    if (dyear == xyear)
-                    {
-                        if (month > dmonth || month < xmonth)
-                        {
-                            continue;
-                        }
-                        if (day > dday || day < xday)
-                        {
-                            continue;
-                        }
-                        list.Add(iteam);
-                        continue;
-                    }
-                    if (year == dyear)
-                    {
-                        if (month > dmonth)
-                        {
-                            continue;
-                        }
-                        else if (month < dmonth)
-                        {
-                            list.Add(iteam);
-                        }
-                        else
-                        {
-                            if (day > dday)
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                list.Add(iteam);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (month < xmonth)
-                        {
-                            continue;
-                        }
-                        else if (month > xmonth)
-                        {
-                            list.Add(iteam);
-                        }
-                        else
-                        {
-                            if (day < xday)
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                list.Add(iteam);
-                            }
-                        }
-                    }
+                    list.Add(iteam);
                 }
             }      
             return list;
