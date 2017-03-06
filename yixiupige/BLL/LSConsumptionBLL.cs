@@ -52,5 +52,9 @@ namespace BLL
             }         
             return list;
         }
+        public bool deleteID(string id)
+        {
+            return dal.deleteID(id);
+        }
     }
 }

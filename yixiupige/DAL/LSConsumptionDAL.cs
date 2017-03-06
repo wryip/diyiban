@@ -18,7 +18,7 @@ namespace DAL
             SqlParameter[] pms;
             foreach (var iteam in listLS)
             {
-                str = "insert into LSConsumption(LSName,LSDate,LSStaff,LSNumberCount,LSMoney,LSYMoney,LSCount,LSPinPai,LSColor,LSSalesman,LSMultipleName,LSQuestion,LSRemark,LSDanNumber,LSCardNumber,ImgUrl) values(@LSName,@LSDate,@LSStaff,@LSNumberCount,@LSMoney,@LSYMoney,@LSCount,@LSPinPai,@LSColor,@LSSalesman,@LSMultipleName,@LSQuestion,@LSRemark,@LSDanNumber,@LSCardNumber,@ImgUrl)";
+                str = "insert into LSConsumption(LSName,LSDate,LSStaff,LSNumberCount,LSMoney,LSYMoney,LSCount,LSPinPai,LSColor,LSSalesman,LSMultipleName,LSQuestion,LSRemark,LSDanNumber,LSCardNumber,ImgUrl,IsJC,IsSP) values(@LSName,@LSDate,@LSStaff,@LSNumberCount,@LSMoney,@LSYMoney,@LSCount,@LSPinPai,@LSColor,@LSSalesman,@LSMultipleName,@LSQuestion,@LSRemark,@LSDanNumber,@LSCardNumber,@ImgUrl,@IsJC,@IsSP)";
                 pms = new SqlParameter[] { 
                 new SqlParameter("@LSName",iteam.LSName),
                 new SqlParameter("@LSDate",iteam.LSDate),
@@ -35,7 +35,9 @@ namespace DAL
                 new SqlParameter("@LSRemark",iteam.LSRemark),
                 new SqlParameter("@LSDanNumber",iteam.LSDanNumber),
                 new SqlParameter("@LSCardNumber",iteam.LSCardNumber),
-                new SqlParameter("@ImgUrl",iteam.ImgUrl)
+                new SqlParameter("@ImgUrl",iteam.ImgUrl),
+                new SqlParameter("@IsJC",iteam.IsJC),
+                new SqlParameter("@IsSP",iteam.IsSP)
                 };
                 result = SqlHelper.ExecuteNonQuery(str, pms)>0;
                 if (!result)
@@ -88,13 +90,16 @@ namespace DAL
                     model.LSDanNumber = read["LSDanNumber"].ToString().Trim();
                     model.LSCardNumber = read["LSCardNumber"].ToString().Trim();
                     model.ImgUrl = read["ImgUrl"].ToString().Trim();
+                    model.ID = Convert.ToInt32(read["ID"]);
+                    model.IsSP = Convert.ToBoolean(read["IsSP"]);
+                    model.IsJC = Convert.ToBoolean(read["IsJC"]);
                     list.Add(model);
                 }
             }
             return list;
         }
         /// <summary>
-        /// 返回不大票据的信息
+        /// 返回补打票据的信息
         /// </summary>
         /// <param name="cardno"></param>
         /// <returns></returns>
@@ -203,11 +208,26 @@ namespace DAL
                     model.LSDanNumber = read["LSDanNumber"].ToString().Trim();
                     model.LSCardNumber = read["LSCardNumber"].ToString().Trim();
                     model.ImgUrl = read["ImgUrl"].ToString().Trim();
+                    model.IsSP=Convert.ToBoolean(read["IsSP"]);
+                    model.IsJC = Convert.ToBoolean(read["IsJC"]);
                     list.Add(model);
                     i++;
                 }
             }
             return list;
+        }
+        public bool deleteID(string id)
+        {
+            bool result = false;
+            string str = "delete from LSConsumption where ID=@id";
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@id",id)
+            };
+            if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
+            {
+                result = true;
+            }
+            return result;
         }
     }
 }

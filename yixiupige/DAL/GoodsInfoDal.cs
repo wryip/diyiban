@@ -222,8 +222,19 @@ namespace DAL
        }
        public void UpdateXF(string no, int count)
        {
-           string str = "update GoodInfo set Gstock=Gstock-" + count + "";
-           SqlHelper.ExecuteNonQuery(str);
+           string str = "update GoodInfo set Gstock=Gstock-" + count + " where Gid=@gid";
+           SqlParameter[] pms = new SqlParameter[] { 
+           new SqlParameter("@gid",no)
+           };
+           SqlHelper.ExecuteNonQuery(str,pms);
+       }
+       public void DeleteAdd(int id, int count)
+       {
+           string str = "update GoodInfo set Gstock=Gstock+" + count + " where Gid=@gid";
+           SqlParameter[] pms = new SqlParameter[] { 
+           new SqlParameter("@gid",id)
+           };
+           SqlHelper.ExecuteNonQuery(str,pms);
        }
     }
 }

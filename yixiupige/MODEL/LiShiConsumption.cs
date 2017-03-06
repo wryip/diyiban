@@ -8,6 +8,7 @@ namespace MODEL
 {
     public class LiShiConsumption
     {
+        public int ID { get; set; }
         public string LSNo { get; set; }
         public string LSName { get; set; }
         public string LSDate { get; set; }
@@ -25,5 +26,9 @@ namespace MODEL
         public string LSDanNumber { get; set; }
         public string LSCardNumber { get; set; }
         public string ImgUrl { get; set; }
+        //判断是不是商品，当撤销（删除记录）时将商品数量加回来
+        public bool IsSP { get; set; }
+        //判断是不是寄存，如属是的话，在寄存表中删除数据
+        public bool IsJC { get; set; }
     }
 }

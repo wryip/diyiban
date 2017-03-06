@@ -38,5 +38,9 @@ namespace BLL
        {
            gddal.UpdateXF( no, count);
        }
+       public void DeleteAdd(int id, int count)
+       {
+           gddal.DeleteAdd(id, count);
+       }
     }
 }

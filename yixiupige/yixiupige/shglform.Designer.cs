@@ -119,23 +119,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn shColor;
         private System.Windows.Forms.DataGridViewTextBoxColumn shType;
         private System.Windows.Forms.DataGridViewTextBoxColumn shImgUrl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsDemo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsMoney;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsPay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsQuestion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsMark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsPerson;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsSuperMark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LSNO1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsCardNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Imgurl;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem 删除本条ToolStripMenuItem1;
         private void InitializeComponent()
@@ -249,7 +232,13 @@
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.删除本条ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.kinyaoo123456DataSet1 = new yixiupige.kinyaoo123456DataSet();
             this.lsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsJC1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IsSP1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lsTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsDemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -266,9 +255,6 @@
             this.LSNO1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Imgurl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kinyaoo123456DataSet1 = new yixiupige.kinyaoo123456DataSet();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.删除本条ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -287,8 +273,8 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kinyaoo123456DataSet1)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kinyaoo123456DataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -491,7 +477,7 @@
             // 
             // pictureBoxQr
             // 
-            this.pictureBoxQr.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.pictureBoxQr.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxQr.Location = new System.Drawing.Point(1106, 465);
             this.pictureBoxQr.Name = "pictureBoxQr";
@@ -501,8 +487,8 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.textBox22);
             this.groupBox5.Controls.Add(this.textBox21);
@@ -617,7 +603,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox4.Controls.Add(this.dataGridView2);
             this.groupBox4.Location = new System.Drawing.Point(5, 298);
@@ -631,8 +617,8 @@
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -810,14 +796,14 @@
             // 删除本条ToolStripMenuItem
             // 
             this.删除本条ToolStripMenuItem.Name = "删除本条ToolStripMenuItem";
-            this.删除本条ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.删除本条ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.删除本条ToolStripMenuItem.Text = "删除本条";
             this.删除本条ToolStripMenuItem.Click += new System.EventHandler(this.删除本条ToolStripMenuItem_Click);
             // 
             // 删除全部ToolStripMenuItem
             // 
             this.删除全部ToolStripMenuItem.Name = "删除全部ToolStripMenuItem";
-            this.删除全部ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.删除全部ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.删除全部ToolStripMenuItem.Text = "删除全部";
             // 
             // groupBox3
@@ -1275,7 +1261,7 @@
             // 
             // tabControl2
             // 
-            this.tabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.tabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Location = new System.Drawing.Point(764, 117);
@@ -1297,8 +1283,8 @@
             // 
             // videoSourcePlayer1
             // 
-            this.videoSourcePlayer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.videoSourcePlayer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.videoSourcePlayer1.Location = new System.Drawing.Point(7, 7);
             this.videoSourcePlayer1.Name = "videoSourcePlayer1";
@@ -1373,12 +1359,15 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.lsName,
+            this.ID,
+            this.IsJC1,
+            this.IsSP1,
             this.lsTime,
             this.lsDemo,
             this.lsCount,
@@ -1401,11 +1390,30 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.ContextMenuStrip = this.contextMenuStrip2;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(744, 147);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView1_RowContextMenuStripNeeded);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.删除本条ToolStripMenuItem1});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(125, 26);
+            // 
+            // 删除本条ToolStripMenuItem1
+            // 
+            this.删除本条ToolStripMenuItem1.Name = "删除本条ToolStripMenuItem1";
+            this.删除本条ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.删除本条ToolStripMenuItem1.Text = "删除本条";
+            this.删除本条ToolStripMenuItem1.Click += new System.EventHandler(this.删除本条ToolStripMenuItem1_Click);
+            // 
+            // kinyaoo123456DataSet1
+            // 
+            this.kinyaoo123456DataSet1.DataSetName = "kinyaoo123456DataSet";
+            this.kinyaoo123456DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lsName
             // 
@@ -1413,6 +1421,30 @@
             this.lsName.HeaderText = "姓名";
             this.lsName.Name = "lsName";
             this.lsName.ReadOnly = true;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "Column1";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // IsJC1
+            // 
+            this.IsJC1.DataPropertyName = "IsJC";
+            this.IsJC1.HeaderText = "IsJC";
+            this.IsJC1.Name = "IsJC1";
+            this.IsJC1.ReadOnly = true;
+            this.IsJC1.Visible = false;
+            // 
+            // IsSP1
+            // 
+            this.IsSP1.DataPropertyName = "IsSP";
+            this.IsSP1.HeaderText = "IsSP";
+            this.IsSP1.Name = "IsSP1";
+            this.IsSP1.ReadOnly = true;
+            this.IsSP1.Visible = false;
             // 
             // lsTime
             // 
@@ -1527,25 +1559,6 @@
             this.Imgurl.Name = "Imgurl";
             this.Imgurl.ReadOnly = true;
             // 
-            // kinyaoo123456DataSet1
-            // 
-            this.kinyaoo123456DataSet1.DataSetName = "kinyaoo123456DataSet";
-            this.kinyaoo123456DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.删除本条ToolStripMenuItem1});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 48);
-            // 
-            // 删除本条ToolStripMenuItem1
-            // 
-            this.删除本条ToolStripMenuItem1.Name = "删除本条ToolStripMenuItem1";
-            this.删除本条ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.删除本条ToolStripMenuItem1.Text = "删除本条";
-            this.删除本条ToolStripMenuItem1.Click += new System.EventHandler(this.删除本条ToolStripMenuItem1_Click);
-            // 
             // shglform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1585,10 +1598,31 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kinyaoo123456DataSet1)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kinyaoo123456DataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsJC1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsSP1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsDemo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsQuestion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsPerson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsSuperMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LSNO1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsCardNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Imgurl;
     }
 }
