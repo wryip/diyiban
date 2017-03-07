@@ -168,5 +168,9 @@ namespace BLL
             }
             return list;
         }
+        public int seleDelete(string dianpu,string cardno,string date,string money,string staff,string pinpai,string color)
+        {
+            return dal.seleDelete(dianpu, cardno, date, money, staff, pinpai, color);
+        }
     }
 }

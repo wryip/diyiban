@@ -19,6 +19,7 @@ namespace yixiupige
         public string enddate { get; set; }
         public string yginfo { get; set; }
         public string lbinfo { get; set; }
+        DPInfoBLL dpbll = new DPInfoBLL();
         staffInfoBLL staffbll=new staffInfoBLL();
         TJBBBLL inhuo = new TJBBBLL();
         DXSendBLL dxbll = new DXSendBLL();
@@ -44,7 +45,20 @@ namespace yixiupige
         }
         private void tjform_Load(object sender, EventArgs e)
         {
-            List<jbcs> list = staffbll.selectSH();
+            List<jbcs> list;
+            string dianname = FilterClass.DianPu1.UserName;
+            if (dianname.Trim() == "admin")
+            {
+                label5.Visible = true;
+                comboBox3.Visible = true;
+                List<string> str = dpbll.selectDPName();
+                foreach (var iteam in str)
+                {
+                    comboBox3.Items.Add(iteam);
+                }
+                comboBox3.SelectedIndex = 0;
+            }
+            list = staffbll.selectSH();
             comboBox1.Items.Add("全部");
             comboBox2.Items.Add("全部");
             foreach (var iteam in list)
@@ -67,6 +81,11 @@ namespace yixiupige
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string dpname="";
+            if (comboBox3.Visible)
+            {
+                dpname = comboBox3.Text;
+            }
             begindate = dateTimePicker1.Text.Trim();
             enddate = dateTimePicker2.Text.Trim();
             yginfo = comboBox1.Text.Trim();
@@ -75,94 +94,148 @@ namespace yixiupige
             switch (selectIndex)
             {
                     //办卡统计
-                case 0: bktjdata();
+                case 0: bktjdata(dpname);
                     break;
                 //充值统计
-                case 1: cztjdata();
+                case 1: cztjdata(dpname);
                     break;
                 //寄存统计
-                case 2: jctjdata();
+                case 2: jctjdata(dpname);
                     break;
                 //取走统计
-                case 3: qztjdata();
+                case 3: qztjdata(dpname);
                     break;
                 //消费统计
-                case 4: xftjdata();
+                case 4: xftjdata(dpname);
                     break;
                 //收入统计
-                case 5: srtjdata();
+                case 5: srtjdata(dpname);
                     break;
                 //短信统计
-                case 6: dxtjdata();
+                case 6: dxtjdata(dpname);
                     break;
                 //商品销售
-                case 7: spxsdata();
+                case 7: spxsdata(dpname);
                     break;
-                default: spjhdata();
+                default: spjhdata(dpname);
                     break;
             }
         }
         //商品进货
-        private void spjhdata()
+        private void spjhdata(string name)
         {
             List<InHuoTJ> list = new List<InHuoTJ>();
             list = inhuo.selectListTJ(begindate, enddate, yginfo);
-            dataGridView10.DataSource = list;
+            List<InHuoTJ> list1 = new List<InHuoTJ>();
+            foreach (var iteam in list)
+            {
+                if (iteam.HuoDianName == name)
+                { list1.Add(iteam); }
+            }
+            dataGridView10.DataSource = list1;
         }
         //商品销售
-        private void spxsdata()
+        private void spxsdata(string name)
         {
             List<PutHuo> list = new List<PutHuo>();
+            List<PutHuo> list1 = new List<PutHuo>();
             list = inhuo.SelectListXS(begindate, enddate, yginfo);
-            dataGridView9.DataSource = list;
+            foreach (var iteam in list)
+            {
+                if (iteam.PutDianName == name)
+                { list1.Add(iteam); }
+            }
+            dataGridView9.DataSource = list1;
         }
         //短信统计
-        private void dxtjdata()
+        private void dxtjdata(string name)
         {
             List<DXmemberModel> list = new List<DXmemberModel>();
+            List<DXmemberModel> list1 = new List<DXmemberModel>();
             list = dxbll.selectListTJ(begindate, enddate, yginfo);
-            dataGridView8.DataSource = list;
+            foreach (var iteam in list)
+            {
+                if (iteam.DianPu == name)
+                { list1.Add(iteam); }
+            }
+            dataGridView8.DataSource = list1;
         }
         //收入统计
-        private void srtjdata()
+        private void srtjdata(string name)
         {
             List<TJBBSR> list = new List<TJBBSR>();
+            List<TJBBSR> list1 = new List<TJBBSR>();
             list = tjbll.selectTJBB(begindate, enddate, yginfo, lbinfo);
-            dataGridView7.DataSource = list;
+            foreach (var iteam in list)
+            {
+                if (iteam.DianPu == name)
+                { list1.Add(iteam); }
+            }
+            dataGridView7.DataSource = list1;
         }
         //消费统计
-        private void xftjdata()
+        private void xftjdata(string name)
         {
             List<LiShiConsumption> list = new List<LiShiConsumption>();
+            List<LiShiConsumption> list1 = new List<LiShiConsumption>();
             list = lsbll.selectTJ(begindate, enddate, yginfo);
-            dataGridView6.DataSource = list;
+            foreach (var iteam in list)
+            {
+                if (iteam.LSMultipleName == name)
+                { list1.Add(iteam); }
+            }           
+            dataGridView6.DataSource = list1;
         }
         //取走统计
-        private void qztjdata()
+        private void qztjdata(string name)
         {
             List<JCInfoModel> list = new List<JCInfoModel>();
+            List<JCInfoModel> list1 = new List<JCInfoModel>();
             list = jcbll.selectQZTJ(begindate, enddate, yginfo, lbinfo);
-            dataGridView4.DataSource = list;
+            foreach (var iteam in list)
+            {
+                if (iteam.lsdm == name)
+                { list1.Add(iteam); }
+            }    
+            dataGridView4.DataSource = list1;
         }
         //寄存统计
-        private void jctjdata()
+        private void jctjdata(string name)
         {
             List<JCInfoModel> list = new List<JCInfoModel>();
+            List<JCInfoModel> list1 = new List<JCInfoModel>();
             list = jcbll.selectTJ(begindate, enddate, yginfo, lbinfo);
-            dataGridView3.DataSource = list;
+            foreach (var iteam in list)
+            {
+                if (iteam.lsdm == name)
+                { list1.Add(iteam); }
+            } 
+            dataGridView3.DataSource = list1;
         }
         //充值统计
-        private void cztjdata()
+        private void cztjdata(string name)
         {
             List<memberToUpModel> list = new List<memberToUpModel>();
+            List<memberToUpModel> list1 = new List<memberToUpModel>();
             list = czbll.selectTJ(begindate, enddate, yginfo);
-            dataGridView2.DataSource = list;
+            foreach (var iteam in list)
+            {
+                if (iteam.dianpu == name)
+                { list1.Add(iteam); }
+            } 
+            dataGridView2.DataSource = list1;
         }
         //办卡统计
-        private void bktjdata()
+        private void bktjdata(string name)
         {
             List<memberInfoModel> list = bkbll.tjbbOfbk(begindate, enddate, yginfo);
-            dataGridView1.DataSource = list;
+            List<memberInfoModel> list1 = new List<memberInfoModel>(); 
+            foreach (var iteam in list)
+            {
+                if (iteam.dianName == name)
+                { list1.Add(iteam); }
+            } 
+            dataGridView1.DataSource = list1;
         }
 
         private void button2_Click(object sender, EventArgs e)

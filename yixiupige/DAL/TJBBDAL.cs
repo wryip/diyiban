@@ -173,5 +173,30 @@ namespace DAL
             };
             SqlHelper.ExecuteNonQuery(str, pms);
         }
+        public int getIteamId(string staff, string dianpu, string cardno, string date)
+        {
+            int id = 0;
+            string str = "select ID from PutHuo where PutName=@PutName and PutDianName=@PutDianName and PutCardNo=@PutCardNo and PutDate=@PutDate";
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@PutCardNo",cardno),
+            new SqlParameter("@PutDianName",dianpu),
+            new SqlParameter("@PutDate",date),
+            new SqlParameter("@PutName",staff)
+            };
+            object oo = SqlHelper.ExecuteScalar(str, pms);
+            if (oo != null)
+            {
+                id = Convert.ToInt32(oo);
+            }
+            return id;
+        }
+        public void DeleteIteamID(int gid)
+        {
+            string str = "delete from PutHuo where ID=@ID";
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@ID",gid)
+            };
+            SqlHelper.ExecuteNonQuery(str, pms);
+        }
     }
 }

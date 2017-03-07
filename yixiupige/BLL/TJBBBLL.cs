@@ -145,5 +145,13 @@ namespace BLL
             }      
             return list;
         }
+        public int getIteamId(string staff, string dianpu, string cardno, string date)
+        {
+            return dal.getIteamId(staff, dianpu, cardno, date);
+        }
+        public void DeleteIteamID(int gid)
+        {
+            dal.DeleteIteamID(gid);
+        }
     }
 }

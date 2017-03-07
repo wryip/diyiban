@@ -723,5 +723,25 @@ namespace DAL
             }
             return list;
         }
+        public int seleDelete(string dianpu, string cardno, string date, string money, string staff, string pinpai, string color)
+        {
+            int id = 0;
+            string str = "select jcID from  JCInfoTable where jcCardNumber=@jcCardNumber and DPName=@DPName and jcBeginDate=@jcBeginDate and jcQMoney=@jcQMoney and jcStaff=@jcStaff and jcPinPai=@jcPinPai and jcColor=@jcColor";
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@jcCardNumber",cardno),
+            new SqlParameter("@DPName",dianpu),
+            new SqlParameter("@jcBeginDate",date),
+            new SqlParameter("@jcQMoney",money),
+            new SqlParameter("@jcStaff",staff),
+            new SqlParameter("@jcPinPai",pinpai),
+            new SqlParameter("@jcColor",color)
+            };
+            object oo = SqlHelper.ExecuteScalar(str, pms);
+            if (oo != null)
+            {
+                id = Convert.ToInt32(oo);
+            }
+            return id;
+        }
     }
 }

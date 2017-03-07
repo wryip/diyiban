@@ -20,6 +20,7 @@ using BLL;
 using MODEL;
 using System.IO;
 using Commond;
+using System.Text.RegularExpressions;
 //[code=csharp]using System;
 namespace yixiupige
 {
@@ -27,6 +28,7 @@ namespace yixiupige
     {
         //员工提成
         //public static int tcMoney = 0;
+        TJBBBLL tjbb = new TJBBBLL();
         //商品的bll
         GoodInfoBLL gbbll = new GoodInfoBLL();
         //寄存管理的业务处理曾对象
@@ -70,10 +72,7 @@ namespace yixiupige
         fuwuBLL fuwubl = new fuwuBLL();
         //删除的历史纪录要返还的钱
         public int delecount { get; set; }
-        public bool IsJC { get; set; }
-        public bool IsSP { get; set; }
-        public int SPcount { get; set; }
-        public int spID { get; set; }
+        public LiShiConsumption modeldele { get; set; }
         public shglform()
         {
             InitializeComponent();
@@ -228,25 +227,6 @@ namespace yixiupige
         private void button1_Click(object sender, EventArgs e)
         {
             videoSourcePlayer1.NewFrame += new AForge.Controls.VideoSourcePlayer.NewFrameHandler(videoSourcePlayer1_NewFrame);
-            #region         
-            //DirectoryInfo di = new DirectoryInfo("c:\\AMCap");
-            //if (!di.Exists)
-            //{
-            //    Directory.CreateDirectory("c:\\AMCap");
-            //}
-            //string path = "C:\\AMCap\\" + DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + ".jpeg";
-            //if (pictureBox2.Image != null)
-            //{
-            //    Bitmap bt = new Bitmap(pictureBox2.Image);
-            //    bt.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
-            //    bt.Dispose();
-            //}
-            //else
-            //{
-            //    video.GrabImage(pictureBox1.Handle, path);
-            //}
-            //tsslPath.Text = "已经保存至：" + path;
-            #endregion
             if (textBox17.Text.Trim() == "" && textBox18.Text.Trim() == "")
             {
                 MessageBox.Show("金额不能为空！");
@@ -812,7 +792,7 @@ namespace yixiupige
         /// <param name="model"></param>
         public void AddIteam(PutHuo model)
         {
-            TJBBBLL tjbb = new TJBBBLL();
+            
             tjbb.AddIteam(model);
         }
         public void dataBindgridview1(List<LiShiConsumption> list)
@@ -891,16 +871,8 @@ namespace yixiupige
 
         private void 删除本条ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            int spid = 0;
             LiShiConsumption model = (LiShiConsumption)dataGridView1.SelectedRows[0].DataBoundItem;
-            IsJC = model.IsJC;
-            IsSP = model.IsSP;
-            int.TryParse(model.ImgUrl, out spid);
-            if (spid != 0)
-            {
-                spID = spid;
-            }
-            SPcount = Convert.ToInt32(model.LSCount);
+            modeldele = model;           
             //将删除的数据当时小飞的金额或者次数提取出来
             if (textBox12.Text.Trim() == "储值卡")
             {
@@ -936,16 +908,47 @@ namespace yixiupige
                         bll.XFmoney(textBox5.Text.Trim(), count);
                         textBox8.Text = count;
                     }
-                    if (IsSP)
+                    if (modeldele.IsSP)
                     {
+                        #region MyRegion//把商品数量加回来
                         //如果是商品就把数量加回来
-                        int count = SPcount;
-                        int ID = spID;
-                        gbbll.DeleteAdd(ID, count);
+                        int spid = 0;
+                        int ID = 0;
+                        int.TryParse(modeldele.ImgUrl, out spid);
+                        if (spid != 0)
+                        {
+                            ID = spid;
+                        }
+                        gbbll.DeleteAdd(ID, Convert.ToInt32(modeldele.LSCount.Trim())); 
+                        #endregion
+                        #region //将售出的商品表中的内容删除掉
+                        string staff=modeldele.LSStaff.Split(new char[] { '[', ']' }, StringSplitOptions.RemoveEmptyEntries)[1];
+                        string dianpu = FilterClass.DianPu1.UserName.Trim();
+                        string cardno = modeldele.LSCardNumber.Trim();
+                        string pattern = @"[\d]+";
+                        Regex regex = new Regex(pattern, RegexOptions.None);
+                        int dyear = Convert.ToInt32(regex.Matches(modeldele.LSDate)[0].Value);
+                        int dmonth = Convert.ToInt32(regex.Matches(modeldele.LSDate)[1].Value);
+                        int dday = Convert.ToInt32(regex.Matches(modeldele.LSDate)[2].Value);
+                        string date = dyear.ToString() + "年" + dmonth.ToString() + "月" + dday.ToString() + "日";
+                        int gid = tjbb.getIteamId(staff, dianpu, cardno, date);
+                        tjbb.DeleteIteamID(gid);
+                        #endregion
                     }
-                    if (IsJC)
+                    if (modeldele.IsJC)
                     {
+                        #region //寄存表中删除
                         //如果是寄存就把寄存信息删除
+                        string dianpu = FilterClass.DianPu1.UserName.Trim();
+                        string cardno = modeldele.LSCardNumber.Trim();
+                        string date = modeldele.LSDate.Substring(0, 10);
+                        string money = modeldele.LSYMoney;
+                        string staff = modeldele.LSStaff;
+                        string pinpai = modeldele.LSPinPai;
+                        string color = modeldele.LSColor;
+                        int id = jcbll.seleDelete(dianpu, cardno, date, money, staff, pinpai, color);
+                        jcbll.deleteIDIteam(id.ToString()); 
+                        #endregion
                     }
                 }
             }
