@@ -2,6 +2,7 @@
 using MODEL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace DAL
                 str = "insert into LSConsumption(LSName,LSDate,LSStaff,LSNumberCount,LSMoney,LSYMoney,LSCount,LSPinPai,LSColor,LSSalesman,LSMultipleName,LSQuestion,LSRemark,LSDanNumber,LSCardNumber,ImgUrl,IsJC,IsSP) values(@LSName,@LSDate,@LSStaff,@LSNumberCount,@LSMoney,@LSYMoney,@LSCount,@LSPinPai,@LSColor,@LSSalesman,@LSMultipleName,@LSQuestion,@LSRemark,@LSDanNumber,@LSCardNumber,@ImgUrl,@IsJC,@IsSP)";
                 pms = new SqlParameter[] { 
                 new SqlParameter("@LSName",iteam.LSName),
-                new SqlParameter("@LSDate",iteam.LSDate),
+                new SqlParameter("@LSDate",SqlDbType.SmallDateTime){Value=iteam.LSDate},
                 new SqlParameter("@LSStaff",iteam.LSStaff),
                 new SqlParameter("@LSNumberCount",iteam.LSNumberCount),
                 new SqlParameter("@LSMoney",iteam.LSMoney),

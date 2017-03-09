@@ -42,5 +42,9 @@ namespace BLL
        {
            gddal.DeleteAdd(id, count);
        }
+       public int getNumber()
+       {
+           return gddal.getNumber();
+       }
     }
 }

@@ -2,6 +2,7 @@
 using MODEL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -19,11 +20,11 @@ namespace DAL
             new SqlParameter("@memberName",model.memberName),
             new SqlParameter("@memberTel",model.memberTel),
             new SqlParameter("@memberDocument",model.memberDocument),
-            new SqlParameter("@birDate",model.birDate),
-            new SqlParameter("@cardDate",model.cardDate),
+            new SqlParameter("@birDate",SqlDbType.SmallDateTime){Value=model.birDate},
+            new SqlParameter("@cardDate",SqlDbType.SmallDateTime){Value=model.cardDate},
             new SqlParameter("@memberSex",model.memberSex),
             new SqlParameter("@rebate",model.rebate),
-            new SqlParameter("@endDate",model.endDate),
+            new SqlParameter("@endDate",SqlDbType.SmallDateTime){Value=model.endDate},
             new SqlParameter("@fuwuBate",model.fuwuBate),
             new SqlParameter("@toUpMoney",model.toUpMoney),
             new SqlParameter("@cardMoney",model.cardMoney),
@@ -138,7 +139,6 @@ namespace DAL
             new SqlParameter("@fuwuBate",model.fuwuBate),
             new SqlParameter("@toUpMoney",model.toUpMoney),
             new SqlParameter("@cardMoney",model.cardMoney),
-            new SqlParameter("@dianName",model.dianName),
             new SqlParameter("@cardType",model.cardType),
             new SqlParameter("@salesMan",model.saleMan),
             new SqlParameter("@memberType",model.memberType),

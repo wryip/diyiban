@@ -2,6 +2,7 @@
 using MODEL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ namespace DAL
                 new SqlParameter("@CardNumber",iteam.CardNumber==null?"":iteam.CardNumber),
                 new SqlParameter("@MemberName",iteam.MemberName==null?"":iteam.MemberName),
                 new SqlParameter("@TelPhone",iteam.TelPhone),
-                new SqlParameter("@Date",iteam.Date),
+                new SqlParameter("@Date",SqlDbType.SmallDateTime){Value=iteam.Date},
                 new SqlParameter("@SaleMan",iteam.SaleMan),
                 new SqlParameter("@ContentNR",iteam.Content),
                 new SqlParameter("@DianPu",iteam.DianPu)

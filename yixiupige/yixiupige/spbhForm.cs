@@ -78,7 +78,7 @@ namespace yixiupige
                 InHuoTJ jinhuo = new InHuoTJ()
                 {
                     HuoCount = addtextBox.Text.Trim(),
-                    HuoDate = DateTime.Now.Year + "年" + DateTime.Now.Month + "月" + DateTime.Now.Day + "日",
+                    HuoDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                     HuoDianName = FilterClass.DianPu1.UserName.Trim(),
                     HuoMoney = bidtextBox.Text.Trim(),
                     HuoName = nametextBox.Text.ToString().Trim(),

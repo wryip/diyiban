@@ -2,6 +2,7 @@
 using MODEL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace DAL
             new SqlParameter("@HuoMoney",jinhuo.HuoMoney),
             new SqlParameter("@HuoCount",jinhuo.HuoCount),
             new SqlParameter("@HuoSum",jinhuo.HuoSum),
-            new SqlParameter("@HuoDate",jinhuo.HuoDate),
+            new SqlParameter("@HuoDate",SqlDbType.SmallDateTime){Value=jinhuo.HuoDate},
             new SqlParameter("@HuoSale",jinhuo.HuoSale),
             new SqlParameter("@HuoDianName",jinhuo.HuoDianName)
             };
@@ -167,7 +168,7 @@ namespace DAL
             new SqlParameter("@PutCardNo",model.PutCardNo.Trim()),
             new SqlParameter("@PutCount",model.PutCount.Trim()),
             new SqlParameter("@PutPersonName",model.PubPersonName.Trim()),
-            new SqlParameter("@PutDate",model.PutDate.Trim()),
+            new SqlParameter("@PutDate",SqlDbType.SmallDateTime){Value=model.PutDate.Trim()},
             new SqlParameter("@PutSale",model.PutSale.Trim()),
             new SqlParameter("@PutDianName",model.PutDianName.Trim())
             };

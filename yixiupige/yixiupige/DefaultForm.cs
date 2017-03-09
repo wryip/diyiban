@@ -293,5 +293,15 @@ namespace yixiupige
                 return;
             }
         }
+
+        private void 注册ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("注册提示","该机器已通过安全狗检测！",MessageBoxButtons.OKCancel,MessageBoxIcon.Information);
+        }
+
+        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PirentDocumentClass.ceshi();
+        }
     }
 }

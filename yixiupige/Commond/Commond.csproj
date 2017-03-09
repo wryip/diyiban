@@ -50,11 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BarCodeToHTML.cs" />
+    <Compile Include="TicketSet.cs" />
     <Compile Include="FilterClass.cs" />
     <Compile Include="NPOIHelper.cs" />
     <Compile Include="PirentDocumentClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SendInfo.cs" />
+    <Compile Include="TimeGuiGe.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MODEL\MODEL.csproj">

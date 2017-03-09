@@ -123,7 +123,7 @@ namespace yixiupige
         {
             videoSourcePlayer1.NewFrame += new AForge.Controls.VideoSourcePlayer.NewFrameHandler(videoSourcePlayer1_NewFrame);
             string sb = "";
-            string[] ss = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] ss = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Split(new char[] { '/', ':', ' ', '-' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var s in ss)
             {
                 sb += s;
@@ -143,7 +143,7 @@ namespace yixiupige
             model.PaiNumber = textBox5.Text;
             model.YMPerson = comboBox4.Text;
             //model.d = DateTime.Now.ToString("yyyy MM dd");
-            //model.jcEndDate = dateTimePicker1.Text.ToString();
+            //model.jcEndDate = TimeGuiGe.TimePicter(dateTimePicker1.Text);
             while (path1 == "")
             {
                 Thread.Sleep(1000);
@@ -151,7 +151,7 @@ namespace yixiupige
             model.ImgUrl = path1;
             List<shInfoList> list = new List<shInfoList>();
             list.Add(model);
-            bool result = jcinfobll.addJCList(list, textBox3.Text.Trim(), textBox1.Text.Trim(), dateTimePicker1.Text.ToString().Trim(), sb);
+            bool result = jcinfobll.addJCList(list, textBox3.Text.Trim(), textBox1.Text.Trim(), TimeGuiGe.TimePicter((dateTimePicker1.Text)), sb);
             if (result)
             {
                 MessageBox.Show("添加成功！");
@@ -170,7 +170,7 @@ namespace yixiupige
             string dirpath = "E:\\mymemberimg";
             if (!Directory.Exists(dirpath))
                 Directory.CreateDirectory(dirpath);
-            string[] name = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] name = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Split(new char[] { '/', ':', ' ', '-' }, StringSplitOptions.RemoveEmptyEntries);
             string name1 = "";
             foreach (var ite in name)
             {

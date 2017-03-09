@@ -166,17 +166,17 @@ namespace yixiupige
                 model.memberName = hyxmtextBox.Text;
                 model.memberTel = hydhtextBox.Text;
                 model.memberDocument = sfzhtextBox.Text;
-                model.birDate = csrqdateTimePicker.Text.ToString();
-                model.cardDate = bkrqdateTimePicker.Text.ToString();
+                model.birDate = TimeGuiGe.TimePicter(csrqdateTimePicker.Text);
+                model.cardDate = TimeGuiGe.TimePicter(bkrqdateTimePicker.Text);
                 model.memberSex = hyxbcomboBox.Text;
                 model.rebate = spzktextBox.Text;
                 if (qydqxzcheckBox.Checked)
                 {
-                    model.endDate = dateTimePicker1.Text.ToString();
+                    model.endDate = TimeGuiGe.TimePicter(dateTimePicker1.Text);
                 }
                 else
                 {
-                    model.endDate = "无";
+                    model.endDate = "1900-01-01 00:00:00";
                 }
                 model.fuwuBate = fwzktextBox.Text;
                 model.toUpMoney = czjetextBox.Text;
@@ -194,15 +194,22 @@ namespace yixiupige
                 }                
                 Bitmap newImage = new Bitmap(160, 120);
                 Graphics draw = Graphics.FromImage(newImage);
-                draw.DrawImage(bitmap, 0, 0);
-                draw.Dispose();
-                string dirpath = "E:\\mymemberimg";
-                if (!Directory.Exists(dirpath))
-                    Directory.CreateDirectory(dirpath);
-                string path = dirpath + "\\" + hykhtextBox.Text.Trim() + ".bmp";
-                if (newImage != null)
-                    newImage.Save(path, System.Drawing.Imaging.ImageFormat.Bmp);
-                model.imageUrl = path;
+                if (bitmap != null)
+                {
+                    draw.DrawImage(bitmap, 0, 0);
+                    draw.Dispose();
+                    string dirpath = "E:\\mymemberimg";
+                    if (!Directory.Exists(dirpath))
+                        Directory.CreateDirectory(dirpath);
+                    string path = dirpath + "\\" + hykhtextBox.Text.Trim() + ".bmp";
+                    if (newImage != null)
+                        newImage.Save(path, System.Drawing.Imaging.ImageFormat.Bmp);
+                    model.imageUrl = path;
+                }
+                else
+                {
+                    model.imageUrl = pictureBox1.ImageLocation;
+                }
                 bool result = modelbll.EditMemberInfo(model);
                 if (result)
                 {

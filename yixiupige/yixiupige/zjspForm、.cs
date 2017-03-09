@@ -37,7 +37,7 @@ namespace yixiupige
                 typetextBox.Items.Add(iteam.AllType);
             }            
             GoodInfo gd=null;
-            notextBox.Text = (10000 + gdbll.Getlist(gd).Count).ToString();
+            notextBox.Text = (1 + gdbll.getNumber()).ToString();
         }
       
         private void zjspForm__FormClosed(object sender, FormClosedEventArgs e)

@@ -83,7 +83,7 @@ namespace yixiupige
             string dirpath = "E:\\mymemberimg";
             if (!Directory.Exists(dirpath))
                 Directory.CreateDirectory(dirpath);
-            string[] name = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] name = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Split(new char[] { '/', ':', ' ', '-' }, StringSplitOptions.RemoveEmptyEntries);
             string name1 = "";
             foreach (var ite in name)
             {

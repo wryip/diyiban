@@ -86,8 +86,8 @@ namespace yixiupige
             {
                 dpname = comboBox3.Text;
             }
-            begindate = dateTimePicker1.Text.Trim();
-            enddate = dateTimePicker2.Text.Trim();
+            begindate = TimeGuiGe.TimePicter(dateTimePicker1.Text);
+            enddate = TimeGuiGe.TimePicter(dateTimePicker2.Text);
             yginfo = comboBox1.Text.Trim();
             lbinfo = comboBox2.Text.Trim();
             int selectIndex=tabControl1.SelectedIndex;
@@ -127,12 +127,16 @@ namespace yixiupige
             List<InHuoTJ> list = new List<InHuoTJ>();
             list = inhuo.selectListTJ(begindate, enddate, yginfo);
             List<InHuoTJ> list1 = new List<InHuoTJ>();
-            foreach (var iteam in list)
+            if (name != "")
             {
-                if (iteam.HuoDianName == name)
-                { list1.Add(iteam); }
-            }
-            dataGridView10.DataSource = list1;
+                foreach (var iteam in list)
+                {
+                    if (iteam.HuoDianName == name)
+                    { list1.Add(iteam); }
+                }
+                dataGridView10.DataSource = list1;
+            }            
+            dataGridView10.DataSource = list;
         }
         //商品销售
         private void spxsdata(string name)
@@ -140,12 +144,17 @@ namespace yixiupige
             List<PutHuo> list = new List<PutHuo>();
             List<PutHuo> list1 = new List<PutHuo>();
             list = inhuo.SelectListXS(begindate, enddate, yginfo);
-            foreach (var iteam in list)
+            if (name != "")
             {
-                if (iteam.PutDianName == name)
-                { list1.Add(iteam); }
+                foreach (var iteam in list)
+                {
+                    if (iteam.PutDianName == name)
+                    { list1.Add(iteam); }
+                }
+                dataGridView9.DataSource = list1;
+                return;
             }
-            dataGridView9.DataSource = list1;
+            dataGridView9.DataSource = list;
         }
         //短信统计
         private void dxtjdata(string name)
@@ -153,12 +162,17 @@ namespace yixiupige
             List<DXmemberModel> list = new List<DXmemberModel>();
             List<DXmemberModel> list1 = new List<DXmemberModel>();
             list = dxbll.selectListTJ(begindate, enddate, yginfo);
-            foreach (var iteam in list)
+            if (name != "")
             {
-                if (iteam.DianPu == name)
-                { list1.Add(iteam); }
+                foreach (var iteam in list)
+                {
+                    if (iteam.DianPu == name)
+                    { list1.Add(iteam); }
+                }
+                dataGridView8.DataSource = list1;
+                return;
             }
-            dataGridView8.DataSource = list1;
+            dataGridView8.DataSource = list;
         }
         //收入统计
         private void srtjdata(string name)
@@ -166,12 +180,17 @@ namespace yixiupige
             List<TJBBSR> list = new List<TJBBSR>();
             List<TJBBSR> list1 = new List<TJBBSR>();
             list = tjbll.selectTJBB(begindate, enddate, yginfo, lbinfo);
-            foreach (var iteam in list)
+            if (name != "")
             {
-                if (iteam.DianPu == name)
-                { list1.Add(iteam); }
+                foreach (var iteam in list)
+                {
+                    if (iteam.DianPu == name)
+                    { list1.Add(iteam); }
+                }
+                dataGridView7.DataSource = list1; 
+                return;
             }
-            dataGridView7.DataSource = list1;
+            dataGridView7.DataSource = list;
         }
         //消费统计
         private void xftjdata(string name)
@@ -179,12 +198,17 @@ namespace yixiupige
             List<LiShiConsumption> list = new List<LiShiConsumption>();
             List<LiShiConsumption> list1 = new List<LiShiConsumption>();
             list = lsbll.selectTJ(begindate, enddate, yginfo);
-            foreach (var iteam in list)
+            if (name != "")
             {
-                if (iteam.LSMultipleName == name)
-                { list1.Add(iteam); }
-            }           
-            dataGridView6.DataSource = list1;
+                foreach (var iteam in list)
+                {
+                    if (iteam.LSMultipleName == name)
+                    { list1.Add(iteam); }
+                }
+                dataGridView6.DataSource = list1;
+                return;
+            }
+            dataGridView6.DataSource = list;
         }
         //取走统计
         private void qztjdata(string name)
@@ -192,12 +216,17 @@ namespace yixiupige
             List<JCInfoModel> list = new List<JCInfoModel>();
             List<JCInfoModel> list1 = new List<JCInfoModel>();
             list = jcbll.selectQZTJ(begindate, enddate, yginfo, lbinfo);
-            foreach (var iteam in list)
+            if (name != "")
             {
-                if (iteam.lsdm == name)
-                { list1.Add(iteam); }
-            }    
-            dataGridView4.DataSource = list1;
+                foreach (var iteam in list)
+                {
+                    if (iteam.lsdm == name)
+                    { list1.Add(iteam); }
+                }
+                dataGridView4.DataSource = list1;
+                return;
+            }
+            dataGridView4.DataSource = list;
         }
         //寄存统计
         private void jctjdata(string name)
@@ -205,12 +234,17 @@ namespace yixiupige
             List<JCInfoModel> list = new List<JCInfoModel>();
             List<JCInfoModel> list1 = new List<JCInfoModel>();
             list = jcbll.selectTJ(begindate, enddate, yginfo, lbinfo);
-            foreach (var iteam in list)
+            if (name != "")
             {
-                if (iteam.lsdm == name)
-                { list1.Add(iteam); }
-            } 
-            dataGridView3.DataSource = list1;
+                foreach (var iteam in list)
+                {
+                    if (iteam.lsdm == name)
+                    { list1.Add(iteam); }
+                }
+                dataGridView3.DataSource = list1;
+                return;
+            }
+            dataGridView3.DataSource = list;
         }
         //充值统计
         private void cztjdata(string name)
@@ -218,24 +252,34 @@ namespace yixiupige
             List<memberToUpModel> list = new List<memberToUpModel>();
             List<memberToUpModel> list1 = new List<memberToUpModel>();
             list = czbll.selectTJ(begindate, enddate, yginfo);
-            foreach (var iteam in list)
+            if (name != "")
             {
-                if (iteam.dianpu == name)
-                { list1.Add(iteam); }
-            } 
-            dataGridView2.DataSource = list1;
+                foreach (var iteam in list)
+                {
+                    if (iteam.dianpu == name)
+                    { list1.Add(iteam); }
+                }
+                dataGridView2.DataSource = list1;
+                return;
+            }
+            dataGridView2.DataSource = list;
         }
         //办卡统计
         private void bktjdata(string name)
         {
             List<memberInfoModel> list = bkbll.tjbbOfbk(begindate, enddate, yginfo);
-            List<memberInfoModel> list1 = new List<memberInfoModel>(); 
-            foreach (var iteam in list)
+            List<memberInfoModel> list1 = new List<memberInfoModel>();
+            if (name != "")
             {
-                if (iteam.dianName == name)
-                { list1.Add(iteam); }
-            } 
-            dataGridView1.DataSource = list1;
+                foreach (var iteam in list)
+                {
+                    if (iteam.dianName == name)
+                    { list1.Add(iteam); }
+                }
+                dataGridView1.DataSource = list1;
+                return;
+            }
+            dataGridView1.DataSource = list;
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -117,6 +117,7 @@ namespace DAL
                     model.jcRemark = read["jcRemark"].ToString();
                     model.jcPression = read["jcPression"].ToString();
                     model.jcQuestion = read["jcQuestion"].ToString();
+                    model.lsdm = read["DPName"].ToString();
                     i++;
                     list.Add(model);
                 }

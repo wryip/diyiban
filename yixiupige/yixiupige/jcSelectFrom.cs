@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Commond;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -75,14 +76,14 @@ namespace yixiupige
                 if (radioButton1.Checked)//选择为寄存日期
                 {
                     BeginOrEnd = false;
-                    date = dateTimePicker1.Text.ToString();
+                    date = TimeGuiGe.TimePicter(dateTimePicker1.Text);
                     list = jcbll.jcDateSelect(date, BeginOrEnd);
                     databind1(list);
                     this.Close();
                     return;
                 }
                 BeginOrEnd = true;
-                date = dateTimePicker2.Text.ToString();
+                date = TimeGuiGe.TimePicter(dateTimePicker2.Text);
                 list = jcbll.jcDateSelect(date, BeginOrEnd);
                 databind1(list);
                 this.Close();

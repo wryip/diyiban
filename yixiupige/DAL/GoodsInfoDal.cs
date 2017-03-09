@@ -236,5 +236,19 @@ namespace DAL
            };
            SqlHelper.ExecuteNonQuery(str,pms);
        }
+       public int getNumber()
+       {
+           int result = 0;
+           string str = "select Gno from GoodInfo where DPName=@DPName order by Gno DESC";
+           SqlParameter[] pms = new SqlParameter[] { 
+           new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+           };
+           object oo=SqlHelper.ExecuteScalar(str, pms);
+           if ( oo!=null)
+           {
+               result = Convert.ToInt32(oo);
+           }
+           return result;
+       }
     }
 }

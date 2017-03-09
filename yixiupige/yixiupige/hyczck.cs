@@ -86,7 +86,7 @@ namespace yixiupige
             model.czNo = textBox4.Text.Trim();
             model.czName = textBox1.Text;
             model.czType = textBox12.Text;
-            model.czDate = DateTime.Now.Year + "年" + DateTime.Now.Month + "月" + DateTime.Now.Day + "日";
+            model.czDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             model.czSaleman = comboBox1.Text;
             int m1 = Convert.ToInt32(textBox3.Text.Trim());
             int m2 = Convert.ToInt32(textBox2.Text.Trim());

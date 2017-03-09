@@ -27,7 +27,7 @@ namespace BLL
                 model.jcPinPai = iteam.PinPai;
                 model.jcColor = iteam.Color;
                 model.jcStaff = iteam.FuWuName;
-                model.jcBeginDate = DateTime.Now.ToString("yyyy MM dd");
+                model.jcBeginDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 model.jcEndDate = enddate;
                 model.jcZT = "未取走";
                 model.jcAddress = "在店中";

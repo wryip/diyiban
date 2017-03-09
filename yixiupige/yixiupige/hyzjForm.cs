@@ -11,6 +11,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
@@ -76,17 +77,17 @@ namespace yixiupige
                 model.memberName = hyxmtextBox.Text;
                 model.memberTel = hydhtextBox.Text;
                 model.memberDocument = sfzhtextBox.Text;
-                model.birDate = csrqdateTimePicker.Text.ToString();
-                model.cardDate = bkrqdateTimePicker.Text.ToString();
+                model.birDate = TimeGuiGe.TimePicter(csrqdateTimePicker.Text);
+                model.cardDate = TimeGuiGe.TimePicter(bkrqdateTimePicker.Text);
                 model.memberSex = hyxbcomboBox.Text;
                 model.rebate = spzktextBox.Text;
                 if (qydqxzcheckBox.Checked)
                 {
-                    model.endDate = dateTimePicker1.Text.ToString();
+                    model.endDate = TimeGuiGe.TimePicter(dateTimePicker1.Text);
                 }
                 else
                 {
-                    model.endDate = "无";
+                    model.endDate = "1900-01-01 00:00:00";
                 }
                 model.fuwuBate = fwzktextBox.Text;
                 model.toUpMoney = czjetextBox.Text;

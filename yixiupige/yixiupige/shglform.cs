@@ -193,7 +193,7 @@ namespace yixiupige
             string dirpath = "E:\\mymemberimg";
             if (!Directory.Exists(dirpath))
                 Directory.CreateDirectory(dirpath);
-            string[] name = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] name = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Split(new char[] { '/', ':', ' ', '-' }, StringSplitOptions.RemoveEmptyEntries);
             string name1 = "";
             foreach (var ite in name)
             {
@@ -249,15 +249,15 @@ namespace yixiupige
             {
                 if (textBox12.Text.Trim() == "计次卡")
                 {
-                    model.CiCount = Convert.ToInt32(textBox17.Text.Trim() == "" ? "0" : textBox17.Text.Trim()) + Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
-                    model.CountMoney = (Convert.ToInt32(textBox17.Text.Trim() == "" ? "0" : textBox17.Text.Trim()) * Convert.ToInt32(numericUpDown1.Value) + Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim())) * ckmoney;
+                    model.CiCount = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(Convert.ToInt32(textBox17.Text.Trim() == "" ? "0" : textBox17.Text.Trim()) + Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim())) / ckmoney));
+                    model.CountMoney = model.CiCount * ckmoney;
                     if (huaka)
                     {
                         model.YMoney = 0;
                     }
                     else
                     {
-                        model.YMoney = Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim()) * ckmoney;
+                        model.YMoney = Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
                     }
                 }
                 else if (textBox12.Text.Trim() == "储值卡")
@@ -295,7 +295,7 @@ namespace yixiupige
             pictureBox1.ImageLocation = Path;
             GridView2Bind(model);
             //string sb = "http//:www.baidu.com";
-            ////string[] ss = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':',' ' }, StringSplitOptions.RemoveEmptyEntries);
+            ////string[] ss = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Split(new char[] { '/', ':',' ' }, StringSplitOptions.RemoveEmptyEntries);
             ////foreach (var s in ss)
             ////{
             ////    sb += s;
@@ -621,7 +621,7 @@ namespace yixiupige
                 }
             }
             string sb = "";
-            string[] ss = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] ss = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Split(new char[] { '/', ':', ' ', '-' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var s in ss)
             {
                 sb += s;
@@ -641,11 +641,11 @@ namespace yixiupige
                 model = new LiShiConsumption();
                 model.IsJC = iteam.JiCun;
                 model.LSName = textBox4.Text.Trim() == "" ? textBox1.Text.Trim() : textBox4.Text.Trim();
-                model.LSDate = DateTime.Now.ToString("yyyy MM dd HH:mm:ss");
+                model.LSDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 model.ImgUrl = iteam.ImgUrl;
                 model.LSStaff = iteam.FuWuName;
                 model.LSNumberCount = "0";
-                model.LSMoney = iteam.CiCount.ToString();
+                model.LSMoney = iteam.CountMoney.ToString();
                 model.LSYMoney = iteam.YMoney.ToString();
                 model.LSCount = iteam.Count.ToString();
                 model.LSPinPai = iteam.PinPai;
@@ -666,7 +666,7 @@ namespace yixiupige
                 model.LSMultipleName = FilterClass.DianPu1.UserName;
                 model.LSQuestion = iteam.CJQuestion;
                 model.LSRemark = iteam.Remark;                
-                model.LSDanNumber = sb;                
+                model.LSDanNumber = sb;    
                 if (iteam.JiCun == true)
                 {
                     jclist.Add(iteam);
@@ -686,11 +686,15 @@ namespace yixiupige
             {
                 int oldmoney = Convert.ToInt32(textBox9.Text.Trim());
                 int Xmoney = oldmoney - (Convert.ToInt32(textBox14.Text.Trim()) - Convert.ToInt32(textBox22.Text.Trim()));
-                //int Xmoney = oldmoney - Convert.ToInt32(textBox22.Text.Trim());
                 int oldccount = Convert.ToInt32(textBox8.Text.Trim());
                 int Scount = oldccount - Convert.ToInt32(textBox21.Text.Trim());
                 string cardNumber = textBox5.Text.Trim();
-                if (Xmoney < 0 || Scount < 0)
+                if (Xmoney < 0 && oldmoney>0)
+                {
+                    MessageBox.Show("余额不足！");
+                    return;
+                }
+                if (oldccount > 0 && Scount < 0)
                 {
                     MessageBox.Show("余额不足！");
                     return;
@@ -715,7 +719,7 @@ namespace yixiupige
             }
             
             //将寄存数据添加到寄存数据表中
-            bool addjcresult = jcbll.addJCList(jclist, textBox5.Text.Trim(), textBox4.Text.Trim() == "" ? textBox1.Text.Trim() : textBox4.Text.Trim(), dateTimePicker1.Text.ToString(),sb);
+            bool addjcresult = jcbll.addJCList(jclist, textBox5.Text.Trim(), textBox4.Text.Trim() == "" ? textBox1.Text.Trim() : textBox4.Text.Trim(), TimeGuiGe.TimePicter(dateTimePicker1.Text).ToString(),sb);
             jclist = new List<shInfoList>();
             //将数据添加到消费记录里面
             bool resultls = lsbll.AddList(listLS);
@@ -728,7 +732,7 @@ namespace yixiupige
             string websb = "http://yhc19950315.imwork.net:28948?id=" + sb;
             Bitmap bitmap = writer.Write(websb);
             pictureBoxQr.Image = bitmap;
-            PirentDocumentClass.PirentSH(textBox14.Text, textBox21.Text, textBox22.Text, DYList, pictureBoxQr.Image,sb);
+            PirentDocumentClass.PirentSH(textBox14.Text, textBox21.Text, textBox22.Text, DYList, pictureBoxQr.Image, sb, textBox4.Text, textBox5.Text, dateTimePicker1.Text);
             //printDocument1.Print();
             dataGridView2.DataSource=new List<shInfoList>();
             TJBBBuy(listjieshu);
@@ -751,7 +755,8 @@ namespace yixiupige
                     {
                         PutCardNo = textBox5.Text.Trim(),
                         PutCount = iteam.Count.ToString(),
-                        PutDate = DateTime.Now.Year + "年" + DateTime.Now.Month + "月" + DateTime.Now.Day + "日",
+                        //PutDate = DateTime.Now.Year + "年" + DateTime.Now.Month + "月" + DateTime.Now.Day + "日",
+                        PutDate=DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                         PutDianName = FilterClass.DianPu1.UserName.Trim(),
                         PutMoney = iteam.CountMoney.ToString(),
                         PutName = iteam.FuWuName.Split(new char[] { '[', ']' }, StringSplitOptions.RemoveEmptyEntries)[1],

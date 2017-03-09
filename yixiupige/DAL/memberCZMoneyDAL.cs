@@ -2,6 +2,7 @@
 using MODEL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace DAL
             new SqlParameter("@czyMoney",model.czyMoney),
             new SqlParameter("@czyCount",model.czyCount),
             new SqlParameter("@czType",model.czType),
-            new SqlParameter("@czDate",model.czDate),
+            new SqlParameter("@czDate",SqlDbType.SmallDateTime){Value=model.czDate},
             new SqlParameter("@czSaleman",model.czSaleman),
             new SqlParameter("@czNo",model.czNo),
             new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
