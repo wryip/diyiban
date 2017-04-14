@@ -140,7 +140,7 @@ namespace yixiupige
             model.FuWuName = textBox9.Text;
             model.Remark = textBox11.Text;
             model.CJQuestion = textBox10.Text;
-            model.PaiNumber = textBox5.Text;
+            model.PaiNumber = "";
             model.YMPerson = comboBox4.Text;
             //model.d = DateTime.Now.ToString("yyyy MM dd");
             //model.jcEndDate = TimeGuiGe.TimePicter(dateTimePicker1.Text);
@@ -151,7 +151,7 @@ namespace yixiupige
             model.ImgUrl = path1;
             List<shInfoList> list = new List<shInfoList>();
             list.Add(model);
-            bool result = jcinfobll.addJCList(list, textBox3.Text.Trim(), textBox1.Text.Trim(), TimeGuiGe.TimePicter((dateTimePicker1.Text)), sb);
+            bool result = jcinfobll.addJCList(list, textBox3.Text.Trim(), textBox1.Text.Trim(), TimeGuiGe.TimePicterBegin((dateTimePicker1.Text)), sb,"1");
             if (result)
             {
                 MessageBox.Show("添加成功！");

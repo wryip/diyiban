@@ -30,5 +30,7 @@ namespace MODEL
         public bool IsSP { get; set; }
         //判断是不是寄存，如属是的话，在寄存表中删除数据
         public bool IsJC { get; set; }
+        //是否是现金
+        public bool IsXMoney { get; set; }
     }
 }

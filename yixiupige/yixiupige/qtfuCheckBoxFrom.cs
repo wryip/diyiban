@@ -111,7 +111,7 @@ namespace yixiupige
                     }
                     if (check.Checked == true)
                     {
-                        name += check.Text.Trim() + ",";
+                        name += check.Text.Trim() + "[" + check.Tag + "],";
                         money += Convert.ToInt32(check.Tag);
                     }
                 }

@@ -19,7 +19,7 @@ namespace DAL
            List<GoodInfo> list = new List<GoodInfo>();
            string sql = "select * from GoodInfo";
            string dpname = FilterClass.DianPu1.UserName.Trim();
-           if (gd!=null)
+           if (gd != null)
            {
                if (!string.IsNullOrEmpty(gd.Gno))
                {
@@ -70,7 +70,7 @@ namespace DAL
                    {
                        if (dpname == "admin")
                        {
-                           
+
                        }
                        else
                        {
@@ -78,8 +78,13 @@ namespace DAL
                            listp.Add(new SqlParameter("@DPName", dpname));
                        }
                    }
-                  
+
                }
+           }
+           else
+           {
+               sql += " where DPName=@DPName";
+               listp.Add(new SqlParameter("@DPName", dpname));
            }
            DataSet ds= SqlHelper.GetDataSet(sql,listp.ToArray());
            DataTable dt = ds.Tables[0];

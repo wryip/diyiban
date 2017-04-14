@@ -129,7 +129,7 @@ namespace yixiupige
             {
                 var row = dataGridView1.SelectedRows[0];
 
-                gd.Gno = row.Cells[1].Value.ToString();
+                gd.Gno = row.Cells["spNumber"].Value.ToString();
 
                 xgspFrom xg = xgspFrom.Create();
                 xg.Add(gd);
@@ -150,7 +150,7 @@ namespace yixiupige
             else
             {
                 var row = dataGridView1.SelectedRows[0];
-                gd.Gno = row.Cells[1].Value.ToString();
+                gd.Gno = row.Cells["spNumber"].Value.ToString();
                 spbhForm spbh = new spbhForm();
                 spbh.Add(gd);
                 spbh.Loadevent += loadevent;
@@ -167,9 +167,9 @@ namespace yixiupige
 
         private void 删除商品ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            var cell = dataGridView1.SelectedCells;
+            var model = (GoodInfo)dataGridView1.SelectedRows[0].DataBoundItem;
             GoodInfo gd = new GoodInfo();
-            gd.Gid = Convert.ToInt32(cell[0].Value);
+            gd.Gid = Convert.ToInt32(model.Gid);
             DialogResult result = MessageBox.Show("确定删除？", "提示", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
@@ -184,6 +184,11 @@ namespace yixiupige
             {
                 MessageBox.Show("删除失败，请稍后再试！");
             }
+        }
+
+        private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+            dataGridView1.Rows[e.RowIndex].Selected = true;
         }
       
     }

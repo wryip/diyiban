@@ -28,7 +28,7 @@ namespace DAL
             };
             SqlHelper.ExecuteNonQuery(str, pms);
         }
-        public List<InHuoTJ> selectListTJ(string yginfo)
+        public List<InHuoTJ> selectListTJ(string begindate,string enddate,string yginfo,string name)
         {
             int i = 1;
             string dianpu = FilterClass.DianPu1.UserName.Trim();
@@ -38,32 +38,53 @@ namespace DAL
             SqlParameter[] pms;
             if (dianpu == "admin")
             {
-                if (yginfo.Trim() == "全部")
+                if (name == "全部")
                 {
-                    str = "select * from InHuoTJ";
-                    pms = new SqlParameter[] {
-                    };
+                     if (yginfo.Trim() == "全部")
+                    {
+                        str = "select * from InHuoTJ where HuoDate between '" + begindate + "' and '" + enddate + "'";
+                        pms = new SqlParameter[] {
+                        };
+                    }
+                    else
+                    {
+                        str = "select * from InHuoTJ where HuoSale=@HuoSale and HuoDate between '" + begindate + "' and '" + enddate + "'";
+                        pms = new SqlParameter[] { 
+                        new SqlParameter("@HuoSale",yginfo.Trim())
+                        };
+                    }
                 }
                 else
                 {
-                    str = "select * from InHuoTJ where HuoSale=@HuoSale";
-                    pms = new SqlParameter[] { 
-                    new SqlParameter("@HuoSale",yginfo.Trim())
-                    };
+                    if (yginfo.Trim() == "全部")
+                    {
+                        str = "select * from InHuoTJ where HuoDate between '" + begindate + "' and '" + enddate + "' and HuoDianName=@HuoDianName";
+                        pms = new SqlParameter[] {
+                            new SqlParameter("@HuoDianName",name)
+                        };
+                    }
+                    else
+                    {
+                        str = "select * from InHuoTJ where HuoSale=@HuoSale and HuoDate between '" + begindate + "' and '" + enddate + "' and HuoDianName=@HuoDianName";
+                        pms = new SqlParameter[] { 
+                        new SqlParameter("@HuoSale",yginfo.Trim()),
+                        new SqlParameter("@HuoDianName",name)
+                        };
+                    }
                 }
             }
             else
             {
                 if (yginfo.Trim() == "全部")
                 {
-                    str = "select * from InHuoTJ where HuoDianName=@HuoDianName";
+                    str = "select * from InHuoTJ where HuoDianName=@HuoDianName and HuoDate between '" + begindate + "' and '" + enddate + "'";
                     pms = new SqlParameter[] { 
                     new SqlParameter("@HuoDianName",dianpu)
                     };
                 }
                 else
                 {
-                    str = "select * from InHuoTJ where HuoDianName=@HuoDianName and HuoSale=@HuoSale";
+                    str = "select * from InHuoTJ where HuoDianName=@HuoDianName and HuoSale=@HuoSale and HuoDate between '" + begindate + "' and '" + enddate + "'";
                     pms = new SqlParameter[] { 
                     new SqlParameter("@HuoDianName",dianpu),
                     new SqlParameter("@HuoSale",yginfo.Trim())
@@ -92,7 +113,7 @@ namespace DAL
             }
             return list;
         }
-        public List<PutHuo> SelectListXS(string yginfo)
+        public List<PutHuo> SelectListXS(string begindate, string enddate, string yginfo,string dpname)
         {
             int i = 1;
             string dianpu = FilterClass.DianPu1.UserName.Trim();
@@ -102,32 +123,53 @@ namespace DAL
             SqlParameter[] pms;
             if (dianpu == "admin")
             {
-                if (yginfo.Trim() == "全部")
+                if (dpname == "全部")
                 {
-                    str = "select * from PutHuo";
-                    pms = new SqlParameter[] {
+                    if (yginfo.Trim() == "全部")
+                    {
+                        str = "select * from PutHuo where PutDate  between '" + begindate + "' and '" + enddate + "'";
+                        pms = new SqlParameter[] {
                     };
+                    }
+                    else
+                    {
+                        str = "select * from PutHuo where PutSale=@PutSale";
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@PutSale",yginfo.Trim())
+                    };
+                    }
                 }
                 else
                 {
-                    str = "select * from PutHuo where PutSale=@PutSale";
-                    pms = new SqlParameter[] { 
-                    new SqlParameter("@PutSale",yginfo.Trim())
+                    if (yginfo.Trim() == "全部")
+                    {
+                        str = "select * from PutHuo where PutDate  between '" + begindate + "' and '" + enddate + "' and PutDianName=@PutDianName";
+                        pms = new SqlParameter[] {
+                            new SqlParameter("@PutDianName",dpname)
                     };
+                    }
+                    else
+                    {
+                        str = "select * from PutHuo where PutSale=@PutSale and PutDate  between '" + begindate + "' and '" + enddate + "' and PutDianName=@PutDianName";
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@PutSale",yginfo.Trim()),
+                     new SqlParameter("@PutDianName",dpname)
+                    };
+                    }
                 }
             }
             else
             {
                 if (yginfo.Trim() == "全部")
                 {
-                    str = "select * from PutHuo where PutDianName=@PutDianName";
+                    str = "select * from PutHuo where PutDianName=@PutDianName and PutDate  between '" + begindate + "' and '" + enddate + "'";
                     pms = new SqlParameter[] { 
                     new SqlParameter("@PutDianName",dianpu)
                     };
                 }
                 else
                 {
-                    str = "select * from PutHuo where PutDianName=@PutDianName and PutSale=@PutSale";
+                    str = "select * from PutHuo where PutDianName=@PutDianName and PutSale=@PutSale and PutDate  between '" + begindate + "' and '" + enddate + "'";
                     pms = new SqlParameter[] { 
                     new SqlParameter("@PutDianName",dianpu),
                     new SqlParameter("@PutSale",yginfo.Trim())
@@ -198,6 +240,51 @@ namespace DAL
             new SqlParameter("@ID",gid)
             };
             SqlHelper.ExecuteNonQuery(str, pms);
+        }
+        /// <summary>
+        /// 以下三个代表送洗统计，接收统计，返工统计的三个添加方法0代表送洗1代表接收2代表反工
+        /// </summary>
+        /// <param name="list"></param>
+        public bool AddSendXi(List<int> list)
+        {
+            bool result = false;
+            string datetime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string regx = "('{0}','{1}','{2}'),";
+            string str = "insert into SendXI(jcID,DateTime,ZT) values";
+            foreach (int jcid in list)
+            {
+                str = str + string.Format(regx, jcid, datetime,0);
+            }
+            str = str.Substring(0, str.Length - 1);
+            if (SqlHelper.ExecuteNonQuery(str) > 0)
+            {
+                result = true;
+            }
+            return result;
+        }
+        public void InDP(List<int> list)
+        {
+            string datetime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string regx = "('{0}','{1}','{2}'),";
+            string str = "insert into SendXI(jcID,DateTime,ZT) values";
+            foreach (int jcid in list)
+            {
+                str = str + string.Format(regx, jcid, datetime, 1);
+            }
+            str = str.Substring(0, str.Length - 1);
+            SqlHelper.ExecuteNonQuery(str);
+        }
+        public void AgainSend(List<int> list)
+        {
+            string datetime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string regx = "('{0}','{1}','{2}'),";
+            string str = "insert into SendXI(jcID,DateTime,ZT) values";
+            foreach (int jcid in list)
+            {
+                str = str + string.Format(regx, jcid, datetime, 2);
+            }
+            str = str.Substring(0, str.Length - 1);
+            SqlHelper.ExecuteNonQuery(str);
         }
     }
 }

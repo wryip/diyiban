@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="1631" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1631.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="png-0013" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\png-0013.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,6 +142,9 @@
   <data name="png-0555" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\png-0555.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="6962" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\6962.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="png-0010" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\png-0010.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,8 +154,11 @@
   <data name="1191650" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1191650.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="556807" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\556807.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1631" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1631.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="png-0014" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-0014.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="png-0012" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\png-0012.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,8 +175,8 @@
   <data name="1084515" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1084515.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="png-0014" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\png-0014.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="556807" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\556807.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="4505" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\4505.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,7 +187,7 @@
   <data name="bj" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bj.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="6962" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\6962.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="png-0017" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-0017.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

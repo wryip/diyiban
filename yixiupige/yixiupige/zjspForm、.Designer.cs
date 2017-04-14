@@ -220,6 +220,7 @@
             this.MaximizeBox = false;
             this.Name = "zjspForm_";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "增加商品";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.zjspForm__FormClosed);
             this.Load += new System.EventHandler(this.zjspForm__Load);

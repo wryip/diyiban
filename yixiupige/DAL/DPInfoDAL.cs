@@ -1,4 +1,5 @@
-﻿using MODEL;
+﻿using Commond;
+using MODEL;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -14,7 +15,7 @@ namespace DAL
         public bool AddModel(DianPu model)
         {
             bool result = false;
-            string str = "insert into DPInfo(DPName,DPPerson,DPTel,DPAddress,DPRemark,DPContent,DPPicture) values(@DPName,@DPPerson,@DPTel,@DPAddress,@DPRemark,@DPContent,@DPPicture)";
+            string str = "insert into DPInfo(DPName,DPPerson,DPTel,DPAddress,DPRemark,DPContent,DPPicture,DPNo,DPDay,DPNumber,MemberPrint,BGJPrint) values(@DPName,@DPPerson,@DPTel,@DPAddress,@DPRemark,@DPContent,@DPPicture,@DPNo,@DPDay,@DPNumber,@MemberPrint,@BGJPrint)";
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@DPName",model.DPName),
             new SqlParameter("@DPPerson",model.DPPerson),
@@ -22,7 +23,12 @@ namespace DAL
             new SqlParameter("@DPAddress",model.DPAddress),
             new SqlParameter("@DPRemark",model.DPRemark),
             new SqlParameter("@DPContent",model.DPContent),
-            new SqlParameter("@DPPicture",model.DPPicture)
+            new SqlParameter("@DPPicture",model.DPPicture),
+            new SqlParameter("@DPNo",model.DPNo),
+            new SqlParameter("@DPDay",model.DPDay),
+            new SqlParameter("@DPNumber",model.DPNumber),
+            new SqlParameter("@MemberPrint",model.MemberPrint),
+            new SqlParameter("@BGJPrint",model.BGJPrint)
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
@@ -48,6 +54,7 @@ namespace DAL
                     model.DPPicture = read["DPPicture"].ToString();
                     model.DPRemark = read["DPRemark"].ToString();
                     model.DPTel = read["DPTel"].ToString();
+                    model.DPNo = read["DPNo"].ToString();
                     list.Add(model);
                 }
             }
@@ -56,7 +63,7 @@ namespace DAL
         public bool UpdateModel(DianPu model)
         {
             bool result = false;
-            string str = "update DPInfo set DPPerson=@DPPerson,DPTel=@DPTel,DPAddress=@DPAddress,DPRemark=@DPRemark,DPContent=@DPContent,DPPicture=@DPPicture where DPName=@DPName";
+            string str = "update DPInfo set DPPerson=@DPPerson,DPTel=@DPTel,DPAddress=@DPAddress,DPRemark=@DPRemark,DPContent=@DPContent,DPPicture=@DPPicture,DPNo=@DPNo,MemberPrint=@MemberPrint,BGJPrint=@BGJPrint where DPName=@DPName";
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@DPName",model.DPName),
             new SqlParameter("@DPPerson",model.DPPerson),
@@ -64,7 +71,10 @@ namespace DAL
             new SqlParameter("@DPAddress",model.DPAddress),
             new SqlParameter("@DPRemark",model.DPRemark),
             new SqlParameter("@DPContent",model.DPContent),
-            new SqlParameter("@DPPicture",model.DPPicture)
+            new SqlParameter("@DPPicture",model.DPPicture),
+            new SqlParameter("@MemberPrint",model.MemberPrint),
+            new SqlParameter("@BGJPrint",model.BGJPrint),
+            new SqlParameter("@DPNo",model.DPNo)
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
@@ -101,8 +111,8 @@ namespace DAL
         }
         public string[] selectPicImg(string name)
         {
-            string[] str1 = new string[2];
-            string str = "select DPPicture,DPContent from DPInfo where DPName=@DPName";
+            string[] str1 = new string[6];
+            string str = "select DPPicture,DPContent,ID,MemberPrint,BGJPrint,DPTel from DPInfo where DPName=@DPName";
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@DPName",name)
             };
@@ -113,9 +123,78 @@ namespace DAL
                 {
                     str1[0] = read["DPPicture"].ToString();
                     str1[1] = read["DPContent"].ToString();
+                    str1[2] = read["ID"].ToString();
+                    str1[3] = read["MemberPrint"].ToString();
+                    str1[4] = read["BGJPrint"].ToString();
+                    str1[5] = read["DPTel"].ToString();
                 }
             }
             return str1;
+        }
+        //判断是不是新的一天
+        public void UpdateDay(int day)
+        {
+            string ID = FilterClass.ID;
+            if (ID == null)
+            {
+                return;
+            }
+            string str = "select DPDay from DPInfo where ID=@ID";
+            SqlParameter[] pms = new SqlParameter[] {
+            new SqlParameter("@ID",ID)
+            };
+            object oo = SqlHelper.ExecuteScalar(str, pms);
+            if (oo != null)
+            {
+                if (Convert.ToInt32(oo) != day)
+                {
+                    UpdateNewDay();
+                }
+            }
+        }
+        //更新最新一天的数据
+        public void UpdateNewDay()
+        {
+            string ID = FilterClass.ID;
+            string str = "Update DPInfo set DPDay=@DPDay,DPNumber=@DPNumber";
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@DPDay",DateTime.Now.Day),
+            new SqlParameter("@DPNumber","1")
+            };
+            SqlHelper.ExecuteNonQuery(str, pms);
+        }
+        public string[] selectNumberAndNo(string dpname)
+        {
+            string[] strarry = new string[3];
+            string str = "select DPNo,DPNumber,ID from DPInfo where DPName=@DPName";
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",dpname)
+            };
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
+            while(read.Read())
+            {
+                if (read.HasRows)
+                {
+                    strarry[0] = read["DPNo"].ToString();
+                    strarry[1] = read["DPNumber"].ToString();
+                    strarry[2] = read["ID"].ToString();
+                }
+            }
+            return strarry;
+        }
+        public bool uodateNumber(string dpID, int j)
+        {
+            bool result = false;
+            string str = "update DPInfo set DPNumber=@DPNumber where ID=@ID";
+            SqlParameter[] pms = new SqlParameter[] {
+            new SqlParameter("@ID",dpID),
+            new SqlParameter("@DPNumber",j)
+            };
+            if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
+            {
+                result = true;
+            }
+            return result;
         }
     }
 }

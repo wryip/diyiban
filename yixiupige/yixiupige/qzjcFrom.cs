@@ -70,6 +70,7 @@ namespace yixiupige
             bool result = bll.QZInfo(id);
             if (result)
             {
+                MessageBox.Show("成功！");
                 databind1();
                 this.Close();
             }

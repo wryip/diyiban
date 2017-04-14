@@ -32,7 +32,7 @@ namespace DAL
                 SqlHelper.ExecuteNonQuery(str, pms);
             }
         }
-        public List<DXmemberModel> selectListTJ(string yginfo)
+        public List<DXmemberModel> selectListTJ(string begindate, string enddate, string dpname)
         {
             int i = 1;
             string dp=FilterClass.DianPu1.UserName.Trim();
@@ -42,7 +42,7 @@ namespace DAL
             DXmemberModel model;
             if (dp == "admin")
             {
-                if (yginfo.Trim() == "全部")
+                if (dpname.Trim() == "全部")
                 {
                     str = "select * from DXSend";
                     pms = new SqlParameter[] { 
@@ -50,30 +50,18 @@ namespace DAL
                 }
                 else
                 {
-                    str = "select * from DXSend where SaleMan=@SaleMan";
+                    str = "select * from DXSend where DianPu=@DianPu";
                     pms = new SqlParameter[] { 
-                    new SqlParameter("@DianPu",dp),
-                    new SqlParameter("@SaleMan",yginfo.Trim())
+                    new SqlParameter("@DianPu",dpname)
                     };
                 }
             }
             else
             {
-                if (yginfo.Trim() == "全部")
-                {
                     str = "select * from DXSend where DianPu=@DianPu";
                     pms = new SqlParameter[] { 
-                    new SqlParameter("@DianPu",dp)
+                    new SqlParameter("@DianPu",dpname)
                     };
-                }
-                else
-                {
-                    str = "select * from DXSend where DianPu=@DianPu and SaleMan=@SaleMan";
-                    pms = new SqlParameter[] { 
-                    new SqlParameter("@DianPu",dp),
-                    new SqlParameter("@SaleMan",yginfo.Trim())
-                    };
-                }
             }
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())

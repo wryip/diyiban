@@ -49,9 +49,7 @@
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox comboBox2;
@@ -102,23 +100,6 @@
         private System.Windows.Forms.ToolStripMenuItem 删除全部ToolStripMenuItem;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TCMoney;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn shJiCun;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shFuWuName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shCiCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shOuntMoney;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shYMoney;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn shFuKuan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shPaiNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn YMPerson;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shQuestion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shRemark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shPinPai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shImgUrl;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem 删除本条ToolStripMenuItem1;
         private void InitializeComponent()
@@ -157,7 +138,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.shId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TCMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shJiCun = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.shFuWuName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shCiCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -165,6 +145,7 @@
             this.shYMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shFuKuan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.shCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TCMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shPaiNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.YMPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -190,9 +171,7 @@
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -232,9 +211,6 @@
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.删除本条ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.kinyaoo123456DataSet1 = new yixiupige.kinyaoo123456DataSet();
             this.lsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsJC1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -255,6 +231,9 @@
             this.LSNO1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Imgurl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.删除本条ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.kinyaoo123456DataSet1 = new yixiupige.kinyaoo123456DataSet();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -325,7 +304,7 @@
             this.textBox3.Location = new System.Drawing.Point(82, 75);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(194, 21);
+            this.textBox3.Size = new System.Drawing.Size(205, 21);
             this.textBox3.TabIndex = 2;
             this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown);
             // 
@@ -346,9 +325,9 @@
             this.label26.Location = new System.Drawing.Point(44, 57);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(209, 12);
+            this.label26.Size = new System.Drawing.Size(245, 12);
             this.label26.TabIndex = 0;
-            this.label26.Text = "请输入姓名，卡号，电话等信息回车！";
+            this.label26.Text = "请输入姓名，卡号，电话或拼音等信息回车！";
             // 
             // label27
             // 
@@ -623,7 +602,6 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.shId,
-            this.TCMoney,
             this.shJiCun,
             this.shFuWuName,
             this.shCiCount,
@@ -631,6 +609,7 @@
             this.shYMoney,
             this.shFuKuan,
             this.shCount,
+            this.TCMoney,
             this.shPaiNumber,
             this.YMPerson,
             this.shQuestion,
@@ -660,14 +639,6 @@
             this.shId.Name = "shId";
             this.shId.ReadOnly = true;
             this.shId.Width = 70;
-            // 
-            // TCMoney
-            // 
-            this.TCMoney.DataPropertyName = "TCMoney";
-            this.TCMoney.HeaderText = "TCMoney";
-            this.TCMoney.Name = "TCMoney";
-            this.TCMoney.ReadOnly = true;
-            this.TCMoney.Visible = false;
             // 
             // shJiCun
             // 
@@ -725,6 +696,14 @@
             this.shCount.HeaderText = "数量";
             this.shCount.Name = "shCount";
             this.shCount.ReadOnly = true;
+            // 
+            // TCMoney
+            // 
+            this.TCMoney.DataPropertyName = "TCMoney";
+            this.TCMoney.HeaderText = "TCMoney";
+            this.TCMoney.Name = "TCMoney";
+            this.TCMoney.ReadOnly = true;
+            this.TCMoney.Visible = false;
             // 
             // shPaiNumber
             // 
@@ -822,9 +801,7 @@
             this.groupBox3.Controls.Add(this.textBox18);
             this.groupBox3.Controls.Add(this.textBox17);
             this.groupBox3.Controls.Add(this.label22);
-            this.groupBox3.Controls.Add(this.textBox15);
             this.groupBox3.Controls.Add(this.label21);
-            this.groupBox3.Controls.Add(this.label19);
             this.groupBox3.Controls.Add(this.comboBox3);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.comboBox2);
@@ -852,7 +829,7 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(86, 21);
+            this.numericUpDown1.Size = new System.Drawing.Size(144, 21);
             this.numericUpDown1.TabIndex = 9;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -965,13 +942,6 @@
             this.label22.TabIndex = 3;
             this.label22.Text = "应付";
             // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(301, 40);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(86, 21);
-            this.textBox15.TabIndex = 4;
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -980,15 +950,6 @@
             this.label21.Size = new System.Drawing.Size(29, 12);
             this.label21.TabIndex = 3;
             this.label21.Text = "金额";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(267, 43);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(29, 12);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "牌号";
             // 
             // comboBox3
             // 
@@ -1027,15 +988,15 @@
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(172, 40);
+            this.comboBox4.Location = new System.Drawing.Point(235, 38);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(82, 20);
+            this.comboBox4.Size = new System.Drawing.Size(151, 20);
             this.comboBox4.TabIndex = 2;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(138, 43);
+            this.label18.Location = new System.Drawing.Point(200, 43);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(29, 12);
             this.label18.TabIndex = 1;
@@ -1396,25 +1357,6 @@
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView1_RowContextMenuStripNeeded);
             // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.删除本条ToolStripMenuItem1});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(125, 26);
-            // 
-            // 删除本条ToolStripMenuItem1
-            // 
-            this.删除本条ToolStripMenuItem1.Name = "删除本条ToolStripMenuItem1";
-            this.删除本条ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.删除本条ToolStripMenuItem1.Text = "删除本条";
-            this.删除本条ToolStripMenuItem1.Click += new System.EventHandler(this.删除本条ToolStripMenuItem1_Click);
-            // 
-            // kinyaoo123456DataSet1
-            // 
-            this.kinyaoo123456DataSet1.DataSetName = "kinyaoo123456DataSet";
-            this.kinyaoo123456DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // lsName
             // 
             this.lsName.DataPropertyName = "LSName";
@@ -1466,6 +1408,7 @@
             this.lsCount.HeaderText = "点数";
             this.lsCount.Name = "lsCount";
             this.lsCount.ReadOnly = true;
+            this.lsCount.Visible = false;
             // 
             // lsMoney
             // 
@@ -1559,6 +1502,25 @@
             this.Imgurl.Name = "Imgurl";
             this.Imgurl.ReadOnly = true;
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.删除本条ToolStripMenuItem1});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(101, 26);
+            // 
+            // 删除本条ToolStripMenuItem1
+            // 
+            this.删除本条ToolStripMenuItem1.Name = "删除本条ToolStripMenuItem1";
+            this.删除本条ToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.删除本条ToolStripMenuItem1.Text = "退单";
+            this.删除本条ToolStripMenuItem1.Click += new System.EventHandler(this.删除本条ToolStripMenuItem1_Click);
+            // 
+            // kinyaoo123456DataSet1
+            // 
+            this.kinyaoo123456DataSet1.DataSetName = "kinyaoo123456DataSet";
+            this.kinyaoo123456DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // shglform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1624,5 +1586,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LSNO1;
         private System.Windows.Forms.DataGridViewTextBoxColumn lsCardNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Imgurl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shId;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn shJiCun;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shFuWuName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shCiCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shOuntMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shYMoney;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn shFuKuan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TCMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shPaiNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YMPerson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shQuestion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shRemark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shPinPai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shImgUrl;
     }
 }

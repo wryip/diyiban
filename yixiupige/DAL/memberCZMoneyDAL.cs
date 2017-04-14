@@ -94,7 +94,7 @@ namespace DAL
             }
             return result;
         }
-        public List<memberToUpModel> selectTJ(string yginfo)
+        public List<memberToUpModel> selectTJ(string begindate, string enddate, string yginfo)
         {
             string dpname=FilterClass.DianPu1.UserName.Trim();
             List<memberToUpModel> list = new List<memberToUpModel>();
@@ -105,14 +105,14 @@ namespace DAL
             {
                 if (yginfo.Trim() != "全部")
                 {
-                    str = "select * from memberToUpMoney where czSaleman=@czSaleman";
+                    str = "select * from memberToUpMoney where czSaleman=@czSaleman and czDate between '" + begindate + "' and '" + enddate + "'";
                     pms = new SqlParameter[]{
             new SqlParameter("@czSaleman",yginfo)
             };
                 }
                 else
                 {
-                    str = "select * from memberToUpMoney";
+                    str = "select * from memberToUpMoney where czDate between '" + begindate + "' and '" + enddate + "'";
                     pms = new SqlParameter[]{};
                 }
             }
@@ -120,7 +120,7 @@ namespace DAL
             {
                 if (yginfo.Trim() != "全部")
                 {
-                    str = "select * from memberToUpMoney where czSaleman=@czSaleman and DPName=@DPName";
+                    str = "select * from memberToUpMoney where czSaleman=@czSaleman and DPName=@DPName and czDate between '" + begindate + "' and '" + enddate + "'";
                     pms = new SqlParameter[]{
             new SqlParameter("@czSaleman",yginfo),
             new SqlParameter("@DPName",dpname)
@@ -128,7 +128,7 @@ namespace DAL
                 }
                 else
                 {
-                    str = "select * from memberToUpMoney where DPName=@DPName";
+                    str = "select * from memberToUpMoney where DPName=@DPName and czDate between '" + begindate + "' and '" + enddate + "'";
                     pms = new SqlParameter[]{
             new SqlParameter("@DPName",dpname)
             };
@@ -136,15 +136,7 @@ namespace DAL
             }
             
             int i = 1;
-            SqlDataReader read ;
-            if (pms.Length == 0)
-            {
-                read = SqlHelper.ExecuteReader(str);
-            }
-            else
-            {
-                read = SqlHelper.ExecuteReader(str,pms);
-            }
+            SqlDataReader  read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
                 if (read.HasRows)

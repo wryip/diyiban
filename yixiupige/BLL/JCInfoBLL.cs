@@ -13,7 +13,7 @@ namespace BLL
     public class JCInfoBLL
     {
         JCInfoDAL dal = new JCInfoDAL();
-        public bool addJCList(List<shInfoList> list,string cardno,string name,string enddate,string danNumber)
+        public bool addJCList(List<shInfoList> list,string cardno,string name,string enddate,string danNumber,string Tel)
         {
             List<JCInfoModel> list1 = new List<JCInfoModel>();
             JCInfoModel model;
@@ -22,8 +22,17 @@ namespace BLL
                 model = new JCInfoModel();
                 model.jcCardNumber = cardno;
                 model.jcName = name;
-                model.jcQMoney = iteam.YMoney.ToString();
+                if (iteam.FuKuan)
+                {
+                    model.jcQMoney = "0";
+                }
+                else
+                {
+                    model.jcQMoney = iteam.YMoney.ToString();
+                }
+                model.Tel = Tel;
                 model.jcType = iteam.Type;
+                model.jcNo = Convert.ToInt32(iteam.CountMoney);
                 model.jcPinPai = iteam.PinPai;
                 model.jcColor = iteam.Color;
                 model.jcStaff = iteam.FuWuName;
@@ -114,63 +123,105 @@ namespace BLL
         {
             return dal.UpdateIDIteam(Convert.ToInt32(id.Trim()));
         }
-        public List<JCInfoModel> selectTJ(string begindate, string enddate, string yginfo,string jctype)
+        public List<JCInfoModel> selectTJ(string begindate, string enddate, string yginfo,string jctype,string dpname)
         {
-            List<JCInfoModel> list1 = dal.selectTJ(yginfo, jctype);
+            List<JCInfoModel> list1 = dal.selectTJ(begindate, enddate,yginfo, jctype);
             List<JCInfoModel> list = new List<JCInfoModel>();
-            string pattern = @"[\d]+";
-            Regex regex = new Regex(pattern, RegexOptions.None);
-            int dyear = Convert.ToInt32(regex.Matches(enddate)[0].Value);
-            int dmonth = Convert.ToInt32(regex.Matches(enddate)[1].Value);
-            int dday = Convert.ToInt32(regex.Matches(enddate)[2].Value);
-            int xyear = Convert.ToInt32(regex.Matches(begindate)[0].Value);
-            int xmonth = Convert.ToInt32(regex.Matches(begindate)[1].Value);
-            int xday = Convert.ToInt32(regex.Matches(begindate)[2].Value);
-            DateTime bigdate = new DateTime(dyear,dmonth,dday);
-            DateTime smalldate = new DateTime(xyear, xmonth, xday);
-            foreach (var iteam in list1)
+            if (dpname == "")
             {
-                int year = Convert.ToInt32(regex.Matches(iteam.jcBeginDate.Trim())[0].Value);
-                int month = Convert.ToInt32(regex.Matches(iteam.jcBeginDate.Trim())[1].Value);
-                int day = Convert.ToInt32(regex.Matches(iteam.jcBeginDate.Trim())[2].Value);
-                DateTime nowdate = new DateTime(year, month, day);
-                if (DateTime.Compare(smalldate, nowdate) <= 0 && DateTime.Compare(bigdate, nowdate) >= 0)
+                return list1;
+            }
+            else
+            {
+                foreach (var iteam in list1)
                 {
-                    list.Add(iteam);
+                    if (iteam.lsdm.Trim() == dpname)
+                    {
+                        list.Add(iteam);
+                    }
                 }
             }
             return list;
         }
         public List<JCInfoModel> selectQZTJ(string begindate, string enddate, string yginfo, string jctype)
         {
-            List<JCInfoModel> list1 = dal.selectQZTJ(yginfo, jctype);
-            List<JCInfoModel> list = new List<JCInfoModel>();
-            string pattern = @"[\d]+";
-            Regex regex = new Regex(pattern, RegexOptions.None);
-            int dyear = Convert.ToInt32(regex.Matches(enddate)[0].Value);
-            int dmonth = Convert.ToInt32(regex.Matches(enddate)[1].Value);
-            int dday = Convert.ToInt32(regex.Matches(enddate)[2].Value);
-            int xyear = Convert.ToInt32(regex.Matches(begindate)[0].Value);
-            int xmonth = Convert.ToInt32(regex.Matches(begindate)[1].Value);
-            int xday = Convert.ToInt32(regex.Matches(begindate)[2].Value);
-            DateTime bigdate = new DateTime(dyear, dmonth, dday);
-            DateTime smalldate = new DateTime(xyear, xmonth, xday);
-            foreach (var iteam in list1)
-            {
-                int year = Convert.ToInt32(regex.Matches(iteam.jcBeginDate.Trim())[0].Value);
-                int month = Convert.ToInt32(regex.Matches(iteam.jcBeginDate.Trim())[1].Value);
-                int day = Convert.ToInt32(regex.Matches(iteam.jcBeginDate.Trim())[2].Value);
-                DateTime nowdate = new DateTime(year, month, day);
-                if (DateTime.Compare(smalldate, nowdate) <= 0 && DateTime.Compare(bigdate, nowdate) >= 0)
-                {
-                    list.Add(iteam);
-                }
-            }
-            return list;
+            List<JCInfoModel> list1 = dal.selectQZTJ(begindate, enddate,yginfo, jctype);
+            return list1;
         }
         public int seleDelete(string dianpu,string cardno,string date,string money,string staff,string pinpai,string color)
         {
             return dal.seleDelete(dianpu, cardno, date, money, staff, pinpai, color);
+        }
+        public List<JCInfoModel> selectQMoney(string begindate, string enddate,string name)
+        {
+            return dal.selectQMoney(begindate, enddate,name);
+        }
+        public List<JCInfoModel> SelectSongXi(string dpname)
+        {
+            return dal.SelectSongXi(dpname);
+        }
+        public bool UpdateSXZT(List<int> ID)
+        {
+            return dal.UpdateSXZT(ID);
+        }
+        public bool UpdatePaiNumber(string ID,string bgjtm)
+        {
+            return dal.UpdatePaiNumber(ID, bgjtm);
+        }
+        public List<JCInfoModel> selectExitJC(string name)
+        {
+            return dal.selectExitJC(name);
+        }
+        public List<JCInfoModel> selectFinishJC(string name)
+        {
+            return dal.selectFinishJC(name);
+        }
+        public List<JCInfoModel> selectQZ(string type, string neirong, string begindate, string enddate)
+        {
+            return dal.selectQZ(type, neirong, begindate, enddate);
+        }
+        /// <summary>
+        /// 从工厂接受到的合格的将状态改为店铺已经接收
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        public bool UpdateEnd(List<int> list)
+        {
+            return dal.UpdateEnd(list);
+        }
+        /// <summary>
+        /// 根据条码找到物品
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public List<JCInfoModel> SelectTM(string number)
+        {
+            return dal.SelectTM(number);
+        }
+        /// <summary>
+        /// 从工厂接受到的，不合格的继续送回工厂
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        public bool UpdateEndSend(List<int> list)
+        {
+            return dal.UpdateEndSend(list);
+        }
+        public List<JCInfoModel> selectTJSendXi(string begindate, string enddate,string dpname)
+        {
+            return dal.selectTJSendXi(begindate, enddate,dpname);
+        }
+        public List<JCInfoModel> selectTJagainSend(string begindate, string enddate,string dpname)
+        {
+            return dal.selectTJagainSend(begindate, enddate, dpname);
+        }
+        public List<JCInfoModel> selectTJInDP(string begindate, string enddate,string dpname)
+        {
+            return dal.selectTJInDP(begindate, enddate, dpname);
+        }
+        public bool UpdateDPFinsh(List<int> list)
+        {
+            return dal.UpdateDPFinsh(list);
         }
     }
 }

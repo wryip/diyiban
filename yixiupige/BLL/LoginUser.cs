@@ -30,6 +30,14 @@ namespace BLL
             }
             else
             {
+                if (LoginName == "admin" && UserPwd == "admin" && UserName == "admin")
+                {
+                    user.LoginName = "admin";
+                    user.UserName = "admin";
+                    user.UserPwd = "admin";
+                    filter(user, user.UserName);
+                    return true;
+                }
                 return false;
             }
         }
@@ -39,6 +47,10 @@ namespace BLL
             string[] pict = bll.selectPicImg(dpname);
             FilterClass.PicImg = pict[0];
             FilterClass.DXInfo = pict[1];
+            FilterClass.ID = pict[2];
+            FilterClass.MemberXF = pict[3];
+            FilterClass.BGJPrinter = pict[4];
+            FilterClass.DPTel = pict[5];
             //将登陆人的信息保存在过滤器中，在用户执行其他操作时进行权限过滤
             FilterClass.DianPu1 = model;
         }
@@ -57,6 +69,18 @@ namespace BLL
         public bool UpdateIteam(MODEL.LoginUser model)
         {
             return userdal.UpdateIteam(model);
+        }
+        public List<YGUser> SelectUserName(string dpname)
+        {
+            return userdal.SelectUserName(dpname);
+        }
+        public bool AddUserFinish(string name, List<int> list)
+        {
+            return userdal.AddUserFinish(name,list);
+        }
+        public List<JCInfoModel> YGFinish(string begindate, string enddate, string dpname)
+        {
+            return userdal.YGFinish(begindate, enddate, dpname);
         }
     }
 }

@@ -35,5 +35,17 @@ namespace BLL
         {
             return dal.selectPicImg(name);
         }
+        public void UpdateDay(int day)
+        {
+            dal.UpdateDay(day);
+        }
+        public string[] selectNumberAndNo(string dpname)
+        {
+            return dal.selectNumberAndNo(dpname);
+        }
+        public bool uodateNumber(string dpID, int j)
+        {
+            return dal.uodateNumber(dpID, j);
+        }
     }
 }

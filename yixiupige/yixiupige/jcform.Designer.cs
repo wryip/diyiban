@@ -29,238 +29,322 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.XZ = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.jcNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jcCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcCardNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jcClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcPinPai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcQMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jcDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jcDemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcBeginDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcZT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcImgUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcDanNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcPaiNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jcMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcPression = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lsdm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Controls.Add(this.dataGridView3);
+            this.groupBox1.Location = new System.Drawing.Point(20, 156);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1075, 536);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(2048, 675);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "寄存未上架信息";
+            this.groupBox1.Text = "物品送洗";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // dataGridView1
+            // dataGridView3
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.XZ,
             this.jcNo,
-            this.jcCardNo,
+            this.jcID,
+            this.jcCardNumber,
             this.jcName,
-            this.jcClass,
+            this.jcPinPai,
+            this.jcQMoney,
             this.jcType,
             this.jcColor,
-            this.jcDate,
-            this.jcDemo,
+            this.jcStaff,
+            this.jcBeginDate,
+            this.jcEndDate,
+            this.jcZT,
+            this.jcAddress,
+            this.jcImgUrl,
+            this.jcDanNumber,
+            this.jcPaiNumber,
+            this.jcRemark,
             this.jcQuestion,
-            this.jcMark});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 21);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1062, 509);
-            this.dataGridView1.TabIndex = 0;
+            this.jcPression,
+            this.lsdm});
+            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView3.Location = new System.Drawing.Point(4, 25);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView3.MultiSelect = false;
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.RowTemplate.Height = 23;
+            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView3.Size = new System.Drawing.Size(2040, 646);
+            this.dataGridView3.TabIndex = 1;
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            // 
+            // XZ
+            // 
+            this.XZ.HeaderText = "选择";
+            this.XZ.Name = "XZ";
+            this.XZ.ReadOnly = true;
             // 
             // jcNo
             // 
+            this.jcNo.DataPropertyName = "jcNo";
             this.jcNo.HeaderText = "编号";
             this.jcNo.Name = "jcNo";
             this.jcNo.ReadOnly = true;
             // 
-            // jcCardNo
+            // jcID
             // 
-            this.jcCardNo.HeaderText = "卡号";
-            this.jcCardNo.Name = "jcCardNo";
-            this.jcCardNo.ReadOnly = true;
+            this.jcID.DataPropertyName = "jcID";
+            this.jcID.HeaderText = "ID";
+            this.jcID.Name = "jcID";
+            this.jcID.ReadOnly = true;
+            this.jcID.Visible = false;
+            // 
+            // jcCardNumber
+            // 
+            this.jcCardNumber.DataPropertyName = "jcCardNumber";
+            this.jcCardNumber.HeaderText = "卡号";
+            this.jcCardNumber.Name = "jcCardNumber";
+            this.jcCardNumber.ReadOnly = true;
             // 
             // jcName
             // 
+            this.jcName.DataPropertyName = "jcName";
             this.jcName.HeaderText = "姓名";
             this.jcName.Name = "jcName";
             this.jcName.ReadOnly = true;
             // 
-            // jcClass
+            // jcPinPai
             // 
-            this.jcClass.HeaderText = "类别";
-            this.jcClass.Name = "jcClass";
-            this.jcClass.ReadOnly = true;
+            this.jcPinPai.DataPropertyName = "jcPinPai";
+            this.jcPinPai.HeaderText = "品牌";
+            this.jcPinPai.Name = "jcPinPai";
+            this.jcPinPai.ReadOnly = true;
+            // 
+            // jcQMoney
+            // 
+            this.jcQMoney.DataPropertyName = "jcQMoney";
+            this.jcQMoney.HeaderText = "欠款";
+            this.jcQMoney.Name = "jcQMoney";
+            this.jcQMoney.ReadOnly = true;
+            this.jcQMoney.Visible = false;
             // 
             // jcType
             // 
-            this.jcType.HeaderText = "品牌";
+            this.jcType.DataPropertyName = "jcType";
+            this.jcType.HeaderText = "寄存类型";
             this.jcType.Name = "jcType";
             this.jcType.ReadOnly = true;
             // 
             // jcColor
             // 
+            this.jcColor.DataPropertyName = "jcColor";
             this.jcColor.HeaderText = "颜色";
             this.jcColor.Name = "jcColor";
             this.jcColor.ReadOnly = true;
             // 
-            // jcDate
+            // jcStaff
             // 
-            this.jcDate.HeaderText = "寄存时间";
-            this.jcDate.Name = "jcDate";
-            this.jcDate.ReadOnly = true;
+            this.jcStaff.DataPropertyName = "jcStaff";
+            this.jcStaff.HeaderText = "服务项目";
+            this.jcStaff.Name = "jcStaff";
+            this.jcStaff.ReadOnly = true;
             // 
-            // jcDemo
+            // jcBeginDate
             // 
-            this.jcDemo.HeaderText = "服务项目";
-            this.jcDemo.Name = "jcDemo";
-            this.jcDemo.ReadOnly = true;
+            this.jcBeginDate.DataPropertyName = "jcBeginDate";
+            this.jcBeginDate.HeaderText = "寄存时间";
+            this.jcBeginDate.Name = "jcBeginDate";
+            this.jcBeginDate.ReadOnly = true;
+            // 
+            // jcEndDate
+            // 
+            this.jcEndDate.DataPropertyName = "jcEndDate";
+            this.jcEndDate.HeaderText = "取走时间";
+            this.jcEndDate.Name = "jcEndDate";
+            this.jcEndDate.ReadOnly = true;
+            this.jcEndDate.Visible = false;
+            // 
+            // jcZT
+            // 
+            this.jcZT.DataPropertyName = "jcZT";
+            this.jcZT.HeaderText = "状态";
+            this.jcZT.Name = "jcZT";
+            this.jcZT.ReadOnly = true;
+            this.jcZT.Visible = false;
+            // 
+            // jcAddress
+            // 
+            this.jcAddress.DataPropertyName = "jcAddress";
+            this.jcAddress.HeaderText = "地址";
+            this.jcAddress.Name = "jcAddress";
+            this.jcAddress.ReadOnly = true;
+            // 
+            // jcImgUrl
+            // 
+            this.jcImgUrl.DataPropertyName = "jcImgUrl";
+            this.jcImgUrl.HeaderText = "图片路径";
+            this.jcImgUrl.Name = "jcImgUrl";
+            this.jcImgUrl.ReadOnly = true;
+            this.jcImgUrl.Visible = false;
+            // 
+            // jcDanNumber
+            // 
+            this.jcDanNumber.DataPropertyName = "jcDanNumber";
+            this.jcDanNumber.HeaderText = "单号";
+            this.jcDanNumber.Name = "jcDanNumber";
+            this.jcDanNumber.ReadOnly = true;
+            this.jcDanNumber.Visible = false;
+            // 
+            // jcPaiNumber
+            // 
+            this.jcPaiNumber.DataPropertyName = "jcPaiNumber";
+            this.jcPaiNumber.HeaderText = "牌号";
+            this.jcPaiNumber.Name = "jcPaiNumber";
+            this.jcPaiNumber.ReadOnly = true;
+            this.jcPaiNumber.Visible = false;
+            // 
+            // jcRemark
+            // 
+            this.jcRemark.DataPropertyName = "jcRemark";
+            this.jcRemark.HeaderText = "备注";
+            this.jcRemark.Name = "jcRemark";
+            this.jcRemark.ReadOnly = true;
+            this.jcRemark.Visible = false;
             // 
             // jcQuestion
             // 
-            this.jcQuestion.HeaderText = "插件问题";
+            this.jcQuestion.DataPropertyName = "jcQuestion";
+            this.jcQuestion.HeaderText = "常见问题";
             this.jcQuestion.Name = "jcQuestion";
             this.jcQuestion.ReadOnly = true;
+            this.jcQuestion.Visible = false;
             // 
-            // jcMark
+            // jcPression
             // 
-            this.jcMark.HeaderText = "备注";
-            this.jcMark.Name = "jcMark";
-            this.jcMark.ReadOnly = true;
+            this.jcPression.DataPropertyName = "jcPression";
+            this.jcPression.HeaderText = "业务员";
+            this.jcPression.Name = "jcPression";
+            this.jcPression.ReadOnly = true;
+            // 
+            // lsdm
+            // 
+            this.lsdm.DataPropertyName = "lsdm";
+            this.lsdm.HeaderText = "连锁店名";
+            this.lsdm.Name = "lsdm";
+            this.lsdm.ReadOnly = true;
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.groupBox5);
-            this.groupBox2.Controls.Add(this.groupBox4);
-            this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Location = new System.Drawing.Point(1130, 13);
+            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Location = new System.Drawing.Point(24, 15);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(206, 536);
+            this.groupBox2.Size = new System.Drawing.Size(2043, 120);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "未上架查询";
+            this.groupBox2.Text = "用户操作";
             // 
-            // groupBox5
+            // button3
             // 
-            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox5.Location = new System.Drawing.Point(6, 329);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(194, 201);
-            this.groupBox5.TabIndex = 2;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "架号信息";
+            this.button3.Location = new System.Drawing.Point(520, 36);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(150, 57);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "店内完成";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // groupBox4
+            // button2
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Location = new System.Drawing.Point(6, 126);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(194, 197);
-            this.groupBox4.TabIndex = 1;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "图片预览";
+            this.button2.Location = new System.Drawing.Point(312, 36);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 63);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "送洗";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // groupBox3
+            // button1
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.checkBox1);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Location = new System.Drawing.Point(6, 20);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(194, 100);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "查询";
+            this.button1.Location = new System.Drawing.Point(98, 36);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 63);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "全选";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // checkBox1
+            // button4
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(18, 72);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(72, 16);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "模糊查询";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(70, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 21);
-            this.textBox1.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "查找内容：";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "输入姓名，卡号，姓名首拼回车！";
+            this.button4.Location = new System.Drawing.Point(710, 36);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(150, 57);
+            this.button4.TabIndex = 1;
+            this.button4.Text = "不干胶打印";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // jcform
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1348, 561);
+            this.ClientSize = new System.Drawing.Size(2073, 842);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "jcform";
-            this.Text = "寄存上架";
+            this.Text = "物品送洗";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.jcform_FormClosing);
             this.Load += new System.EventHandler(this.jcform_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -268,24 +352,32 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn XZ;
         private System.Windows.Forms.DataGridViewTextBoxColumn jcNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcCardNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcCardNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn jcName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcClass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcPinPai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcQMoney;
         private System.Windows.Forms.DataGridViewTextBoxColumn jcType;
         private System.Windows.Forms.DataGridViewTextBoxColumn jcColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcDemo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcStaff;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcBeginDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcEndDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcZT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcImgUrl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcDanNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcPaiNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcRemark;
         private System.Windows.Forms.DataGridViewTextBoxColumn jcQuestion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcMark;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcPression;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsdm;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

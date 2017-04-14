@@ -39,8 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardExitMoneyBll.cs" />
     <Compile Include="DPInfoBLL.cs" />
     <Compile Include="DXSendBLL.cs" />
+    <Compile Include="ExitCardBLL.cs" />
+    <Compile Include="ExitDanBLL.cs" />
     <Compile Include="fuwuBLL.cs" />
     <Compile Include="GoodInfoBLL.cs" />
     <Compile Include="jbcsBLL.cs" />
@@ -53,6 +56,7 @@
     <Compile Include="memberTypeCURD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QtFuWuBLL.cs" />
+    <Compile Include="QZEndBLL.cs" />
     <Compile Include="staffInfoBLL.cs" />
     <Compile Include="TJBBBLL.cs" />
   </ItemGroup>

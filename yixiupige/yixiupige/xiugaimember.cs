@@ -166,13 +166,13 @@ namespace yixiupige
                 model.memberName = hyxmtextBox.Text;
                 model.memberTel = hydhtextBox.Text;
                 model.memberDocument = sfzhtextBox.Text;
-                model.birDate = TimeGuiGe.TimePicter(csrqdateTimePicker.Text);
-                model.cardDate = TimeGuiGe.TimePicter(bkrqdateTimePicker.Text);
+                model.birDate = TimeGuiGe.TimePicterBegin(csrqdateTimePicker.Text);
+                model.cardDate = TimeGuiGe.TimePicterEng(bkrqdateTimePicker.Text);
                 model.memberSex = hyxbcomboBox.Text;
                 model.rebate = spzktextBox.Text;
                 if (qydqxzcheckBox.Checked)
                 {
-                    model.endDate = TimeGuiGe.TimePicter(dateTimePicker1.Text);
+                    model.endDate = TimeGuiGe.TimePicterBegin(dateTimePicker1.Text);
                 }
                 else
                 {

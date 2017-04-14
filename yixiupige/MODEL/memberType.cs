@@ -43,5 +43,12 @@ namespace MODEL
             get { return _topUp; }
             set { _topUp = value; }
         }
+        //赠送比例
+        private double _send;
+        public double memberSend
+        {
+            get { return _send; }
+            set { _send = value; }
+        }
     }
 }

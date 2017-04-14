@@ -67,11 +67,11 @@ namespace Commond
             {
                 return jcinfopirent(list, sheet);
             }
-            else if (model is JCInfoModel)
+            else if (model is WPEnd)
             {
-                return quzoufopirent(list, sheet);
+                return wupiaopirent(list, sheet);
             }
-            else if (model is LiShiConsumption)
+            else if (model is CardExitMoney)
             {
                 return lishiinfopirent(list, sheet);
             }
@@ -87,10 +87,105 @@ namespace Commond
             {
                 return huoputpirent(list, sheet);
             }
-            else
+            else if(model is ExitCardModel)
             {
-                return huoinpirent(list, sheet);
+                return huiyuanExitCard(list, sheet);
             }
+            else //if (model is ExitDanModel)
+            {
+                return huiyuanExitDan(list, sheet);
+            }
+        }
+
+        private static IWorkbook wupiaopirent<T>(List<T> list, ISheet sheet)
+        {
+            //
+            int rowIndex = 0;
+            IRow row = sheet.CreateRow(rowIndex);
+            #region MyRegion//表头
+            row.CreateCell(0).SetCellValue("取走时间");
+            row.CreateCell(1).SetCellValue("单号");
+            row.CreateCell(2).SetCellValue("店铺名称");
+            row.CreateCell(3).SetCellValue("取走人姓名");
+            row.CreateCell(4).SetCellValue("取走人电话");
+            rowIndex++;
+            #endregion
+            foreach (T item in list)
+            {
+                WPEnd model = item as WPEnd;
+                //每遍历一条数据创建一行
+                row = sheet.CreateRow(rowIndex);
+                //创建行中的单元格
+                row.CreateCell(0).SetCellValue(model.DateTime);
+                row.CreateCell(1).SetCellValue(model.DanNumber);
+                row.CreateCell(2).SetCellValue(model.DPName);
+                row.CreateCell(3).SetCellValue(model.Name);
+                row.CreateCell(4).SetCellValue(model.TelPhon);
+                rowIndex++;
+            }
+            return sheet.Workbook;
+        }
+
+        private static IWorkbook huiyuanExitDan<T>(List<T> list, ISheet sheet)
+        {
+            int rowIndex = 0;
+            IRow row = sheet.CreateRow(rowIndex);
+            #region MyRegion//表头
+            row.CreateCell(0).SetCellValue("会员名称");
+            row.CreateCell(1).SetCellValue("会员卡号");
+            row.CreateCell(2).SetCellValue("业务员");
+            row.CreateCell(3).SetCellValue("所属店铺");
+            row.CreateCell(4).SetCellValue("金额");
+            row.CreateCell(5).SetCellValue("服务名称");
+            row.CreateCell(6).SetCellValue("退单时间");
+            rowIndex++;
+            #endregion
+            foreach (T item in list)
+            {
+                ExitDanModel model = item as ExitDanModel;
+                //每遍历一条数据创建一行
+                row = sheet.CreateRow(rowIndex);
+                //创建行中的单元格
+                row.CreateCell(0).SetCellValue(model.memberName);
+                row.CreateCell(1).SetCellValue(model.memberCardNo);
+                row.CreateCell(2).SetCellValue(model.saleMen);
+                row.CreateCell(3).SetCellValue(model.DPName);
+                row.CreateCell(4).SetCellValue(model.DanMoney);
+                row.CreateCell(5).SetCellValue(model.StaffName);
+                row.CreateCell(6).SetCellValue(model.ExitDanTime);
+                rowIndex++;
+            }
+            return sheet.Workbook;
+        }
+
+        private static IWorkbook huiyuanExitCard<T>(List<T> list, ISheet sheet)
+        {
+            int rowIndex = 0;
+            IRow row = sheet.CreateRow(rowIndex);
+            #region MyRegion//表头
+            row.CreateCell(0).SetCellValue("会员姓名");
+            row.CreateCell(1).SetCellValue("退卡日期");
+            row.CreateCell(2).SetCellValue("业务员");
+            row.CreateCell(3).SetCellValue("退卡金额");
+            row.CreateCell(4).SetCellValue("退卡类型");
+            row.CreateCell(5).SetCellValue("所属店铺");
+            rowIndex++;
+            #endregion
+            foreach (T item in list)
+            {
+                ExitCardModel model = item as ExitCardModel;
+                //每遍历一条数据创建一行
+                row = sheet.CreateRow(rowIndex);
+                //创建行中的单元格
+                row.CreateCell(0).SetCellValue(model.memberName);
+                row.CreateCell(1).SetCellValue(model.DateTimeCard);
+                row.CreateCell(2).SetCellValue(model.saleMen);
+                row.CreateCell(3).SetCellValue(model.CardMoney);
+                row.CreateCell(4).SetCellValue(model.CardType);
+                row.CreateCell(5).SetCellValue(model.DPName);
+                rowIndex++;
+            }
+            return sheet.Workbook;
         }
 
         private static IWorkbook huoinpirent<T>(List<T> list, ISheet sheet)
@@ -257,41 +352,25 @@ namespace Commond
             IRow row = sheet.CreateRow(rowIndex);
             #region MyRegion//表头
             row.CreateCell(0).SetCellValue("会员姓名");
-            row.CreateCell(1).SetCellValue("消费日期");
-            row.CreateCell(2).SetCellValue("服务类型");
-            row.CreateCell(3).SetCellValue("数量");
+            row.CreateCell(1).SetCellValue("会员卡号");
+            row.CreateCell(2).SetCellValue("卡名字");
+            row.CreateCell(3).SetCellValue("卡类型");
             row.CreateCell(4).SetCellValue("消费金额");
-            row.CreateCell(5).SetCellValue("应付金额");
-            row.CreateCell(6).SetCellValue("品牌");
-            row.CreateCell(7).SetCellValue("颜色");
-            row.CreateCell(8).SetCellValue("业务员");
-            row.CreateCell(9).SetCellValue("店铺名称");
-            row.CreateCell(10).SetCellValue("常见问题");
-            row.CreateCell(11).SetCellValue("备注");
-            row.CreateCell(12).SetCellValue("单号");
-            row.CreateCell(13).SetCellValue("卡号");
+            row.CreateCell(5).SetCellValue("所属店铺");
             rowIndex++;
             #endregion
             foreach (T item in list)
             {
-                LiShiConsumption model = item as LiShiConsumption;
+                CardExitMoney model = item as CardExitMoney;
                 //每遍历一条数据创建一行
                 row = sheet.CreateRow(rowIndex);
                 //创建行中的单元格
-                row.CreateCell(0).SetCellValue(model.LSName);
-                row.CreateCell(1).SetCellValue(model.LSDate);
-                row.CreateCell(2).SetCellValue(model.LSStaff);
-                row.CreateCell(3).SetCellValue(model.LSCount);
-                row.CreateCell(4).SetCellValue(model.LSMoney);
-                row.CreateCell(5).SetCellValue(model.LSYMoney);
-                row.CreateCell(6).SetCellValue(model.LSPinPai);
-                row.CreateCell(7).SetCellValue(model.LSColor);
-                row.CreateCell(8).SetCellValue(model.LSSalesman);
-                row.CreateCell(9).SetCellValue(model.LSMultipleName);
-                row.CreateCell(10).SetCellValue(model.LSQuestion);
-                row.CreateCell(11).SetCellValue(model.LSRemark);
-                row.CreateCell(12).SetCellValue(model.LSDanNumber);
-                row.CreateCell(13).SetCellValue(model.LSCardNumber);
+                row.CreateCell(0).SetCellValue(model.membername);
+                row.CreateCell(1).SetCellValue(model.membernum);
+                row.CreateCell(2).SetCellValue(model.cardname);
+                row.CreateCell(3).SetCellValue(model.cardtype);
+                row.CreateCell(4).SetCellValue(model.cardmoney);
+                row.CreateCell(5).SetCellValue(model.dpname);
                 rowIndex++;
             }
             return sheet.Workbook;
@@ -303,53 +382,53 @@ namespace Commond
         /// <param name="list"></param>
         /// <param name="sheet"></param>
         /// <returns></returns>
-        private static IWorkbook quzoufopirent<T>(List<T> list, ISheet sheet)
-        {
-            int rowIndex = 0;
-            IRow row = sheet.CreateRow(rowIndex);
-            #region MyRegion//表头
-            row.CreateCell(0).SetCellValue("会员卡号");
-            row.CreateCell(1).SetCellValue("会员姓名");
-            row.CreateCell(2).SetCellValue("欠款金额");
-            row.CreateCell(3).SetCellValue("寄存类型");
-            row.CreateCell(4).SetCellValue("寄存品牌");
-            row.CreateCell(5).SetCellValue("寄存颜色");
-            row.CreateCell(6).SetCellValue("服务类型");
-            row.CreateCell(7).SetCellValue("寄存时间");
-            row.CreateCell(8).SetCellValue("取走时间");
-            row.CreateCell(9).SetCellValue("物品状态");
-            row.CreateCell(10).SetCellValue("消费单号");
-            row.CreateCell(11).SetCellValue("备注");
-            row.CreateCell(12).SetCellValue("常见问题");
-            row.CreateCell(13).SetCellValue("业务员");
-            row.CreateCell(14).SetCellValue("店铺名称");
-            rowIndex++;
-            #endregion
-            foreach (T item in list)
-            {
-                JCInfoModel model = item as JCInfoModel;
-                //每遍历一条数据创建一行
-                row = sheet.CreateRow(rowIndex);
-                //创建行中的单元格
-                row.CreateCell(0).SetCellValue(model.jcCardNumber);
-                row.CreateCell(1).SetCellValue(model.jcName);
-                row.CreateCell(2).SetCellValue(model.jcQMoney);
-                row.CreateCell(3).SetCellValue(model.jcType);
-                row.CreateCell(4).SetCellValue(model.jcPinPai);
-                row.CreateCell(5).SetCellValue(model.jcColor);
-                row.CreateCell(6).SetCellValue(model.jcType);
-                row.CreateCell(7).SetCellValue(model.jcBeginDate);
-                row.CreateCell(8).SetCellValue(model.jcEndDate);
-                row.CreateCell(9).SetCellValue(model.jcAddress);
-                row.CreateCell(10).SetCellValue(model.jcDanNumber);
-                row.CreateCell(11).SetCellValue(model.jcRemark);
-                row.CreateCell(12).SetCellValue(model.jcQuestion);
-                row.CreateCell(13).SetCellValue(model.jcPression);
-                row.CreateCell(14).SetCellValue(model.lsdm);
-                rowIndex++;
-            }
-            return sheet.Workbook;
-        }
+        //private static IWorkbook quzoufopirent<T>(List<T> list, ISheet sheet)
+        //{
+        //    int rowIndex = 0;
+        //    IRow row = sheet.CreateRow(rowIndex);
+        //    #region MyRegion//表头
+        //    row.CreateCell(0).SetCellValue("会员卡号");
+        //    row.CreateCell(1).SetCellValue("会员姓名");
+        //    row.CreateCell(2).SetCellValue("欠款金额");
+        //    row.CreateCell(3).SetCellValue("寄存类型");
+        //    row.CreateCell(4).SetCellValue("寄存品牌");
+        //    row.CreateCell(5).SetCellValue("寄存颜色");
+        //    row.CreateCell(6).SetCellValue("服务类型");
+        //    row.CreateCell(7).SetCellValue("寄存时间");
+        //    row.CreateCell(8).SetCellValue("取走时间");
+        //    row.CreateCell(9).SetCellValue("物品状态");
+        //    row.CreateCell(10).SetCellValue("消费单号");
+        //    row.CreateCell(11).SetCellValue("备注");
+        //    row.CreateCell(12).SetCellValue("常见问题");
+        //    row.CreateCell(13).SetCellValue("业务员");
+        //    row.CreateCell(14).SetCellValue("店铺名称");
+        //    rowIndex++;
+        //    #endregion
+        //    foreach (T item in list)
+        //    {
+        //        JCInfoModel model = item as JCInfoModel;
+        //        //每遍历一条数据创建一行
+        //        row = sheet.CreateRow(rowIndex);
+        //        //创建行中的单元格
+        //        row.CreateCell(0).SetCellValue(model.jcCardNumber);
+        //        row.CreateCell(1).SetCellValue(model.jcName);
+        //        row.CreateCell(2).SetCellValue(model.jcQMoney);
+        //        row.CreateCell(3).SetCellValue(model.jcType);
+        //        row.CreateCell(4).SetCellValue(model.jcPinPai);
+        //        row.CreateCell(5).SetCellValue(model.jcColor);
+        //        row.CreateCell(6).SetCellValue(model.jcType);
+        //        row.CreateCell(7).SetCellValue(model.jcBeginDate);
+        //        row.CreateCell(8).SetCellValue(model.jcEndDate);
+        //        row.CreateCell(9).SetCellValue(model.jcAddress);
+        //        row.CreateCell(10).SetCellValue(model.jcDanNumber);
+        //        row.CreateCell(11).SetCellValue(model.jcRemark);
+        //        row.CreateCell(12).SetCellValue(model.jcQuestion);
+        //        row.CreateCell(13).SetCellValue(model.jcPression);
+        //        row.CreateCell(14).SetCellValue(model.lsdm);
+        //        rowIndex++;
+        //    }
+        //    return sheet.Workbook;
+        //}
         /// <summary>
         /// 寄存导出
         /// </summary>

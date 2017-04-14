@@ -19,7 +19,7 @@ namespace DAL
             SqlParameter[] pms;
             foreach (var iteam in listLS)
             {
-                str = "insert into LSConsumption(LSName,LSDate,LSStaff,LSNumberCount,LSMoney,LSYMoney,LSCount,LSPinPai,LSColor,LSSalesman,LSMultipleName,LSQuestion,LSRemark,LSDanNumber,LSCardNumber,ImgUrl,IsJC,IsSP) values(@LSName,@LSDate,@LSStaff,@LSNumberCount,@LSMoney,@LSYMoney,@LSCount,@LSPinPai,@LSColor,@LSSalesman,@LSMultipleName,@LSQuestion,@LSRemark,@LSDanNumber,@LSCardNumber,@ImgUrl,@IsJC,@IsSP)";
+                str = "insert into LSConsumption(LSName,LSDate,LSStaff,LSNumberCount,LSMoney,LSYMoney,LSCount,LSPinPai,LSColor,LSSalesman,LSMultipleName,LSQuestion,LSRemark,LSDanNumber,LSCardNumber,ImgUrl,IsJC,IsSP,IsXMoney) values(@LSName,@LSDate,@LSStaff,@LSNumberCount,@LSMoney,@LSYMoney,@LSCount,@LSPinPai,@LSColor,@LSSalesman,@LSMultipleName,@LSQuestion,@LSRemark,@LSDanNumber,@LSCardNumber,@ImgUrl,@IsJC,@IsSP,@IsXMoney)";
                 pms = new SqlParameter[] { 
                 new SqlParameter("@LSName",iteam.LSName),
                 new SqlParameter("@LSDate",SqlDbType.SmallDateTime){Value=iteam.LSDate},
@@ -38,7 +38,8 @@ namespace DAL
                 new SqlParameter("@LSCardNumber",iteam.LSCardNumber),
                 new SqlParameter("@ImgUrl",iteam.ImgUrl),
                 new SqlParameter("@IsJC",iteam.IsJC),
-                new SqlParameter("@IsSP",iteam.IsSP)
+                new SqlParameter("@IsSP",iteam.IsSP),
+                new SqlParameter("@IsXMoney",iteam.IsXMoney)
                 };
                 result = SqlHelper.ExecuteNonQuery(str, pms)>0;
                 if (!result)
@@ -94,6 +95,7 @@ namespace DAL
                     model.ID = Convert.ToInt32(read["ID"]);
                     model.IsSP = Convert.ToBoolean(read["IsSP"]);
                     model.IsJC = Convert.ToBoolean(read["IsJC"]);
+                    model.IsXMoney = Convert.ToBoolean(read["IsXMoney"]);
                     list.Add(model);
                 }
             }
@@ -137,7 +139,7 @@ namespace DAL
             }
             return list;
         }
-        public List<LiShiConsumption> selectTJ(string yginfo)
+        public List<LiShiConsumption> selectTJ(string begindate, string enddate, string yginfo, string dpname)
         {
             int i = 1;
             List<LiShiConsumption> list = new List<LiShiConsumption>();
@@ -148,45 +150,58 @@ namespace DAL
             {
                 if (yginfo.Trim() == "全部")
                 {
-                    str = "select * from LSConsumption";
-                    pms = new SqlParameter[] { 
+                    if (dpname == "全部")
+                    {
+                        str = "select * from LSConsumption where LSDate between '" + begindate + "' and '" + enddate + "'";
+                        pms = new SqlParameter[] { 
                     };
+                    }
+                    else 
+                    {
+                        str = "select * from LSConsumption where LSMultipleName=@LSMultipleName and LSDate between '" + begindate + "' and '" + enddate + "'";
+                        pms = new SqlParameter[] { 
+                            new SqlParameter("@LSMultipleName",dpname.Trim())
+                    };
+                    }                    
                 }
                 else
                 {
-                    str = "select * from LSConsumption where LSSalesman=@LSSalesman";
-                    pms = new SqlParameter[] { 
+                    if (dpname == "全部")
+                    {
+                        str = "select * from LSConsumption where LSSalesman=@LSSalesman and LSDate between '" + begindate + "' and '" + enddate + "'";
+                        pms = new SqlParameter[] { 
                     new SqlParameter("@LSSalesman",yginfo.Trim())
                     };
+                    }
+                    else
+                    {
+                        str = "select * from LSConsumption where LSSalesman=@LSSalesman and LSMultipleName=@LSMultipleName and LSDate between '" + begindate + "' and '" + enddate + "'";
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@LSSalesman",yginfo.Trim()),
+                    new SqlParameter("@LSMultipleName",dpname.Trim())
+                    };
+                    }
                 }
             }
             else
             {
                 if (yginfo.Trim() == "全部")
                 {
-                    str = "select * from LSConsumption where LSMultipleName=@LSMultipleName";
+                    str = "select * from LSConsumption where LSMultipleName=@LSMultipleName and LSDate between '" + begindate + "' and '" + enddate + "'";
                     pms = new SqlParameter[] { 
                     new SqlParameter("@LSMultipleName",FilterClass.DianPu1.UserName.Trim())
                     };
                 }
                 else
                 {
-                    str = "select * from LSConsumption where LSMultipleName=@LSMultipleName and LSSalesman=@LSSalesman";
+                    str = "select * from LSConsumption where LSMultipleName=@LSMultipleName and LSSalesman=@LSSalesman and LSDate between '" + begindate + "' and '" + enddate + "'";
                     pms = new SqlParameter[] { 
                     new SqlParameter("@LSMultipleName",FilterClass.DianPu1.UserName.Trim()),
                     new SqlParameter("@LSSalesman",yginfo.Trim())
                     };
                 }
             }            
-            SqlDataReader read;
-            if (pms.Length == 0)
-            {
-                read = SqlHelper.ExecuteReader(str);
-            }
-            else
-            {
-                read = SqlHelper.ExecuteReader(str,pms);
-            }
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
                 if (read.HasRows)
@@ -211,6 +226,107 @@ namespace DAL
                     model.ImgUrl = read["ImgUrl"].ToString().Trim();
                     model.IsSP=Convert.ToBoolean(read["IsSP"]);
                     model.IsJC = Convert.ToBoolean(read["IsJC"]);
+                    model.IsXMoney = Convert.ToBoolean(read["IsXMoney"]);
+                    list.Add(model);
+                    i++;
+                }
+            }
+            return list;
+        }
+        public List<LiShiConsumption> selectTJMoney(string begindate, string enddate, string yginfo, string dpname)
+        {
+            int i = 1;
+            List<LiShiConsumption> list = new List<LiShiConsumption>();
+            LiShiConsumption model;
+            SqlParameter[] pms;
+            string str = "";
+            if (FilterClass.DianPu1.UserName.Trim() == "admin")
+            {
+                if (yginfo.Trim() == "全部")
+                {
+                    if (dpname == "全部")
+                    {
+                        str = "select * from LSConsumption where IsXMoney=@IsXMoney and LSDate between '" + begindate + "' and '" + enddate + "'";
+                        pms = new SqlParameter[] { 
+                            new SqlParameter("@IsXMoney","true")
+                    };
+                    }
+                    else
+                    {
+                        str = "select * from LSConsumption where LSMultipleName=@LSMultipleName and IsXMoney=@IsXMoney and LSDate between '" + begindate + "' and '" + enddate + "'";
+                        pms = new SqlParameter[] { 
+                            new SqlParameter("@LSMultipleName",dpname.Trim()),
+                            new SqlParameter("@IsXMoney","true")
+                    };
+                    }
+                }
+                else
+                {
+                    if (dpname == "全部")
+                    {
+                        str = "select * from LSConsumption where LSSalesman=@LSSalesman and IsXMoney=@IsXMoney and LSDate between '" + begindate + "' and '" + enddate + "'";
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@LSSalesman",yginfo.Trim()),
+                    new SqlParameter("@IsXMoney","true")
+                    };
+                    }
+                    else
+                    {
+                        str = "select * from LSConsumption where LSSalesman=@LSSalesman and LSMultipleName=@LSMultipleName and IsXMoney=@IsXMoney and LSDate between '" + begindate + "' and '" + enddate + "'";
+                        pms = new SqlParameter[] { 
+                    new SqlParameter("@LSSalesman",yginfo.Trim()),
+                    new SqlParameter("@LSMultipleName",dpname.Trim()),
+                    new SqlParameter("@IsXMoney","true")
+                    };
+                    }
+                }
+            }
+            else
+            {
+                if (yginfo.Trim() == "全部")
+                {
+                    str = "select * from LSConsumption where LSMultipleName=@LSMultipleName and IsXMoney=@IsXMoney and LSDate between '" + begindate + "' and '" + enddate + "'";
+                    pms = new SqlParameter[] { 
+                    new SqlParameter("@LSMultipleName",FilterClass.DianPu1.UserName.Trim()),
+                    new SqlParameter("@IsXMoney","true")
+                    };
+                }
+                else
+                {
+                    str = "select * from LSConsumption where LSMultipleName=@LSMultipleName and LSSalesman=@LSSalesman and IsXMoney=@IsXMoney and LSDate between '" + begindate + "' and '" + enddate + "'";
+                    pms = new SqlParameter[] { 
+                    new SqlParameter("@LSMultipleName",FilterClass.DianPu1.UserName.Trim()),
+                    new SqlParameter("@LSSalesman",yginfo.Trim()),
+                    new SqlParameter("@IsXMoney","true")
+                    };
+                }
+            }
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    model = new LiShiConsumption();
+                    model.LSNo = i.ToString();
+                    model.LSName = read["LSName"].ToString().Trim();
+                    model.LSDate = read["LSDate"].ToString().Trim();
+                    model.LSStaff = read["LSStaff"].ToString().Trim();
+                    model.LSNumberCount = read["LSNumberCount"].ToString().Trim();
+                    model.LSMoney = read["LSMoney"].ToString().Trim();
+                    model.LSYMoney = read["LSYMoney"].ToString().Trim();
+                    model.LSCount = read["LSCount"].ToString().Trim();
+                    model.LSPinPai = read["LSPinPai"].ToString().Trim();
+                    model.LSColor = read["LSColor"].ToString().Trim();
+                    model.LSSalesman = read["LSSalesman"].ToString().Trim();
+                    model.LSMultipleName = read["LSMultipleName"].ToString().Trim();
+                    model.LSQuestion = read["LSQuestion"].ToString().Trim();
+                    model.LSRemark = read["LSRemark"].ToString().Trim();
+                    model.LSDanNumber = read["LSDanNumber"].ToString().Trim();
+                    model.LSCardNumber = read["LSCardNumber"].ToString().Trim();
+                    model.ImgUrl = read["ImgUrl"].ToString().Trim();
+                    model.IsSP = Convert.ToBoolean(read["IsSP"]);
+                    model.IsJC = Convert.ToBoolean(read["IsJC"]);
+                    model.IsXMoney = Convert.ToBoolean(read["IsXMoney"]);
                     list.Add(model);
                     i++;
                 }
@@ -229,6 +345,48 @@ namespace DAL
                 result = true;
             }
             return result;
+        }
+        public List<LiShiConsumption> SelectForDanNumber(string dannumber)
+        {
+            List<LiShiConsumption> list = new List<LiShiConsumption>();
+            LiShiConsumption model;
+            string name = FilterClass.DianPu1.UserName;
+            SqlParameter[] pms;
+            string str = "select * from LSConsumption where LSDanNumber=@LSDanNumber and LSMultipleName=@LSMultipleName";
+            pms = new SqlParameter[] { 
+            new SqlParameter("@LSDanNumber",dannumber),
+            new SqlParameter("@LSMultipleName",name)
+            };
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    model = new LiShiConsumption();
+                    model.LSName = read["LSName"].ToString().Trim();
+                    model.LSDate = read["LSDate"].ToString().Trim();
+                    model.LSStaff = read["LSStaff"].ToString().Trim();
+                    model.LSNumberCount = read["LSNumberCount"].ToString().Trim();
+                    model.LSMoney = read["LSMoney"].ToString().Trim();
+                    model.LSYMoney = read["LSYMoney"].ToString().Trim();
+                    model.LSCount = read["LSCount"].ToString().Trim();
+                    model.LSPinPai = read["LSPinPai"].ToString().Trim();
+                    model.LSColor = read["LSColor"].ToString().Trim();
+                    model.LSSalesman = read["LSSalesman"].ToString().Trim();
+                    model.LSMultipleName = read["LSMultipleName"].ToString().Trim();
+                    model.LSQuestion = read["LSQuestion"].ToString().Trim();
+                    model.LSRemark = read["LSRemark"].ToString().Trim();
+                    model.LSDanNumber = read["LSDanNumber"].ToString().Trim();
+                    model.LSCardNumber = read["LSCardNumber"].ToString().Trim();
+                    model.ImgUrl = read["ImgUrl"].ToString().Trim();
+                    model.ID = Convert.ToInt32(read["ID"]);
+                    model.IsSP = Convert.ToBoolean(read["IsSP"]);
+                    model.IsJC = Convert.ToBoolean(read["IsJC"]);
+                    model.IsXMoney = Convert.ToBoolean(read["IsXMoney"]);
+                    list.Add(model);
+                }
+            }
+            return list;
         }
     }
 }

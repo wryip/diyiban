@@ -40,8 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardExitMoneyDal.cs" />
     <Compile Include="DPInfoDAL.cs" />
     <Compile Include="DXSendDAL.cs" />
+    <Compile Include="ExitCardDAL.cs" />
+    <Compile Include="ExitDanDAL.cs" />
     <Compile Include="fuwuDAL.cs" />
     <Compile Include="GoodsInfoDal.cs" />
     <Compile Include="jbcsDAL.cs" />
@@ -54,6 +57,7 @@
     <Compile Include="memberTypeDAl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QtFuWuDAL.cs" />
+    <Compile Include="QZDAL.cs" />
     <Compile Include="SqlHelper.cs" />
     <Compile Include="staffTableDAL.cs" />
     <Compile Include="TJBBDAL.cs" />

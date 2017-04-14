@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Commond;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -18,11 +19,16 @@ namespace yixiupige
         {
             InitializeComponent();
         }
+        public static double InfoBL { get; set; }
         public static List<memberToUpModel> Alllist = new List<memberToUpModel>();
         private static hyczck _danli = null;
         public static memberInfoModel model1;
-        public static hyczck Create(memberInfoModel model)
+        memberTypeCURD typebll = new memberTypeCURD();
+        public delegate void bind1();
+        public static bind1 bind;
+        public static hyczck Create(memberInfoModel model,bind1 datbind)
         {
+            bind = datbind;
             model1 = model;
             if (_danli == null)
             {
@@ -50,6 +56,9 @@ namespace yixiupige
             textBox11.Text = model1.remark;
             textBox12.Text = model1.memberType;
             comboBox1.Text = model1.saleMan;
+            //去拿相应卡的充值比例
+            string cardtype = textBox12.Text.Trim();
+            InfoBL = typebll.selectBL(cardtype);
             dataBind();
         }
 
@@ -80,14 +89,21 @@ namespace yixiupige
             {
                 model.czCount = "0";
                 model.czyCount = "0";
-                model.czMoney = textBox3.Text.Trim();
+                model.czMoney = textBox6.Text.Trim();
+                model.czyMoney = textBox2.Text.Trim();
+            }
+            else if (textBox9.Text.Trim() == "折扣卡")
+            {
+                model.czCount = "0";
+                model.czyCount = "0";
+                model.czMoney = textBox6.Text.Trim();
                 model.czyMoney = textBox2.Text.Trim();
             }
             model.czNo = textBox4.Text.Trim();
             model.czName = textBox1.Text;
             model.czType = textBox12.Text;
             model.czDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            model.czSaleman = comboBox1.Text;
+            model.czSaleman = comboBox1.Text == "" ? FilterClass.DianPu1.LoginName : comboBox1.Text;
             int m1 = Convert.ToInt32(textBox3.Text.Trim());
             int m2 = Convert.ToInt32(textBox2.Text.Trim());
             int m3 = m1 + m2;
@@ -96,6 +112,7 @@ namespace yixiupige
             if (result1 && result1)
             {
                 MessageBox.Show("充值成功！");
+                bind();
                 this.Close();
             }
             else 
@@ -110,14 +127,7 @@ namespace yixiupige
         }
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
-            if (model1.cardType == "计次卡")
-            {
-                textBox3.Text = (Convert.ToInt32(textBox6.Text) * Convert.ToInt32(model1.cardMoney) / Convert.ToInt32(model1.toUpMoney)).ToString();
-            }
-            else
-            {
-                textBox3.Text = textBox6.Text;
-            }            
+            textBox3.Text = (Convert.ToInt32(textBox6.Text == "" ? "1" : textBox6.Text) / InfoBL).ToString();           
         }
 
         private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)

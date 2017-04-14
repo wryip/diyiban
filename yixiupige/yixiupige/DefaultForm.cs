@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -35,8 +36,9 @@ namespace yixiupige
             DateTime date = DateTime.Now;
             label1.Text = date.Year.ToString() + "-" + date.Month.ToString() + "-" + date.Day.ToString();
             label2.Text = date.Hour.ToString() + "-" + date.Minute.ToString() + "-" + date.Second.ToString();
-            
-
+            statusStrip1.Items[1].Text = FilterClass.DianPu1.LoginName;
+            statusStrip1.Items[3].Text = ConfigurationManager.AppSettings["dqbe"];
+            statusStrip1.Items[5].Text = ConfigurationManager.AppSettings["rjgs"];
         }
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -184,7 +186,7 @@ namespace yixiupige
         //显示连锁店管理窗口
         private void 系统设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!FilterClass.lsdsz())
+            if (FilterClass.DianPu1.UserName!="admin")
             {
                 MessageBox.Show("无权操作！");
                 return;
@@ -301,7 +303,37 @@ namespace yixiupige
 
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PirentDocumentClass.ceshi();
+            //PirentDocumentClass.ceshi();
+        }
+
+        private void toolStripButton11_Click(object sender, EventArgs e)
+        {
+            if (!FilterClass.tcgl())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
+            QHFrom yggl = QHFrom.CreateForm();            
+            yggl.MdiParent = this;
+            yggl.Parent = panel3;
+            yggl.WindowState = FormWindowState.Maximized;
+            yggl.Show();
+            yggl.Focus();
+        }
+
+        private void toolStripButton12_Click(object sender, EventArgs e)
+        {
+            if (!FilterClass.dmjs())
+            {
+                MessageBox.Show("无权操作！");
+                return;
+            }
+            DMJSFrom yggl = DMJSFrom.CreateForm();
+            yggl.MdiParent = this;
+            yggl.Parent = panel3;
+            yggl.WindowState = FormWindowState.Maximized;
+            yggl.Show();
+            yggl.Focus();
         }
     }
 }

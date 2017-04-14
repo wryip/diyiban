@@ -11,5 +11,6 @@ namespace MODEL
         public string danNumber { get; set; }
         public string cardNumber { get; set; }
         public string memberName { get; set; }
+        //public string painumber { get; set; }
     }
 }

@@ -29,19 +29,25 @@ namespace yixiupige
         //员工提成
         //public static int tcMoney = 0;
         TJBBBLL tjbb = new TJBBBLL();
+        CardExitMoneyBll carexibll = new CardExitMoneyBll();
         //商品的bll
         GoodInfoBLL gbbll = new GoodInfoBLL();
+        //会员类型，目的是拿到折扣卡的相应折扣
+        memberTypeCURD membll = new memberTypeCURD();
         //寄存管理的业务处理曾对象
         JCInfoBLL jcbll = new JCInfoBLL();
         public static List<LiShiConsumption> DYList=new List<LiShiConsumption>();
         public static string Path;
+        public static string Tel;
         //将写有寄存的信息加入到该list集合中
         public static List<shInfoList> jclist = new List<shInfoList>();
         //次卡相对应的金额
         public static double ckmoney=0;
         public static int jishu = 1;
         public static bool huaka = false;
+        DPInfoBLL dpbll = new DPInfoBLL();
         //EncodingOptions options = null;
+        ExitDanBLL exitdan = new ExitDanBLL();
         LSConsumptionBLL lsbll = new LSConsumptionBLL();
         QrCodeEncodingOptions option;
         BarcodeWriter writer = null; 
@@ -76,7 +82,7 @@ namespace yixiupige
         public shglform()
         {
             InitializeComponent();
-            //options = new EncodingOptions
+           // option = new EncodingOptions
             option=new QrCodeEncodingOptions
             {
                 DisableECI = true,
@@ -101,6 +107,11 @@ namespace yixiupige
         List<string> list = new List<string>();
         public jbcsBLL jbbll = new jbcsBLL();
         staffInfoBLL staffbll = new staffInfoBLL();
+        /// <summary>
+        /// 窗口加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void shglform_Load(object sender, EventArgs e)
         {
             #region//配置打印机
@@ -111,6 +122,7 @@ namespace yixiupige
             radioButton1.Checked = true;
             textBox1.ReadOnly = true;
             textBox2.ReadOnly = true;
+            checkBox1.Checked = true;
             try
             {
                 //连接//开启摄像头
@@ -142,12 +154,13 @@ namespace yixiupige
             {
                 comboBox3.Items.Add(iteam.AllType);
             }
-            listtype = staffbll.selectSH();
-            foreach (var iteam in listtype)
-            {
-                comboBox4.Items.Add(iteam.AllType);
-            }
+            //listtype = staffbll.selectSH();
+            //foreach (var iteam in listtype)
+            //{
+            //    comboBox4.Items.Add(iteam.AllType);
+            //}
         }
+        //相机连接
         private void CameraConn()
         {
             string carmar=FilterClass.PicImg;
@@ -180,6 +193,11 @@ namespace yixiupige
         {
 
         }
+        /// <summary>
+        /// 相机图片保存
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="image"></param>
         private void videoSourcePlayer1_NewFrame(object sender, ref Bitmap image)
         {
             Bitmap bitmap = (Bitmap)image.Clone();
@@ -203,25 +221,7 @@ namespace yixiupige
             if (newImage != null)
                 newImage.Save(path, System.Drawing.Imaging.ImageFormat.Bmp);
             Path = path;
-            //bool result = modelbll.AddMemberInfo(model);
-            //if (result)
-            //{
-            //    MessageBox.Show("添加成功！");
-            //    this.Close();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("添加失败，请稍后再试！");
-            //}
             #endregion
-            //try
-            //{
-            //    pictureBox1.Image = bitmap;
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("保存图像失败!\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
             videoSourcePlayer1.NewFrame -= new AForge.Controls.VideoSourcePlayer.NewFrameHandler(videoSourcePlayer1_NewFrame);
         }
         private void button1_Click(object sender, EventArgs e)
@@ -233,7 +233,8 @@ namespace yixiupige
                 return;
             }
             DialogResult result= MessageBox.Show("是否寄存", "提示信息", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
-            shInfoList model = new shInfoList();
+            shInfoList model = new shInfoList();//基本服务的模型
+            //shInfoList modelqt = new shInfoList();//其他服务的模型
             if (result == DialogResult.OK)
             {
                 model.JiCun = true;
@@ -243,71 +244,81 @@ namespace yixiupige
                 model.JiCun = false;
             }
             model.Id = jishu;
-            model.FuWuName = textBox13.Text.Trim() + textBox16.Text;
-            #region//是会员或者不是会员的话
+            //modelqt.Id = ++jishu;
+            model.FuWuName = textBox13.Text.Trim()+textBox16.Text.Trim();
+            //modelqt.FuWuName = ;
+            #region//是会员或者不是会员的话!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             if (radioButton1.Checked)
             {
                 if (textBox12.Text.Trim() == "计次卡")
                 {
-                    model.CiCount = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(Convert.ToInt32(textBox17.Text.Trim() == "" ? "0" : textBox17.Text.Trim()) + Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim())) / ckmoney));
-                    model.CountMoney = model.CiCount * ckmoney;
-                    if (huaka)
-                    {
-                        model.YMoney = 0;
-                    }
-                    else
-                    {
-                        model.YMoney = Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
-                    }
-                }
+                        model.CiCount = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(Convert.ToInt32(textBox17.Text.Trim() == "" ? "0" : textBox17.Text.Trim()) * Convert.ToInt32(numericUpDown1.Value) / ckmoney)));
+                        if (huaka)
+                        {
+                            model.CiCount += Convert.ToInt32(Math.Ceiling(Convert.ToDouble(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim()) / ckmoney));
+                            model.YMoney = 0;
+                            model.FuKuan = true;
+                        }
+                        else
+                        {
+                            model.YMoney = Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
+                            model.FuKuan = false;
+                        }
+                        model.CountMoney = Convert.ToInt32(textBox17.Text.Trim() == "" ? "0" : textBox17.Text.Trim()) + Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
+                        //model.YMoney = 0;
+                        //model.IsHuaCard = true;
+                        //model.FuKuan = true;
+                }                                  
                 else if (textBox12.Text.Trim() == "储值卡")
                 {
                     model.CiCount = 0;
-                    model.CountMoney = Convert.ToInt32(textBox17.Text.Trim() == "" ? "0" : textBox17.Text.Trim()) * Convert.ToInt32(numericUpDown1.Value) + Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
-                    if (huaka)
+                    if (model.FuWuName != "")
                     {
-                        model.YMoney = 0;
-                    }
-                    else
-                    {
-                        model.YMoney = Convert.ToDouble(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
+                        model.CountMoney = Convert.ToInt32(textBox17.Text.Trim() == "" ? "0" : textBox17.Text.Trim()) * Convert.ToInt32(numericUpDown1.Value) + Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
+                        if (huaka)
+                        {
+                            model.YMoney = 0;
+                            model.FuKuan = true;
+                        }
+                        else
+                        {
+                            model.YMoney = Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
+                            model.FuKuan = false;
+                        }                      
                     }
                 }
             }
             else
             {
+                //这是折扣卡执行的条件
                 model.CiCount = 0;
                 model.CountMoney = Convert.ToInt32(textBox17.Text.Trim() == "" ? "0" : textBox17.Text.Trim()) * Convert.ToInt32(numericUpDown1.Value) + Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
                 model.YMoney = Convert.ToInt32(textBox17.Text.Trim() == "" ? "0" : textBox17.Text.Trim()) * Convert.ToInt32(numericUpDown1.Value) + Convert.ToInt32(textBox18.Text.Trim() == "" ? "0" : textBox18.Text.Trim());
             }
             #endregion
-
-            model.FuKuan = false;
             model.Count = Convert.ToInt32(numericUpDown1.Value);
-            model.PaiNumber = textBox15.Text;
+            model.PaiNumber = "";
             model.CJQuestion = textBox19.Text;
             model.Remark = textBox20.Text;
             model.Type = comboBox1.Text;
             model.PinPai = comboBox2.Text;
             model.Color = comboBox3.Text;
-            model.YMPerson = comboBox4.Text;
+            model.YMPerson = FilterClass.DianPu1.LoginName;
             model.ImgUrl = Path;
             pictureBox1.ImageLocation = Path;
             GridView2Bind(model);
-            //string sb = "http//:www.baidu.com";
-            ////string[] ss = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Split(new char[] { '/', ':',' ' }, StringSplitOptions.RemoveEmptyEntries);
-            ////foreach (var s in ss)
-            ////{
-            ////    sb += s;
-            ////}
-            //Bitmap bitmap = writer.Write(sb);
-            //pictureBoxQr.Image = bitmap;
             jishu++;
             #region//确定之后清空右边属性
             textBox13.Text = "";//基本服务
             textBox16.Text = "";//其他服务
             textBox17.Text = "";//金额
             textBox18.Text = "";//应付
+            textBox19.Text = "";
+            textBox20.Text = "";
+            comboBox1.Text = "";
+            comboBox2.Text = "";
+            comboBox3.Text = "";
+            comboBox4.Text = "";
             #endregion
 
         }
@@ -326,20 +337,35 @@ namespace yixiupige
                 {
                     list.Add((shInfoList)dataGridView2.Rows[i].DataBoundItem);
                 }
-                list.Add(model);
+                list.Add(model); 
                 dataGridView2.DataSource = list;
             }
         }
+        // //向datagridview2里面累加数据这个函数累加的是商品
         public void GridView2BindSP(shInfoList model,bool result)
         {
-            model.YMPerson = comboBox4.Text.Trim();
+            model.YMPerson = FilterClass.DianPu1.LoginName;
             //ckmoney
             if (textBox12.Text.Trim() == "计次卡"&&result)
             {
                 model.CiCount = Convert.ToInt32(Math.Ceiling(model.CountMoney / ckmoney));
             }
-            int count = dataGridView2.Rows.Count + 1;
-            model.Id = count;
+            else if (textBox12.Text.Trim() == "计次卡" && !result)
+            {
+                model.CiCount = 0;
+            }
+            if (result)
+            {
+                model.YMoney = 0;
+                model.FuKuan = true;
+            }
+            else
+            {
+                model.YMoney = model.CountMoney;
+                model.FuKuan = false;
+            }
+            //int count = dataGridView2.Rows.Count + 1;
+            model.Id = jishu;
             List<shInfoList> list = new List<shInfoList>();
             if (dataGridView2.Rows.Count == 0)
             {
@@ -412,7 +438,7 @@ namespace yixiupige
         {
             int index = e.RowIndex;
             dataGridView3.Visible = false;
-            string card=listSousuo[index].CardNo;
+            string card=listSousuo[index].ID.ToString();
             memberInfoModel model = bll.SelectId(card);
             ckmoney = Convert.ToDouble(model.cardMoney) / Convert.ToDouble(model.toUpMoney);
             textBox4.Text = model.memberName;
@@ -433,6 +459,11 @@ namespace yixiupige
                 textBox8.Text = "0";
                 textBox9.Text = model.toUpMoney;
             }
+            else 
+            {
+                textBox8.Text = "0";
+                textBox9.Text = model.toUpMoney;
+            }
         }
 
         private void textBox13_Click(object sender, EventArgs e)
@@ -449,9 +480,17 @@ namespace yixiupige
         //计算基本服务的价格，将名称与价格进行显示
         public void jbFuWuCount(string model)
         {
+            int bate = 0;
             textBox13.Text = model;
-            int money = 0;
+            int money = 0;            
             string type = textBox10.Text.Trim() == "" ? "无卡" : textBox10.Text.Trim();
+            //如果卡的类型为这折扣卡，那么就按无卡计算钱
+            if (textBox12.Text.Trim() == "折扣卡")
+            {
+                type = "无卡";
+                //然后拿到当前会员卡的名字textBox10 通过名字拿到相对应的折扣
+                bate = membll.selectZK(textBox10.Text.Trim());
+            }
             List<fuwuModel> list = fuwubl.selectAllList();
             string[] name = model.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var iteam in list)
@@ -475,13 +514,48 @@ namespace yixiupige
                     }
                 }
             }
-            textBox17.Text = money.ToString();
+            if (bate == 0)
+            {
+                textBox17.Text = money.ToString();
+            }
+            else
+            {
+                textBox17.Text = (money * bate /100 ).ToString();
+            }
         }
+        /// <summary>
+        /// 返回是否划卡消费和fanhuijine
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="money"></param>
+        /// <param name="result"></param>
         public void qtfuwumoney(string name,int money,bool result)
         {
+            int bate = 0;
             huaka = result;
-            textBox16.Text = name;
-            textBox18.Text = money.ToString();
+            if (result)
+            {
+                if (textBox12.Text.Trim() == "折扣卡")
+                {
+                    //然后拿到当前会员卡的名字textBox10 通过名字拿到相对应的折扣
+                    bate = membll.selectZK(textBox10.Text.Trim());
+                }
+                if (bate == 0)
+                {
+                    textBox16.Text = name;
+                    textBox18.Text = money.ToString();
+                }
+                else
+                {
+                    textBox16.Text = name;
+                    textBox18.Text = (money *80  / 100).ToString();
+                }
+            }
+            else
+            {
+                textBox16.Text = name;
+                textBox18.Text = money.ToString();
+            }
         }
         private void textBox16_Click(object sender, EventArgs e)
         {
@@ -512,7 +586,7 @@ namespace yixiupige
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 1 || e.ColumnIndex == 6)
+            if (e.ColumnIndex == 2 || e.ColumnIndex == 7)
             {
                 dataGridView2.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !Convert.ToBoolean(dataGridView2.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
             }
@@ -602,9 +676,13 @@ namespace yixiupige
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            pictureBox1.ImageLocation = dataGridView2.Rows[e.RowIndex].Cells[14].Value.ToString();
+            pictureBox1.ImageLocation = dataGridView2.Rows[e.RowIndex].Cells["shImgUrl"].Value.ToString();
         }
-
+        /// <summary>
+        /// 点击保存之后
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
             if (radioButton2.Checked&&textBox1.Text==""&&textBox2.Text=="")
@@ -621,13 +699,14 @@ namespace yixiupige
                 }
             }
             string sb = "";
-            string[] ss = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Split(new char[] { '/', ':', ' ', '-' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] ss = DateTime.Now.ToString("yyyy-MM-dd").Split(new char[] {'-' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var s in ss)
             {
                 sb += s;
             }
             Random rad = new Random();
             sb += rad.Next(1000, 9999);
+            //将数据表中的数据拿出来，然后遍历，将是寄存的商品单独提取到另一个收活list中，然后添加到寄存管理里面
             List<shInfoList> listjieshu = (List<shInfoList>)dataGridView2.DataSource;
             if (listjieshu==null)
             {
@@ -639,14 +718,16 @@ namespace yixiupige
             foreach (var iteam in listjieshu)
             {
                 model = new LiShiConsumption();
+                Tel = textBox6.Text.Trim() == "" ? textBox2.Text.Trim() : textBox6.Text.Trim();
                 model.IsJC = iteam.JiCun;
                 model.LSName = textBox4.Text.Trim() == "" ? textBox1.Text.Trim() : textBox4.Text.Trim();
                 model.LSDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 model.ImgUrl = iteam.ImgUrl;
-                model.LSStaff = iteam.FuWuName;
+                model.LSStaff =iteam.Type+":"+ iteam.FuWuName;
                 model.LSNumberCount = "0";
                 model.LSMoney = iteam.CountMoney.ToString();
                 model.LSYMoney = iteam.YMoney.ToString();
+                model.IsXMoney = iteam.FuKuan;
                 model.LSCount = iteam.Count.ToString();
                 model.LSPinPai = iteam.PinPai;
                 model.LSColor = iteam.Color;
@@ -666,7 +747,7 @@ namespace yixiupige
                 model.LSMultipleName = FilterClass.DianPu1.UserName;
                 model.LSQuestion = iteam.CJQuestion;
                 model.LSRemark = iteam.Remark;                
-                model.LSDanNumber = sb;    
+                model.LSDanNumber = sb;
                 if (iteam.JiCun == true)
                 {
                     jclist.Add(iteam);
@@ -678,48 +759,104 @@ namespace yixiupige
                     }
                     //如果有寄存并且日期正确，那么再次将需要寄存的项加入到集合中，放入寄存管理内
                 }
+                else
+                {
+                    if (iteam.YMoney != 0 && !iteam.FuKuan)
+                    {
+                        MessageBox.Show("有物品未寄存并且有欠款未付！");
+                        jclist = new List<shInfoList>(); ;
+                        return;
+                    }
+                }
                 listLS.Add(model);
             }
             //需要减去卡上余额
             bool xiaofeiresult = false;
             if (!radioButton2.Checked)
             {
-                int oldmoney = Convert.ToInt32(textBox9.Text.Trim());
-                int Xmoney = oldmoney - (Convert.ToInt32(textBox14.Text.Trim()) - Convert.ToInt32(textBox22.Text.Trim()));
-                int oldccount = Convert.ToInt32(textBox8.Text.Trim());
-                int Scount = oldccount - Convert.ToInt32(textBox21.Text.Trim());
                 string cardNumber = textBox5.Text.Trim();
-                if (Xmoney < 0 && oldmoney>0)
+                if (textBox12.Text.Trim() == "计次卡")
                 {
-                    MessageBox.Show("余额不足！");
-                    return;
-                }
-                if (oldccount > 0 && Scount < 0)
-                {
-                    MessageBox.Show("余额不足！");
-                    return;
-                }
-                //减去消费金额
-                if (oldmoney == 0)
-                {
+                    int oldccount = Convert.ToInt32(textBox8.Text.Trim());
+                    int Scount = oldccount - Convert.ToInt32(textBox21.Text.Trim());
+                    if (oldccount > 0 && Scount < 0)
+                    {
+                        MessageBox.Show("余额不足！");
+                        return;
+                    }
                     xiaofeiresult = bll.XFmoney(cardNumber, Scount.ToString());
-                    textBox9.Text = Xmoney.ToString();
-                }
-                else if (oldccount == 0)
-                {
-                    xiaofeiresult = bll.XFmoney(cardNumber, Xmoney.ToString());
                     textBox8.Text = Scount.ToString();
+                    if (!xiaofeiresult)
+                    {
+                        MessageBox.Show("消费失败！");
+                        return;
+                    }
                 }
-                if (!xiaofeiresult)
+                else if (textBox12.Text.Trim() == "储值卡")
                 {
-                    MessageBox.Show("消费失败！");
-                    return;
+                    int oldmoney = Convert.ToInt32(textBox9.Text.Trim());
+                    int Xmoney = oldmoney - (Convert.ToInt32(textBox14.Text.Trim()) - Convert.ToInt32(textBox22.Text.Trim()));
+                    if (Xmoney < 0 && oldmoney > 0)
+                    {
+                        MessageBox.Show("余额不足！");
+                        return;
+                    }
+                    xiaofeiresult = bll.XFmoney(cardNumber, Xmoney.ToString());
+                    textBox9.Text = Xmoney.ToString();
+                    if (!xiaofeiresult)
+                    {
+                        MessageBox.Show("消费失败！");
+                        return;
+                    }
                 }
-                
+                else if (textBox12.Text.Trim() == "折扣卡")
+                {
+                    int oldmoney = Convert.ToInt32(textBox9.Text.Trim());
+                    int Xmoney = oldmoney - (Convert.ToInt32(textBox14.Text.Trim()) - Convert.ToInt32(textBox22.Text.Trim()));
+                    if (Xmoney < 0 && oldmoney > 0)
+                    {
+                        MessageBox.Show("余额不足！");
+                        return;
+                    }
+                    xiaofeiresult = bll.XFmoney(cardNumber, Xmoney.ToString());
+                    textBox9.Text = Xmoney.ToString();
+                    if (!xiaofeiresult)
+                    {
+                        MessageBox.Show("消费失败！");
+                        return;
+                    }
+                } 
             }
-            
+            //数据添加到寄存表中之前先打印不干胶，并将信息同时添加到寄存表中
+            for (int g = 0; g < jclist.Count;g++ )
+            {
+                string bgjtm = "";
+                string num = "";
+                string dpname = FilterClass.DianPu1.UserName.Trim();
+                //拿到店铺编号，合今日所松溪的数量的number，然后拼接不干胶打印机条码的数字
+                //第一个是前面的店铺编号，后面的是所卖的数量
+                string[] dpnumber = dpbll.selectNumberAndNo(dpname);
+                string dpID = dpnumber[2].Trim();
+                num = dpnumber[1].Trim();
+                for (int i = num.Length; i < 4; i++)
+                {
+                    num = "0" + num;
+                }
+                //保存为正确格式的条码
+                bgjtm = dpnumber[0].Trim() + DateTime.Now.ToString("yyyy") + DateTime.Now.ToString("MM") + DateTime.Now.ToString("dd") + num;
+                //不干胶打印//成功后打印不干胶条形码!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                bool result = PirentZXingNet.PirentTM(bgjtm, jclist[0].FuWuName, sb, dateTimePicker1.Value.ToString("yyyy-MM-dd"), jclist.Count, (g + 1), jclist[0].CJQuestion, jclist[0].Type, jclist[0].PinPai, jclist[0].Color, jclist[0].Remark);               
+                if (result)
+                {
+                    jclist[g].PaiNumber = bgjtm;
+                    int j = Convert.ToInt32(num);
+                    j++;
+                    result = dpbll.uodateNumber(dpID, j);
+                }             
+            }
             //将寄存数据添加到寄存数据表中
-            bool addjcresult = jcbll.addJCList(jclist, textBox5.Text.Trim(), textBox4.Text.Trim() == "" ? textBox1.Text.Trim() : textBox4.Text.Trim(), TimeGuiGe.TimePicter(dateTimePicker1.Text).ToString(),sb);
+            bool addjcresult = jcbll.addJCList(jclist, textBox5.Text.Trim(), textBox4.Text.Trim() == "" ? textBox1.Text.Trim() : textBox4.Text.Trim(), TimeGuiGe.TimePicterBegin(dateTimePicker1.Text).ToString(),sb,Tel);
+            
             jclist = new List<shInfoList>();
             //将数据添加到消费记录里面
             bool resultls = lsbll.AddList(listLS);
@@ -732,11 +869,42 @@ namespace yixiupige
             string websb = "http://yhc19950315.imwork.net:28948?id=" + sb;
             Bitmap bitmap = writer.Write(websb);
             pictureBoxQr.Image = bitmap;
-            PirentDocumentClass.PirentSH(textBox14.Text, textBox21.Text, textBox22.Text, DYList, pictureBoxQr.Image, sb, textBox4.Text, textBox5.Text, dateTimePicker1.Text);
+            string gksy = "";
+            if (textBox12.Text.Trim() == "计次卡")
+            {
+                gksy = "余次："+textBox8.Text + "次";
+            }
+            else if (textBox12.Text.Trim() == "储值卡" || textBox12.Text.Trim() == "折扣卡")
+            {
+                gksy = "余额：" + textBox8.Text + "元";
+            }
+            else
+            {
+                gksy = "电话"+textBox2.Text;
+            }
+            PirentDocumentClass.PirentSH(textBox14.Text, textBox21.Text, textBox22.Text, DYList, pictureBoxQr.Image, sb, textBox4.Text, textBox5.Text, dateTimePicker1.Text,gksy);
             //printDocument1.Print();
             dataGridView2.DataSource=new List<shInfoList>();
             TJBBBuy(listjieshu);
-            
+            //清空数据
+            emptyInfo();
+        }
+        /// <summary>
+        /// 数据清空
+        /// </summary>
+        public void emptyInfo()
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            textBox7.Text = "";
+            textBox8.Text = "";
+            textBox9.Text = "";
+            textBox10.Text = "";
+            textBox11.Text = "";
+            textBox12.Text = "";
         }
         /// <summary>
         /// 点完保存之后才执行
@@ -744,11 +912,24 @@ namespace yixiupige
         /// <param name="list"></param>
         public void TJBBBuy(List<shInfoList> list)
         {
+            //将卡消费进行统计保存
+            string membername = textBox4.Text.Trim();
+            if (membername != "")
+            {
+                string membernum = textBox5.Text.Trim();
+                string cardname = textBox10.Text.Trim();
+                string cardtype = textBox12.Text.Trim();
+                carexibll.AddList(list, membername, membernum, cardname, cardtype);
+            }
             List<shInfoList> list1 = new List<shInfoList>();
             foreach (var iteam in list)
             {
                 int count = iteam.Count;
                 string no = iteam.ImgUrl.Trim();
+                if (iteam.FuWuName.Length < 4)
+                {
+                    continue;
+                }
                 if (iteam.FuWuName.Substring(0, 4) == "购买商品")
                 {
                     PutHuo model = new PutHuo()
@@ -761,7 +942,7 @@ namespace yixiupige
                         PutMoney = iteam.CountMoney.ToString(),
                         PutName = iteam.FuWuName.Split(new char[] { '[', ']' }, StringSplitOptions.RemoveEmptyEntries)[1],
                         PutNo = iteam.ImgUrl.Trim(),
-                        PutSale = comboBox4.Text.Trim(),
+                        PutSale = FilterClass.DianPu1.LoginName,
                         PutType = iteam.Type                        
                         //PubPersonName = textBox4.Text.Trim()
                     };
@@ -810,31 +991,6 @@ namespace yixiupige
             spsale.Show();
             spsale.Focus();
         }
-        //打印小票
-
-            
-            //int i = 1;
-            //Pen blackPen = new Pen(Color.Black, 3);
-            ////使用的是57mm的纸，相当于190像素
-            //Rectangle[] rects =
-            // {
-            //     new Rectangle( 30,50,30,50), //参数说明：左边距，上边距，右边距，底边距
-            //     new Rectangle(35,55,35,55),
-            // };
-            ////e.Graphics.DrawRectangles(blackPen, rects);
-            //e.Graphics.DrawString("一休皮革收据小票", new Font("Segoe UI", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(8, 30));//其中10为左边距，30为上边距
-            //foreach (var iteam in DYList)
-            //{
-            //    e.Graphics.DrawString(iteam.LSStaff + "--X" + iteam.LSCount + "金额：" + iteam.LSMoney, new Font("Segoe UI",8, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(5, 60+i*15));//其中10为左边距，30为上边距
-            //    i++;
-            //}
-            //e.Graphics.DrawString("合计金额：" + textBox14.Text , new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(5, 60 + i * 15));//其中10为左边距，30为上边距
-            //i++;
-            //e.Graphics.DrawString("合计次数：" + textBox21.Text, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(5, 60 + i * 15));//其中10为左边距，30为上边距
-            //i++;
-            //e.Graphics.DrawString("应付金额：" + textBox22.Text, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(5, 60 + i * 15));//其中10为左边距，30为上边距
-            //e.Graphics.DrawImage(pictureBoxQr.Image, new Rectangle(new System.Drawing.Point(0, i*15+100),new Size(250,250)));
-
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -878,7 +1034,7 @@ namespace yixiupige
         {
             LiShiConsumption model = (LiShiConsumption)dataGridView1.SelectedRows[0].DataBoundItem;
             modeldele = model;           
-            //将删除的数据当时小飞的金额或者次数提取出来
+            //将删除的数据当时消费的金额或者次数提取出来
             if (textBox12.Text.Trim() == "储值卡")
             {
                 delecount = Convert.ToInt32(model.LSMoney);
@@ -887,14 +1043,19 @@ namespace yixiupige
             {
                 delecount = Convert.ToInt32(model.LSMoney);
             }
-            caocuofrom caozuo = caocuofrom.Create(deletePassword, model.ID.ToString());
-            caozuo.Show();
+            else if (textBox12.Text.Trim() == "折扣卡")
+            {
+                int money = Convert.ToInt32(model.LSMoney);
+                int bate = membll.selectZK(textBox10.Text.Trim());
+                delecount = money * 100 / bate;
+            } 
+            //caocuofrom caozuo = caocuofrom.Create(deletePassword, model.ID.ToString());
+            //caozuo.Show();
+            deletePassword(model.ID.ToString());
         }
-        public void deletePassword(string pas, string cardNo)
+        public void deletePassword(string cardNo)
         {
             string name = FilterClass.DianPu1.UserName;
-            if (pas.Trim() == "admin888")
-            {
                 LSConsumptionBLL infobll = new LSConsumptionBLL();
                 bool result = infobll.deleteID(cardNo);
                 dataGridView1.DataSource = lsbll.selectAllList(textBox5.Text.Trim(), name);
@@ -903,6 +1064,7 @@ namespace yixiupige
                     MessageBox.Show("删除成功！");
                     if (textBox12.Text.Trim() == "储值卡")
                     {
+                        //把钱加回来  之前消费的
                         string money=(Convert.ToInt32(textBox9.Text.Trim()) + delecount).ToString();
                         bll.XFmoney(textBox5.Text.Trim(), money);  
                         textBox9.Text = money;                     
@@ -912,6 +1074,14 @@ namespace yixiupige
                         string count=(Convert.ToInt32(textBox8.Text.Trim()) + delecount).ToString();
                         bll.XFmoney(textBox5.Text.Trim(), count);
                         textBox8.Text = count;
+                    }
+                    else if (textBox12.Text.Trim() == "折扣卡")
+                    {
+                        //把钱加回来  之前消费的
+                        string money=(Convert.ToInt32(textBox9.Text.Trim()) + delecount).ToString();
+                        bll.XFmoney(textBox5.Text.Trim(), money);  
+                        textBox9.Text = money;                     
+                    }                           
                     }
                     if (modeldele.IsSP)
                     {
@@ -926,41 +1096,53 @@ namespace yixiupige
                         }
                         gbbll.DeleteAdd(ID, Convert.ToInt32(modeldele.LSCount.Trim())); 
                         #endregion
-                        #region //将售出的商品表中的内容删除掉
-                        string staff=modeldele.LSStaff.Split(new char[] { '[', ']' }, StringSplitOptions.RemoveEmptyEntries)[1];
-                        string dianpu = FilterClass.DianPu1.UserName.Trim();
-                        string cardno = modeldele.LSCardNumber.Trim();
-                        string pattern = @"[\d]+";
-                        Regex regex = new Regex(pattern, RegexOptions.None);
-                        int dyear = Convert.ToInt32(regex.Matches(modeldele.LSDate)[0].Value);
-                        int dmonth = Convert.ToInt32(regex.Matches(modeldele.LSDate)[1].Value);
-                        int dday = Convert.ToInt32(regex.Matches(modeldele.LSDate)[2].Value);
-                        string date = dyear.ToString() + "年" + dmonth.ToString() + "月" + dday.ToString() + "日";
-                        int gid = tjbb.getIteamId(staff, dianpu, cardno, date);
-                        tjbb.DeleteIteamID(gid);
+                        #region //将售出的商品表中的内容删除掉  本应将数据删除，但由于后期客户添加了退单功能所以退掉的单需要单独统计，所以此处陷阱行注释，砍退单后销售的记录是否还继续保存
+                        //string staff=modeldele.LSStaff.Split(new char[] { '[', ']' }, StringSplitOptions.RemoveEmptyEntries)[1];
+                        //string dianpu = FilterClass.DianPu1.UserName.Trim();
+                        //string cardno = modeldele.LSCardNumber.Trim();
+                        //string pattern = @"[\d]+";
+                        //Regex regex = new Regex(pattern, RegexOptions.None);
+                        //int dyear = Convert.ToInt32(regex.Matches(modeldele.LSDate)[0].Value);
+                        //int dmonth = Convert.ToInt32(regex.Matches(modeldele.LSDate)[1].Value);
+                        //int dday = Convert.ToInt32(regex.Matches(modeldele.LSDate)[2].Value);
+                        //string date = dyear.ToString() + "年" + dmonth.ToString() + "月" + dday.ToString() + "日";
+                        //int gid = tjbb.getIteamId(staff, dianpu, cardno, date);
+                        //tjbb.DeleteIteamID(gid);
                         #endregion
                     }
+                    #region MyRegion//无论是不是商品或者寄存，一旦退单九江退单记录进行添加，加到退单统计表中
+                    ExitDanTJ();
+                    #endregion
                     if (modeldele.IsJC)
                     {
-                        #region //寄存表中删除
+                        #region //寄存表中删除  同上，由于加了退单功能，此处先不进行删除  根据客户要求在进行修改
                         //如果是寄存就把寄存信息删除
-                        string dianpu = FilterClass.DianPu1.UserName.Trim();
-                        string cardno = modeldele.LSCardNumber.Trim();
-                        string date = modeldele.LSDate.Substring(0, 10);
-                        string money = modeldele.LSYMoney;
-                        string staff = modeldele.LSStaff;
-                        string pinpai = modeldele.LSPinPai;
-                        string color = modeldele.LSColor;
-                        int id = jcbll.seleDelete(dianpu, cardno, date, money, staff, pinpai, color);
-                        jcbll.deleteIDIteam(id.ToString()); 
+                        //string dianpu = FilterClass.DianPu1.UserName.Trim();
+                        //string cardno = modeldele.LSCardNumber.Trim();
+                        //string date = modeldele.LSDate.Substring(0, 10);
+                        //string money = modeldele.LSYMoney;
+                        //string staff = modeldele.LSStaff;
+                        //string pinpai = modeldele.LSPinPai;
+                        //string color = modeldele.LSColor;
+                        //int id = jcbll.seleDelete(dianpu, cardno, date, money, staff, pinpai, color);
+                        //jcbll.deleteIDIteam(id.ToString()); 
                         #endregion
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("密码错误，删除失败！");
-            }
+        /// <summary>
+        /// 此方法是将退单信息添加到退单记录中
+        /// </summary>
+        public void ExitDanTJ()
+        {
+            ExitDanModel model = new ExitDanModel();
+            model.DanMoney = modeldele.LSMoney;
+            model.memberName = modeldele.LSName;
+            model.memberCardNo = modeldele.LSDanNumber;
+            model.saleMen = FilterClass.DianPu1.LoginName;
+            model.DPName = modeldele.LSMultipleName;
+            model.StaffName = modeldele.LSStaff;
+            model.ExitDanTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            exitdan.AddExitDan(model);
         }
         private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
         {

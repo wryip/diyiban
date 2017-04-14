@@ -14,10 +14,9 @@ namespace DAL
         public bool AddModel(qtFuWuModel model)
         {
             bool result = false;
-            string str = "insert into QtFuWu(QtName,QtTc,DPName) values(@QtName,@QtTc,@DPName)";
+            string str = "insert into QtFuWu(QtName,DPName) values(@QtName,@DPName)";
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@QtName",model.QtName),
-            new SqlParameter("@QtTc",model.QtTc),
             new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
@@ -52,7 +51,6 @@ namespace DAL
                 {
                     model = new qtFuWuModel();
                     model.QtName = read["QtName"].ToString();
-                    model.QtTc = Convert.ToInt32(read["QtTc"]);
                     list.Add(model);
                 }
             }
@@ -61,10 +59,10 @@ namespace DAL
         public bool EditModel(qtFuWuModel model)
         {
             bool result = false;
-            string str = "update QtFuWu set QtTc=@QtTc where QtName=@QtName and DPName=@DPName";
+            string str = "update QtFuWu set QtName=@QtName1 where QtName=@QtName and DPName=@DPName";
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@QtName",model.QtName),
-            new SqlParameter("@QtTc",model.QtTc),
+            new SqlParameter("@QtName1",model.QtName),
             new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)

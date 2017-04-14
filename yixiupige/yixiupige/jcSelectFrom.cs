@@ -76,14 +76,14 @@ namespace yixiupige
                 if (radioButton1.Checked)//选择为寄存日期
                 {
                     BeginOrEnd = false;
-                    date = TimeGuiGe.TimePicter(dateTimePicker1.Text);
+                    date = TimeGuiGe.TimePicterBegin(dateTimePicker1.Text);
                     list = jcbll.jcDateSelect(date, BeginOrEnd);
                     databind1(list);
                     this.Close();
                     return;
                 }
                 BeginOrEnd = true;
-                date = TimeGuiGe.TimePicter(dateTimePicker2.Text);
+                date = TimeGuiGe.TimePicterBegin(dateTimePicker2.Text);
                 list = jcbll.jcDateSelect(date, BeginOrEnd);
                 databind1(list);
                 this.Close();

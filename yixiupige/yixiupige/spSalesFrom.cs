@@ -98,8 +98,6 @@ namespace yixiupige
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //员工的提成
-            int tcmoney = 0;
             //dataBind
             bool IsHuaKa = false;
             shInfoList model = new shInfoList();
@@ -164,7 +162,7 @@ namespace yixiupige
             model.Color = "";
             model.ImgUrl = dataGridView1.SelectedRows[0].Cells["Gid"].Value.ToString();
             model.YMPerson = "";
-            model.TCMoney = Convert.ToDouble(textBox3.Text.Trim() == "" ? "0" : textBox3.Text.Trim());
+            //model.TCMoney = Convert.ToDouble(textBox3.Text.Trim() == "" ? "0" : textBox3.Text.Trim());
             if (radioButton1.Checked)
             {
                 //赠送

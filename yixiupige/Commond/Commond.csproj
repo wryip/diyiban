@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ChnCharInfo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=18f031bd02e5e291, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\yixiupige\leiku\ChnCharInfo.dll</HintPath>
+    </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Ionic.Zip.dll</HintPath>
@@ -47,9 +51,14 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="zxing">
+      <HintPath>..\yixiupige\leiku\zxing.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BarCodeToHTML.cs" />
+    <Compile Include="PinYinZHClass.cs" />
+    <Compile Include="PirentZXingNet.cs" />
     <Compile Include="TicketSet.cs" />
     <Compile Include="FilterClass.cs" />
     <Compile Include="NPOIHelper.cs" />
@@ -63,6 +72,9 @@
       <Project>{302fa470-2512-4f1b-b463-4061e4370f18}</Project>
       <Name>MODEL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="2016082638052.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

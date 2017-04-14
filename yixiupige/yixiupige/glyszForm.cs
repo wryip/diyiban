@@ -69,8 +69,10 @@ namespace yixiupige
         //全选操作
         private void button1_Click(object sender, EventArgs e)
         {
+            dmjsbox.Checked = true;
             shglcheckBox.Checked = true;
             hyglcheckBox.Checked = true;
+            //现在表示为物品送洗
             jcsjcheckBox.Checked = true;
             jcglcheckBox.Checked = true;
             spglcheckBox.Checked = true;
@@ -83,6 +85,7 @@ namespace yixiupige
             qtcheckBox.Checked = true;
             flcheckBox.Checked = true;
             hyglcheckBox.Checked = true;
+            //先现在代表取活管理
             tcglcheckBox.Checked = true;
             ygcheckBox.Checked = true;
         }
@@ -102,8 +105,10 @@ namespace yixiupige
         //反选操作
         private void button2_Click(object sender, EventArgs e)
         {
+            dmjsbox.Checked = Check(dmjsbox.Checked);
            shglcheckBox.Checked= Check(shglcheckBox.Checked);
            hyglcheckBox.Checked=Check(hyglcheckBox.Checked);
+           //现在表示为物品送洗
            jcsjcheckBox.Checked= Check(jcsjcheckBox.Checked);
            jcglcheckBox.Checked= Check(jcglcheckBox.Checked);
            spglcheckBox.Checked= Check(spglcheckBox.Checked);
@@ -116,6 +121,7 @@ namespace yixiupige
            qtcheckBox.Checked= Check(qtcheckBox.Checked);
            flcheckBox.Checked= Check(flcheckBox.Checked);
            hyglcheckBox.Checked= Check(hyglcheckBox.Checked);
+           //先现在代表取活管理
            tcglcheckBox.Checked= Check(tcglcheckBox.Checked);
            ygcheckBox.Checked = Check(ygcheckBox.Checked);
            hyglcheckBox.Checked = Check(hyglcheckBox.Checked);
@@ -161,6 +167,7 @@ namespace yixiupige
             textBox3.Text = "";
             shglcheckBox.Checked = false;
             hyglcheckBox.Checked = false;
+            //现在表示为物品送洗
             jcsjcheckBox.Checked = false;
             jcglcheckBox.Checked = false;
             spglcheckBox.Checked = false;
@@ -173,6 +180,7 @@ namespace yixiupige
             qtcheckBox.Checked = false;
             flcheckBox.Checked = false;
             hyglcheckBox.Checked = false;
+            //先现在代表取活管理
             tcglcheckBox.Checked = false;
             ygcheckBox.Checked = false;
         }
@@ -196,6 +204,7 @@ namespace yixiupige
             {
                 model.hygl = true;
             }
+            //现在表示为物品送洗
             if (jcsjcheckBox.Checked)
             {
                 model.jcsj = true;
@@ -216,6 +225,7 @@ namespace yixiupige
             {
                 model.dxgl = true;
             }
+            //先现在代表取活管理
             if (tcglcheckBox.Checked)
             {
                 model.tcgl = true;
@@ -247,6 +257,10 @@ namespace yixiupige
             if (ygcheckBox.Checked)
             {
                 model.yggl = true;
+            }
+            if (dmjsbox.Checked)
+            {
+                model.dmjs = true;
             }
             bool result = logbll.AddUserIteam(model);
             if (result)
@@ -283,6 +297,7 @@ namespace yixiupige
             }
             if (model.jcsj)
             {
+                //现在表示为物品送洗
                 jcsjcheckBox.Checked = true;
             }
             if (model.jcgl)
@@ -303,6 +318,7 @@ namespace yixiupige
             }
             if (model.tcgl)
             {
+                //先现在代表取活管理
                 tcglcheckBox.Checked = true;
             }
             if (model.glysz)
@@ -361,6 +377,7 @@ namespace yixiupige
             {
                 model.hygl = true;
             }
+            //现在表示为物品送洗
             if (jcsjcheckBox.Checked)
             {
                 model.jcsj = true;
@@ -381,9 +398,14 @@ namespace yixiupige
             {
                 model.dxgl = true;
             }
+            //先现在代表取活管理
             if (tcglcheckBox.Checked)
             {
                 model.tcgl = true;
+            }
+            if (dmjsbox.Checked)
+            {
+                model.dmjs = true;
             }
             if (glyszcheckBox.Checked)
             {

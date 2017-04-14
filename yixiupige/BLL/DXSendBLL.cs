@@ -26,32 +26,10 @@ namespace BLL
             }
             dal.AddList(list);
         }
-        public List<DXmemberModel> selectListTJ(string begindate,string enddate,string yginfo)
+        public List<DXmemberModel> selectListTJ(string begindate,string enddate,string dpname)
         {
-            List<DXmemberModel> list1 = dal.selectListTJ(yginfo);
-            List<DXmemberModel> list = new List<DXmemberModel>();
-            string pattern = @"[\d]+";
-            Regex regex = new Regex(pattern, RegexOptions.None);
-            int dyear = Convert.ToInt32(regex.Matches(enddate)[0].Value);
-            int dmonth = Convert.ToInt32(regex.Matches(enddate)[1].Value);
-            int dday = Convert.ToInt32(regex.Matches(enddate)[2].Value);
-            int xyear = Convert.ToInt32(regex.Matches(begindate)[0].Value);
-            int xmonth = Convert.ToInt32(regex.Matches(begindate)[1].Value);
-            int xday = Convert.ToInt32(regex.Matches(begindate)[2].Value);
-            DateTime bigdate = new DateTime(dyear, dmonth, dday);
-            DateTime smalldate = new DateTime(xyear, xmonth, xday);
-            foreach (var iteam in list1)
-            {
-                int year = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[0].Value);
-                int month = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[1].Value);
-                int day = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[2].Value);
-                DateTime nowdate = new DateTime(year, month, day);
-                if (DateTime.Compare(smalldate, nowdate) <= 0 && DateTime.Compare(bigdate, nowdate) >= 0)
-                {
-                    list.Add(iteam);
-                }
-            }      
-            return list;
+            List<DXmemberModel> list1 = dal.selectListTJ(begindate, enddate, dpname);    
+            return list1;
         }
     }
 }

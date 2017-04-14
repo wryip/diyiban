@@ -45,16 +45,15 @@ namespace yixiupige
         {
             qtFuWuModel model = new qtFuWuModel();
             model.QtName = textBox1.Text.Trim();
-            int money = 0;
             try
             {
-                money = Convert.ToInt32(textBox2.Text.Trim());
-                if (money > 100 || money < 0)
-                {
-                    MessageBox.Show("请输入合理的提成！");
-                    return;
-                }
-                model.QtTc = money;
+                //money = Convert.ToInt32(textBox2.Text.Trim());
+                //if (money > 100 || money < 0)
+                //{
+                //    MessageBox.Show("请输入合理的提成！");
+                //    return;
+                //}
+                //model.QtTc = money;
                 bool result = bll.AddModel(model);
                 if (result)
                 {

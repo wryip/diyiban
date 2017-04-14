@@ -36,9 +36,10 @@ namespace DAL
             new SqlParameter("@remark",model.remark),
             new SqlParameter("@imgUrl",model.imageUrl),
             new SqlParameter("@password",model.password==null?DBNull.Value.ToString():model.password),
-            new SqlParameter("@zhuangtai",model.zhuangtai)
+            new SqlParameter("@zhuangtai",model.zhuangtai),
+            new SqlParameter("@PY",model.PY)
             };
-            string str = "insert into memberInfo(membercardNo,memberName,memberTel,memberDocument,birDate,cardDate,memberSex,rebate,endDate,fuwuBate,toUpMoney,cardMoney,dianName,cardType,salesMan,memberType,address,remark,imgUrl,password,zhuangtai) values(@membercardNo,@memberName,@memberTel,@memberDocument,@birDate,@cardDate,@memberSex,@rebate,@endDate,@fuwuBate,@toUpMoney,@cardMoney,@dianName,@cardType,@salesMan,@memberType,@address,@remark,@imgUrl,@password,@zhuangtai)";
+            string str = "insert into memberInfo(membercardNo,memberName,memberTel,memberDocument,birDate,cardDate,memberSex,rebate,endDate,fuwuBate,toUpMoney,cardMoney,dianName,cardType,salesMan,memberType,address,remark,imgUrl,password,zhuangtai,PY) values(@membercardNo,@memberName,@memberTel,@memberDocument,@birDate,@cardDate,@memberSex,@rebate,@endDate,@fuwuBate,@toUpMoney,@cardMoney,@dianName,@cardType,@salesMan,@memberType,@address,@remark,@imgUrl,@password,@zhuangtai,@PY)";
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
                 result = true;
@@ -64,8 +65,8 @@ namespace DAL
                 else
                 {
                     pms = new SqlParameter[] { 
-            new SqlParameter("@dianName",dpname)
-            };
+                    new SqlParameter("@dianName",dpname)
+                };
                     str = "select * from memberInfo where dianName=@dianName";
                     read = SqlHelper.ExecuteReader(str, pms);
                 }
@@ -83,9 +84,10 @@ namespace DAL
                 else
                 {
                     pms = new SqlParameter[] { 
-            new SqlParameter("@memberType",cardTepe)
+            new SqlParameter("@memberType",cardTepe),
+            new SqlParameter("@dianName",dpname)
             };
-                    str = "select * from memberInfo where memberType=@memberType";
+                    str = "select * from memberInfo where memberType=@memberType and dianName=@dianName";
                     read = SqlHelper.ExecuteReader(str, pms);
                 }
             }           
@@ -115,6 +117,7 @@ namespace DAL
                     model.imageUrl = read["imgUrl"].ToString();
                     model.password = read["password"].ToString();
                     model.zhuangtai = read["zhuangtai"].ToString();
+                    model.ID = Convert.ToInt32(read["ID"]);
                     model.id = i;
                     list.Add(model);
                     i++;
@@ -409,10 +412,9 @@ namespace DAL
         {
             bool result = false;
             SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@membercardNo",scardNo),
-            new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
+            new SqlParameter("@ID",scardNo)
             };
-            string str = "delete from memberInfo where membercardNo=@membercardNo and dianName=@dianName";
+            string str = "delete from memberInfo where ID=@ID";
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
                 result = true;
@@ -431,6 +433,7 @@ namespace DAL
                 pms = new SqlParameter[] { 
             new SqlParameter("@membercardNo",sousuo),
             new SqlParameter("@memberName",sousuo),
+             new SqlParameter("@PY",sousuo),
             new SqlParameter("@memberTel",sousuo)
             };
             }
@@ -440,6 +443,7 @@ namespace DAL
             new SqlParameter("@membercardNo",sousuo),
             new SqlParameter("@memberName",sousuo),
             new SqlParameter("@memberTel",sousuo),
+            new SqlParameter("@PY",sousuo),
             new SqlParameter("@dianName",dpname)
             };
             }
@@ -447,11 +451,11 @@ namespace DAL
             {
                 if (dpname == "admin")
                 {
-                    str = "select * from memberInfo where membercardNo like '%'+@membercardNo+'%' or memberName like '%'+@memberName+'%' or  memberTel like '%'+@memberTel+'%'";
+                    str = "select * from memberInfo where membercardNo like '%'+@membercardNo+'%' or memberName like '%'+@memberName+'%' or  memberTel like '%'+@memberTel+'%' or PY like '%'+@PY+'%'";
                 }
                 else
                 {
-                    str = "select * from memberInfo where membercardNo like '%'+@membercardNo+'%' or memberName like '%'+@memberName+'%' or  memberTel like '%'+@memberTel+'%' and dianName=@dianName";
+                    str = "select * from memberInfo where (membercardNo like '%'+@membercardNo+'%' or memberName like '%'+@memberName+'%' or  memberTel like '%'+@memberTel+'%' or PY like '%'+@PY+'%') and dianName=@dianName";
                 }
             }
             else
@@ -462,7 +466,7 @@ namespace DAL
                 }
                 else
                 {
-                    str = "select * from memberInfo where membercardNo=@membercardNo or memberName=@memberName or memberTel=@memberTel and dianName=@dianName";
+                    str = "select * from memberInfo where (membercardNo=@membercardNo or memberName=@memberName or memberTel=@memberTel) and dianName=@dianName";
                 }
             }
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
@@ -474,6 +478,7 @@ namespace DAL
                     model.Name = read["memberName"].ToString().Trim();
                     model.CardNo = read["membercardNo"].ToString().Trim();
                     model.Tel = read["memberTel"].ToString().Trim();
+                    model.ID = Convert.ToInt32(read["ID"]);
                     list.Add(model);
                 }
             }
@@ -486,24 +491,24 @@ namespace DAL
             SqlParameter[] pms;
             if (dpname == "admin")
             {
-                pms = new SqlParameter[] { 
-            new SqlParameter("@membercardNo",card)
-            };
-            }
+                    pms = new SqlParameter[] { 
+                new SqlParameter("@ID",card)
+                };
+                }
             else
             {
-                pms = new SqlParameter[] { 
-            new SqlParameter("@membercardNo",card),
-            new SqlParameter("@dianName",dpname)
-            };
+                    pms = new SqlParameter[] { 
+                new SqlParameter("@ID",card),
+                new SqlParameter("@dianName",dpname)
+                };
             }
             string str;
             if (dpname == "admin")
             {
-                str = "select * from memberInfo where membercardNo=@membercardNo";
+                str = "select * from memberInfo where ID=@ID";
             }
             else
-                 str = "select * from memberInfo where membercardNo=@membercardNo and dianName=@dianName";
+                str = "select * from memberInfo where ID=@ID and dianName=@dianName";
             { 
             }
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
@@ -623,7 +628,7 @@ namespace DAL
         /// </summary>
         /// <param name="yginfo">查看某一个员工还是所有员工如果admin登陆则所有的店铺的信息均能看到
         /// <returns></returns>
-        public List<memberInfoModel> tjbbOfbk(string yginfo)
+        public List<memberInfoModel> tjbbOfbk(string begindate, string enddate, string dpname)
         {
             int i = 1;
             List<memberInfoModel> list = new List<memberInfoModel>();
@@ -633,46 +638,27 @@ namespace DAL
             SqlParameter[] pms;
             if (dpinfo == "admin")
             {
-                if (yginfo == "全部")
+                if (dpname == "全部")
                 {
-                    str = "select * from memberInfo";
+                    str = "select * from memberInfo cardDate between '" + begindate + "' and '" + enddate + "'";
                     pms = new SqlParameter[] { };
                 }
                 else
                 {
-                    str = "select * from memberInfo where salesMan=@salesMan";
+                    str = "select * from memberInfo where dianName=@dianName and  cardDate between '" + begindate + "' and '" + enddate + "'";
                     pms = new SqlParameter[] { 
-                    new SqlParameter("@salesMan",yginfo)
+                    new SqlParameter("@dianName",dpname)
                     };
                 }
             }
             else
             {
-                if (yginfo == "全部")
-                {
-                    str = "select * from memberInfo where dianName=@dianName";
-                    pms = new SqlParameter[] { 
+                str = "select * from memberInfo where dianName=@dianName and  cardDate between '" + begindate + "' and '" + enddate + "'";
+                pms = new SqlParameter[] { 
                     new SqlParameter("@dianName",dpinfo)
                     };
-                }
-                else
-                {
-                    str = "select * from memberInfo where salesMan=@salesMan and dianName=@dianName";
-                    pms = new SqlParameter[] { 
-                    new SqlParameter("@salesMan",yginfo),
-                    new SqlParameter("@dianName",dpinfo)
-                    };
-                }
             }
-            SqlDataReader read;
-            if (pms.Length == 0)
-            {
-                read = SqlHelper.ExecuteReader(str);
-            }
-            else
-            {
-                read = SqlHelper.ExecuteReader(str,pms);
-            }
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
                 if (read.HasRows)

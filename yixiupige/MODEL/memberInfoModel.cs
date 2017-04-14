@@ -8,6 +8,7 @@ namespace MODEL
 {
     public class memberInfoModel
     {
+        public int ID { get; set; }
         public int id { get; set; }
         public string memberCardNo { get; set; }
         public string memberName { get; set; }
@@ -30,5 +31,6 @@ namespace MODEL
         public string imageUrl { get; set; }
         public string password { get; set; }
         public string zhuangtai { get; set; }
+        public string PY { get; set; }
     }
 }

@@ -75,15 +75,16 @@ namespace yixiupige
                 memberInfoModel model = new memberInfoModel();
                 model.memberCardNo = hykhtextBox.Text;
                 model.memberName = hyxmtextBox.Text;
+                model.PY = PinYinZHClass.PinYinZH(hyxmtextBox.Text.Trim());
                 model.memberTel = hydhtextBox.Text;
                 model.memberDocument = sfzhtextBox.Text;
-                model.birDate = TimeGuiGe.TimePicter(csrqdateTimePicker.Text);
-                model.cardDate = TimeGuiGe.TimePicter(bkrqdateTimePicker.Text);
+                model.birDate = TimeGuiGe.TimePicterBegin(csrqdateTimePicker.Text);
+                model.cardDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 model.memberSex = hyxbcomboBox.Text;
                 model.rebate = spzktextBox.Text;
                 if (qydqxzcheckBox.Checked)
                 {
-                    model.endDate = TimeGuiGe.TimePicter(dateTimePicker1.Text);
+                    model.endDate = TimeGuiGe.TimePicterBegin(dateTimePicker1.Text);
                 }
                 else
                 {
@@ -94,7 +95,7 @@ namespace yixiupige
                 model.cardMoney = bkjetextBox.Text;
                 model.dianName = lsdcomboBox.Text;
                 model.cardType = textBox1.Text;
-                model.saleMan = ywycomboBox.Text;
+                model.saleMan = ywycomboBox.Text == "" ? FilterClass.DianPu1.LoginName : textBox1.Text;
                 model.memberType = hyflcomboBox.Text;
                 model.address = dwtextBox.Text;
                 model.remark = bzxxtextBox.Text;
@@ -243,7 +244,11 @@ namespace yixiupige
             {
                 ywycomboBox.Items.Add(iteam.AllType);
             }
-            ywycomboBox.SelectedIndex = 0;
+            if (ywycomboBox.Items.Count > 0)
+            {
+                ywycomboBox.SelectedIndex = 0;
+            }
+            
         }
 
         private void videoSourcePlayer1_NewFrame(object sender, ref Bitmap image)
@@ -295,7 +300,7 @@ namespace yixiupige
             czjetextBox.ReadOnly = true;
             bkjetextBox.Text = mode.memberCardMoney;
             textBox1.Text = mode.memberTypechild;
-            textBox1.ReadOnly = true;
+            textBox1.ReadOnly = true;           
         }
 
         private void qydqxzcheckBox_CheckedChanged(object sender, EventArgs e)
@@ -327,6 +332,16 @@ namespace yixiupige
             szpassword pwd = szpassword.Create(fuzhipwd);
             pwd.Show();
             pwd.Focus();
+        }
+
+        private void bkjetextBox_TextChanged(object sender, EventArgs e)
+        {
+            string name = hyflcomboBox.Text.Trim();
+            double bl = bll.selectBL(name);
+            if (bkjetextBox.Text != "")
+            {
+                czjetextBox.Text = (Convert.ToDouble(bkjetextBox.Text) / bl).ToString();
+            }           
         }
     }
 }

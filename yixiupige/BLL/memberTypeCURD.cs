@@ -39,5 +39,22 @@ namespace BLL
         {
             return memberdal.selectNodes();
         }
+        public List<memberType> SelectAllList(string name)
+        {
+            return memberdal.SelectAllList(name);
+        }
+        public double selectBL(string bl)
+        {
+            return memberdal.selectBL(bl);
+        }
+        /// <summary>
+        /// 返回折扣卡所对应的折扣
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public int selectZK(string name)
+        {
+            return memberdal.selectZK(name);
+        }
     }
 }

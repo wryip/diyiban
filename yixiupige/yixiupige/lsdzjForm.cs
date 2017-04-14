@@ -11,6 +11,7 @@ using System.IO;
 using AForge.Video.DirectShow;
 using MODEL;
 using BLL;
+using System.Drawing.Printing;
 
 namespace yixiupige
 {
@@ -73,6 +74,7 @@ namespace yixiupige
         List<string> list = new List<string>();
         private void lsdzjForm_Load(object sender, EventArgs e)
         {
+            string printername = "";
             try
             {
                 //连接//开启摄像头
@@ -94,6 +96,13 @@ namespace yixiupige
                 comboBox1.Items.Add(iteam);
             }
             comboBox1.SelectedIndex = 0;
+            //设置不干胶打印机和小票打印机
+            for (int i = 0; i < PrinterSettings.InstalledPrinters.Count; i++)
+            {
+                printername = PrinterSettings.InstalledPrinters[i];
+                comboBox2.Items.Add(printername);
+                comboBox3.Items.Add(printername);
+            }
         }
         private void CameraConn(int i)
         {
@@ -122,6 +131,11 @@ namespace yixiupige
             model.DPRemark = bzxxBox.Text.Trim();
             model.DPContent = textBox1.Text.Trim();
             model.DPPicture = comboBox1.Text.Trim();
+            model.DPNo = textBox2.Text.Trim();
+            model.DPDay = DateTime.Now.Day.ToString();
+            model.BGJPrint = comboBox2.Text;
+            model.MemberPrint = comboBox3.Text;
+            model.DPNumber = "1";
             if (model.DPName == "" || model.DPPerson == "" || model.DPTel == "" || model.DPAddress == "" || model.DPRemark == "" || model.DPPicture == "")
             {
                 MessageBox.Show("请将信息填写完整！");

@@ -37,7 +37,13 @@ namespace yixiupige
                 typetextBox.Items.Add(iteam.AllType);
             }            
             GoodInfo gd=null;
-            notextBox.Text = (1 + gdbll.getNumber()).ToString();
+            string numno = (1 + gdbll.getNumber()).ToString();
+            int lenth = numno.Length;
+            for (int i = 0; i < (4 - lenth); i++)
+            {
+                numno = "0" + numno;
+            }
+            notextBox.Text = numno;
         }
       
         private void zjspForm__FormClosed(object sender, FormClosedEventArgs e)
@@ -63,6 +69,7 @@ namespace yixiupige
                 sp._load();
                 Loadevent();
                 MessageBox.Show("插入成功");
+                this.Close();
             }
             else {
                 MessageBox.Show("插入失败！");

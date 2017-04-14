@@ -42,6 +42,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.hyNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hyCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hySex = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -124,14 +125,15 @@
             // 
             this.打印预览ToolStripMenuItem.Name = "打印预览ToolStripMenuItem";
             this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.打印预览ToolStripMenuItem.Text = "打印预览";
+            this.打印预览ToolStripMenuItem.Text = "会员退卡";
+            this.打印预览ToolStripMenuItem.Click += new System.EventHandler(this.打印预览ToolStripMenuItem_Click);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(10, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1365, 541);
             this.panel1.TabIndex = 1;
@@ -161,6 +163,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hyNo,
+            this.ID1,
             this.hyCardNo,
             this.hyName,
             this.hySex,
@@ -175,10 +178,12 @@
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.DataSource = this.bindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(7, 21);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1206, 509);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView1_RowContextMenuStripNeeded);
@@ -189,6 +194,14 @@
             this.hyNo.HeaderText = "编号";
             this.hyNo.Name = "hyNo";
             this.hyNo.ReadOnly = true;
+            // 
+            // ID1
+            // 
+            this.ID1.DataPropertyName = "ID";
+            this.ID1.HeaderText = "ID";
+            this.ID1.Name = "ID1";
+            this.ID1.ReadOnly = true;
+            this.ID1.Visible = false;
             // 
             // hyCardNo
             // 
@@ -334,6 +347,7 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn hyNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID1;
         private System.Windows.Forms.DataGridViewTextBoxColumn hyCardNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn hyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn hySex;
