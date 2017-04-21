@@ -423,52 +423,52 @@ namespace DAL
         }
         public List<shMemberInfo> selectForIdList(string sousuo, bool mohu)
         {
-            string dpname=FilterClass.DianPu1.UserName.Trim();
+            //string dpname=FilterClass.DianPu1.UserName.Trim();
             List<shMemberInfo> list = new List<shMemberInfo>();
             string str = "";
             shMemberInfo model;
             SqlParameter[] pms;
-            if (dpname == "admin")
-            {
+            //if (dpname == "admin")
+            //{
                 pms = new SqlParameter[] { 
             new SqlParameter("@membercardNo",sousuo),
             new SqlParameter("@memberName",sousuo),
              new SqlParameter("@PY",sousuo),
             new SqlParameter("@memberTel",sousuo)
             };
-            }
-            else
-            {
-                pms = new SqlParameter[] { 
-            new SqlParameter("@membercardNo",sousuo),
-            new SqlParameter("@memberName",sousuo),
-            new SqlParameter("@memberTel",sousuo),
-            new SqlParameter("@PY",sousuo),
-            new SqlParameter("@dianName",dpname)
-            };
-            }
-            if (mohu)
-            {
-                if (dpname == "admin")
-                {
+            //}
+            //else
+            //{
+            //    pms = new SqlParameter[] { 
+            //new SqlParameter("@membercardNo",sousuo),
+            //new SqlParameter("@memberName",sousuo),
+            //new SqlParameter("@memberTel",sousuo),
+            //new SqlParameter("@PY",sousuo),
+            //new SqlParameter("@dianName",dpname)
+            //};
+            //}
+            //if (mohu)
+            //{
+                //if (dpname == "admin")
+                //{
                     str = "select * from memberInfo where membercardNo like '%'+@membercardNo+'%' or memberName like '%'+@memberName+'%' or  memberTel like '%'+@memberTel+'%' or PY like '%'+@PY+'%'";
-                }
-                else
-                {
-                    str = "select * from memberInfo where (membercardNo like '%'+@membercardNo+'%' or memberName like '%'+@memberName+'%' or  memberTel like '%'+@memberTel+'%' or PY like '%'+@PY+'%') and dianName=@dianName";
-                }
-            }
-            else
-            {
-                if (dpname == "admin")
-                {
-                    str = "select * from memberInfo where membercardNo=@membercardNo or memberName=@memberName or memberTel=@memberTel";
-                }
-                else
-                {
-                    str = "select * from memberInfo where (membercardNo=@membercardNo or memberName=@memberName or memberTel=@memberTel) and dianName=@dianName";
-                }
-            }
+                //}
+                //else
+                //{
+                //    str = "select * from memberInfo where (membercardNo like '%'+@membercardNo+'%' or memberName like '%'+@memberName+'%' or  memberTel like '%'+@memberTel+'%' or PY like '%'+@PY+'%') and dianName=@dianName";
+                //}
+            //}
+            //else
+            //{
+            //    if (dpname == "admin")
+            //    {
+            //        str = "select * from memberInfo where membercardNo=@membercardNo or memberName=@memberName or memberTel=@memberTel";
+            //    }
+            //    else
+            //    {
+            //        str = "select * from memberInfo where (membercardNo=@membercardNo or memberName=@memberName or memberTel=@memberTel) and dianName=@dianName";
+            //    }
+            //}
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {

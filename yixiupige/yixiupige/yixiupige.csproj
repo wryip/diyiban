@@ -68,7 +68,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>leiku\AForge.Controls.dll</HintPath>
     </Reference>
-    <Reference Include="AForge.Imaging">
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>leiku\AForge.Imaging.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
@@ -81,7 +82,7 @@
     </Reference>
     <Reference Include="AForge.Video.FFMPEG, Version=2.2.5.0, Culture=neutral, PublicKeyToken=03563089b1be05dd, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>leiku\AForge.Video.FFMPEG.dll</HintPath>
+      <HintPath>bin\Debug\AForge.Video.FFMPEG.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -366,6 +367,12 @@
     <Compile Include="qzjcFrom.Designer.cs">
       <DependentUpon>qzjcFrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="SendInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendInfo.Designer.cs">
+      <DependentUpon>SendInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="shglform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -419,6 +426,12 @@
     </Compile>
     <Compile Include="UpdatejcFrom.Designer.cs">
       <DependentUpon>UpdatejcFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VideoAndPicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VideoAndPicture.Designer.cs">
+      <DependentUpon>VideoAndPicture.cs</DependentUpon>
     </Compile>
     <Compile Include="xiugaimember.cs">
       <SubType>Form</SubType>
@@ -528,11 +541,17 @@
     <EmbeddedResource Include="qzjcFrom.resx">
       <DependentUpon>qzjcFrom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SendInfo.resx">
+      <DependentUpon>SendInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="spSalesFrom.resx">
       <DependentUpon>spSalesFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdatejcFrom.resx">
       <DependentUpon>UpdatejcFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoAndPicture.resx">
+      <DependentUpon>VideoAndPicture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="YGFinish.resx">
       <DependentUpon>YGFinish.cs</DependentUpon>
@@ -720,8 +739,7 @@
     <Content Include="leiku\AForge.Video.DirectShow.dll" />
     <Content Include="leiku\AForge.Video.DirectShow.xml" />
     <Content Include="leiku\AForge.Video.dll" />
-    <Content Include="leiku\AForge.Video.FFMPEG.dll" />
-    <Content Include="leiku\AForge.Video.FFMPEG.xml" />
+    <None Include="Resources\png-0002.png" />
     <None Include="Resources\png-0017.png" />
     <None Include="Resources\6962.png" />
     <None Include="Resources\1631.png" />

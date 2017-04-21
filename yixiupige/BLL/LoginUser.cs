@@ -12,6 +12,7 @@ namespace BLL
     public class LoginUser
     {
         LoginUserDAl userdal = new LoginUserDAl();
+        QQInfoBLL blls = new QQInfoBLL();
         public bool SelectUser(string LoginName, string UserPwd, string UserName)
         {
             //LoginUserDAl userdal=new LoginUserDAl();
@@ -53,6 +54,7 @@ namespace BLL
             FilterClass.DPTel = pict[5];
             //将登陆人的信息保存在过滤器中，在用户执行其他操作时进行权限过滤
             FilterClass.DianPu1 = model;
+            blls.InsertIpAddress();
         }
         public List<MODEL.LoginUser> selectAllList(string name)
         {

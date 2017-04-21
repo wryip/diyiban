@@ -174,8 +174,10 @@ namespace yixiupige
                 }
             }
             VideoCaptureDevice videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
-            videoSource.DesiredFrameSize = new Size(320, 240);
-            videoSource.DesiredFrameRate = 1;
+            //MessageBox.Show(videoSource.VideoCapabilities[2].FrameSize.Width.ToString());
+            //MessageBox.Show(videoSource.VideoCapabilities[2].FrameSize.Height.ToString());
+            videoSource.VideoResolution = videoSource.VideoCapabilities[2];
+            //videoSource.DesiredFrameRate = 1;
 
             videoSourcePlayer1.VideoSource = videoSource;
             videoSourcePlayer1.Start();
@@ -208,7 +210,7 @@ namespace yixiupige
             Graphics draw = Graphics.FromImage(newImage);
             draw.DrawImage(bitmap, 0, 0);
             draw.Dispose();
-            string dirpath = "E:\\mymemberimg";
+            string dirpath = "E:\\mymemberimg\\" + textBox5.Text.Trim() + "";
             if (!Directory.Exists(dirpath))
                 Directory.CreateDirectory(dirpath);
             string[] name = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Split(new char[] { '/', ':', ' ', '-' }, StringSplitOptions.RemoveEmptyEntries);
@@ -796,7 +798,7 @@ namespace yixiupige
                 {
                     int oldmoney = Convert.ToInt32(textBox9.Text.Trim());
                     int Xmoney = oldmoney - (Convert.ToInt32(textBox14.Text.Trim()) - Convert.ToInt32(textBox22.Text.Trim()));
-                    if (Xmoney < 0 && oldmoney > 0)
+                    if (Xmoney <= 0 && oldmoney > 0)
                     {
                         MessageBox.Show("余额不足！");
                         return;
@@ -1159,6 +1161,22 @@ namespace yixiupige
             {
                 return;
             }
+        }
+        public void videoStar()
+        {
+            CameraConn();
+        }
+        private void videoSourcePlayer1_Click(object sender, EventArgs e)
+        {
+            string str="E:\\mymemberimg\\" + textBox5.Text.Trim() + "";
+            if (textBox4.Text.Trim() == "")
+            {
+                str = "E:\\mymemberimg\\sanke";
+            }
+            VideoAndPicture frompic = VideoAndPicture.CreateForm(str, videoStar);
+            videoSourcePlayer1.SignalToStop();
+            videoSourcePlayer1.WaitForStop();
+            frompic.Show();
         }        
     }
 }

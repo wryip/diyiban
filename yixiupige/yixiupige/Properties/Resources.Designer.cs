@@ -193,6 +193,16 @@ namespace yixiupige.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap png_0002 {
+            get {
+                object obj = ResourceManager.GetObject("png-0002", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap png_0007 {
             get {
                 object obj = ResourceManager.GetObject("png-0007", resourceCulture);

@@ -39,7 +39,11 @@ namespace yixiupige
                 //登陆成功后判断该店是不是又过了一天，如果是就将DPNumber再踩修改为一
                 dpbll.UpdateDay(DateTime.Now.Day);
                 DefaultForm _default2 = DefaultForm.CreateForm(fromclose);
+                SendInfo from = SendInfo.CreateForm();
+                from.Show();
+                from.Hide();
                 _default2.Show();
+                
                 this.Hide();
             }
             else

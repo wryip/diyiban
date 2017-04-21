@@ -335,5 +335,30 @@ namespace yixiupige
             yggl.Show();
             yggl.Focus();
         }
+
+        private void toolStripButton14_Click(object sender, EventArgs e)
+        {
+            SendInfo from = SendInfo.CreateForm();
+            from.Show();
+        }
+        //public delegate void dAdd(); 
+        //public dAdd myAdd; 
+        //private void button1_Click(object sender, EventArgs e)
+        //{ 
+        //    Thread t = new Thread(a);
+        //    t.Start();
+        //} 
+        //public void a()
+        //{ 
+        //    myAdd = new dAdd(add); 
+        //    panel1.Invoke(myAdd);
+        //} 
+        //private void add() 
+        //{
+        //    RadioButton rb = new RadioButton();
+        //    rb.Text = "添加";
+        //    panel1.Controls.Add(rb);
+        //    panel1.Refresh(); 
+        //}
     }
 }
