@@ -184,7 +184,7 @@ namespace yixiupige
                 return ;
             }
             memberInfoModel model = dataGridView1.SelectedRows[0].DataBoundItem as memberInfoModel;
-            ExitCard fromcard = ExitCard.CreateForm(model);
+            ExitCard fromcard = ExitCard.CreateForm(model, bindData);
             fromcard.Show();
             fromcard.Focus();
         }

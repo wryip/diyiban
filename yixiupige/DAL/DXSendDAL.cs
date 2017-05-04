@@ -12,14 +12,21 @@ namespace DAL
 {
     public class DXSendDAL
     {
+        //此类需要改，每个店铺存储属于自己店铺的信息
+        public string ID = FilterClass.ID == null ? null : FilterClass.ID.Trim();
         //短信发送DAL
         public void AddList(List<DXmemberModel> list)
         {
+            //判断是否是店铺的信息。。。
+            if (ID == null)
+            {
+                return;
+            }
             string str = "";
             SqlParameter[] pms;
             foreach (var iteam in list)
             {
-                str = "insert into DXSend(CardNumber,MemberName,TelPhone,Date,SaleMan,ContentNR,DianPu) values(@CardNumber,@MemberName,@TelPhone,@Date,@SaleMan,@ContentNR,@DianPu)";
+                str = "insert into DXSend"+ID+"(CardNumber,MemberName,TelPhone,Date,SaleMan,ContentNR,DianPu) values(@CardNumber,@MemberName,@TelPhone,@Date,@SaleMan,@ContentNR,@DianPu)";
                 pms = new SqlParameter[] { 
                 new SqlParameter("@CardNumber",iteam.CardNumber==null?"":iteam.CardNumber),
                 new SqlParameter("@MemberName",iteam.MemberName==null?"":iteam.MemberName),
@@ -32,38 +39,45 @@ namespace DAL
                 SqlHelper.ExecuteNonQuery(str, pms);
             }
         }
+        //在寄存信息中显示的   显示已经发送的短信的内容
         public List<DXmemberModel> selectListTJ(string begindate, string enddate, string dpname)
         {
-            int i = 1;
-            string dp=FilterClass.DianPu1.UserName.Trim();
             List<DXmemberModel> list = new List<DXmemberModel>();
+            int i = 1;
+            string dp=FilterClass.DianPu1.UserName.Trim();           
             string str = "";
-            SqlParameter[] pms;
+            //SqlParameter[] pms;
             DXmemberModel model;
             if (dp == "admin")
             {
                 if (dpname.Trim() == "全部")
                 {
-                    str = "select * from DXSend";
-                    pms = new SqlParameter[] { 
-                    };
+                    foreach (KeyValuePair<string, int> iteam in FilterClass.dic)
+                    {
+                        str += "select * from ";
+                        str += "DXSend" + iteam.Value + "";
+                        str += " where Date between '" + begindate + "' and '" + enddate + "'";
+                        str += " union all ";
+                    }
+                    str = str.Substring(0, str.Length - 10);
+                    //pms = new SqlParameter[] { 
+                    //};
                 }
                 else
                 {
-                    str = "select * from DXSend where DianPu=@DianPu";
-                    pms = new SqlParameter[] { 
-                    new SqlParameter("@DianPu",dpname)
-                    };
+                    int id = FilterClass.dic[dpname.Trim()];
+                    str = "select * from DXSend" + id + " where Date between '" + begindate + "' and '" + enddate + "'";
+                    //pms = new SqlParameter[] { 
+                    //};
                 }
             }
             else
             {
-                    str = "select * from DXSend where DianPu=@DianPu";
-                    pms = new SqlParameter[] { 
-                    new SqlParameter("@DianPu",dpname)
-                    };
+                str = "select * from DXSend" + ID + " where Date between '" + begindate + "' and '" + enddate + "'";
+                    //pms = new SqlParameter[] { 
+                    //};
             }
-            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
+            SqlDataReader read = SqlHelper.ExecuteReader(str);
             while (read.Read())
             {
                 if (read.HasRows)

@@ -127,7 +127,7 @@ namespace yixiupige
                     return;
                 }
             }
-            else
+            else if (radioButton3.Checked)
             {
                 if (dataGridView1.SelectedRows.Count != 1)
                 {
@@ -138,13 +138,29 @@ namespace yixiupige
                 //指定折扣spPrice
                 try
                 {
-                    int zk = Convert.ToInt32(numericUpDown1);
+                    int zk = Convert.ToInt32(numericUpDown1.Value);
                     money = price * Convert.ToInt32(numericUpDown2.Value) * zk / 100;
                     model.CountMoney = money;
                 }
                 catch
                 {
                     MessageBox.Show("信息错误！");
+                    return;
+                }
+            }
+            else//直接以指定价格出售
+            {
+                try
+                {
+                    double price = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells["spPrice"].Value);
+                    //指定单价
+                    //double mm = Convert.ToDouble(textBox2.Text.Trim());
+                    money = Convert.ToDouble(numericUpDown2.Value) * price;
+                    model.CountMoney = money;
+                }
+                catch
+                {
+                    MessageBox.Show("单价请输入数字！");
                     return;
                 }
             }

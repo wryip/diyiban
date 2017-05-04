@@ -11,7 +11,8 @@
     <AssemblyName>yixiupige</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <PublishUrl>F:\一休发布\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>E:\店面\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -21,9 +22,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -239,6 +239,12 @@
     </Compile>
     <Compile Include="hylxedit.Designer.cs">
       <DependentUpon>hylxedit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HYXFPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HYXFPassword.Designer.cs">
+      <DependentUpon>HYXFPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="hyxgFrom.cs">
       <SubType>Form</SubType>
@@ -513,6 +519,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fuwuEdit.resx">
       <DependentUpon>fuwuEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HYXFPassword.resx">
+      <DependentUpon>HYXFPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="hyxgFrom.resx">
       <DependentUpon>hyxgFrom.cs</DependentUpon>

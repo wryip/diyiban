@@ -11,7 +11,7 @@ namespace BLL
     public class DPInfoBLL
     {
         DPInfoDAL dal = new DPInfoDAL();
-        public bool AddModel(DianPu model)
+        public int AddModel(DianPu model)
         {
             return dal.AddModel(model);
         }
@@ -23,9 +23,9 @@ namespace BLL
         {
             return dal.UpdateModel(model);
         }
-        public bool deleteIteam(string name)
+        public bool deleteIteam(int id)
         {
-            return dal.deleteIteam(name);
+            return dal.deleteIteam(id);
         }
         public List<string> selectDPName()
         {
@@ -46,6 +46,15 @@ namespace BLL
         public bool uodateNumber(string dpID, int j)
         {
             return dal.uodateNumber(dpID, j);
+        }
+        //当添加新的店铺的时候,添加相对应要用到的表
+        public void AddTable(int id)
+        {
+            dal.AddTable(id);
+        }
+        public Dictionary<string, int> SelectAllDictionary()
+        {
+            return dal.SelectAllDictionary();
         }
     }
 }

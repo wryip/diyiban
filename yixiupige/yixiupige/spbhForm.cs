@@ -89,6 +89,7 @@ namespace yixiupige
                 };
                 tjbbbll.AddIteam(jinhuo);
                 MessageBox.Show("补货成功！");
+                this.Close();
             }
         }
 

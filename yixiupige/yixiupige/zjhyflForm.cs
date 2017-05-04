@@ -77,7 +77,7 @@ namespace yixiupige
                 user.memberCardMoney = bkjetextBox.Text.Trim();
                 user.memberRebate = spzktextBox.Text.Trim();
                 user.memberTopUp = czcstextBox.Text.Trim();
-                user.memberSend = Convert.ToDouble(Convert.ToDouble(bkjetextBox.Text.Trim()) / Convert.ToInt32(czcstextBox.Text.Trim()));
+                user.memberSend = Convert.ToDouble(Convert.ToDouble(czcstextBox.Text.Trim()) / Convert.ToDouble(bkjetextBox.Text.Trim()));
                 memberTypeCURD memberType = new memberTypeCURD();
                 bool result=memberType.AddMember(user);
                 if (result)

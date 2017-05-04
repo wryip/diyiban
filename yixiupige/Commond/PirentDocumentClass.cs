@@ -26,12 +26,14 @@ namespace Commond
         public static string _hjch { get; set; }
         public static string _yfje { get; set; }
         public static string _sb { get; set; }
-        public static List<LiShiConsumption> _list { get; set; }
+        public static List<shInfoList> _list { get; set; }
         public static List<JCInfoModel> _listwl { get; set; }
         public static Image _ibmap { get; set; }
         public static string _name { get; set; }
         public static string _time { get; set; }
         public static string _gksy { get; set; }
+        public static int _beginy { get; set; }
+        public static double _QKMoney { get; set; }
         public static string _cardnumber { get; set; }
         /// <summary>
         /// 给顾卡打印收费小票
@@ -45,8 +47,9 @@ namespace Commond
         /// <param name="name"></param>
         /// <param name="cardnumber"></param>
         /// <param name="time"></param>
-        public static void PirentSH(string hije, string hjch, string yfje, List<LiShiConsumption> list, Image ibmap,string sb,string name,string cardnumber,string time,string gksy)
+        public static void PirentSH(string hije, string hjch, string yfje, List<shInfoList> list, Image ibmap, string sb, string name, string cardnumber, string time, string gksy)
         {
+            _beginy = 0;
             _gksy = gksy;
             _time = time;
             _name = name;
@@ -93,7 +96,7 @@ namespace Commond
             pd.PrinterSettings.PrinterName = FilterClass.MemberXF;
             pd.DefaultPageSettings.Margins = margin;
             //默认纸张
-            PaperSize pageSize = new PaperSize("First custom size", getYc(58), 600);
+            PaperSize pageSize = new PaperSize("First custom size", getYc(58), 5000);
             pd.DefaultPageSettings.PaperSize = pageSize;
             //打印事件设置            
             pd.PrintPage += new PrintPageEventHandler(pd_PrintPagewl);
@@ -127,7 +130,7 @@ namespace Commond
             string tou = "物流配送小票";
             sb.Append("            " + tou + "       \r\n");
             sb.Append("---------------------------------------------\r\n");
-            sb.Append("日期:" + DateTime.Now.ToShortDateString() + " \r\n" + "说明:" + dpname + "：" + wulizt + "\r\n");
+            sb.Append("日期:" + DateTime.Now.ToShortDateString() + " \r\n" + "说明:" + wulizt + "\r\n");
             sb.Append("店铺:" + dpname + "\r\n");
             sb.Append("_____________________________________________\r\n");
             e.Graphics.DrawString("号", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, 100));
@@ -207,7 +210,7 @@ namespace Commond
             string jiewei = FilterClass.DXInfo;
             int jccount = 0;
             int i = 1;
-            int j = 1;
+            int j = 0;
             StringBuilder sb = new StringBuilder();
             string tou = "青岛一休皮革小票";
             sb.Append("            " + tou + "       \r\n");
@@ -222,28 +225,42 @@ namespace Commond
             e.Graphics.DrawLine(new Pen(Color.Black), new Point(0, 115), new Point(185, 115));
             foreach (var iteam in _list)
             {
-                if (iteam.IsJC)
+                if (iteam.JiCun)
                 {
-                    jccount++;
+                    jccount+=iteam.Count;
+                }
+                //计算欠款余额
+                if (!iteam.FuKuan)
+                {
+                    if (iteam.YMoney != 0)
+                    {
+                        _QKMoney += iteam.YMoney;
+                    }
                 }
                 string nleng = "";
-                string[] str = iteam.LSStaff.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
-                if (str[0] != "")
+                //string[] str = iteam.Type.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+                if (iteam.Type != "")
                 {
-                    nleng += "类别：" + str[0];
+                    nleng += "类别：" + iteam.Type;
                 }
-                if (iteam.LSPinPai!="")
+                if (iteam.PinPai!="")
                 {
-                    nleng += "品牌：" + iteam.LSPinPai;
+                    nleng += "品牌：" + iteam.PinPai;
                 }
-                if (iteam.LSColor != "")
+                if (iteam.Color != "")
                 {
-                    nleng += "颜色：" + iteam.LSColor;
+                    nleng += "颜色：" + iteam.Color;
                 }
-                if (str[1] != "")
-                {
-                    nleng += "服务项目：" + str[1];
-                }
+                //if (str.Length > 1)
+                //{
+                if (iteam.FuWuName != "")
+                    {
+                        nleng += "服务项目：" + iteam.FuWuName;
+                    }
+                nleng.Replace(',','，');
+                nleng.Replace('[', '【');
+                nleng.Replace(']', '】');
+                //}                
                 //e.Graphics.DrawString(j.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
                 //e.Graphics.DrawString(iteam.LSCount, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(125, (100 + i * 15)));
                 //e.Graphics.DrawString(iteam.LSMoney, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(155, (100 + i * 15)));
@@ -253,9 +270,9 @@ namespace Commond
                     e.Graphics.DrawLine(new Pen(Color.Black), new Point(0, 115+i*15), new Point(185, 115+i*15));
                     i++;
                     j++;
-                    e.Graphics.DrawString(" " + j.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, 100 + i * 15 / 2));
-                    e.Graphics.DrawString(" "+iteam.LSCount, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(125, 100 + i * 15 / 2));
-                    e.Graphics.DrawString(" " + iteam.LSMoney, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(155, 100 + i * 15 / 2));
+                    e.Graphics.DrawString(" " + j.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, 100 + i * 15 - (i * 15 - _beginy) / 2));
+                    e.Graphics.DrawString(" " + iteam.Count, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(125, 100 + i * 15 - (i * 15 - _beginy) / 2));
+                    e.Graphics.DrawString(" " + iteam.CountMoney, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(155, 100 + i * 15 - (i * 15 - _beginy) / 2));
                     continue;
                 }
                 while (nleng.Length > 9)
@@ -268,9 +285,10 @@ namespace Commond
                 e.Graphics.DrawLine(new Pen(Color.Black), new Point(0, 115 + i * 15), new Point(185, 115 + i * 15));             
                 i++;
                 j++;
-                e.Graphics.DrawString(" " + j.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, 100 + i * 15 / 2));
-                e.Graphics.DrawString(" " + iteam.LSCount, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(125, 100 + i * 15 / 2));
-                e.Graphics.DrawString(" " + iteam.LSMoney, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(155, 100 + i * 15 / 2));
+                e.Graphics.DrawString(" " + j.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, 100 + i * 15 - (i * 15 - _beginy) / 2));
+                e.Graphics.DrawString(" " + iteam.Count, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(125, 100 + i * 15 - (i * 15 - _beginy) / 2));
+                e.Graphics.DrawString(" " + iteam.CountMoney, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(155, 100 + i * 15 - (i * 15 - _beginy) / 2));
+                _beginy = i * 15;
             }         
             e.Graphics.DrawLine(new Pen(Color.Black), new Point(0, 100), new Point(0, (100 + i * 15)));
             e.Graphics.DrawLine(new Pen(Color.Black), new Point(20, 100), new Point(20, (100 + i * 15)));
@@ -283,8 +301,10 @@ namespace Commond
             i++;
             e.Graphics.DrawString("寄存件数:" + jccount, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
-            e.Graphics.DrawString("取活日期:" + _time, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("欠款金额:" + _QKMoney, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
+            e.Graphics.DrawString("取活日期:" + _time, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            i++;          
             while (jiewei.Length > 16)
             {
                 e.Graphics.DrawString(jiewei.Substring(0, 16), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));                
@@ -299,6 +319,12 @@ namespace Commond
             ////e.Graphics.DrawImage(_ibmap, new Rectangle(new System.Drawing.Point(-100, 200), new Size(400,400)));
             e.Graphics.DrawImage(_ibmap, new Rectangle(new System.Drawing.Point(-10, (100 + i * 15)), new Size(200, 200)));
             e.Graphics.DrawString("扫描二维码，即可查看订单信息！", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)+200));
+            i++;
+            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            i++;
+            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            _beginy = 0;
+            _QKMoney = 0;
 	#endregion
             
         }

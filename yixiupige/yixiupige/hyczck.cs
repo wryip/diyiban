@@ -45,10 +45,11 @@ namespace yixiupige
             }
             textBox1.Text = model1.memberName;
             textBox2.Text = model1.toUpMoney;
-            textBox3.Text = model1.cardMoney;
+            //textBox3.Text = model1.cardMoney;
             textBox4.Text = model1.memberCardNo;
             textBox5.Text = model1.fuwuBate;
             textBox6.Text = model1.cardMoney;
+            
             textBox7.Text = model1.memberTel;
             textBox8.Text = model1.rebate;
             textBox9.Text = model1.cardType;
@@ -59,6 +60,7 @@ namespace yixiupige
             //去拿相应卡的充值比例
             string cardtype = textBox12.Text.Trim();
             InfoBL = typebll.selectBL(cardtype);
+            textBox3.Text = (Convert.ToDouble(textBox6.Text.Trim() == "" ? "1" : textBox6.Text) * InfoBL).ToString(); 
             dataBind();
         }
 
@@ -104,9 +106,9 @@ namespace yixiupige
             model.czType = textBox12.Text;
             model.czDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             model.czSaleman = comboBox1.Text == "" ? FilterClass.DianPu1.LoginName : comboBox1.Text;
-            int m1 = Convert.ToInt32(textBox3.Text.Trim());
-            int m2 = Convert.ToInt32(textBox2.Text.Trim());
-            int m3 = m1 + m2;
+            double m1 = Convert.ToDouble(textBox3.Text.Trim());
+            double m2 = Convert.ToDouble(textBox2.Text.Trim());
+            double m3 = m1 + m2;
             result = bll.hyczMoney(textBox4.Text.Trim(), m3);
             result1 = bll1.addModel(model);
             if (result1 && result1)
@@ -127,7 +129,7 @@ namespace yixiupige
         }
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
-            textBox3.Text = (Convert.ToInt32(textBox6.Text == "" ? "1" : textBox6.Text) / InfoBL).ToString();           
+            textBox3.Text = (Convert.ToDouble(textBox6.Text.Trim() == "" ? "1" : textBox6.Text) * InfoBL).ToString();           
         }
 
         private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)

@@ -58,7 +58,7 @@ namespace yixiupige
                 Gname = nametextBox.Text.ToString(),
                 Gno = notextBox.Text.ToString(),
                 Gprice = Convert.ToDecimal(pricetextBox.Text),
-                Gbid = Convert.ToDecimal(bidtextBox.Text),
+                Gbid = Convert.ToDecimal(bidtextBox.Text.Trim() == "" ? "0" : bidtextBox.Text),
                 Gremark = remarktextBox.Text.ToString(),
                 Gsum = Convert.ToInt32(sumtextBox.Text),
                 Gstock = Convert.ToInt32(sumtextBox.Text),
@@ -69,7 +69,28 @@ namespace yixiupige
                 sp._load();
                 Loadevent();
                 MessageBox.Show("插入成功");
-                this.Close();
+                if (!checkBox1.Checked)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    jbcsBLL jbcsbll = new jbcsBLL();
+                    List<jbcs> list = jbcsbll.selectList(4);
+                    foreach (var iteam in list)
+                    {
+                        typetextBox.Items.Add(iteam.AllType);
+                    }
+                    GoodInfo gd1 = null;
+                    string numno = (1 + gdbll.getNumber()).ToString();
+                    int lenth = numno.Length;
+                    for (int i = 0; i < (4 - lenth); i++)
+                    {
+                        numno = "0" + numno;
+                    }
+                    notextBox.Text = numno;
+                    checkBox1.Checked = true;
+                }
             }
             else {
                 MessageBox.Show("插入失败！");

@@ -225,5 +225,24 @@ namespace yixiupige
                 PirentZXingNet.PirentTM(iteam.jcPaiNumber, iteam.jcStaff, iteam.jcDanNumber, iteam.jcEndDate,1,1,iteam.jcQuestion,iteam.jcType,iteam.jcPinPai,iteam.jcColor,iteam.jcRemark);
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string tmnum = textBox1.Text.Trim();
+            if (tmnum == "")
+            {
+                MessageBox.Show("请输入数据！");
+                return;
+            }
+            foreach (DataGridViewRow row in dataGridView3.Rows)
+            {
+                if (row.Cells["jcPaiNumber"].Value.ToString().Trim() == tmnum)
+                {
+                    row.Cells["XZ"].Value = true;
+                    textBox1.Text = "";
+                    return;
+                }
+            }
+        }
     }
 }
