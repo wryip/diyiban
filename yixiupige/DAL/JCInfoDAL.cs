@@ -1102,19 +1102,28 @@ namespace DAL
         public List<JCInfoModel> selectQZ(string type, string neirong)
         {
             List<JCInfoModel> list = new List<JCInfoModel>();
-            List<JCInfoModel> list1 = new List<JCInfoModel>();
             if (ID == null)
             {
                 return list;
             }
+            string type11 = "";
+            switch (type)
+            {
+                case "姓名": type11 = "jcName"; break;
+                case "电话": type11 = "YYF"; break;
+                case "卡号": type11 = "jcCardNumber"; break;
+                case "单号": type11 = "jcDanNumber"; break;
+                default: type11 = "jcPaiNumber"; break;
+            }
             int i = 1;
-            string dpname = FilterClass.DianPu1.UserName.Trim();           
+            string dpname = FilterClass.DianPu1.UserName.Trim();
             JCInfoModel model;
-            string str = "select * from JCInfoTable" + ID + " where jcZT<>@jcZT";
-            SqlParameter[] pms=new SqlParameter[]{
-                new SqlParameter("@jcZT","已取走")
+            string str = "select * from JCInfoTable" + ID + " where jcZT=@jcZT and " + type11 + " like '%'+@typ11+'%'";
+            SqlParameter[] pms = new SqlParameter[]{
+                new SqlParameter("@jcZT","未取走"),
+                new SqlParameter("@typ11",neirong)
             };
-            SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
                 if (read.HasRows)
@@ -1144,28 +1153,8 @@ namespace DAL
                     i++;
                     list.Add(model);
                 }
-            }
-            if (type == "会员姓名")
-            {
-                list1 = list.Where(m => m.jcName.Trim().Contains(neirong)).ToList();
-            }
-            else if (type == "会员卡号")
-            {
-                list1 = list.Where(m => m.jcCardNumber.Trim().Contains(neirong)).ToList();
-            }
-            else if (type == "消费单号")
-            {
-                list1 = list.Where(m => m.jcDanNumber.Trim().Contains(neirong)).ToList();
-            }
-            else if (type == "条码")
-            {
-                list1 = list.Where(m => m.jcPaiNumber.Trim().Contains(neirong)).ToList();
-            }
-            else
-            {
-                list1 = list.Where(m => m.Tel.Trim().Contains(neirong)).ToList();
-            }
-            return list1;
+            }         
+            return list;
         }
         //店面接收
         public bool UpdateEnd(List<int> list)

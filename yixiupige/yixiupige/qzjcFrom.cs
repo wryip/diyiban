@@ -47,10 +47,10 @@ namespace yixiupige
         {
             JCInfoModel model = bll.SelectID(id);
             textBox1.Text = model.jcName;
-            textBox2.Text = "未上架";
+            //textBox2.Text = "未上架";
             textBox3.Text = model.jcCardNumber;
             textBox4.Text = model.jcPinPai;
-            textBox5.Text = model.jcPaiNumber;
+            //textBox5.Text = model.jcPaiNumber;
             textBox6.Text = model.jcColor;
             textBox7.Text = model.jcBeginDate;
             textBox8.Text = model.jcQMoney.Trim();
@@ -74,6 +74,11 @@ namespace yixiupige
                 databind1();
                 this.Close();
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -56,12 +56,10 @@
             this.jcImgUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.查找寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.寄存取走ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.增加寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.取消取走ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.打印预览ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -309,62 +307,47 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.查找寄存ToolStripMenuItem,
-            this.寄存取走ToolStripMenuItem,
             this.修改寄存ToolStripMenuItem,
             this.增加寄存ToolStripMenuItem,
             this.删除寄存ToolStripMenuItem,
-            this.取消取走ToolStripMenuItem,
-            this.打印预览ToolStripMenuItem});
+            this.取消取走ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 136);
             // 
             // 查找寄存ToolStripMenuItem
             // 
             this.查找寄存ToolStripMenuItem.Name = "查找寄存ToolStripMenuItem";
-            this.查找寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.查找寄存ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.查找寄存ToolStripMenuItem.Text = "查找寄存";
             this.查找寄存ToolStripMenuItem.Click += new System.EventHandler(this.查找寄存ToolStripMenuItem_Click);
-            // 
-            // 寄存取走ToolStripMenuItem
-            // 
-            this.寄存取走ToolStripMenuItem.Name = "寄存取走ToolStripMenuItem";
-            this.寄存取走ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.寄存取走ToolStripMenuItem.Text = "寄存取走";
-            this.寄存取走ToolStripMenuItem.Click += new System.EventHandler(this.寄存取走ToolStripMenuItem_Click);
             // 
             // 修改寄存ToolStripMenuItem
             // 
             this.修改寄存ToolStripMenuItem.Name = "修改寄存ToolStripMenuItem";
-            this.修改寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.修改寄存ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.修改寄存ToolStripMenuItem.Text = "修改寄存";
             this.修改寄存ToolStripMenuItem.Click += new System.EventHandler(this.修改寄存ToolStripMenuItem_Click);
             // 
             // 增加寄存ToolStripMenuItem
             // 
             this.增加寄存ToolStripMenuItem.Name = "增加寄存ToolStripMenuItem";
-            this.增加寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.增加寄存ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.增加寄存ToolStripMenuItem.Text = "增加寄存";
             this.增加寄存ToolStripMenuItem.Click += new System.EventHandler(this.增加寄存ToolStripMenuItem_Click);
             // 
             // 删除寄存ToolStripMenuItem
             // 
             this.删除寄存ToolStripMenuItem.Name = "删除寄存ToolStripMenuItem";
-            this.删除寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.删除寄存ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.删除寄存ToolStripMenuItem.Text = "删除寄存";
             this.删除寄存ToolStripMenuItem.Click += new System.EventHandler(this.删除寄存ToolStripMenuItem_Click);
             // 
             // 取消取走ToolStripMenuItem
             // 
             this.取消取走ToolStripMenuItem.Name = "取消取走ToolStripMenuItem";
-            this.取消取走ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.取消取走ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.取消取走ToolStripMenuItem.Text = "取消取走";
             this.取消取走ToolStripMenuItem.Click += new System.EventHandler(this.取消取走ToolStripMenuItem_Click);
-            // 
-            // 打印预览ToolStripMenuItem
-            // 
-            this.打印预览ToolStripMenuItem.Name = "打印预览ToolStripMenuItem";
-            this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.打印预览ToolStripMenuItem.Text = "打印预览";
             // 
             // groupBox3
             // 
@@ -448,12 +431,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 查找寄存ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 寄存取走ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 修改寄存ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 增加寄存ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除寄存ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 取消取走ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 打印预览ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn glNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn jcQuestion;
         private System.Windows.Forms.DataGridViewTextBoxColumn jcPression;

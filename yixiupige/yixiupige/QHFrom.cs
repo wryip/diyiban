@@ -69,7 +69,7 @@ namespace yixiupige
             //string begindate = TimeGuiGe.TimePicterBegin(dateTimePicker1.Text);
             //string enddate = TimeGuiGe.TimePicterEng(dateTimePicker2.Text);
             List<JCInfoModel> list = new List<JCInfoModel>();
-            list = bll.selectQZ(type, neirong);
+            list = bll.selectQZ(type, neirong.Trim());
             if (list.Count <= 0)
             {
                 MessageBox.Show("无数据！");
@@ -77,7 +77,7 @@ namespace yixiupige
             }
             foreach (JCInfoModel model in list)
             {
-                if (model.jcAddress.Trim() == "店铺已收")
+                if (model.jcAddress.Trim() == "店铺已收" || model.jcAddress.Trim() == "店内完工")
                 {
                     listk.Add(model);
                 }

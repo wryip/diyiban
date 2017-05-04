@@ -52,9 +52,21 @@ namespace yixiupige
             if (e.ColumnIndex == 0)
             {
                 dataGridView3.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !Convert.ToBoolean(dataGridView3.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                numberAdd();
             }
         }
-
+        private void numberAdd()
+        {
+            int count = 0;
+            foreach (DataGridViewRow iteam in dataGridView3.Rows)
+            {
+                if (Convert.ToBoolean(iteam.Cells["XZ"].Value))
+                {
+                    count++;
+                }
+            }
+            label1.Text = count.ToString();
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             datagridviewbind();
@@ -62,10 +74,23 @@ namespace yixiupige
 
         private void button5_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow iteam in dataGridView3.Rows)
+            if (button5.Text == "全选")
             {
-                iteam.Cells["XZ"].Value = true;
+                button5.Text = "取消";
+                foreach (DataGridViewRow iteam in dataGridView3.Rows)
+                {
+                    iteam.Cells["XZ"].Value = true;
+                }
             }
+            else
+            {
+                button5.Text = "全选";
+                foreach (DataGridViewRow iteam in dataGridView3.Rows)
+                {
+                    iteam.Cells["XZ"].Value = false;
+                }
+            }
+            numberAdd();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -105,12 +130,17 @@ namespace yixiupige
                 MessageBox.Show("请输入数据！");
                 return;
             }
-            List<JCInfoModel> list = new List<JCInfoModel>();
-            list = bll.SelectTM(textBox1.Text.Trim());
-            dataGridView3.DataSource = list;
-            if (dataGridView3.Rows.Count == 1)
+            string tmnum = textBox1.Text.Trim();
+            foreach (DataGridViewRow row in dataGridView3.Rows)
             {
-                dataGridView3.Rows[0].Cells["XZ"].Value = true;
+                if (row.Cells["jcPaiNumber"].Value.ToString().Trim() == tmnum)
+                {
+                    row.Cells["XZ"].Value = true;
+                    textBox1.Text = "";
+                    //该表lable中的数量信息
+                    numberAdd();
+                    return;
+                }
             }
         }
 

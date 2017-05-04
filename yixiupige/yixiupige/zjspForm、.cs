@@ -68,19 +68,19 @@ namespace yixiupige
             {
                 sp._load();
                 Loadevent();
-                MessageBox.Show("插入成功");
+                MessageBox.Show("增加成功");
                 if (!checkBox1.Checked)
                 {
                     this.Close();
                 }
                 else
                 {
-                    jbcsBLL jbcsbll = new jbcsBLL();
-                    List<jbcs> list = jbcsbll.selectList(4);
-                    foreach (var iteam in list)
-                    {
-                        typetextBox.Items.Add(iteam.AllType);
-                    }
+                    nametextBox.Text = "";
+                    bidtextBox.Text = "";
+                    typetextBox.SelectedIndex = 0;
+                    pricetextBox.Text = "";
+                    sumtextBox.Text = "";
+                    remarktextBox.Text = "";
                     GoodInfo gd1 = null;
                     string numno = (1 + gdbll.getNumber()).ToString();
                     int lenth = numno.Length;
@@ -92,7 +92,8 @@ namespace yixiupige
                     checkBox1.Checked = true;
                 }
             }
-            else {
+            else
+            {
                 MessageBox.Show("插入失败！");
             }
 

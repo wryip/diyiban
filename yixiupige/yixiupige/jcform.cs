@@ -76,10 +76,23 @@ namespace yixiupige
 
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow iteam in dataGridView3.Rows)
+            if (button1.Text == "全选")
             {
-                iteam.Cells["XZ"].Value = true;
+                button1.Text = "取消";
+                foreach (DataGridViewRow iteam in dataGridView3.Rows)
+                {
+                    iteam.Cells["XZ"].Value = true;
+                }
             }
+            else
+            {
+                button1.Text = "全选";
+                foreach (DataGridViewRow iteam in dataGridView3.Rows)
+                {
+                    iteam.Cells["XZ"].Value = false;
+                }
+            }
+            numberAdd();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -240,9 +253,23 @@ namespace yixiupige
                 {
                     row.Cells["XZ"].Value = true;
                     textBox1.Text = "";
+                    //该表lable中的数量信息
+                    numberAdd();
                     return;
                 }
             }
+        }
+        private void numberAdd()
+        {
+            int count = 0;
+            foreach (DataGridViewRow iteam in dataGridView3.Rows)
+            {
+                if (Convert.ToBoolean(iteam.Cells["XZ"].Value))
+                {
+                    count++;
+                }
+            }
+            label1.Text = count.ToString();
         }
     }
 }

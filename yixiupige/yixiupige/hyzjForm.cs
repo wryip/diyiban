@@ -168,7 +168,20 @@ namespace yixiupige
                 if (result)
                 {
                     MessageBox.Show("添加成功！");
-                    this.Close();
+                    if (checkBox3.Checked)
+                    {
+                        hyxmtextBox.Text = "";
+                        hykhtextBox.Text = "";
+                        hydhtextBox.Text = "";
+                        sfzhtextBox.Text = "";
+                        ywycomboBox.SelectedIndex = 0;
+                        dwtextBox.Text = "";
+                        bzxxtextBox.Text = "";
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
                 }
                 else
                 {
