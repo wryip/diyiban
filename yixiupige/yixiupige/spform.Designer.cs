@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("全部");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("全部");
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -85,13 +85,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeView1.Location = new System.Drawing.Point(7, 21);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "spAll";
-            treeNode1.Text = "全部";
+            treeNode2.Name = "spAll";
+            treeNode2.Text = "全部";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(110, 506);
             this.treeView1.TabIndex = 0;
-            this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick_1);
             // 
             // groupBox2
             // 

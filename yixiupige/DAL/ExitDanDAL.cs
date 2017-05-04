@@ -11,16 +11,9 @@ namespace DAL
 {
     public class ExitDanDAL
     {
-        //此类是退单类   各店也需要单独显示自己的
-        public string ID = FilterClass.ID == null ? null : FilterClass.ID.Trim();
-        //添加退单信息   
         public void AddExitDan(ExitDanModel model)
         {
-            if (ID == null)
-            {
-                return;
-            }
-            string str = "insert into ExitDan"+ID+"(memberName,memberCardNo,saleMen,DPName,DanMoney,StaffName,ExitDanTime) values(@memberName,@memberCardNo,@saleMen,@DPName,@DanMoney,@StaffName,@ExitDanTime)";
+            string str = "insert into ExitDan(memberName,memberCardNo,saleMen,DPName,DanMoney,StaffName,ExitDanTime) values(@memberName,@memberCardNo,@saleMen,@DPName,@DanMoney,@StaffName,@ExitDanTime)";
             SqlParameter[] pms = new SqlParameter[] {
             new SqlParameter("@memberName",model.memberName),
             new SqlParameter("@memberCardNo",model.memberCardNo),
@@ -32,32 +25,23 @@ namespace DAL
             };
             SqlHelper.ExecuteNonQuery(str, pms);
         }
-        //查询退弹信息   在统计报表中显示
         public List<ExitDanModel> SelectAllList(string begindate, string enddate, string dpname)
         {
+            string dpna=FilterClass.DianPu1.UserName;
             List<ExitDanModel> list = new List<ExitDanModel>();
-            string dpna=FilterClass.DianPu1.UserName;           
             ExitDanModel model;
-            string str="";
+            string str;
             if (dpname == "全部")
             {
-                foreach (KeyValuePair<string, int> iteam in FilterClass.dic)
-                {
-                    str += "select * from ";
-                    str += "ExitDan" + iteam.Value + "";
-                    str += " where ExitDanTime between '" + begindate + "' and '" + enddate + "'";
-                    str += " union all ";
-                }
-                str = str.Substring(0, str.Length - 10);
+                str = "select * from ExitDan where ExitDanTime BETWEEN '" + begindate + "' and '" + enddate + "'";
             }
             else if (dpname == "")
             {
-                str = "select * from ExitDan"+ID+" where ExitDanTime BETWEEN '" + begindate + "' and '" + enddate + "'";
+                str = "select * from ExitDan where ExitDanTime BETWEEN '" + begindate + "' and '" + enddate + "' and DPName='" + dpna + "'";
             }
             else
             {
-                int id = FilterClass.dic[dpname.Trim()];
-                str = "select * from ExitDan"+id+" where ExitDanTime BETWEEN '" + begindate + "' and '" + enddate + "'";
+                str = "select * from ExitDan where ExitDanTime BETWEEN '" + begindate + "' and '" + enddate + "' and DPName='" + dpname + "'";
             }
             SqlDataReader read = SqlHelper.ExecuteReader(str);
             while (read.Read())

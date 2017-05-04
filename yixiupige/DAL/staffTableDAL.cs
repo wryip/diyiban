@@ -11,8 +11,6 @@ namespace DAL
 {
     public class staffTableDAL
     {
-        //店铺中的员工的信息表
-        //添加员工的信息
         public bool AddInfoModel(staffTable model)
         {
             bool result = false;
@@ -33,7 +31,6 @@ namespace DAL
             }
             return result;
         }
-        //查询所有的店铺员工的详细信息
         public List<staffTable> selectAllList()
         {
             string dpname=FilterClass.DianPu1.UserName.Trim();
@@ -72,7 +69,6 @@ namespace DAL
             }
             return list;
         }
-        //修改某一个员工信息
         public bool updateModel(staffTable model)
         {
             bool result = false;
@@ -93,7 +89,6 @@ namespace DAL
             }
             return result;
         }
-        //删除某一个员工信息
         public bool deleteIteam(int id)
         {
             bool result = false;
@@ -131,37 +126,6 @@ namespace DAL
                  str = "select stName from staffTable where DPName=@DPName";
             }
             SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
-            while (read.Read())
-            {
-                if (read.HasRows)
-                {
-                    model = new jbcs();
-                    model.AllType = read["stName"].ToString().Trim();
-                    list.Add(model);
-                }
-            }
-            return list;
-        }
-        public List<jbcs> selectDNWC(string dpname1)
-        {
-            string dpname = dpname1;
-            List<jbcs> list = new List<jbcs>();
-            jbcs model;
-            SqlParameter[] pms;
-            string str;
-            if (dpname == "admin")
-            {
-                pms = new SqlParameter[] { };
-                str = "select stName from staffTable";
-            }
-            else
-            {
-                pms = new SqlParameter[] { 
-            new SqlParameter("@DPName",dpname)
-            };
-                str = "select stName from staffTable where DPName=@DPName";
-            }
-            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
                 if (read.HasRows)

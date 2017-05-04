@@ -1,5 +1,4 @@
-﻿using BLL;
-using Commond;
+﻿using Commond;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -23,7 +22,6 @@ namespace yixiupige
         public static Databind bind;
         BLL.LoginUser bll = new BLL.LoginUser();
         private static YGFinish _danli = null;
-        staffInfoBLL ygbll = new staffInfoBLL();
         public static YGFinish CreateForm(Databind bind1)
         {
             bind = bind1;
@@ -36,10 +34,8 @@ namespace yixiupige
         private void YGFinish_Load(object sender, EventArgs e)
         {
             string DPName = FilterClass.DianPu1.UserName.Trim();
-            //List<YGUser> list = new List<YGUser>();
-            //list = bll.SelectUserName(DPName);
-            List<jbcs> list = new List<jbcs>();
-            list = ygbll.selectDNWC(DPName);
+            List<YGUser> list = new List<YGUser>();
+            list = bll.SelectUserName(DPName);
             dataGridView1.DataSource = list;
         }
 

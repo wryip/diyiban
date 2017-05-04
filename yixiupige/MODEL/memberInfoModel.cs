@@ -9,7 +9,7 @@ namespace MODEL
     public class memberInfoModel
     {
         public int ID { get; set; }
-        public int idbh { get; set; }
+        public int id { get; set; }
         public string memberCardNo { get; set; }
         public string memberName { get; set; }
         public string memberTel { get; set; }

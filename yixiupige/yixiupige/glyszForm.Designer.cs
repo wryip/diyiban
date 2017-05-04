@@ -260,7 +260,7 @@
             // dmjsbox
             // 
             this.dmjsbox.AutoSize = true;
-            this.dmjsbox.Location = new System.Drawing.Point(271, 320);
+            this.dmjsbox.Location = new System.Drawing.Point(271, 308);
             this.dmjsbox.Name = "dmjsbox";
             this.dmjsbox.Size = new System.Drawing.Size(72, 16);
             this.dmjsbox.TabIndex = 15;

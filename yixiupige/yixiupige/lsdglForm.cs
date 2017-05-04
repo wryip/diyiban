@@ -83,7 +83,7 @@ namespace yixiupige
             {
                 DianPu model = new DianPu();
                 model = (DianPu)dataGridView1.SelectedRows[0].DataBoundItem;
-                bool result = dpbll.deleteIteam(model.ID);
+                bool result = dpbll.deleteIteam(model.DPName);
                 if (result)
                 {
                     MessageBox.Show("删除成功！");

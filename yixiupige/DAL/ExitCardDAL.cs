@@ -12,17 +12,10 @@ namespace DAL
 {
     public class ExitCardDAL
     {
-        //退卡信息   此信息也需要单独来统计
-        public string ID = FilterClass.ID == null ? null : FilterClass.ID.Trim();
-        //添加退卡信息
         public bool ExitCard(ExitCardModel model)
         {
-            if (ID == null)
-            {
-                return false;
-            }
             bool result = false;
-            string str = "insert into ExitCard"+ID+"(memberName,DateTimeCard,saleMen,CardMoney,CardType,DPName) values(@memberName,@DateTimeCard,@saleMen,@CardMoney,@CardType,@DPName)";
+            string str = "insert into ExitCard(memberName,DateTimeCard,saleMen,CardMoney,CardType,DPName) values(@memberName,@DateTimeCard,@saleMen,@CardMoney,@CardType,@DPName)";
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@memberName",model.memberName),
             new SqlParameter("@DateTimeCard",model.DateTimeCard),
@@ -37,34 +30,34 @@ namespace DAL
             }
             return result;
         }
-        //在统计报表中显示的信息   显示的退卡信息
         public List<ExitCardModel> SelectAllList(string begindate, string enddate, string dpname)
         {
             List<ExitCardModel> list = new List<ExitCardModel>();
             ExitCardModel model;
-            string str="";
-            //SqlParameter[] pms;
+            string str;
+            SqlParameter[] pms;
             if (dpname =="全部")
             {
-                foreach (KeyValuePair<string, int> iteam in FilterClass.dic)
-                {
-                    str += "select * from ";
-                    str += "ExitCard" + iteam.Value + "";
-                    str += " where DateTimeCard between '" + begindate + "' and '" + enddate + "'";
-                    str += " union all ";
-                }
+                str = "select * from ExitCard where DateTimeCard BETWEEN '" + begindate + "' and '" + enddate + "'";
+                pms = new SqlParameter[] {           
+            };
             }
             else if (dpname == "")
             {
                 string dpna = FilterClass.DianPu1.UserName;
-                str = "select * from ExitCard"+ID+" where DateTimeCard BETWEEN '" + begindate + "' and '" + enddate + "'";              
+                str = "select * from ExitCard where DateTimeCard BETWEEN '" + begindate + "' and '" + enddate + "' and DPName=@DPName";
+                pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",dpna)
+            };
             }
             else
             {
-                int id = FilterClass.dic[dpname.Trim()];
-                str = "select * from ExitCard where DateTimeCard"+id+" BETWEEN '" + begindate + "' and '" + enddate + "'";               
+                str = "select * from ExitCard where DateTimeCard BETWEEN '" + begindate + "' and '" + enddate + "' and DPName=@DPName";
+                pms = new SqlParameter[] {             
+            new SqlParameter("@DPName",dpname)
+            };
             }
-            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
                 if (read.HasRows)

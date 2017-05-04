@@ -88,11 +88,18 @@ namespace yixiupige
             
         }
 
-        //private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        //{
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            string cardTepe = e.Node.Text;
+            GoodInfo gd = new GoodInfo()
+            {
+                Gtype=cardTepe
+            };
+            List<GoodInfo> list = gdbll.Getlist(gd);
             
+            dataGridView1.DataSource = gdbll.Getlist(gd);
            
-        //}
+        }
 
         private void 查看商品ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -182,19 +189,6 @@ namespace yixiupige
         private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
         {
             dataGridView1.Rows[e.RowIndex].Selected = true;
-        }
-
-        private void treeView1_NodeMouseClick_1(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            string cardTepe = e.Node.Text;
-            GoodInfo gd = new GoodInfo()
-            {
-                Gtype = cardTepe
-            };
-            List<GoodInfo> list = gdbll.Getlist(gd);
-
-            dataGridView1.DataSource = gdbll.Getlist(gd);
-            
         }
       
     }

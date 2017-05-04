@@ -29,10 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("全部");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("全部");
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.查找寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.寄存取走ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.修改寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.增加寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.取消取走ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打印预览ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.glNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcPression = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,18 +66,6 @@
             this.glTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glDanNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcImgUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.查找寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.寄存取走ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.修改寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.增加寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.取消取走ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.打印预览ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -129,7 +129,6 @@
             this.glTel,
             this.glDanNo,
             this.jcImgUrl});
-            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(6, 21);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -141,6 +140,116 @@
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView1_RowContextMenuStripNeeded);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.查找寄存ToolStripMenuItem,
+            this.寄存取走ToolStripMenuItem,
+            this.修改寄存ToolStripMenuItem,
+            this.增加寄存ToolStripMenuItem,
+            this.删除寄存ToolStripMenuItem,
+            this.取消取走ToolStripMenuItem,
+            this.打印预览ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 158);
+            // 
+            // 查找寄存ToolStripMenuItem
+            // 
+            this.查找寄存ToolStripMenuItem.Name = "查找寄存ToolStripMenuItem";
+            this.查找寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.查找寄存ToolStripMenuItem.Text = "查找寄存";
+            this.查找寄存ToolStripMenuItem.Click += new System.EventHandler(this.查找寄存ToolStripMenuItem_Click);
+            // 
+            // 寄存取走ToolStripMenuItem
+            // 
+            this.寄存取走ToolStripMenuItem.Name = "寄存取走ToolStripMenuItem";
+            this.寄存取走ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.寄存取走ToolStripMenuItem.Text = "寄存取走";
+            this.寄存取走ToolStripMenuItem.Click += new System.EventHandler(this.寄存取走ToolStripMenuItem_Click);
+            // 
+            // 修改寄存ToolStripMenuItem
+            // 
+            this.修改寄存ToolStripMenuItem.Name = "修改寄存ToolStripMenuItem";
+            this.修改寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.修改寄存ToolStripMenuItem.Text = "修改寄存";
+            this.修改寄存ToolStripMenuItem.Click += new System.EventHandler(this.修改寄存ToolStripMenuItem_Click);
+            // 
+            // 增加寄存ToolStripMenuItem
+            // 
+            this.增加寄存ToolStripMenuItem.Name = "增加寄存ToolStripMenuItem";
+            this.增加寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.增加寄存ToolStripMenuItem.Text = "增加寄存";
+            this.增加寄存ToolStripMenuItem.Click += new System.EventHandler(this.增加寄存ToolStripMenuItem_Click);
+            // 
+            // 删除寄存ToolStripMenuItem
+            // 
+            this.删除寄存ToolStripMenuItem.Name = "删除寄存ToolStripMenuItem";
+            this.删除寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.删除寄存ToolStripMenuItem.Text = "删除寄存";
+            this.删除寄存ToolStripMenuItem.Click += new System.EventHandler(this.删除寄存ToolStripMenuItem_Click);
+            // 
+            // 取消取走ToolStripMenuItem
+            // 
+            this.取消取走ToolStripMenuItem.Name = "取消取走ToolStripMenuItem";
+            this.取消取走ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.取消取走ToolStripMenuItem.Text = "取消取走";
+            this.取消取走ToolStripMenuItem.Click += new System.EventHandler(this.取消取走ToolStripMenuItem_Click);
+            // 
+            // 打印预览ToolStripMenuItem
+            // 
+            this.打印预览ToolStripMenuItem.Name = "打印预览ToolStripMenuItem";
+            this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印预览ToolStripMenuItem.Text = "打印预览";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox3.Controls.Add(this.treeView1);
+            this.groupBox3.Location = new System.Drawing.Point(22, 13);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(200, 325);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "寄存分类";
+            // 
+            // treeView1
+            // 
+            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeView1.Location = new System.Drawing.Point(8, 19);
+            this.treeView1.Name = "treeView1";
+            treeNode2.Name = "treeAll";
+            treeNode2.Text = "全部";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode2});
+            this.treeView1.Size = new System.Drawing.Size(187, 300);
+            this.treeView1.TabIndex = 0;
+            this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.pictureBox1);
+            this.groupBox2.Location = new System.Drawing.Point(22, 344);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 188);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "图片预览";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(8, 21);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(187, 161);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // glNo
             // 
@@ -303,116 +412,6 @@
             this.jcImgUrl.Name = "jcImgUrl";
             this.jcImgUrl.ReadOnly = true;
             this.jcImgUrl.Visible = false;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.查找寄存ToolStripMenuItem,
-            this.寄存取走ToolStripMenuItem,
-            this.修改寄存ToolStripMenuItem,
-            this.增加寄存ToolStripMenuItem,
-            this.删除寄存ToolStripMenuItem,
-            this.取消取走ToolStripMenuItem,
-            this.打印预览ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 158);
-            // 
-            // 查找寄存ToolStripMenuItem
-            // 
-            this.查找寄存ToolStripMenuItem.Name = "查找寄存ToolStripMenuItem";
-            this.查找寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.查找寄存ToolStripMenuItem.Text = "查找寄存";
-            this.查找寄存ToolStripMenuItem.Click += new System.EventHandler(this.查找寄存ToolStripMenuItem_Click);
-            // 
-            // 寄存取走ToolStripMenuItem
-            // 
-            this.寄存取走ToolStripMenuItem.Name = "寄存取走ToolStripMenuItem";
-            this.寄存取走ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.寄存取走ToolStripMenuItem.Text = "寄存取走";
-            this.寄存取走ToolStripMenuItem.Click += new System.EventHandler(this.寄存取走ToolStripMenuItem_Click);
-            // 
-            // 修改寄存ToolStripMenuItem
-            // 
-            this.修改寄存ToolStripMenuItem.Name = "修改寄存ToolStripMenuItem";
-            this.修改寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.修改寄存ToolStripMenuItem.Text = "修改寄存";
-            this.修改寄存ToolStripMenuItem.Click += new System.EventHandler(this.修改寄存ToolStripMenuItem_Click);
-            // 
-            // 增加寄存ToolStripMenuItem
-            // 
-            this.增加寄存ToolStripMenuItem.Name = "增加寄存ToolStripMenuItem";
-            this.增加寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.增加寄存ToolStripMenuItem.Text = "增加寄存";
-            this.增加寄存ToolStripMenuItem.Click += new System.EventHandler(this.增加寄存ToolStripMenuItem_Click);
-            // 
-            // 删除寄存ToolStripMenuItem
-            // 
-            this.删除寄存ToolStripMenuItem.Name = "删除寄存ToolStripMenuItem";
-            this.删除寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.删除寄存ToolStripMenuItem.Text = "删除寄存";
-            this.删除寄存ToolStripMenuItem.Click += new System.EventHandler(this.删除寄存ToolStripMenuItem_Click);
-            // 
-            // 取消取走ToolStripMenuItem
-            // 
-            this.取消取走ToolStripMenuItem.Name = "取消取走ToolStripMenuItem";
-            this.取消取走ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.取消取走ToolStripMenuItem.Text = "取消取走";
-            this.取消取走ToolStripMenuItem.Click += new System.EventHandler(this.取消取走ToolStripMenuItem_Click);
-            // 
-            // 打印预览ToolStripMenuItem
-            // 
-            this.打印预览ToolStripMenuItem.Name = "打印预览ToolStripMenuItem";
-            this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.打印预览ToolStripMenuItem.Text = "打印预览";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox3.Controls.Add(this.treeView1);
-            this.groupBox3.Location = new System.Drawing.Point(22, 13);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 325);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "寄存分类";
-            // 
-            // treeView1
-            // 
-            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeView1.Location = new System.Drawing.Point(8, 19);
-            this.treeView1.Name = "treeView1";
-            treeNode1.Name = "treeAll";
-            treeNode1.Text = "全部";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            this.treeView1.Size = new System.Drawing.Size(187, 300);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox2.Controls.Add(this.pictureBox1);
-            this.groupBox2.Location = new System.Drawing.Point(22, 344);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 188);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "图片预览";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(8, 21);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(187, 161);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // jcglform
             // 

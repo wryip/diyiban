@@ -11,11 +11,6 @@ namespace DAL
 {
     public class QtFuWuDAL
     {
-        /// <summary>
-        /// 添加其他服务类
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
         public bool AddModel(qtFuWuModel model)
         {
             bool result = false;

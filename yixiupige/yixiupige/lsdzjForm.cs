@@ -141,13 +141,11 @@ namespace yixiupige
                 MessageBox.Show("请将信息填写完整！");
                 return;
             }
-            int result = dpbll.AddModel(model);
-            if (result!=0)
+            bool result = dpbll.AddModel(model);
+            if (result)
             {
                 MessageBox.Show("添加成功！");
                 bind();
-                //添加成功之后，开始添加新店铺所对应的表
-                dpbll.AddTable(result);
                 this.Close();
                 return;
             }

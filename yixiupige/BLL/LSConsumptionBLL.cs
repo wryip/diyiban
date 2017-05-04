@@ -24,14 +24,10 @@ namespace BLL
         {
             return dal.selectAllList(cardNo, name);
         }
-        public List<LiShiConsumption> selectAllListSK(string skname,string sktel, string name)
-        {
-            return dal.selectAllListSK(skname, sktel, name);
-        }
         //返回不大票据的信息
-        public List<bdpjModel> selectBDPJ(string name, string cardno, string tel)
+        public List<bdpjModel> selectBDPJ()
         {
-            return dal.selectBDPJ(name, cardno, tel);
+            return dal.selectBDPJ();
         }
         public List<LiShiConsumption> selectTJ(string begindate,string enddate,string yginfo,string dpname)
         {

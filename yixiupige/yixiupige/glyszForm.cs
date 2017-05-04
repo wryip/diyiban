@@ -349,10 +349,6 @@ namespace yixiupige
             {
                 ygcheckBox.Checked = true;
             }
-            if (model.dmjs)
-            {
-                dmjsbox.Checked = true;
-            }
         }
 
         private void button5_Click(object sender, EventArgs e)

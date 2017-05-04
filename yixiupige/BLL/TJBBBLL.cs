@@ -16,28 +16,23 @@ namespace BLL
         memberInfoDAL hybkdal = new memberInfoDAL();
         JCInfoDAL jcdal = new JCInfoDAL();
         LSConsumptionDAL lidal = new LSConsumptionDAL();
-        //此处应该是收入的统计   纯现金
         public List<TJBBSR> selectTJBB(string begindate, string enddate, string yginfo,string lbtype,string name)
         {
             List<TJBBSR> list = new List<TJBBSR>();
             List<TJBBSR> list1 = new List<TJBBSR>();
             TJBBSR model;
             //充值的钱
-            List<memberToUpModel> listcz = czdal.selectTJ(begindate, enddate, yginfo, name);
+            List<memberToUpModel> listcz = czdal.selectTJ(begindate,enddate,yginfo);
             //办卡的钱
             List<memberInfoModel> listbk = hybkdal.tjbbOfbk(begindate, enddate, name);
             //取走寄存的时候给的钱
             //改为查询历史检查记录，将有应付金额的加进来
-            List<JCInfoModel> listjc = jcdal.selectQZTJ(begindate, enddate, yginfo, lbtype, name);
+            List<JCInfoModel> listjc = jcdal.selectQZTJ(begindate, enddate,yginfo, lbtype);
             //还要统计，在收活处，点了付款之后的当时就付了先进的应付金额
             List<LiShiConsumption> listls = lidal.selectTJMoney(begindate, enddate, yginfo, name);
             #region//将数据首先存放在list1中
             foreach (var iteam in listcz)
             {
-                if (iteam.czMoney.Trim() == "0")
-                {
-                    continue;
-                }
                 model = new TJBBSR();
                 model.Name = "会员充值，姓名[" + iteam.czName.Trim() + "],卡号[" + iteam.czNo.Trim() + "]";
                 model.Date = iteam.czDate;
@@ -48,10 +43,6 @@ namespace BLL
             }
             foreach (var iteam in listbk)
             {
-                if (iteam.cardMoney.Trim() == "0")
-                {
-                    continue;
-                }
                 model = new TJBBSR();
                 model.Name = "会员办卡，姓名[" + iteam.memberName.Trim() + "],卡号[" + iteam.memberCardNo.Trim() + "]";
                 model.Date = iteam.cardDate;
@@ -62,10 +53,6 @@ namespace BLL
             }
             foreach (var iteam in listjc)
             {
-                if (iteam.jcQMoney.Trim() == "0")
-                {
-                    continue;
-                }
                 model = new TJBBSR();
                 model.Name = iteam.jcName.Trim() + "," + iteam.jcCardNumber.Trim() + "," + iteam.jcStaff.Trim();
                 model.Date = iteam.jcBeginDate;
@@ -76,10 +63,6 @@ namespace BLL
             }
             foreach (var iteam in listls)
             {
-                if (iteam.LSYMoney.Trim() == "0")
-                {
-                    continue;
-                }
                 model = new TJBBSR();
                 model.Name = iteam.LSName.Trim() + "," + iteam.LSCardNumber.Trim() + "," + iteam.LSStaff.Trim();
                 model.Date = iteam.LSDate;

@@ -12,8 +12,6 @@ namespace DAL
     public class fuwuDAL
     {
         //服务的DAL
-        //添加服务类    基本服务
-        //admin账户可设置此参数   添加服务的时候记录   店铺名称   在查询的时候去除名称
         public bool AddModel(fuwuModel model)
         {
             bool result = false;
@@ -29,26 +27,25 @@ namespace DAL
             }
             return result;
         }
-        //显示服务  查询功能
         public List<fuwuModel> selectAllList()
         {
             List<fuwuModel> list = new List<fuwuModel>();
             fuwuModel model;
-            string str = "select * from fuwuInfo where DPName='" + FilterClass.DianPu1.UserName.Trim() + "'";
-            //SqlParameter[] pms;
-            //if (FilterClass.DianPu1.UserName.Trim()=="admin")
-            //{
-            //    str = "select * from fuwuInfo";
-            
-            //}
-            //else
-            //{
-            //    str = "select * from fuwuInfo";
-            ////    pms = new SqlParameter[] { 
-            ////new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
-            ////};
-            //}
-            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            string str;
+            SqlParameter[] pms;
+            if (FilterClass.DianPu1.UserName.Trim()=="admin")
+            {
+                str = "select * from fuwuInfo";
+                pms = new SqlParameter[] { };
+            }
+            else
+            {
+                str = "select * from fuwuInfo where DPName=@DPName";
+                pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            };
+            }
+            SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
                 if (read.HasRows)
@@ -61,27 +58,26 @@ namespace DAL
             }
             return list;
         }
-        //通过服务名称查询数据
         public fuwuModel selectIteam(string name)
         {
             fuwuModel model = new fuwuModel();
             string str;
             SqlParameter[] pms;
-            //if (FilterClass.DianPu1.UserName.Trim()=="admin")
-            //{
-            str = "select * from fuwuInfo where Name=@Name and DPName='" + FilterClass.DianPu1.UserName.Trim() + "' ";
+            if (FilterClass.DianPu1.UserName.Trim()=="admin")
+            {
+                str = "select * from fuwuInfo where Name=@Name";
                 pms = new SqlParameter[] { 
             new SqlParameter("@Name",name.Trim())
             };
-           // }
-            //else
-            //{
-            //    str = "select * from fuwuInfo where Name=@Name and DPName=@DPName";
-            //    pms = new SqlParameter[] { 
-            //new SqlParameter("@Name",name.Trim()),
-            //new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
-            //};
-            //}
+            }
+            else
+            {
+                str = "select * from fuwuInfo where Name=@Name and DPName=@DPName";
+                pms = new SqlParameter[] { 
+            new SqlParameter("@Name",name.Trim()),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
+            };
+            }
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
@@ -93,7 +89,6 @@ namespace DAL
             }
             return model;
         }
-        //修改基本服务中的信息
         public bool EditModel(fuwuModel model)
         {
             bool result = false;
@@ -109,7 +104,6 @@ namespace DAL
             }
             return result;
         }
-        //删除基本服务中的信息
         public bool deleteIteam(string name)
         {
             bool result = false;

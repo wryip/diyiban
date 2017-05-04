@@ -32,7 +32,7 @@ namespace yixiupige
         {
             try
             {
-                Double money = Convert.ToDouble(textBox1.Text.Trim());
+                int money = Convert.ToInt32(textBox1.Text.Trim());
                 tagbi(textBox1.Text.Trim());
                 this.Close();
             }

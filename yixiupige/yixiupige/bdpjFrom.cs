@@ -35,16 +35,11 @@ namespace yixiupige
             writer.Options = option;  
         }
         private static bdpjFrom zjhyfl;
-        public static string name1;
-        public static string cardno1;
-        public static string tel1;
-        JCInfoBLL jcbll = new JCInfoBLL();
+        //public static string cardNo;
         LSConsumptionBLL lsbll = new LSConsumptionBLL();
-        public static bdpjFrom Create(string name,string cardno,string tel)
+        public static bdpjFrom Create()
         {
-            name1 = name;
-            cardno1 = cardno;
-            tel1 = tel;
+            //cardNo = cardno;
             if (zjhyfl == null)
             {
                 zjhyfl = new bdpjFrom();
@@ -55,8 +50,8 @@ namespace yixiupige
         private void bdpjFrom_Load(object sender, EventArgs e)
         {
             List<bdpjModel> list = new List<bdpjModel>();
-            list = lsbll.selectBDPJ(name1, cardno1,tel1);
-            dataGridView1.DataSource = list;
+            list = lsbll.selectBDPJ();
+            dataGridView1.DataSource = list.OrderByDescending(a=>a.danNumber).ToList();
 
         }
 
@@ -77,8 +72,6 @@ namespace yixiupige
 
         private void button2_Click(object sender, EventArgs e)
         {
-            List<shInfoList> list1 = new List<shInfoList>();
-            shInfoList model1;
             double hjje = 0;
             int hjcg = 0;
             double yfje = 0;
@@ -92,29 +85,13 @@ namespace yixiupige
             string websb = "http://yhc19950315.imwork.net:28948?id=" + dnanumber;
             Bitmap bitmap = writer.Write(websb);
             List<LiShiConsumption> list = lsbll.SelectForDanNumber(dnanumber);
-            //List<JCInfoModel> list = jcbll.SelectJCListForDAN(dnanumber);
             foreach (var iteam in list)
             {
-                model1 = new shInfoList();
-                model1.JiCun = iteam.IsJC;
-                model1.Count = Convert.ToInt32(iteam.LSCount);
-                model1.FuKuan = false;
-                string[] str = iteam.LSStaff.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
-                model1.Type=str[0];
-                if (str.Length > 1)
-                {
-                    model1.FuWuName = str[1];
-                }
-                model1.PinPai = iteam.LSPinPai;
-                model1.Color = iteam.LSColor;
-                model1.CountMoney = Convert.ToDouble(iteam.LSMoney);
-                model1.YMoney = Convert.ToDouble(iteam.LSYMoney);
                 hjje += Convert.ToDouble(iteam.LSMoney);
                 hjcg += Convert.ToInt32(iteam.LSCount);
                 yfje += Convert.ToDouble(iteam.LSYMoney);
-                list1.Add(model1);
             }
-            PirentDocumentClass.PirentSH(hjje.ToString(), hjcg.ToString(), yfje.ToString(), list1, bitmap, dnanumber, list[0].LSName, list[0].LSCardNumber, list[0].LSDate, "补打");
+            PirentDocumentClass.PirentSH(hjje.ToString(), hjcg.ToString(), yfje.ToString(), list, bitmap, dnanumber, list[0].LSName, list[0].LSCardNumber, list[0].LSDate,"此为补打票据");
         }
     }
 }

@@ -34,7 +34,7 @@ namespace yixiupige
         {
             comboBox1.SelectedIndex = 0;
             //取走绑定数据
-            //databindview1();
+            databindview1();
             //退回绑定数据
         }
 
@@ -53,11 +53,9 @@ namespace yixiupige
         private void button1_Click(object sender, EventArgs e)
         {
             //取走绑定数据
-            //databindview1();
+            databindview1();
             ////退回绑定数据
             //databindview2();
-            dataGridView1.DataSource = new List<JCInfoModel>();
-            dataGridView2.DataSource = new List<JCInfoModel>();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -66,10 +64,10 @@ namespace yixiupige
                 List<JCInfoModel> listbk=new List<JCInfoModel>();
             string type = comboBox1.Text.Trim();
             string neirong = textBox1.Text.Trim();
-            //string begindate = TimeGuiGe.TimePicterBegin(dateTimePicker1.Text);
-            //string enddate = TimeGuiGe.TimePicterEng(dateTimePicker2.Text);
+            string begindate = TimeGuiGe.TimePicterBegin(dateTimePicker1.Text);
+            string enddate = TimeGuiGe.TimePicterEng(dateTimePicker2.Text);
             List<JCInfoModel> list = new List<JCInfoModel>();
-            list = bll.selectQZ(type, neirong);
+            list = bll.selectQZ(type, neirong, begindate, enddate);
             if (list.Count <= 0)
             {
                 MessageBox.Show("无数据！");

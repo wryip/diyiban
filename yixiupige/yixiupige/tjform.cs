@@ -54,7 +54,6 @@ namespace yixiupige
             string dianname = FilterClass.DianPu1.UserName;
             if (dianname.Trim() == "admin")
             {
-                comboBox3.Items.Add("全部");
                 label5.Visible = true;
                 comboBox3.Visible = true;
                 List<string> str = dpbll.selectDPName();
@@ -111,7 +110,7 @@ namespace yixiupige
                 //取走统计
                 case 3: qztjdata(dpname);
                     break;
-                //会员卡统计
+                //消费统计
                 case 4: xftjdata(dpname);
                     break;
                 //收入统计
@@ -391,22 +390,22 @@ namespace yixiupige
             double money = 0;
             List<JCInfoModel> list = new List<JCInfoModel>();
             List<JCInfoModel> list1 = new List<JCInfoModel>();
-            list = jcbll.selectQZTJ(begindate, enddate, yginfo, lbinfo, name);
-            //if (name != "")
-            //{
-            //    foreach (var iteam in list)
-            //    {
-            //        if (iteam.lsdm == name)
-            //        {
-            //            list1.Add(iteam);
-            //            money += Convert.ToDouble(iteam.jcNo);
-            //        }
-            //    }
-            //    dataGridView4.DataSource = list1;
-            //    label8.Text = list1.Count.ToString();
-            //    label9.Text = money.ToString();
-            //    return;
-            //}
+            list = jcbll.selectQZTJ(begindate, enddate, yginfo, lbinfo);
+            if (name != "")
+            {
+                foreach (var iteam in list)
+                {
+                    if (iteam.lsdm == name)
+                    {
+                        list1.Add(iteam);
+                        money += Convert.ToDouble(iteam.jcNo);
+                    }
+                }
+                dataGridView4.DataSource = list1;
+                label8.Text = list1.Count.ToString();
+                label9.Text = money.ToString();
+                return;
+            }
             dataGridView4.DataSource = list;
             label8.Text = list.Count.ToString();
             foreach (var iteam in list)
