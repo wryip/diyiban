@@ -186,7 +186,7 @@ namespace yixiupige
         //显示连锁店管理窗口
         private void 系统设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (FilterClass.DianPu1.UserName!="admin")
+            if (!FilterClass.lsdsz())
             {
                 MessageBox.Show("无权操作！");
                 return;

@@ -11,7 +11,8 @@ using System.Threading.Tasks;
 namespace DAL
 {
     public class LoginUserDAl
-    {       
+    {
+        public string ID = FilterClass.ID == null ? null : FilterClass.ID.Trim();
         //登陆的业务处理
         public LoginUser SelectUser(string loginuser,string pwd,string name)
         {
@@ -186,10 +187,14 @@ namespace DAL
         }
         public bool AddUserFinish(string name, List<int> list)
         {
+            if (ID == null)
+            {
+                return false;
+            }
             name = name.Trim();
             bool result = false;
             string datetime=DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string str = "insert into YGFinish(DateTime,JCID,Name) values";
+            string str = "insert into YGFinish"+ID+"(DateTime,JCID,Name) values";
             string regx = "('{0}','{1}','{2}'),";
             foreach (int id in list)
             {
@@ -202,29 +207,38 @@ namespace DAL
             }
             return result;
         }
+        //统计报表中的  店内完成统计
         public List<JCInfoModel> YGFinish(string begindate, string enddate, string dpname)
         {
             List<JCInfoModel> list = new List<JCInfoModel>();
             JCInfoModel model;
-            string str = "select a.*,b.Name from JCInfoTable as a join YGFinish as b on a.jcID=b.JCID where b.DateTime between '" + begindate + "' and '" + enddate + "' and DPName='" + dpname + "'";
-            string dpnam = FilterClass.DianPu1.UserName.Trim();
+            string str="";
+            //string dpnam = FilterClass.DianPu1.UserName.Trim();
             if (dpname == "")
             {
-                str = "select a.*,b.Name from JCInfoTable as a join YGFinish as b on a.jcID=b.JCID where b.DateTime between '" + begindate + "' and '" + enddate + "' and DPName='" + dpnam + "'";
+                str = "select a.*,b.Name from JCInfoTable"+ID+" as a join YGFinish"+ID+" as b on a.jcID=b.JCID where b.DateTime between '" + begindate + "' and '" + enddate + "'";
+            }
+            else if (dpname == "全部")
+            {
+                foreach (KeyValuePair<string, int> iteam in FilterClass.dic)
+                {
+                    str += "select a.*,b.Name from ";
+                    str += "JCInfoTable" + iteam.Value + " as a join YGFinish" + iteam.Value + " as b on a.jcID=b.JCID ";
+                    str += " where b.DateTime between '" + begindate + "' and '" + enddate + "'";
+                    str += " union all ";
+                }
+                str = str.Substring(0, str.Length - 10);
             }
             else
             {
-                if (dpname == "全部")
-                {
-                    str = "select a.*,b.Name from JCInfoTable as a join YGFinish as b on a.jcID=b.JCID where b.DateTime between '" + begindate + "' and '" + enddate + "'";
-                }
+                int id = FilterClass.dic[dpname];
+                str = "select a.*,b.Name from JCInfoTable" + id + " as a join YGFinish" + id + " as b on a.jcID=b.JCID where b.DateTime between '" + begindate + "' and '" + enddate + "'";
             }
             SqlDataReader read = SqlHelper.ExecuteReader(str);
             while (read.Read())
             {
                 if (read.HasRows)
                 {
-                    model = new JCInfoModel();
                     model = new JCInfoModel();
                     model.jcNo = Convert.ToInt32(read["XYF"]);
                     model.jcID = Convert.ToInt32(read["jcID"]);

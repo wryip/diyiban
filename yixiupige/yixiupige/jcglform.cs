@@ -96,7 +96,7 @@ namespace yixiupige
         }
         private void 寄存取走ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(dataGridView1.Rows[0].Cells["glDanNo"].Value);
+            int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["glDanNo"].Value);
             qzjcFrom qzjc = qzjcFrom.CreateForm(id, dataviewBind1);
             qzjc.Show();
             qzjc.Focus();
@@ -104,7 +104,7 @@ namespace yixiupige
 
         private void 修改寄存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(dataGridView1.Rows[0].Cells["glDanNo"].Value);
+            int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["glDanNo"].Value);
             UpdatejcFrom qzjc = UpdatejcFrom.CreateForm(id, dataviewBind1);
             qzjc.Show();
             qzjc.Focus();

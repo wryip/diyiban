@@ -19,13 +19,16 @@ namespace yixiupige
         {
             InitializeComponent();
         }
+        public delegate void DataBind();
+        public static DataBind bind1;
         memberTypeCURD cardtype = new memberTypeCURD();
         ExitCardBLL exitbll = new ExitCardBLL();
         memberInfoBLL bll = new memberInfoBLL();
         private static ExitCard _danli = null;
         public static memberInfoModel zhanshimolde { get; set; }
-        public static ExitCard CreateForm(memberInfoModel model)
+        public static ExitCard CreateForm(memberInfoModel model,DataBind bind)
         {
+            bind1 = bind;
             zhanshimolde = model;
             if (_danli == null)
             {
@@ -42,7 +45,7 @@ namespace yixiupige
             textBox4.Text = zhanshimolde.toUpMoney;
             textBox5.Text = zhanshimolde.cardType;
             textBox6.Text = zhanshimolde.memberType;
-            textBox7.Text = (Convert.ToDouble(zhanshimolde.toUpMoney.Trim()) * bl).ToString();
+            textBox7.Text = (Convert.ToDouble(zhanshimolde.toUpMoney.Trim()) / bl).ToString();
             
         }
 
@@ -71,6 +74,8 @@ namespace yixiupige
                 if (result)
                 {
                     MessageBox.Show("退卡成功！");
+                    bind1();
+                    this.Close();
                     return;
                 }
             }

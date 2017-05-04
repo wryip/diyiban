@@ -8,7 +8,7 @@ namespace MODEL
 {
     public class JCInfoModel
     {
-        public int jcNo { get; set; }
+        public double jcNo { get; set; }
         public int jcID { get; set; }
         public string jcCardNumber { get; set; }
         public string jcName { get; set; }

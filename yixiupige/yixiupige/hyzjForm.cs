@@ -64,7 +64,7 @@ namespace yixiupige
 
         private void qdbutton_Click(object sender, EventArgs e)
         {
-            if (hydhtextBox.Text == "" || hykhtextBox.Text == "" || hyxmtextBox.Text == "" || sfzhtextBox.Text == "" || hyxbcomboBox.Text == "" || lsdcomboBox.Text == "")
+            if (hydhtextBox.Text == "" || hykhtextBox.Text == "" || hyxmtextBox.Text == "" || hyxbcomboBox.Text == "" || lsdcomboBox.Text == "")
             {
                 MessageBox.Show("请将信息填写完整！");
                 return;
@@ -88,7 +88,7 @@ namespace yixiupige
                 }
                 else
                 {
-                    model.endDate = "1900-01-01 00:00:00";
+                    model.endDate = TimeGuiGe.TimePicterBegin(dateTimePicker1.Text);
                 }
                 model.fuwuBate = fwzktextBox.Text;
                 model.toUpMoney = czjetextBox.Text;
@@ -127,21 +127,44 @@ namespace yixiupige
                 #endregion
                 Bitmap newImage = new Bitmap(160, 120);
                 Graphics draw = Graphics.FromImage(newImage);
-                if (bitmap == null)
+                //if (bitmap == null)
+                //{
+                //    MessageBox.Show("请采集照片！");
+                //    return;
+                //}
+                string dirpath = "";
+                string path = "";
+                if (bitmap != null)
                 {
-                    MessageBox.Show("请采集照片！");
+                    draw.DrawImage(bitmap, 0, 0);
+                    draw.Dispose();
+                    dirpath = "E:\\mymemberimg";
+                    if (!Directory.Exists(dirpath))
+                        Directory.CreateDirectory(dirpath);
+                    path = dirpath + "\\" + hykhtextBox.Text.Trim() + ".bmp";
+                    if (newImage != null)
+                        newImage.Save(path, System.Drawing.Imaging.ImageFormat.Bmp);
+                }                                
+                model.imageUrl = path;
+                string name = hyxmtextBox.Text.Trim();
+                //为true的时候为不存在
+                bool result = modelbll.PDHYName(name);
+                if (!result)
+                {
+                    DialogResult resu= MessageBox.Show("已经存在当前姓名，是否继续添加？","提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+                    if (resu == DialogResult.Cancel)
+                    {
+                        return;
+                    }
+                }
+                //为true的时候为不存在
+                result = modelbll.PDCNumber(hykhtextBox.Text);
+                if (!result)
+                {
+                    DialogResult resu = MessageBox.Show("此卡号已经存在，请更换卡号！", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     return;
                 }
-                draw.DrawImage(bitmap, 0, 0);                
-                draw.Dispose();
-                string dirpath = "E:\\mymemberimg";
-                if (!Directory.Exists(dirpath))
-                    Directory.CreateDirectory(dirpath);
-                string path = dirpath + "\\" + hykhtextBox.Text.Trim()+ ".bmp";
-                if (newImage != null)
-                    newImage.Save(path, System.Drawing.Imaging.ImageFormat.Bmp);
-                model.imageUrl = path;
-                bool result=modelbll.AddMemberInfo(model);
+                result=modelbll.AddMemberInfo(model);
                 if (result)
                 {
                     MessageBox.Show("添加成功！");
@@ -171,8 +194,7 @@ namespace yixiupige
                 }
             }
             VideoCaptureDevice videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
-            videoSource.DesiredFrameSize = new Size(160, 120);
-            videoSource.DesiredFrameRate = 1;
+            videoSource.VideoResolution = videoSource.VideoCapabilities[1];
 
             videoSourcePlayer1.VideoSource = videoSource;
             videoSourcePlayer1.Start();
@@ -199,6 +221,7 @@ namespace yixiupige
             }
             #endregion
             #region//窗口打开的时候初始化的内容
+            dateTimePicker1.Value = new DateTime(DateTime.Now.Year+2,DateTime.Now.Month,DateTime.Now.Day);
             //初始化会员分类
             string[] str=new string[]{};
             List<string> list1 = bll.selectNodes();
@@ -340,8 +363,15 @@ namespace yixiupige
             double bl = bll.selectBL(name);
             if (bkjetextBox.Text != "")
             {
-                czjetextBox.Text = (Convert.ToDouble(bkjetextBox.Text) / bl).ToString();
+                czjetextBox.Text = (Convert.ToDouble(bkjetextBox.Text) * bl).ToString();
             }           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ygglForm yggl = ygglForm.Create();
+            yggl.Show();
+            yggl.Focus();
         }
     }
 }

@@ -46,6 +46,7 @@ namespace BLL
         {
             DPInfoBLL bll = new DPInfoBLL();
             string[] pict = bll.selectPicImg(dpname);
+            FilterClass.dic = bll.SelectAllDictionary();
             FilterClass.PicImg = pict[0];
             FilterClass.DXInfo = pict[1];
             FilterClass.ID = pict[2];

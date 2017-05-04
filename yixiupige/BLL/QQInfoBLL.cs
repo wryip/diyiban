@@ -19,7 +19,7 @@ namespace BLL
         {
             string dpname = FilterClass.DianPu1.UserName;
             System.Net.IPHostEntry myEntry = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName());
-            string ipAddress = myEntry.AddressList[6].ToString();
+            string ipAddress = myEntry.AddressList[1].ToString();
             dal.InsertIpAddress(dpname, ipAddress);
         }
     }

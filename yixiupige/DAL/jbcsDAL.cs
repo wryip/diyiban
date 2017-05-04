@@ -11,6 +11,8 @@ namespace DAL
 {
     public class jbcsDAL
     {
+        //基本参数类   要实现   admin账户设置之后   所有店铺均能显示
+        //添加基本参数
         public bool addIteam(string neirong, string type)
         {
             int typeclass=0;
@@ -42,6 +44,7 @@ namespace DAL
             }
             return result;
         }
+        //根据类型查询莫一种类型的基本参数都有什么
         public List<jbcs> selectList(int type)
         {
             List<jbcs> list = new List<jbcs>();
@@ -49,21 +52,22 @@ namespace DAL
             string dpname=FilterClass.DianPu1.UserName.Trim();
             SqlParameter[] pms;
             string str;
-            if (dpname == "admin")
-            {
+            //if (dpname == "admin")
+            //{
                 pms = new SqlParameter[] {
-                 new SqlParameter("@type",type)
-                 };
-                str = "select text from jbcstable where type=@type";
-            }
-            else
-            {
-                pms = new SqlParameter[] {
-                new SqlParameter("@type",type),
-                new SqlParameter("@DPName",dpname)
+                 new SqlParameter("@type",type),
+                  new SqlParameter("@DPName",dpname)
                  };
                 str = "select text from jbcstable where type=@type and DPName=@DPName";
-            }
+            //}
+            //else
+            //{
+            //    pms = new SqlParameter[] {
+            //    new SqlParameter("@type",type),
+            //    new SqlParameter("@DPName",dpname)
+            //     };
+            //    str = "select text from jbcstable where type=@type and DPName=@DPName";
+            //}
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
@@ -89,6 +93,7 @@ namespace DAL
         //    }
         //    return List;
         //}
+        //修改基本参数
         public bool updateIteam(string old, string xin)
         {
             bool result = false;
@@ -99,6 +104,7 @@ namespace DAL
             }
             return result;
         }
+        //删除莫一项基本参数
         public bool seleteIteam(string neirong)
         {
             bool result = false;

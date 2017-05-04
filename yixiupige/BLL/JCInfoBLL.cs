@@ -125,27 +125,12 @@ namespace BLL
         }
         public List<JCInfoModel> selectTJ(string begindate, string enddate, string yginfo,string jctype,string dpname)
         {
-            List<JCInfoModel> list1 = dal.selectTJ(begindate, enddate,yginfo, jctype);
-            List<JCInfoModel> list = new List<JCInfoModel>();
-            if (dpname == "")
-            {
-                return list1;
-            }
-            else
-            {
-                foreach (var iteam in list1)
-                {
-                    if (iteam.lsdm.Trim() == dpname)
-                    {
-                        list.Add(iteam);
-                    }
-                }
-            }
-            return list;
+            List<JCInfoModel> list1 = dal.selectTJ(begindate, enddate, yginfo, jctype, dpname);
+            return list1;
         }
-        public List<JCInfoModel> selectQZTJ(string begindate, string enddate, string yginfo, string jctype)
+        public List<JCInfoModel> selectQZTJ(string begindate, string enddate, string yginfo, string jctype,string dpname)
         {
-            List<JCInfoModel> list1 = dal.selectQZTJ(begindate, enddate,yginfo, jctype);
+            List<JCInfoModel> list1 = dal.selectQZTJ(begindate, enddate, yginfo, jctype, dpname);
             return list1;
         }
         public int seleDelete(string dianpu,string cardno,string date,string money,string staff,string pinpai,string color)
@@ -176,9 +161,9 @@ namespace BLL
         {
             return dal.selectFinishJC(name);
         }
-        public List<JCInfoModel> selectQZ(string type, string neirong, string begindate, string enddate)
+        public List<JCInfoModel> selectQZ(string type, string neirong)
         {
-            return dal.selectQZ(type, neirong, begindate, enddate);
+            return dal.selectQZ(type, neirong);
         }
         /// <summary>
         /// 从工厂接受到的合格的将状态改为店铺已经接收
@@ -222,6 +207,10 @@ namespace BLL
         public bool UpdateDPFinsh(List<int> list)
         {
             return dal.UpdateDPFinsh(list);
+        }
+        public List<JCInfoModel> SelectJCListForDAN(string dannumber)
+        {
+            return dal.SelectJCListForDAN(dannumber);
         }
     }
 }

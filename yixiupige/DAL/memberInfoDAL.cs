@@ -12,6 +12,8 @@ namespace DAL
 {
     public class memberInfoDAL
     {
+        //public string ID = FilterClass.ID == null ? null : FilterClass.ID.Trim();
+        //添加会员信息   在会员管理里面的
         public bool AddMemberInfo(memberInfoModel model)
         {
             bool result = false;
@@ -46,6 +48,7 @@ namespace DAL
             }
             return result;
         }
+        //当点击  会员管理左侧的节点的时候  合首次加载的时候   加载相应的卡的信息
         public List<memberInfoModel> selectInfoCollect(string cardTepe)
         {
             string dpname=FilterClass.DianPu1.UserName.Trim();
@@ -58,16 +61,16 @@ namespace DAL
             if (cardTepe.Trim() == "全部")
             {
                 if (dpname == "admin")
-                {                    
-                    str = "select * from memberInfo";
+                {
+                    str = "select * from memberInfo order by cardDate desc";
                     read = SqlHelper.ExecuteReader(str);
                 }
                 else
                 {
                     pms = new SqlParameter[] { 
                     new SqlParameter("@dianName",dpname)
-                };
-                    str = "select * from memberInfo where dianName=@dianName";
+                    };
+                    str = "select * from memberInfo where dianName=@dianName order by cardDate desc";
                     read = SqlHelper.ExecuteReader(str, pms);
                 }
             }
@@ -78,7 +81,7 @@ namespace DAL
                     pms = new SqlParameter[] { 
             new SqlParameter("@memberType",cardTepe)
             };
-                    str = "select * from memberInfo where memberType=@memberType";
+                    str = "select * from memberInfo where memberType=@memberType order by cardDate desc";
                     read = SqlHelper.ExecuteReader(str, pms);
                 }
                 else
@@ -87,7 +90,7 @@ namespace DAL
             new SqlParameter("@memberType",cardTepe),
             new SqlParameter("@dianName",dpname)
             };
-                    str = "select * from memberInfo where memberType=@memberType and dianName=@dianName";
+                    str = "select * from memberInfo where memberType=@memberType and dianName=@dianName order by cardDate desc";
                     read = SqlHelper.ExecuteReader(str, pms);
                 }
             }           
@@ -118,19 +121,21 @@ namespace DAL
                     model.password = read["password"].ToString();
                     model.zhuangtai = read["zhuangtai"].ToString();
                     model.ID = Convert.ToInt32(read["ID"]);
-                    model.id = i;
+                    model.idbh = i;
                     list.Add(model);
                     i++;
                 }               
             }
             return list;
         }
+        //修改会员信息
         public bool EditMemberInfo(memberInfoModel model)
         {
             bool result = false;
-            string str = "update memberInfo set memberName=@memberName,memberTel=@memberTel,memberDocument=@memberDocument,birDate=@birDate,cardDate=@cardDate,memberSex=@memberSex,rebate=@rebate,endDate=@endDate,fuwuBate=@fuwuBate,cardMoney=@cardMoney,dianName=@dianName,cardType=@cardType,salesMan=@salesMan,memberType=@memberType,address=@address,remark=@remark,imgUrl=@imgUrl,password=@password,zhuangtai=@zhuangtai where membercardNo=@membercardNo and dianName=@dianName";
+            string str = "update memberInfo set memberName=@memberName,memberTel=@memberTel,memberDocument=@memberDocument,birDate=@birDate,cardDate=@cardDate,memberSex=@memberSex,rebate=@rebate,endDate=@endDate,fuwuBate=@fuwuBate,cardMoney=@cardMoney,toUpMoney=@toUpMoney,dianName=@dianName,cardType=@cardType,salesMan=@salesMan,memberType=@memberType,address=@address,remark=@remark,imgUrl=@imgUrl,password=@password,zhuangtai=@zhuangtai,membercardNo=@membercardNo where ID=@ID and dianName=@dianName";
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@membercardNo",model.memberCardNo),
+            new SqlParameter("@ID",model.ID),
             new SqlParameter("@memberName",model.memberName),
             new SqlParameter("@memberTel",model.memberTel),
             new SqlParameter("@memberDocument",model.memberDocument),
@@ -159,6 +164,7 @@ namespace DAL
             return result;
         }
         #region//会员查找
+        //按条件查找会员
         public List<memberInfoModel> hyczModel(string neirong, string tiaojian, int mouhu)
         {
             string dpname=FilterClass.DianPu1.UserName.Trim();
@@ -385,7 +391,7 @@ namespace DAL
                     model.imageUrl = read["imgUrl"].ToString();
                     model.password = read["password"].ToString();
                     model.zhuangtai = read["zhuangtai"].ToString();
-                    model.id = i;
+                    model.idbh = i;
                     list.Add(model);
                     i++;
                 }
@@ -393,13 +399,19 @@ namespace DAL
             return list;
         }
         #endregion
-        public bool hyczMoney(string cardno,int money)
+        //会员充值的钱
+        public bool hyczMoney(string cardno,double money)
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
+            if (dpname == "admin")
+            {
+                return false;
+            }
             bool result = false;
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@membercardNo",cardno),
             new SqlParameter("@toUpMoney",money),
-            new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
+            new SqlParameter("@dianName",dpname)
             };
             string str = "update memberInfo set toUpMoney=@toUpMoney where membercardNo=@membercardNo and dianName=@dianName";
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
@@ -408,6 +420,7 @@ namespace DAL
             }
             return result;
         }
+        //删除某张会员卡
         public bool deleteInfoModel(string scardNo)
         {
             bool result = false;
@@ -421,6 +434,7 @@ namespace DAL
             }
             return result;
         }
+        //在收活管理处的   搜索会员信息的哪里
         public List<shMemberInfo> selectForIdList(string sousuo, bool mohu)
         {
             //string dpname=FilterClass.DianPu1.UserName.Trim();
@@ -447,8 +461,8 @@ namespace DAL
             //new SqlParameter("@dianName",dpname)
             //};
             //}
-            //if (mohu)
-            //{
+            if (mohu)
+            {
                 //if (dpname == "admin")
                 //{
                     str = "select * from memberInfo where membercardNo like '%'+@membercardNo+'%' or memberName like '%'+@memberName+'%' or  memberTel like '%'+@memberTel+'%' or PY like '%'+@PY+'%'";
@@ -457,18 +471,18 @@ namespace DAL
                 //{
                 //    str = "select * from memberInfo where (membercardNo like '%'+@membercardNo+'%' or memberName like '%'+@memberName+'%' or  memberTel like '%'+@memberTel+'%' or PY like '%'+@PY+'%') and dianName=@dianName";
                 //}
-            //}
-            //else
-            //{
+            }
+            else
+            {
             //    if (dpname == "admin")
             //    {
-            //        str = "select * from memberInfo where membercardNo=@membercardNo or memberName=@memberName or memberTel=@memberTel";
+                str = "select * from memberInfo where membercardNo=@membercardNo or memberName=@memberName or memberTel=@memberTel or PY=@PY";
             //    }
             //    else
             //    {
             //        str = "select * from memberInfo where (membercardNo=@membercardNo or memberName=@memberName or memberTel=@memberTel) and dianName=@dianName";
             //    }
-            //}
+            }
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
@@ -482,8 +496,9 @@ namespace DAL
                     list.Add(model);
                 }
             }
-            return list;
+            return list.OrderBy(a => a.CardNo).ToList();
         }
+        //通过ID查询某一张卡的信息
         public memberInfoModel SelectId(string card)
         {
             string dpname=FilterClass.DianPu1.UserName.Trim();
@@ -499,7 +514,7 @@ namespace DAL
             {
                     pms = new SqlParameter[] { 
                 new SqlParameter("@ID",card),
-                new SqlParameter("@dianName",dpname)
+                //new SqlParameter("@dianName",dpname)
                 };
             }
             string str;
@@ -508,7 +523,7 @@ namespace DAL
                 str = "select * from memberInfo where ID=@ID";
             }
             else
-                str = "select * from memberInfo where ID=@ID and dianName=@dianName";
+                str = "select * from memberInfo where ID=@ID";
             { 
             }
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
@@ -541,14 +556,15 @@ namespace DAL
             }
             return model;
         }
+        //收活管理处消费的金额
         public bool XFmoney(string cardNumber, string Xmoney)
         {
             bool result = false;
-            string str = "update memberInfo set toUpMoney=@toUpMoney where membercardNo=@membercardNo and dianName=@dianName"; 
+            string str = "update memberInfo set toUpMoney=@toUpMoney where membercardNo=@membercardNo"; 
             SqlParameter[] pms=new SqlParameter[]{
             new SqlParameter("@toUpMoney",Xmoney),
-            new SqlParameter("@membercardNo",cardNumber),
-            new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
+            new SqlParameter("@membercardNo",cardNumber)
+            //new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim()) and dianName=@dianName
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
@@ -556,36 +572,38 @@ namespace DAL
             }
             return result;
         }
+        //根据卡号查询卡的类型
         public string selectType(string cardno)
         {
             string dpname = FilterClass.DianPu1.UserName.Trim();
             SqlParameter[] pms;
-            if (dpname == "admin")
-            {
+            //if (dpname == "admin")
+            //{
                 pms = new SqlParameter[] { 
             new SqlParameter("@memberCardNo",cardno)
             };
-            }
-            else
-            {
-                pms = new SqlParameter[] { 
-            new SqlParameter("@memberCardNo",cardno),
-            new SqlParameter("@dianName",dpname)
-            };
-            }
+            //}
+            //else
+            //{
+            //    pms = new SqlParameter[] { 
+            //new SqlParameter("@memberCardNo",cardno),
+            //new SqlParameter("@dianName",dpname)
+            //};
+            //}
             string str;
-            if (dpname == "admin")
-            {
+            //if (dpname == "admin")
+            //{
                 str = "select memberType from memberInfo where memberCardNo=@memberCardNo";
-            }
-            else
-            {
-                str = "select memberType from memberInfo where memberCardNo=@memberCardNo and dianName=@dianName";
-            }
+            //}
+            //else
+            //{
+            //    str = "select memberType from memberInfo where memberCardNo=@memberCardNo and dianName=@dianName";
+            //}
             object obj=SqlHelper.ExecuteScalar(str, pms);
             string read = obj == null ? "无卡" : obj.ToString();
             return read;
         }
+        //发送短信的时候   首先先查询出在本店的会员记录
         public List<DXmemberModel> SelectDXList()
         {
             string dpname = FilterClass.DianPu1.UserName.Trim();
@@ -640,7 +658,7 @@ namespace DAL
             {
                 if (dpname == "全部")
                 {
-                    str = "select * from memberInfo cardDate between '" + begindate + "' and '" + enddate + "'";
+                    str = "select * from memberInfo where cardDate between '" + begindate + "' and '" + enddate + "'";
                     pms = new SqlParameter[] { };
                 }
                 else
@@ -664,7 +682,7 @@ namespace DAL
                 if (read.HasRows)
                 {
                     model = new memberInfoModel();
-                    model.id = i;
+                    model.idbh = i;
                     model.memberCardNo = read["memberCardNo"].ToString();
                     model.memberName = read["memberName"].ToString();
                     model.memberTel = read["memberTel"].ToString();
@@ -691,6 +709,33 @@ namespace DAL
                 }
             }
             return list;
+        }
+        /// <summary>
+        /// 判断当前的会员姓名是否存在
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public bool PDHYName(string name)
+        {
+            bool result = false;
+            string str = "select * from memberInfo where memberName='" + name + "'";
+            object oo = SqlHelper.ExecuteScalar(str);
+            if (oo == null)
+            {
+                result =true;
+            }
+            return result;
+        }
+        public bool PDCNumber(string cardno)
+        {
+            bool result = false;
+            string str = "select * from memberInfo where memberCardNo='" + cardno.Trim() + "'";
+            object oo = SqlHelper.ExecuteScalar(str);
+            if (oo == null)
+            {
+                result = true;
+            }
+            return result;
         }
     }
 }

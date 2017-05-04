@@ -9,6 +9,7 @@ namespace DAL
 {
    public class QQInfoDAL
     {
+       //此类是记录个店面合工厂的ip地址的
        public string SelectInfo()
        {
            string str = "select IpAddress from QQInfo where Name='工厂'";

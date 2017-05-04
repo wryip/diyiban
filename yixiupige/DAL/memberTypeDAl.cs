@@ -11,6 +11,7 @@ namespace DAL
 {
     public class memberTypeDAl
     {
+        //添加会员类别
         public bool AddMemberType(memberType user)
         {
             bool result = false;
@@ -36,21 +37,21 @@ namespace DAL
             memberType result = new memberType();
             SqlParameter[] pms;
             string str;
-            if (dpname == "admin")
-            {
-                pms = new SqlParameter[] { 
-            new SqlParameter("@memberName",name)
-            };
-                str = "select * from memberType where memberName=@memberName";
-            }
-            else
-            {
+            //if (dpname == "admin")
+            //{
+            //    pms = new SqlParameter[] { 
+            //new SqlParameter("@memberName",name)
+            //};
+            //    str = "select * from memberType where memberName=@memberName";
+            //}
+            //else
+            //{
                 pms = new SqlParameter[] { 
             new SqlParameter("@memberName",name),
             new SqlParameter("@DPName",dpname)
             };
                 str = "select * from memberType where memberName=@memberName and DPName=@DPName";
-            }
+            //}
             var read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
@@ -65,6 +66,7 @@ namespace DAL
             }
             return result;
         }
+        //修改一个会员信息类别
         public bool EditMemberUp(memberType user)
         {
             bool result = false;
@@ -83,6 +85,7 @@ namespace DAL
             }
             return result;
         }
+        //删除某一条记录
         public bool deleteinfo(string name)
         {
             bool result = false;
@@ -96,23 +99,24 @@ namespace DAL
             }
             return result;
         }
+        //查询一共有多少种会员卡的类别
         public List<string> selectNodes()
         {
             string dpname=FilterClass.DianPu1.UserName.Trim();
             string str;
             SqlParameter[] pms;
-            if (dpname == "admin")
-            {
-                str = "select memberName from memberType";
-                pms = new SqlParameter[] {  };
-            }
-            else
-            {
+            //if (dpname == "admin")
+            //{
+            //    str = "select memberName from memberType";
+            //    pms = new SqlParameter[] {  };
+            //}
+            //else
+            //{
                 str = "select memberName from memberType where DPName=@DPName";
                 pms = new SqlParameter[] { 
             new SqlParameter("@DPName",dpname)
             };
-            }
+            //}
             var read = SqlHelper.ExecuteReader(str,pms);
             List<string> List = new List<string>();
             while (read.Read())
@@ -124,6 +128,7 @@ namespace DAL
             }
             return List;
         }
+        //查询所有的信息
         public List<memberType> SelectAllList(string name)
         {
             List<memberType> list = new List<memberType>();
@@ -149,6 +154,7 @@ namespace DAL
             }
             return list;
         }
+        //查询某张卡  对应的比例
         public double selectBL(string bl)
         {
             string dpname=FilterClass.DianPu1.UserName.Trim();
@@ -157,13 +163,13 @@ namespace DAL
             new SqlParameter("@DPName",dpname),
             new SqlParameter("@memberName",bl)
             };
-            if (dpname == "admin")
-            {
-                str = "select memberSend from memberType where memberName=@memberName";
-                pms = new SqlParameter[] { 
-            new SqlParameter("@memberName",bl)
-            };
-            }
+            //if (dpname == "admin")
+            //{
+            //    str = "select memberSend from memberType where memberName=@memberName";
+            //    pms = new SqlParameter[] { 
+            //new SqlParameter("@memberName",bl)
+            //};
+            //}
             
             object oo = SqlHelper.ExecuteScalar(str, pms);
             if (oo != null)
@@ -184,7 +190,7 @@ namespace DAL
             object oo = SqlHelper.ExecuteScalar(str, pms);
             if (oo != null)
             {
-                return Convert.ToInt32(00);
+                return Convert.ToInt32(oo);
             }
             return 0;
         }

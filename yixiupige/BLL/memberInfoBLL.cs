@@ -170,7 +170,7 @@ namespace BLL
             return list1;
         }
         //会员充值
-        public bool hyczMoney(string cardno, int money)
+        public bool hyczMoney(string cardno, double money)
         {
             bool result = false;
             result = dal.hyczMoney(cardno,money);
@@ -205,6 +205,14 @@ namespace BLL
         public List<DXmemberModel> SelectDXList()
         {
             return dal.SelectDXList();
+        }
+        public bool PDHYName(string name)
+        {
+            return dal.PDHYName(name);
+        }
+        public bool PDCNumber(string cardno)
+        {
+            return dal.PDCNumber(cardno);
         }
     }
 }

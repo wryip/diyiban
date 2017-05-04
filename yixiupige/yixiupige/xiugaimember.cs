@@ -87,7 +87,7 @@ namespace yixiupige
                 ywycomboBox.Items.Add(iteam.AllType);
             }
             hykhtextBox.Text = modelmember.memberCardNo;
-            hykhtextBox.ReadOnly = true;
+            //hykhtextBox.ReadOnly = true;
             hyxmtextBox.Text = modelmember.memberName;
             hydhtextBox.Text = modelmember.memberTel;
             sfzhtextBox.Text = modelmember.memberDocument;
@@ -153,7 +153,7 @@ namespace yixiupige
 
         private void qdbutton_Click(object sender, EventArgs e)
         {
-            if (hydhtextBox.Text == "" || hykhtextBox.Text == "" || hyxmtextBox.Text == "" || sfzhtextBox.Text == "" || hyxbcomboBox.Text == "" || lsdcomboBox.Text == "")
+            if (hydhtextBox.Text == "" || hykhtextBox.Text == "" || hyxmtextBox.Text == ""  || hyxbcomboBox.Text == "" || lsdcomboBox.Text == "")
             {
                 MessageBox.Show("请将信息填写完整！");
                 return;
@@ -162,6 +162,7 @@ namespace yixiupige
             {
                 #region//封装用户填写进去的内容，进行添加
                 memberInfoModel model = new memberInfoModel();
+                model.ID = modelmember.ID;
                 model.memberCardNo = hykhtextBox.Text;
                 model.memberName = hyxmtextBox.Text;
                 model.memberTel = hydhtextBox.Text;
@@ -176,7 +177,7 @@ namespace yixiupige
                 }
                 else
                 {
-                    model.endDate = "1900-01-01 00:00:00";
+                    model.endDate = TimeGuiGe.TimePicterBegin(dateTimePicker1.Text);
                 }
                 model.fuwuBate = fwzktextBox.Text;
                 model.toUpMoney = czjetextBox.Text;
@@ -240,8 +241,7 @@ namespace yixiupige
                 }
             }
             VideoCaptureDevice videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
-            videoSource.DesiredFrameSize = new Size(160, 120);
-            videoSource.DesiredFrameRate = 1;
+            videoSource.VideoResolution = videoSource.VideoCapabilities[1];
 
             videoSourcePlayer1.VideoSource = videoSource;
             videoSourcePlayer1.Start();

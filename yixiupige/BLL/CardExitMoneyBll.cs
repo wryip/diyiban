@@ -25,7 +25,10 @@ namespace BLL
                 model.membername = membername;
                 model.membernum = membernum;
                 model.cardmoney = (Convert.ToDouble(iteam.CountMoney) - Convert.ToDouble(iteam.YMoney)).ToString();
-                list1.Add(model);
+                if (model.cardmoney.Trim() != "0")
+                {
+                    list1.Add(model);
+                }                
             }
             dal.AddList(list1);
         }
