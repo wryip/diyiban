@@ -43,7 +43,7 @@ namespace Commond
             //} 
             #endregion
             wk=FactoryModel(list, sheet);
-            string dirpath = "E:\\mymemberimg";
+            string dirpath = "..\\..\\memberInfo";
             string path = dirpath + "\\" + name+DateTime.Now.ToString("yyyy MM dd") + ".xls";
             //4.把内存当中的workbook写入到磁盘中
             using (FileStream fsWrite = File.OpenWrite(path))

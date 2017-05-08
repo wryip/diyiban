@@ -122,5 +122,29 @@ namespace yixiupige
                 this.dataGridView2_RowContextMenuStripNeeded(e.Location, ee);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<LiShiConsumption> list = (List<LiShiConsumption>)dataGridView1.DataSource;
+            bool result=NPOIHelper.PrintDocument(list,textBox1.Text.Trim()+"会员消费记录");
+            if (result)
+            {
+                MessageBox.Show("成功！");
+                return;
+            }
+            MessageBox.Show("失败！");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            List<memberToUpModel> list = (List<memberToUpModel>)dataGridView2.DataSource;
+            bool result = NPOIHelper.PrintDocument(list, textBox1.Text.Trim() + "会员消费记录");
+            if (result)
+            {
+                MessageBox.Show("成功！");
+                return;
+            }
+            MessageBox.Show("失败！");
+        }
     }
 }

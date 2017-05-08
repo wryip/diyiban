@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CardExitMoneyDal.cs" />
+    <Compile Include="DataBaseDAL.cs" />
     <Compile Include="DPInfoDAL.cs" />
     <Compile Include="DXSendDAL.cs" />
     <Compile Include="ExitCardDAL.cs" />

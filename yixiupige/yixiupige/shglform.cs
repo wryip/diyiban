@@ -80,7 +80,7 @@ namespace yixiupige
         public memberInfoBLL bll=new memberInfoBLL();
         fuwuBLL fuwubl = new fuwuBLL();
         //删除的历史纪录要返还的钱
-        public int delecount { get; set; }
+        public double delecount { get; set; }
         public LiShiConsumption modeldele { get; set; }
         public shglform()
         {
@@ -213,7 +213,7 @@ namespace yixiupige
             Graphics draw = Graphics.FromImage(newImage);
             draw.DrawImage(bitmap, 0, 0);
             draw.Dispose();
-            string dirpath = "E:\\mymemberimg\\" + textBox5.Text.Trim() + "";
+            string dirpath = "..\\..\\memberInfo\\" + textBox5.Text.Trim() + "";
             if (!Directory.Exists(dirpath))
                 Directory.CreateDirectory(dirpath);
             string[] name = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Split(new char[] { '/', ':', ' ', '-' }, StringSplitOptions.RemoveEmptyEntries);
@@ -519,6 +519,10 @@ namespace yixiupige
             if (model.cardType.Trim() == "计次卡")
             {
                 textBox8.Text = model.toUpMoney;
+                if (textBox8.Text.Contains("."))
+                {
+                    textBox8.Text = textBox8.Text.Split(new char[]{'.'},StringSplitOptions.RemoveEmptyEntries)[0];
+                }
                 textBox9.Text = "0";
             }
             else if (model.cardType.Trim() == "储值卡")
@@ -752,15 +756,21 @@ namespace yixiupige
         //会员点击保存之后   如果有密码则开始输入密码   并将用户输入的密码合最开始的进行对比
         public void TwoPwdYZ(string pwd)
         {
+            bool IsSave = true;
             if (hypassword != pwd)
             {
                 MessageBox.Show("密码错误！消费失败！");
                 return;
             }
-            BaoCunClick();
+            DialogResult res = MessageBox.Show("是否打印小票", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.No)
+            {
+                IsSave = false;
+            }
+            BaoCunClick(IsSave);
         }
         //不管有没有密码   点击保存之后执行的方法
-        public void BaoCunClick()
+        public void BaoCunClick(bool issave)
         {
             string sb = "";
             string[] ss = DateTime.Now.ToString("yyyy-MM-dd").Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
@@ -942,7 +952,7 @@ namespace yixiupige
             }
             string websb = "http://yhc19950315.imwork.net:28948?id=" + sb;
             Bitmap bitmap = writer.Write(websb);
-            pictureBoxQr.Image = bitmap;
+            //pictureBoxQr.Image = bitmap;
             string gksy = "";
             if (textBox12.Text.Trim() == "计次卡")
             {
@@ -956,9 +966,12 @@ namespace yixiupige
             {
                 gksy = "电话" + textBox2.Text;
             }
-            ///合计金额  合计次数  应付金额   刚刚的消费记录   二维码   包含的网址链接   姓名  卡号   到期日期   余额
-            PirentDocumentClass.PirentSH(textBox14.Text, textBox21.Text, textBox22.Text, listjieshu, pictureBoxQr.Image, sb, textBox4.Text, textBox5.Text, dateTimePicker1.Text, gksy);
-            //printDocument1.Print();
+            if (issave)
+            {
+                ///合计金额  合计次数  应付金额   刚刚的消费记录   二维码   包含的网址链接   姓名  卡号   到期日期   余额
+                PirentDocumentClass.PirentSH(textBox14.Text, textBox21.Text, textBox22.Text, listjieshu, pictureBoxQr.Image, sb, textBox4.Text, textBox5.Text, dateTimePicker1.Text, gksy);
+
+            }//printDocument1.Print();
             dataGridView2.DataSource = new List<shInfoList>();
             TJBBBuy(listjieshu);
             //清空数据
@@ -972,6 +985,7 @@ namespace yixiupige
         /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
+            bool IsSave = true;
             if (radioButton2.Checked&&textBox1.Text==""&&textBox2.Text=="")
             {
                 DialogResult result= MessageBox.Show("散客用户名和密码均为空，是否使用默认？","提示信息",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
@@ -1002,7 +1016,12 @@ namespace yixiupige
                     return;
                 }
             }
-            BaoCunClick();
+            DialogResult res= MessageBox.Show("是否打印小票","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (res == DialogResult.No)
+            {
+                IsSave = false;
+            }
+            BaoCunClick(IsSave);
         }
         /// <summary>
         /// 数据清空
@@ -1187,15 +1206,15 @@ namespace yixiupige
             //将删除的数据当时消费的金额或者次数提取出来
             if (textBox12.Text.Trim() == "储值卡")
             {
-                delecount = Convert.ToInt32(model.LSMoney);
+                delecount = Convert.ToDouble(model.LSMoney);
             }
             else if (textBox12.Text.Trim() == "计次卡")
             {
-                delecount = Convert.ToInt32(model.LSMoney);
+                delecount = Convert.ToDouble(model.LSMoney);
             }
             else if (textBox12.Text.Trim() == "折扣卡")
             {
-                int money = Convert.ToInt32(model.LSMoney);
+                double money = Convert.ToDouble(model.LSMoney);
                 int bate = membll.selectZK(textBox10.Text.Trim());
                 delecount = money * 100 / bate;
             } 
@@ -1211,11 +1230,11 @@ namespace yixiupige
                 dataGridView1.DataSource = lsbll.selectAllList(textBox5.Text.Trim(), name);
                 if (result)
                 {
-                    MessageBox.Show("删除成功！");
+                    MessageBox.Show("退单成功！");
                     if (textBox12.Text.Trim() == "储值卡")
                     {
                         //把钱加回来  之前消费的
-                        string money=(Convert.ToInt32(textBox9.Text.Trim()) + delecount).ToString();
+                        string money=(Convert.ToDouble(textBox9.Text.Trim()) + delecount).ToString();
                         bll.XFmoney(textBox5.Text.Trim(), money);  
                         textBox9.Text = money;                     
                     }                                              
@@ -1228,7 +1247,7 @@ namespace yixiupige
                     else if (textBox12.Text.Trim() == "折扣卡")
                     {
                         //把钱加回来  之前消费的
-                        string money=(Convert.ToInt32(textBox9.Text.Trim()) + delecount).ToString();
+                        string money = (Convert.ToDouble(textBox9.Text.Trim()) + delecount).ToString();
                         bll.XFmoney(textBox5.Text.Trim(), money);  
                         textBox9.Text = money;                     
                     }                           
@@ -1316,10 +1335,10 @@ namespace yixiupige
         }
         private void videoSourcePlayer1_Click(object sender, EventArgs e)
         {
-            string str="E:\\mymemberimg\\" + textBox5.Text.Trim() + "";
+            string str = "..\\..\\memberInfo\\" + textBox5.Text.Trim() + "";
             if (textBox4.Text.Trim() == "")
             {
-                str = "E:\\mymemberimg\\sanke";
+                str = "..\\..\\memberInfo\\sanke";
             }
             VideoAndPicture frompic = VideoAndPicture.CreateForm(str, videoStar);
             videoSourcePlayer1.SignalToStop();
@@ -1328,6 +1347,11 @@ namespace yixiupige
         }
 
         private void textBox13_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }        

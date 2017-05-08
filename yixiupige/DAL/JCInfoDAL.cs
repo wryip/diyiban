@@ -1057,12 +1057,12 @@ namespace DAL
             }
             int i = 1;           
             JCInfoModel model;
-            string str = "select * from JCInfoTable"+ID+" where (jcAddress=@jcAddress or jcAddress=@jcAddress1 or jcAddress=@jcAddress2) and jcZT=@jcZT";
+            string str = "select * from JCInfoTable"+ID+" where (jcAddress=@jcAddress or jcAddress=@jcAddress1) and jcZT=@jcZT";
             SqlParameter[] pms = new SqlParameter[] {
-            new SqlParameter("@jcAddress","店铺已收"),
+            new SqlParameter("@jcAddress","送回店中"),
             //new SqlParameter("@DPName",name.Trim()),
             new SqlParameter("@jcAddress1","工厂退回"),
-            new SqlParameter("@jcAddress2","店铺完工"),
+            //new SqlParameter("@jcAddress2","店铺完工"),
             new SqlParameter("@jcZT","未取走")
             };
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);

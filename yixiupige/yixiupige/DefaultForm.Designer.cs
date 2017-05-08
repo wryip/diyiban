@@ -121,21 +121,21 @@
             // 系统设置ToolStripMenuItem
             // 
             this.系统设置ToolStripMenuItem.Name = "系统设置ToolStripMenuItem";
-            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.系统设置ToolStripMenuItem.Text = "连锁店设置";
             this.系统设置ToolStripMenuItem.Click += new System.EventHandler(this.系统设置ToolStripMenuItem_Click);
             // 
             // 管理员设置ToolStripMenuItem
             // 
             this.管理员设置ToolStripMenuItem.Name = "管理员设置ToolStripMenuItem";
-            this.管理员设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.管理员设置ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.管理员设置ToolStripMenuItem.Text = "管理员设置";
             this.管理员设置ToolStripMenuItem.Click += new System.EventHandler(this.管理员设置ToolStripMenuItem_Click);
             // 
             // 数据库管理ToolStripMenuItem
             // 
             this.数据库管理ToolStripMenuItem.Name = "数据库管理ToolStripMenuItem";
-            this.数据库管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.数据库管理ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.数据库管理ToolStripMenuItem.Text = "数据库管理";
             this.数据库管理ToolStripMenuItem.Click += new System.EventHandler(this.数据库管理ToolStripMenuItem_Click);
             // 
@@ -579,6 +579,7 @@
             this.Name = "DefaultForm";
             this.Text = "首页";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DefaultForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DefaultForm_FormClosed);
             this.Load += new System.EventHandler(this.DefaultForm_Load);
             this.menuStrip1.ResumeLayout(false);

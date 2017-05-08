@@ -1,4 +1,5 @@
-﻿using Commond;
+﻿using BLL;
+using Commond;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -340,6 +341,13 @@ namespace yixiupige
         {
             SendInfo from = SendInfo.CreateForm();
             from.Show();
+        }
+
+        private void DefaultForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //备份数据库
+            DataBaseBLL bll = new DataBaseBLL();
+            bool resu=bll.saveData();
         }
         //public delegate void dAdd(); 
         //public dAdd myAdd; 

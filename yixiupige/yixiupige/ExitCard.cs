@@ -45,7 +45,7 @@ namespace yixiupige
             textBox4.Text = zhanshimolde.toUpMoney;
             textBox5.Text = zhanshimolde.cardType;
             textBox6.Text = zhanshimolde.memberType;
-            textBox7.Text = (Convert.ToDouble(zhanshimolde.toUpMoney.Trim()) / bl).ToString();
+            textBox7.Text = (Convert.ToDouble(zhanshimolde.toUpMoney.Trim()) / bl).ToString().Split(new char[]{'.'},StringSplitOptions.RemoveEmptyEntries)[0];
             
         }
 

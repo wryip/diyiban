@@ -138,7 +138,7 @@ namespace yixiupige
                 {
                     draw.DrawImage(bitmap, 0, 0);
                     draw.Dispose();
-                    dirpath = "E:\\mymemberimg";
+                    dirpath = "..\\..\\memberInfo";
                     if (!Directory.Exists(dirpath))
                         Directory.CreateDirectory(dirpath);
                     path = dirpath + "\\" + hykhtextBox.Text.Trim() + ".bmp";

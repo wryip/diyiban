@@ -68,7 +68,7 @@ namespace Commond
             pd.PrinterSettings.PrinterName = FilterClass.MemberXF;
             pd.DefaultPageSettings.Margins = margin;
             //默认纸张
-            PaperSize pageSize = new PaperSize("First custom size", getYc(58), 600);
+            PaperSize pageSize = new PaperSize("First custom size", getYc(58), 5000);
             pd.DefaultPageSettings.PaperSize = pageSize;
             //打印事件设置            
             pd.PrintPage += new PrintPageEventHandler(pd_PrintPage);
@@ -257,9 +257,9 @@ namespace Commond
                     {
                         nleng += "服务项目：" + iteam.FuWuName;
                     }
-                nleng.Replace(',','，');
-                nleng.Replace('[', '【');
-                nleng.Replace(']', '】');
+                nleng.Replace(",","，");
+                nleng.Replace("[", "【");
+                nleng.Replace("]", "】");
                 //}                
                 //e.Graphics.DrawString(j.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
                 //e.Graphics.DrawString(iteam.LSCount, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(125, (100 + i * 15)));
@@ -303,7 +303,7 @@ namespace Commond
             i++;
             e.Graphics.DrawString("欠款金额:" + _QKMoney, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
-            e.Graphics.DrawString("取活日期:" + _time, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("取活日期:" + _time.Split(new char[]{' '},StringSplitOptions.RemoveEmptyEntries)[0], new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;          
             while (jiewei.Length > 16)
             {
@@ -319,6 +319,8 @@ namespace Commond
             ////e.Graphics.DrawImage(_ibmap, new Rectangle(new System.Drawing.Point(-100, 200), new Size(400,400)));
             e.Graphics.DrawImage(_ibmap, new Rectangle(new System.Drawing.Point(-10, (100 + i * 15)), new Size(200, 200)));
             e.Graphics.DrawString("扫描二维码，即可查看订单信息！", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)+200));
+            i++;
+            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
             e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;

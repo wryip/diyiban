@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CardExitMoneyBll.cs" />
+    <Compile Include="DataBaseBLL.cs" />
     <Compile Include="DPInfoBLL.cs" />
     <Compile Include="DXSendBLL.cs" />
     <Compile Include="ExitCardBLL.cs" />

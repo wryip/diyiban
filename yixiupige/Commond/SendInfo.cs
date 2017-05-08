@@ -13,7 +13,7 @@ namespace Commond
         public static bool Send(string[] str1, string neirong)
         {
             string url = "";
-            string str = "";
+            string str = "0";
             for (int i = 0; i < str1.Length; i++)
             {
                 url = "http://utf8.sms.webchinese.cn/?Uid=qdjzjz&Key=0152bc80ec7bdc6f55e2&smsMob=" + str1[i].ToString() + "&smsText=一休皮革:" + neirong;

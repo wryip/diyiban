@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Commond;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -187,6 +188,19 @@ namespace yixiupige
             ExitCard fromcard = ExitCard.CreateForm(model, bindData);
             fromcard.Show();
             fromcard.Focus();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string type = treeView1.SelectedNode.Text;
+            List<memberInfoModel> list = (List<memberInfoModel>)dataGridView1.DataSource;
+            bool resu=NPOIHelper.PrintDocument(list, type + "-会员信息");
+            if (resu)
+            {
+                MessageBox.Show("导出成功！");
+                return;
+            }
+            MessageBox.Show("导出失败！");
         }
 
         

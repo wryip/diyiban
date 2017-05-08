@@ -71,7 +71,8 @@ namespace yixiupige
              if (e.ColumnIndex == 0)
             {
                 dataGridView3.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !Convert.ToBoolean(dataGridView3.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
-            }
+                numberAdd();
+             }
         }
 
         private void button1_Click(object sender, EventArgs e)

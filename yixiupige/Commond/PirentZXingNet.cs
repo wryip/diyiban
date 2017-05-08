@@ -155,7 +155,10 @@ namespace Commond
             if (_remark != "")
             {
                 e.Graphics.DrawString("备注：" + _remark, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (i * 15 + 50)));    
-            }              
+            }
+            _type = "";
+          _pinpai="";
+           _color="";
             //e.Graphics.DrawString("店铺："+FilterClass.DianPu1.UserName, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, 85));
         }
     }
