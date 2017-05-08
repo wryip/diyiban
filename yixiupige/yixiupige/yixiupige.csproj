@@ -742,6 +742,8 @@
     <None Include="Resources\bj.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="imageFile\1.ico" />
+    <Content Include="imageFile\timg.jpg" />
     <Content Include="leiku\AForge.Controls.dll" />
     <Content Include="leiku\AForge.Controls.xml" />
     <Content Include="leiku\AForge.dll" />
@@ -779,7 +781,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="imageFile\" />
     <Folder Include="memberInfo\" />
   </ItemGroup>
   <ItemGroup>

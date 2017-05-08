@@ -14,10 +14,11 @@ namespace BLL
         public bool saveData()
         {
             //首先先发出命令进行数据的备份
-            string data = DateTime.Now.ToString("yyyy-MM-dd");
+            //string data = DateTime.Now.ToString("yyyy-MM-dd");
             //return dal.saveData(data);
             //当点击退出的时候   自动保存   并保存到本地
             //创建一个连接远程服务器的连接对象
+            return true;
             //System.Diagnostics.Process p = new System.Diagnostics.Process();
             //p.StartInfo.FileName = "cmd.exe";
             //p.StartInfo.UseShellExecute = false;    //是否使用操作系统shell启动
@@ -56,7 +57,7 @@ namespace BLL
             //p.StandardInput.WriteLine("dir&exit");
             //output = p.StandardOutput.ReadToEnd();
             //return true;
-            return dal.saveData(data);
+            //return dal.saveData(data);
         }
     }
 }

@@ -90,8 +90,8 @@ namespace yixiupige
             {
                 DisableECI = true,
                 CharacterSet = "UTF-8",
-                Width = pictureBoxQr.Height,
-                Height = pictureBoxQr.Height
+                Width = 320,
+                Height = 240
             };
             writer = new BarcodeWriter();
             writer.Format = BarcodeFormat.QR_CODE;//二维码
@@ -969,7 +969,7 @@ namespace yixiupige
             if (issave)
             {
                 ///合计金额  合计次数  应付金额   刚刚的消费记录   二维码   包含的网址链接   姓名  卡号   到期日期   余额
-                PirentDocumentClass.PirentSH(textBox14.Text, textBox21.Text, textBox22.Text, listjieshu, pictureBoxQr.Image, sb, textBox4.Text, textBox5.Text, dateTimePicker1.Text, gksy);
+                PirentDocumentClass.PirentSH(textBox14.Text, textBox21.Text, textBox22.Text, listjieshu, bitmap, sb, textBox4.Text, textBox5.Text, dateTimePicker1.Text, gksy);
 
             }//printDocument1.Print();
             dataGridView2.DataSource = new List<shInfoList>();
@@ -1352,6 +1352,11 @@ namespace yixiupige
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }        
