@@ -20,9 +20,9 @@ namespace BLL
             return result;
         }
         //返回某种卡类型的所有集合，例如所有金卡或者银卡
-        public List<memberInfoModel> selectInfoCollect(string cardTepe)
+        public List<memberInfoModel> selectInfoCollect(string cardTepe,int i,out int j)
         {
-            return dal.selectInfoCollect(cardTepe);
+            return dal.selectInfoCollect(cardTepe,i,out j);
         }
         //修改的时候进行提交
         public bool EditMemberInfo(memberInfoModel model)

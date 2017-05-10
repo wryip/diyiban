@@ -75,6 +75,7 @@ namespace DAL
                     model.LSName = read["LSName"].ToString().Trim();
                     model.LSDate = read["LSDate"].ToString().Trim();
                     model.LSStaff = read["LSStaff"].ToString().Trim();
+                    model.LSDanNumber = read["LSDanNumber"].ToString().Trim();
                     model.LSNumberCount = read["LSNumberCount"].ToString().Trim();
                     model.LSMoney = read["LSMoney"].ToString().Trim();
                     model.LSYMoney = read["LSYMoney"].ToString().Trim();
@@ -84,8 +85,7 @@ namespace DAL
                     model.LSSalesman = read["LSSalesman"].ToString().Trim();
                     model.LSMultipleName = read["LSMultipleName"].ToString().Trim();
                     model.LSQuestion = read["LSQuestion"].ToString().Trim();
-                    model.LSRemark = read["LSRemark"].ToString().Trim();
-                    model.LSDanNumber = read["LSDanNumber"].ToString().Trim();
+                    model.LSRemark = read["LSRemark"].ToString().Trim();                    
                     model.LSCardNumber = read["LSCardNumber"].ToString().Trim();
                     model.ImgUrl = read["ImgUrl"].ToString().Trim();
                     model.ID = Convert.ToInt32(read["ID"]);

@@ -44,7 +44,7 @@ namespace yixiupige
         {
             List<JCInfoModel> list = new List<JCInfoModel>();
             list = bll.selectFinishJC(FilterClass.DianPu1.UserName);
-            dataGridView3.DataSource = list;
+            dataGridView3.DataSource = list.OrderByDescending(a => a.jcBeginDate).ToList(); ;
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)

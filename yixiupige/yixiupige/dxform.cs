@@ -64,10 +64,19 @@ namespace yixiupige
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int count = dataGridView1.Rows.Count;
-            for (int i = 0; i < count; i++)
+            string path="";
+            OpenFileDialog OFD = new OpenFileDialog();
+            OFD.Filter = "xls files (*.xls)|*.xls|All files (*.*)|*.*"; //只选取xls文件
+            OFD.RestoreDirectory = true; //还原当前目录
+
+            if (OFD.ShowDialog() == DialogResult.OK)
             {
-                dataGridView1.Rows[i].Cells[4].Value = !Convert.ToBoolean(dataGridView1.Rows[i].Cells[4].Value);
+                path = OFD.FileName; //将文件路径放入路径显示文本框
+            }
+            List<string> list=NPOIHelper.ReadNpoi(path);
+            foreach (var iteam in list)
+            {
+                textBox2.Text += "\r\n" + iteam;
             }
         }
 

@@ -28,6 +28,12 @@ namespace yixiupige
             }
             return _danli;
         }
+        public int PageCount { get; set; }
+        //一共多少页
+        public string pageType { get; set; }
+        //当前页
+        public int indexPage { get; set; }
+        //一页300条
         //public static int id=-1;
         //List<memberInfoModel> list;
         public memberInfoBLL infobll = new memberInfoBLL();
@@ -71,18 +77,32 @@ namespace yixiupige
             hyzj.Focus();
             bindData();
         }
-
+        public void PageLoad(string name, int pageindex)
+        {
+            int count;
+            List<memberInfoModel> list = infobll.selectInfoCollect(name, pageindex, out count);
+            PageCount = count;
+            label3.Text = "共" + count + "条";
+            dataGridView1.DataSource = list;
+        }
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            //int count;
             string cardTepe=e.Node.Text;
-            List<memberInfoModel>  list = infobll.selectInfoCollect(cardTepe);
-            dataGridView1.DataSource = list;
+            pageType = cardTepe;
+            indexPage = 1;
+            PageLoad(cardTepe, 1);
+            //textBox1.Text = "1";
+            //List<memberInfoModel>  list = infobll.selectInfoCollect(cardTepe,1,out count);
+            //label3.Text = "共" + count + "条";
+            //dataGridView1.DataSource = list.OrderByDescending(a=>a.cardDate);
         }
         public void bindData()
         {
-            string cardTepe = treeView1.SelectedNode.Text;
-            List<memberInfoModel> list111 = infobll.selectInfoCollect(cardTepe);
-            dataGridView1.DataSource = list111;
+            //string cardTepe = treeView1.SelectedNode.Text;
+            //List<memberInfoModel> list111 = infobll.selectInfoCollect(cardTepe);
+            //dataGridView1.DataSource = list111;
+            PageLoad("全部", 1);
         }
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -201,6 +221,71 @@ namespace yixiupige
                 return;
             }
             MessageBox.Show("导出失败！");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (indexPage == 1)
+            {
+                return;
+            }
+            PageLoad(pageType, 1);
+            indexPage = 1;
+            textBox1.Text = "1";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (indexPage == 1)
+            {
+                return;
+            }
+            PageLoad(pageType, indexPage--);
+            textBox1.Text = indexPage.ToString();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            double page = PageCount*1.0 / 300.0;
+            int i = Convert.ToInt32(Math.Ceiling(page));
+            if (indexPage >= i)
+            {
+                return;
+            }
+            PageLoad(pageType, indexPage++);
+            textBox1.Text = indexPage.ToString();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            double page = PageCount * 1.0 / 300.0;
+            int i = Convert.ToInt32(Math.Ceiling(page));
+            if (indexPage == i)
+            {
+                return;
+            }
+            PageLoad(pageType, i);
+            indexPage = i;
+            textBox1.Text = indexPage.ToString();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            double page = PageCount * 1.0 / 300.0;
+            int i = Convert.ToInt32(Math.Ceiling(page));
+            int index;
+            if (int.TryParse(textBox1.Text, out index))
+            {
+                if (index > 0 && index < i)
+                {
+                    PageLoad(pageType, index);
+                    indexPage = index;
+                }
+            }
+            else
+            {
+                MessageBox.Show("请输入数字！");
+            }
         }
 
         

@@ -77,7 +77,7 @@ namespace yixiupige
             }
             foreach (JCInfoModel model in list)
             {
-                if (model.jcAddress.Trim() == "店铺已收" || model.jcAddress.Trim() == "店内完工")
+                if (model.jcAddress.Trim() == "店铺已收" || model.jcAddress.Trim() == "店铺完工")
                 {
                     listk.Add(model);
                 }

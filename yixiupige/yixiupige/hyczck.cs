@@ -115,6 +115,8 @@ namespace yixiupige
             {
                 MessageBox.Show("充值成功！");
                 bind();
+                //充值成功之后，打印小票
+                PirentDocumentClass.PrintToUpMoney(model);
                 this.Close();
             }
             else 

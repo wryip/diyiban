@@ -1057,7 +1057,7 @@ namespace DAL
             }
             int i = 1;           
             JCInfoModel model;
-            string str = "select * from JCInfoTable"+ID+" where (jcAddress=@jcAddress or jcAddress=@jcAddress1) and jcZT=@jcZT";
+            string str = "select * from JCInfoTable" + ID + " where (jcAddress=@jcAddress or jcAddress=@jcAddress1) and jcZT=@jcZT order by jcBeginDate";
             SqlParameter[] pms = new SqlParameter[] {
             new SqlParameter("@jcAddress","送回店中"),
             //new SqlParameter("@DPName",name.Trim()),

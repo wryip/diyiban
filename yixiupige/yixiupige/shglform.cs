@@ -231,10 +231,13 @@ namespace yixiupige
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (EndDate.CompareTo(DateTime.Now) <= 0)
+            if (radioButton1.Checked)
             {
-                MessageBox.Show("该会员卡已到期！");
-                return;
+                if (EndDate.CompareTo(DateTime.Now) <= 0)
+                {
+                    MessageBox.Show("该会员卡已到期！");
+                    return;
+                }
             }
             videoSourcePlayer1.NewFrame += new AForge.Controls.VideoSourcePlayer.NewFrameHandler(videoSourcePlayer1_NewFrame);
             if (textBox17.Text.Trim() == "" && textBox18.Text.Trim() == "")
@@ -489,6 +492,11 @@ namespace yixiupige
                 }
                 dataGridView3.DataSource = listSousuo;
                 dataGridView3.Visible = true;
+                if (listSousuo.Count == 1)
+                {
+                    dataGridView3_CellClick(dataGridView3,new DataGridViewCellEventArgs(0,0));
+                }
+                dataGridView2.DataSource = new List<shInfoList>();
             }
         }
 
@@ -535,6 +543,7 @@ namespace yixiupige
                 textBox8.Text = "0";
                 textBox9.Text = model.toUpMoney;
             }
+            button5_Click(button5, new EventArgs());
         }
 
         private void textBox13_Click(object sender, EventArgs e)
@@ -1040,6 +1049,7 @@ namespace yixiupige
             textBox11.Text = "";
             textBox12.Text = "";
             dateTimePicker1.ResetText();
+            dataGridView1.DataSource = new List<LiShiConsumption>();
         }
         /// <summary>
         /// 点完保存之后才执行
@@ -1359,6 +1369,27 @@ namespace yixiupige
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked)
+            {
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox4.Text = "";
+                textBox5.Text = "";
+                textBox6.Text = "";
+                textBox7.Text = "";
+                textBox8.Text = "";
+                textBox9.Text = "";
+                textBox10.Text = "";
+                textBox11.Text = "";
+                textBox12.Text = "";
+                dateTimePicker1.ResetText();
+                dataGridView1.DataSource = new List<LiShiConsumption>();
+                dataGridView2.DataSource = new List<shInfoList>();
+            }
         }        
     }
 }

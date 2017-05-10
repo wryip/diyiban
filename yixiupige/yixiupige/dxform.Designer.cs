@@ -65,10 +65,9 @@
             // 
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(10, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(15, 15);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1365, 541);
+            this.panel1.Size = new System.Drawing.Size(2048, 812);
             this.panel1.TabIndex = 0;
             // 
             // groupBox2
@@ -86,9 +85,11 @@
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Location = new System.Drawing.Point(728, 6);
+            this.groupBox2.Location = new System.Drawing.Point(1092, 9);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(634, 528);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(951, 792);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "短信操作";
@@ -99,9 +100,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.textBox2);
-            this.groupBox4.Location = new System.Drawing.Point(7, 248);
+            this.groupBox4.Location = new System.Drawing.Point(10, 372);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(620, 274);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Size = new System.Drawing.Size(930, 411);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "剩余短信【0】-手机号码【0】";
@@ -112,19 +115,21 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(7, 21);
+            this.textBox2.Location = new System.Drawing.Point(10, 32);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox2.Size = new System.Drawing.Size(608, 247);
+            this.textBox2.Size = new System.Drawing.Size(910, 368);
             this.textBox2.TabIndex = 0;
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(539, 163);
+            this.button11.Location = new System.Drawing.Point(808, 244);
+            this.button11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 41);
+            this.button11.Size = new System.Drawing.Size(112, 62);
             this.button11.TabIndex = 3;
             this.button11.Text = "发送短信";
             this.button11.UseVisualStyleBackColor = true;
@@ -132,9 +137,10 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(419, 196);
+            this.button10.Location = new System.Drawing.Point(628, 294);
+            this.button10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.Size = new System.Drawing.Size(112, 34);
             this.button10.TabIndex = 2;
             this.button10.Text = "删除重号";
             this.button10.UseVisualStyleBackColor = true;
@@ -142,9 +148,10 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(260, 196);
+            this.button4.Location = new System.Drawing.Point(390, 294);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(112, 34);
             this.button4.TabIndex = 2;
             this.button4.Text = "增加号码";
             this.button4.UseVisualStyleBackColor = true;
@@ -152,19 +159,21 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(82, 196);
+            this.button2.Location = new System.Drawing.Point(123, 294);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(112, 34);
             this.button2.TabIndex = 2;
-            this.button2.Text = "反选";
+            this.button2.Text = "导入";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(419, 155);
+            this.button9.Location = new System.Drawing.Point(628, 232);
+            this.button9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.Size = new System.Drawing.Size(112, 34);
             this.button9.TabIndex = 2;
             this.button9.Text = "全部删除";
             this.button9.UseVisualStyleBackColor = true;
@@ -172,9 +181,10 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(260, 155);
+            this.button6.Location = new System.Drawing.Point(390, 232);
+            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.Size = new System.Drawing.Size(112, 34);
             this.button6.TabIndex = 2;
             this.button6.Text = "删除号码";
             this.button6.UseVisualStyleBackColor = true;
@@ -182,9 +192,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(82, 155);
+            this.button1.Location = new System.Drawing.Point(123, 232);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(112, 34);
             this.button1.TabIndex = 2;
             this.button1.Text = "全选";
             this.button1.UseVisualStyleBackColor = true;
@@ -193,9 +204,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(143, 123);
+            this.label1.Location = new System.Drawing.Point(214, 184);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(377, 12);
+            this.label1.Size = new System.Drawing.Size(566, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "注：短信内容不能过长。短信内容必须是合法的，否则短信会被拦截。";
             // 
@@ -204,9 +216,11 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Location = new System.Drawing.Point(7, 21);
+            this.groupBox3.Location = new System.Drawing.Point(10, 32);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(620, 95);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(930, 142);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "短信内容【0】总字数【64】";
@@ -216,10 +230,11 @@
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(7, 21);
+            this.textBox1.Location = new System.Drawing.Point(10, 32);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(609, 68);
+            this.textBox1.Size = new System.Drawing.Size(912, 100);
             this.textBox1.TabIndex = 0;
             // 
             // groupBox1
@@ -227,9 +242,11 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(4, 6);
+            this.groupBox1.Location = new System.Drawing.Point(6, 9);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(717, 528);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1076, 792);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "会员信息";
@@ -253,11 +270,12 @@
             this.dxName,
             this.dxTel,
             this.SendInfo});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 21);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 32);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(704, 494);
+            this.dataGridView1.Size = new System.Drawing.Size(1056, 741);
             this.dataGridView1.TabIndex = 0;
             // 
             // dxNo
@@ -331,10 +349,11 @@
             // 
             // dxform
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1382, 553);
+            this.ClientSize = new System.Drawing.Size(2073, 830);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "dxform";

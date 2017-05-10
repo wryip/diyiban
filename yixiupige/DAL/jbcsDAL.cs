@@ -11,6 +11,7 @@ namespace DAL
 {
     public class jbcsDAL
     {
+        public string ID = FilterClass.ID == null ? null : FilterClass.ID.Trim();
         //基本参数类   要实现   admin账户设置之后   所有店铺均能显示
         //添加基本参数
         public bool addIteam(string neirong, string type)
@@ -118,6 +119,15 @@ namespace DAL
                 result = true;
             }
             return result;
+        }
+        public int CountNumber()
+        {
+            if (ID == null)
+            {
+                return 0;
+            }
+            string str = "select count(*) from GoodInfo" + ID + "";
+            return Convert.ToInt32(SqlHelper.ExecuteScalar(str));
         }
     }
 }

@@ -35,6 +35,7 @@ namespace Commond
         public static int _beginy { get; set; }
         public static double _QKMoney { get; set; }
         public static string _cardnumber { get; set; }
+        public static memberToUpModel toupmoney { get; set; }
         /// <summary>
         /// 给顾卡打印收费小票
         /// </summary>
@@ -186,6 +187,12 @@ namespace Commond
                 e.Graphics.DrawString("店主签字：", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
             //i++;
             e.Graphics.DrawString(sb.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(0, 0));
+            i++;
+            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            i++;
+            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            i++;
+            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
             ////e.Graphics.DrawImage(_ibmap, new Rectangle(new System.Drawing.Point(-100, 200), new Size(400,400)));
             //e.Graphics.DrawImage(_ibmap, new Rectangle(new System.Drawing.Point(0, (100 + i * 15)), new Size(250, 250)));
             #endregion
@@ -325,6 +332,12 @@ namespace Commond
             e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
             e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            i++;
+            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            i++;
+            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            i++;
+            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
             _beginy = 0;
             _QKMoney = 0;
 	#endregion
@@ -334,25 +347,52 @@ namespace Commond
         {
             return (int)(cm / 25.4) * 100;
         }
-        ///暂时不用
-        //public static void StaffGuiGe(string str, StringBuilder sb)
-        //{
-        //    string kg = "_";
-        //    if (str.Length > 9)
-        //    {
-        //        sb.Append("|   |" + str.Substring(0, 9) + "|    |      |\r\n");
-        //        StaffGuiGe(str.Substring(9, str.Length - 9), sb);
-        //    }
-        //    else
-        //    {
-        //        int count = 9 - str.Length;
-        //        for (int j = 0; j < count; j++)
-        //        {
-        //            kg += " ";
-        //        }
-        //        str = kg+ kg+ str+kg+kg;
-        //        sb.Append("|___|" + str + "|____|_____ |\r\n");
-        //    }
-        //}
+        public static void PrintToUpMoney(memberToUpModel model)
+        {
+            toupmoney = model;
+            //打印预览
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+            PrintDocument pd = new PrintDocument();
+            //设置边距
+            Margins margin = new Margins(20, 20, 20, 20);
+            pd.PrinterSettings.PrinterName = FilterClass.MemberXF;
+            pd.DefaultPageSettings.Margins = margin;
+            //默认纸张
+            PaperSize pageSize = new PaperSize("First custom size", getYc(58), 600);
+            pd.DefaultPageSettings.PaperSize = pageSize;
+            //打印事件设置            
+            pd.PrintPage += new PrintPageEventHandler(pd_PrintPage2);
+            ppd.Document = pd;
+            ppd.ShowDialog();
+            try
+            {
+                pd.Print();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "打印出错", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                pd.PrintController.OnEndPrint(pd, new PrintEventArgs());
+            }
+        }
+        private static void pd_PrintPage2(object sender, PrintPageEventArgs e)
+        {
+            //e.Graphics.DrawImage(_ibmap, new Rectangle(new System.Drawing.Point(0, 0), new Size(200, 100)));
+            //return;
+            string DPTel = FilterClass.DPTel;
+            string jiewei = FilterClass.DXInfo;
+            int i = 1;
+            int j = 0;
+            StringBuilder sb = new StringBuilder();
+            string tou = "顾客充值小票";
+            sb.Append("            " + tou + "       \r\n");
+            sb.Append("---------------------------------------------\r\n");
+            sb.Append("日期:" + DateTime.Now.ToShortDateString() + " \r\n");
+            sb.Append("姓名:" + toupmoney.czName + "\r\n" + "卡号:" + toupmoney.czNo + "\r\n");
+            sb.Append("卡类型:" + toupmoney.czType + "\r\n");
+            sb.Append("本次充值:" + toupmoney.czMoney + "\r\n");
+            sb.Append("剩余次数:" + toupmoney.czyCount + "\r\n");
+            sb.Append("本次充值:" + toupmoney.czyMoney + "\r\n");
+            e.Graphics.DrawString(sb.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, 0));
+        }
     }
 }

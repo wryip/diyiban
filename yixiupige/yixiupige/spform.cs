@@ -56,6 +56,8 @@ namespace yixiupige
 
             List<jbcs> list = jbcsbll.selectList(4);
             TreeNode parent = treeView1.Nodes[0];
+            int count = jbcsbll.CountNumber();
+            parent.Text += "[" + count.ToString() + "]";
             //TreeNode parent=new TreeNode();
             //parent.Text = "全部";
             //treeView1.Nodes.Add(parent);           
@@ -186,14 +188,14 @@ namespace yixiupige
 
         private void treeView1_NodeMouseClick_1(object sender, TreeNodeMouseClickEventArgs e)
         {
-            string cardTepe = e.Node.Text;
+            string cardTepe = e.Node.Text.Split(new char[]{'['},StringSplitOptions.RemoveEmptyEntries)[0];
             GoodInfo gd = new GoodInfo()
             {
                 Gtype = cardTepe
             };
-            List<GoodInfo> list = gdbll.Getlist(gd);
+            //List<GoodInfo> list = gdbll.Getlist(gd);
 
-            dataGridView1.DataSource = gdbll.Getlist(gd);
+            dataGridView1.DataSource = gdbll.Getlist(gd).OrderByDescending(a=>a.Gid);
             
         }
       

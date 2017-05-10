@@ -27,6 +27,10 @@ namespace BLL
         {
             return dal.seleteIteam(neirong);
         }
+        public int CountNumber()
+        {
+            return dal.CountNumber();
+        }
         //public List<string> selectnode()
         //{
         //    return dal.selectNodes();

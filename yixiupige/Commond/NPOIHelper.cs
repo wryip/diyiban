@@ -12,6 +12,37 @@ namespace Commond
 {
     public static class NPOIHelper
     {
+        public static List<string> ReadNpoi(string path)
+        {
+            List<string> list = new List<string>();
+            //1.创建一个workbook对象，该对象中包含了excel文件中的数据
+            //1.1创建一个文件流
+            using (FileStream fsRead = File.OpenRead(path))
+            {
+                //1.2根据指定的文件流，创建一个workbook对象
+
+                IWorkbook wk = new HSSFWorkbook(fsRead);
+                //1.3获取该“工作簿”中的每个sheet(每个工作表)(循环)
+                for (int i = 0; i < wk.NumberOfSheets; i++)
+                {
+                    //1.4获取每个工作表
+                    ISheet sheet = wk.GetSheetAt(i);
+                    //1.5获取当前工作表中的每一行
+                    //1.6获取每一行
+                    IRow currentRow = sheet.GetRow(0);
+                    if (currentRow != null)
+                    {
+                        ICell cell = currentRow.GetCell(0);
+                        if (cell != null)
+                        {
+                            list.Add(cell.StringCellValue);
+                        }
+                    }
+                }
+
+            }
+            return list;
+        }
         public static bool PrintDocument<T>(List<T> list,string name)
         {
             //创建一个集合

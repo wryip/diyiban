@@ -50,7 +50,7 @@ namespace yixiupige
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Trim() == "" || textBox2.Text.Trim() == "")
+            if (textBox2.Text.Trim() == "")
             {
                 MessageBox.Show("请将信息填写完整！");
                 return;

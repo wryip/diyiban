@@ -163,6 +163,7 @@ namespace yixiupige
             if (result)
             {
                 MessageBox.Show("成功，共送洗" + list.Count.ToString() + "件！");
+                label1.Text = "0";
                 BindData();
             }
             //成功送洗之后，打印与物流的小票
@@ -254,11 +255,15 @@ namespace yixiupige
                 {
                     row.Cells["XZ"].Value = true;
                     textBox1.Text = "";
+                    //此处添加提示音效
+                    SuccessInfo.Success();
                     //该表lable中的数量信息
                     numberAdd();
                     return;
                 }
             }
+            textBox1.Text = "";
+            MessageBox.Show("失败,没有此数据！");
         }
         private void numberAdd()
         {
@@ -271,6 +276,11 @@ namespace yixiupige
                 }
             }
             label1.Text = count.ToString();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

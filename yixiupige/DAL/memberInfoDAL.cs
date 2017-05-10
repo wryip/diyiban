@@ -49,7 +49,7 @@ namespace DAL
             return result;
         }
         //当点击  会员管理左侧的节点的时候  合首次加载的时候   加载相应的卡的信息
-        public List<memberInfoModel> selectInfoCollect(string cardTepe)
+        public List<memberInfoModel> selectInfoCollect(string cardTepe,int ii,out int j)
         {
             string dpname=FilterClass.DianPu1.UserName.Trim();
             int i = 1;
@@ -58,19 +58,24 @@ namespace DAL
             SqlDataReader read;
             SqlParameter[] pms;
             string str;
+            //先获取所有的数量
+            str = "select count(*) from memberInfo";
+            object oo= SqlHelper.ExecuteScalar(str);
+            j = Convert.ToInt32(oo);
             if (cardTepe.Trim() == "全部")
             {
                 if (dpname == "admin")
                 {
-                    str = "select * from memberInfo order by cardDate desc";
+                    str = "select top 300 * from memberInfo where ID NOT IN(select TOP " + (ii - 1) * 300 + " ID from memberInfo order by ID DESC,cardDate DESC)  order by ID DESC";
                     read = SqlHelper.ExecuteReader(str);
                 }
                 else
                 {
                     pms = new SqlParameter[] { 
-                    new SqlParameter("@dianName",dpname)
+                    new SqlParameter("@dianName",dpname),
+                    new SqlParameter("@dianName1",dpname)
                     };
-                    str = "select * from memberInfo where dianName=@dianName order by cardDate desc";
+                    str = "select top 300 * from memberInfo where dianName=@dianName and ID NOT IN(select TOP " + (ii - 1) * 300 + " ID from memberInfo where dianName=@dianName1 order by ID DESC,cardDate DESC)  order by ID DESC";
                     read = SqlHelper.ExecuteReader(str, pms);
                 }
             }
@@ -79,18 +84,21 @@ namespace DAL
                 if (dpname == "admin")
                 {
                     pms = new SqlParameter[] { 
-            new SqlParameter("@memberType",cardTepe)
+            new SqlParameter("@memberType",cardTepe),
+            new SqlParameter("@memberType1",cardTepe)
             };
-                    str = "select * from memberInfo where memberType=@memberType order by cardDate desc";
+                    str = "select top 300 * from memberInfo where memberType=@memberType and ID NOT IN(select TOP " + (ii - 1) * 300 + " ID from memberInfo where memberType=@memberType1 order by ID DESC,cardDate DESC)  order by ID DESC";
                     read = SqlHelper.ExecuteReader(str, pms);
                 }
                 else
                 {
                     pms = new SqlParameter[] { 
             new SqlParameter("@memberType",cardTepe),
-            new SqlParameter("@dianName",dpname)
+            new SqlParameter("@dianName",dpname),
+            new SqlParameter("@memberType1",cardTepe),
+            new SqlParameter("@dianName1",dpname)
             };
-                    str = "select * from memberInfo where memberType=@memberType and dianName=@dianName order by cardDate desc";
+                    str = "select top 300 * from memberInfo where memberType=@memberType and dianName=@dianName and ID NOT IN(select TOP " + (ii - 1) * 300 + " ID from memberInfo where memberType=@memberType1 and dianName=@dianName1 order by ID DESC,cardDate DESC)  order by ID DESC";
                     read = SqlHelper.ExecuteReader(str, pms);
                 }
             }           
@@ -411,9 +419,10 @@ namespace DAL
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@membercardNo",cardno),
             new SqlParameter("@toUpMoney",money),
-            new SqlParameter("@dianName",dpname)
+            new SqlParameter("@dianName",dpname),
+            new SqlParameter("@endDate",(DateTime.Now.Year+2)+"-"+DateTime.Now.Month+"-"+DateTime.Now.Day+" ")
             };
-            string str = "update memberInfo set toUpMoney=@toUpMoney where membercardNo=@membercardNo and dianName=@dianName";
+            string str = "update memberInfo set toUpMoney=@toUpMoney,endDate=@endDate where membercardNo=@membercardNo and dianName=@dianName";
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
                 result = true;
