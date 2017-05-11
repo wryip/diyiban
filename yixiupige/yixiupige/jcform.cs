@@ -280,7 +280,15 @@ namespace yixiupige
 
         private void button6_Click(object sender, EventArgs e)
         {
+            //继续送洗
+            AgainSend from = AgainSend.CreateForm();
+            from.Show();
+        }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            FactoryExit from = FactoryExit.CreateForm();
+            from.Show();
         }
     }
 }

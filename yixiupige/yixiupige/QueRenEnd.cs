@@ -18,12 +18,15 @@ namespace yixiupige
             InitializeComponent();
         }
         public delegate void binddata(string name, string tel, int id, string dannumbe);
+        public delegate void bindsx();
+        public static bindsx binsx;
         public static binddata bind1;
         private static QueRenEnd _danli = null;
         public static int ID;
         public static string dannum;
-        public static QueRenEnd CreateForm(binddata bind,int id,string dannumber)
+        public static QueRenEnd CreateForm(binddata bind,int id,string dannumber,bindsx bdsx)
         {
+            binsx = bdsx;
             dannum = dannumber;
             ID = id;
             bind1 = bind;
@@ -56,6 +59,7 @@ namespace yixiupige
                 return;
             }
             bind1(textBox1.Text.Trim(), textBox2.Text.Trim(), ID, dannum);
+            binsx();
             this.Close();
         }
     }

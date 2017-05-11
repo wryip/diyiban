@@ -44,7 +44,7 @@ namespace yixiupige
         {
             List<JCInfoModel> list = new List<JCInfoModel>();
             list = bll.selectFinishJC(FilterClass.DianPu1.UserName);
-            dataGridView3.DataSource = list.OrderByDescending(a => a.jcBeginDate).ToList(); ;
+            dataGridView3.DataSource = list.OrderByDescending(a => a.jcBeginDate).ToList(); 
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -144,30 +144,30 @@ namespace yixiupige
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            List<int> list = new List<int>();
-            foreach (DataGridViewRow iteam in dataGridView3.Rows)
-            {
-                if (Convert.ToBoolean(iteam.Cells["XZ"].Value))
-                {
-                    list.Add(Convert.ToInt32(iteam.Cells["jcID"].Value));
-                }
-            }
-            if (list.Count <= 0)
-            {
-                MessageBox.Show("请选择数据！");
-                return;
-            }
-            bool result = bll.UpdateEndSend(list);
-            if (result)
-            {
-                tjbb.AgainSend(list);
-                MessageBox.Show("成功！");
-                datagridviewbind();
-                return;
-            }
-            MessageBox.Show("失败，请稍后再试！！");
-        }
+        //private void button3_Click(object sender, EventArgs e)
+        //{
+        //    List<int> list = new List<int>();
+        //    foreach (DataGridViewRow iteam in dataGridView3.Rows)
+        //    {
+        //        if (Convert.ToBoolean(iteam.Cells["XZ"].Value))
+        //        {
+        //            list.Add(Convert.ToInt32(iteam.Cells["jcID"].Value));
+        //        }
+        //    }
+        //    if (list.Count <= 0)
+        //    {
+        //        MessageBox.Show("请选择数据！");
+        //        return;
+        //    }
+        //    bool result = bll.UpdateEndSend(list);
+        //    if (result)
+        //    {
+        //        tjbb.AgainSend(list);
+        //        MessageBox.Show("成功！");
+        //        datagridviewbind();
+        //        return;
+        //    }
+        //    MessageBox.Show("失败，请稍后再试！！");
+        //}
     }
 }

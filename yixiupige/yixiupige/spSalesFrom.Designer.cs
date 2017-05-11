@@ -180,7 +180,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(763, 298);
+            this.groupBox2.Size = new System.Drawing.Size(763, 305);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "商品信息";
@@ -212,7 +212,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(753, 274);
+            this.dataGridView1.Size = new System.Drawing.Size(753, 281);
             this.dataGridView1.TabIndex = 0;
             // 
             // spNumber

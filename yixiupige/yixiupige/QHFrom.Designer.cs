@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,19 +84,13 @@
             this.jcQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcPression = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsdm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.取走ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.取走ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.送洗ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
-            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -117,6 +111,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.dataGridView2);
             this.groupBox2.Location = new System.Drawing.Point(681, 117);
             this.groupBox2.Name = "groupBox2";
@@ -124,6 +119,17 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "不可取";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = global::yixiupige.Properties.Resources._6962;
+            this.pictureBox1.Location = new System.Drawing.Point(409, 203);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(251, 200);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // dataGridView2
             // 
@@ -339,7 +345,7 @@
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(974, 37);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(148, 36);
             this.button5.TabIndex = 8;
@@ -350,7 +356,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(1147, 37);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(148, 36);
             this.button4.TabIndex = 8;
@@ -472,6 +478,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(658, 396);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // XZ
             // 
@@ -635,42 +642,6 @@
             this.lsdm.ReadOnly = true;
             this.lsdm.Visible = false;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.取走ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 26);
-            // 
-            // 取走ToolStripMenuItem
-            // 
-            this.取走ToolStripMenuItem.Name = "取走ToolStripMenuItem";
-            this.取走ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.取走ToolStripMenuItem.Text = "取走";
-            this.取走ToolStripMenuItem.Click += new System.EventHandler(this.取走ToolStripMenuItem_Click);
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.取走ToolStripMenuItem1,
-            this.送洗ToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(101, 48);
-            // 
-            // 取走ToolStripMenuItem1
-            // 
-            this.取走ToolStripMenuItem1.Name = "取走ToolStripMenuItem1";
-            this.取走ToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
-            this.取走ToolStripMenuItem1.Text = "取走";
-            // 
-            // 送洗ToolStripMenuItem
-            // 
-            this.送洗ToolStripMenuItem.Name = "送洗ToolStripMenuItem";
-            this.送洗ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.送洗ToolStripMenuItem.Text = "送洗";
-            // 
             // QHFrom
             // 
             this.AcceptButton = this.button2;
@@ -685,13 +656,12 @@
             this.Load += new System.EventHandler(this.QHFrom_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -708,11 +678,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 取走ToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem 取走ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 送洗ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewCheckBoxColumn XZ;
         private System.Windows.Forms.DataGridViewTextBoxColumn jcNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn jcID;
@@ -758,5 +723,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -55,6 +55,112 @@ namespace DAL
             }
             return result;
         }
+        //寄存管理里面的点击tree的时候加载改成分页加载
+        public List<JCInfoModel> selectAllPageList(string name, int pageindex, out int count)
+        {
+            count = 0;
+            int i = 1;
+            string str = "";
+            string dpname = FilterClass.DianPu1.UserName.Trim();
+            if (dpname == "admin")
+            {
+                foreach (KeyValuePair<string, int> iteam in FilterClass.dic)
+                {
+                    str += "select count(*) from ";
+                    str += "JCInfoTable" + iteam.Value + "";
+                    str += " where jcZT='未取走'";
+                    str += " union all ";
+                }
+                str = str.Substring(0, str.Length - 10);
+                SqlDataReader read1 = SqlHelper.ExecuteReader(str);
+                while (read1.Read())
+                {
+                    if (read1.HasRows)
+                    {
+                        count += Convert.ToInt32(read1[0]);
+                    }
+                }
+            }
+            else
+            {
+                str = "select count(*) from JCInfoTable" + ID + " where jcZT='未取走'";
+                object oo = SqlHelper.ExecuteScalar(str);
+                count = Convert.ToInt32(oo);
+            }
+            List<JCInfoModel> list = new List<JCInfoModel>();
+            JCInfoModel model;
+            //SqlParameter[] pms;             
+            //类型为全部
+            if (name.Trim() == "全部")
+            {
+                if (dpname == "admin")
+                {
+                    foreach (KeyValuePair<string, int> iteam in FilterClass.dic)
+                    {
+                        str += "select top 300 * from ";
+                        str += "JCInfoTable" + iteam.Value + "";
+                        str += " where  jcZT='未取走' and jcID NOT IN(select TOP " + (pageindex - 1) * 300 + " jcID from JCInfoTable" + iteam.Value + " order by jcID DESC,jcBeginDate DESC)";
+                        str += " union all ";
+                    }
+                    str = str.Substring(0, str.Length - 10);
+                }
+                else
+                {
+                    str = "select top 300 * from JCInfoTable" + ID + " where jcZT='未取走' and jcID NOT IN(select TOP " + (pageindex - 1) * 300 + " jcID from JCInfoTable" + ID + " order by jcID DESC,jcBeginDate DESC)";
+                }
+            }
+            //类型为其中一个
+            else
+            {
+                if (dpname == "admin")
+                {
+                    foreach (KeyValuePair<string, int> iteam in FilterClass.dic)
+                    {
+                        str += "select top 300 * from ";
+                        str += "JCInfoTable" + iteam.Value + "";
+                        str += " where jcZT='未取走' and jcType='" + name + "' and jcID NOT IN(select TOP " + (pageindex - 1) * 300 + " jcID from JCInfoTable" + iteam.Value + " order by jcID DESC,jcBeginDate DESC)";
+                        str += " union all ";
+                    }
+                    str = str.Substring(0, str.Length - 10);
+                }
+                else
+                {
+                    str = "select top 300 * from JCInfoTable" + ID + " where jcZT='未取走' and jcType='" + name + "' and jcID NOT IN(select TOP " + (pageindex - 1) * 300 + " jcID from JCInfoTable" + ID + " order by jcID DESC,jcBeginDate DESC)";
+                }
+            }
+            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    model = new JCInfoModel();
+                    model.jcNo = i;
+                    model.jcID = Convert.ToInt32(read["jcID"]);
+                    model.jcCardNumber = read["jcCardNumber"].ToString();
+                    model.jcName = read["jcName"].ToString();
+                    model.jcQMoney = read["jcQMoney"].ToString();
+                    model.jcType = read["jcType"].ToString();
+                    model.jcPinPai = read["jcPinPai"].ToString();
+                    model.jcColor = read["jcColor"].ToString();
+                    model.jcStaff = read["jcStaff"].ToString();
+                    model.jcBeginDate = read["jcBeginDate"].ToString();
+                    model.jcEndDate = read["jcEndDate"].ToString();
+                    model.jcZT = read["jcZT"].ToString();
+                    model.jcAddress = read["jcAddress"].ToString();
+                    model.jcImgUrl = read["jcImgUrl"].ToString();
+                    model.jcDanNumber = read["jcDanNumber"].ToString();
+                    model.jcPaiNumber = read["jcPaiNumber"].ToString();
+                    model.jcRemark = read["jcRemark"].ToString();
+                    model.jcPression = read["jcPression"].ToString();
+                    model.jcQuestion = read["jcQuestion"].ToString();
+                    model.lsdm = read["DPName"].ToString();
+                    model.Tel = read["YYF"].ToString();
+                    i++;
+                    list.Add(model);
+                }
+            }
+            return list.OrderBy(a=>a.jcBeginDate).ToList();
+        }
         //在寄存管理里面显示的   当点击左边节点的时候   展示的信息
         public List<JCInfoModel> selectAllList(string type)
         {
@@ -64,6 +170,7 @@ namespace DAL
             JCInfoModel model;
             //SqlParameter[] pms; 
             string dpname=FilterClass.DianPu1.UserName.Trim();
+            //类型为全部
             if (type.Trim() == "全部")
             {
                 if (dpname == "admin")
@@ -82,6 +189,7 @@ namespace DAL
                     str = "select * from JCInfoTable" + ID + " where jcZT='未取走'";
                 }
             }
+                //类型为其中一个
             else
             {
                 if (dpname == "admin")
@@ -89,7 +197,7 @@ namespace DAL
                     foreach (KeyValuePair<string, int> iteam in FilterClass.dic)
                     {
                         str += "select * from ";
-                        str += "CardExitMoney" + iteam.Value + "";
+                        str += "JCInfoTable" + iteam.Value + "";
                         str += " where jcType='" + type + "' and jcZT='未取走'";
                         str += " union all ";
                     }
@@ -1060,6 +1168,56 @@ namespace DAL
             string str = "select * from JCInfoTable" + ID + " where (jcAddress=@jcAddress or jcAddress=@jcAddress1) and jcZT=@jcZT order by jcBeginDate";
             SqlParameter[] pms = new SqlParameter[] {
             new SqlParameter("@jcAddress","送回店中"),
+            //new SqlParameter("@DPName",name.Trim()),
+            new SqlParameter("@jcAddress1","工厂退回"),
+            //new SqlParameter("@jcAddress2","店铺完工"),
+            new SqlParameter("@jcZT","未取走")
+            };
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    model = new JCInfoModel();
+                    model.jcNo = i;
+                    model.jcID = Convert.ToInt32(read["jcID"]);
+                    model.jcCardNumber = read["jcCardNumber"].ToString();
+                    model.jcName = read["jcName"].ToString();
+                    model.jcQMoney = read["jcQMoney"].ToString();
+                    model.jcType = read["jcType"].ToString();
+                    model.jcPinPai = read["jcPinPai"].ToString();
+                    model.jcColor = read["jcColor"].ToString();
+                    model.jcStaff = read["jcStaff"].ToString();
+                    model.jcBeginDate = read["jcBeginDate"].ToString();
+                    model.jcEndDate = read["jcEndDate"].ToString();
+                    model.jcZT = read["jcZT"].ToString();
+                    model.jcAddress = read["jcAddress"].ToString();
+                    model.jcImgUrl = read["jcImgUrl"].ToString();
+                    model.jcDanNumber = read["jcDanNumber"].ToString();
+                    model.jcPaiNumber = read["jcPaiNumber"].ToString();
+                    model.jcRemark = read["jcRemark"].ToString();
+                    model.jcPression = read["jcPression"].ToString();
+                    model.Tel = read["YYF"].ToString();
+                    model.jcQuestion = read["jcQuestion"].ToString();
+                    model.lsdm = read["DPName"].ToString();
+                    i++;
+                    list.Add(model);
+                }
+            }
+            return list;
+        }
+        //工厂退回的信息查询
+        public List<JCInfoModel> FactoryExit(string name)
+        {
+            List<JCInfoModel> list = new List<JCInfoModel>();
+            if (ID == null)
+            {
+                return list;
+            }
+            int i = 1;
+            JCInfoModel model;
+            string str = "select * from JCInfoTable" + ID + " where jcAddress=@jcAddress1 and jcZT=@jcZT order by jcBeginDate";
+            SqlParameter[] pms = new SqlParameter[] {
             //new SqlParameter("@DPName",name.Trim()),
             new SqlParameter("@jcAddress1","工厂退回"),
             //new SqlParameter("@jcAddress2","店铺完工"),

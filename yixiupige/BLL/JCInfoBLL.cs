@@ -212,5 +212,13 @@ namespace BLL
         {
             return dal.SelectJCListForDAN(dannumber);
         }
+        public List<JCInfoModel> FactoryExit(string name)
+        {
+            return dal.FactoryExit(name);
+        }
+        public List<JCInfoModel> selectAllPageList(string name,int pageindex, out int count)
+        {
+            return dal.selectAllPageList(name, pageindex, out count);
+        }
     }
 }

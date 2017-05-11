@@ -93,7 +93,7 @@ namespace yixiupige
         private void 取走ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(dataGridView1.Rows[0].Cells["jcID"].Value);
-            qzjcFrom qzjc = qzjcFrom.CreateForm(id, databindview1);
+            qzjcFrom qzjc = qzjcFrom.CreateForm(id, databindview1, hsuaxin);
             qzjc.Show();
             qzjc.Focus();
         }
@@ -127,7 +127,7 @@ namespace yixiupige
                 return;
             }
             int id = Convert.ToInt32(dataGridView1.Rows[0].Cells["jcID"].Value);
-            qzjcFrom qzjc = qzjcFrom.CreateForm(id, databindview1);
+            qzjcFrom qzjc = qzjcFrom.CreateForm(id, databindview1, hsuaxin);
             qzjc.Show();
             qzjc.Focus();
         }
@@ -149,7 +149,7 @@ namespace yixiupige
                 MessageBox.Show("请选择一条数据！");
                 return;
             }
-            QueRenEnd quend = QueRenEnd.CreateForm(ZhiXing, list[0], dannumber);
+            QueRenEnd quend = QueRenEnd.CreateForm(ZhiXing, list[0], dannumber, hsuaxin);
             quend.Show();
             quend.Focus();
         }
@@ -164,9 +164,39 @@ namespace yixiupige
             bool result = qzbll.AddIteam(model);
             if (result)
             {
-                qzjcFrom qzjc = qzjcFrom.CreateForm(id, databindview1);
+                qzjcFrom qzjc = qzjcFrom.CreateForm(id, databindview1, hsuaxin);
                 qzjc.Show();
                 qzjc.Focus();
+            }
+        }
+        public void hsuaxin()
+        {
+            button2_Click(button2,new EventArgs());
+        }
+
+        //private void QHFrom_Click(object sender, EventArgs e)
+        //{
+        //    if (pictureBox1.Visible == true)
+        //    {
+        //        pictureBox1.Visible = false;
+        //    }
+        //}
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string path = dataGridView1.Rows[e.RowIndex].Cells["jcImgUrl"].Value.ToString();
+                pictureBox1.ImageLocation = path;
+                pictureBox1.Visible = true;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Visible == true)
+            {
+                pictureBox1.Visible = false;
             }
         }
     }

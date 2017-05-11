@@ -403,7 +403,7 @@ namespace yixiupige
             }
         }
         // //向datagridview2里面累加数据这个函数累加的是商品
-        public void GridView2BindSP(shInfoList model,bool result)
+        public void GridView2BindSP(shInfoList model,bool result,string remark)
         {
             model.YMPerson = FilterClass.DianPu1.LoginName;
             //ckmoney
@@ -1358,7 +1358,10 @@ namespace yixiupige
 
         private void textBox13_TextChanged(object sender, EventArgs e)
         {
-
+            if (textBox13.Text.Trim() == "")
+            {
+                textBox17.Text = "";
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1389,6 +1392,14 @@ namespace yixiupige
                 dateTimePicker1.ResetText();
                 dataGridView1.DataSource = new List<LiShiConsumption>();
                 dataGridView2.DataSource = new List<shInfoList>();
+            }
+        }
+
+        private void textBox16_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox16.Text.Trim() == "")
+            {
+                textBox18.Text = "";
             }
         }        
     }

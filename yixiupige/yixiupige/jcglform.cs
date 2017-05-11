@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Commond;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,12 @@ namespace yixiupige
             InitializeComponent();
         }
         JCInfoBLL jcinfobll = new JCInfoBLL();
+        public int PageCount { get; set; }
+        //一共多少页
+        public string pageType { get; set; }
+        //当前页
+        public int indexPage { get; set; }
+        //一页300条
         private static jcglform _danli = null;
         public static jcglform CreateForm()
         {
@@ -50,19 +57,29 @@ namespace yixiupige
             _danli = null;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             string cardTepe = e.Node.Text;
-            List<JCInfoModel> list = new List<JCInfoModel>();
-            list = jcinfobll.selectAllList(cardTepe);
-            dataGridView1.DataSource = list;
+            pageType = cardTepe;
+            indexPage = 1;
+            PageLoad(cardTepe, 1);
+            //List<JCInfoModel> list = new List<JCInfoModel>();
+            //list = jcinfobll.selectAllList(cardTepe);
+            //dataGridView1.DataSource = list;
         }
-
+        public void PageLoad(string name, int pageindex)
+        {
+            int count;
+            int i = 1;
+            List<JCInfoModel> list = jcinfobll.selectAllPageList(name, pageindex, out count);
+            foreach (var iteam in list)
+            {
+                iteam.jcNo = i++;
+            }
+            PageCount = count;
+            label3.Text = "共" + count + "条";
+            dataGridView1.DataSource = list.OrderByDescending(a=>a.jcBeginDate).ToList();
+        }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //for (int i = 0; i < dataGridView1.Rows.Count; i++)
@@ -97,7 +114,7 @@ namespace yixiupige
         private void 寄存取走ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["glDanNo"].Value);
-            qzjcFrom qzjc = qzjcFrom.CreateForm(id, dataviewBind1);
+            qzjcFrom qzjc = qzjcFrom.CreateForm(id, dataviewBind1, () => { });
             qzjc.Show();
             qzjc.Focus();
         }
@@ -176,6 +193,84 @@ namespace yixiupige
             {
                 MessageBox.Show("密码错误，修改失败！");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (indexPage == 1)
+            {
+                return;
+            }
+            PageLoad(pageType, 1);
+            indexPage = 1;
+            textBox1.Text = "1";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (indexPage == 1)
+            {
+                return;
+            }
+            PageLoad(pageType, indexPage--);
+            textBox1.Text = indexPage.ToString();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            double page = PageCount * 1.0 / 300.0;
+            int i = Convert.ToInt32(Math.Ceiling(page));
+            if (indexPage >= i)
+            {
+                return;
+            }
+            PageLoad(pageType, indexPage++);
+            textBox1.Text = indexPage.ToString();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            double page = PageCount * 1.0 / 300.0;
+            int i = Convert.ToInt32(Math.Ceiling(page));
+            if (indexPage == i)
+            {
+                return;
+            }
+            PageLoad(pageType, i);
+            indexPage = i;
+            textBox1.Text = indexPage.ToString();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            double page = PageCount * 1.0 / 300.0;
+            int i = Convert.ToInt32(Math.Ceiling(page));
+            int index;
+            if (int.TryParse(textBox1.Text, out index))
+            {
+                if (index > 0 && index < i)
+                {
+                    PageLoad(pageType, index);
+                    indexPage = index;
+                }
+            }
+            else
+            {
+                MessageBox.Show("请输入数字！");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string type = treeView1.SelectedNode.Text;
+            List<memberInfoModel> list = (List<memberInfoModel>)dataGridView1.DataSource;
+            bool resu = NPOIHelper.PrintDocument(list, type + "-寄存信息");
+            if (resu)
+            {
+                MessageBox.Show("导出成功！");
+                return;
+            }
+            MessageBox.Show("导出失败！");
         }
     }
 }

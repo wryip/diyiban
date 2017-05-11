@@ -125,6 +125,12 @@
     <Compile Include="addQtFuWu.Designer.cs">
       <DependentUpon>addQtFuWu.cs</DependentUpon>
     </Compile>
+    <Compile Include="AgainSend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgainSend.Designer.cs">
+      <DependentUpon>AgainSend.cs</DependentUpon>
+    </Compile>
     <Compile Include="baseClass.cs" />
     <Compile Include="bdpjFrom.cs">
       <SubType>Form</SubType>
@@ -185,6 +191,12 @@
     </Compile>
     <Compile Include="ExitCard.Designer.cs">
       <DependentUpon>ExitCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FactoryExit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FactoryExit.Designer.cs">
+      <DependentUpon>FactoryExit.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -257,6 +269,12 @@
     </Compile>
     <Compile Include="hyzjForm.Designer.cs">
       <DependentUpon>hyzjForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IsSpRemark.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IsSpRemark.Designer.cs">
+      <DependentUpon>IsSpRemark.cs</DependentUpon>
     </Compile>
     <Compile Include="jbcsForm.cs">
       <SubType>Form</SubType>
@@ -499,6 +517,9 @@
     <EmbeddedResource Include="addQtFuWu.resx">
       <DependentUpon>addQtFuWu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AgainSend.resx">
+      <DependentUpon>AgainSend.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="bdpjFrom.resx">
       <DependentUpon>bdpjFrom.cs</DependentUpon>
     </EmbeddedResource>
@@ -517,6 +538,9 @@
     <EmbeddedResource Include="ExitCard.resx">
       <DependentUpon>ExitCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FactoryExit.resx">
+      <DependentUpon>FactoryExit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fuwuEdit.resx">
       <DependentUpon>fuwuEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -525,6 +549,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="hyxgFrom.resx">
       <DependentUpon>hyxgFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IsSpRemark.resx">
+      <DependentUpon>IsSpRemark.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="jbcsxgFrom.resx">
       <DependentUpon>jbcsxgFrom.cs</DependentUpon>

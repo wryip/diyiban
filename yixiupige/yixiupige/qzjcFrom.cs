@@ -23,8 +23,11 @@ namespace yixiupige
         JCInfoBLL bll = new JCInfoBLL();
         public delegate void databind();
         public static databind databind1;
-        public static qzjcFrom CreateForm(int ID,databind bind)
+        public delegate void bindsx();
+        public static bindsx binsx;
+        public static qzjcFrom CreateForm(int ID,databind bind,bindsx ndsx)
         {
+            binsx = ndsx;
             id = ID;
             databind1 = bind;
             if (_danli == null)
@@ -72,6 +75,7 @@ namespace yixiupige
             {
                 MessageBox.Show("成功！");
                 databind1();
+                binsx();
                 this.Close();
             }
         }

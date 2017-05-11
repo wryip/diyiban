@@ -18,8 +18,11 @@ namespace yixiupige
         {
             InitializeComponent();
         }
-        public delegate void AddSpModel(shInfoList model,bool result);
+        public delegate void AddSpModel(shInfoList model,bool result,string remark);
         public static AddSpModel dataBind;
+        string Remark { get; set; }
+        shInfoList fhmodel;
+        bool ishk;
         GoodInfoBLL goodbll = new GoodInfoBLL();
         private static spSalesFrom _danli = null;
         public static spSalesFrom CreateForm(AddSpModel databind1)
@@ -165,7 +168,7 @@ namespace yixiupige
                 }
             }
             model.JiCun = false;
-            model.FuWuName = "购买商品[" + dataGridView1.SelectedRows[0].Cells["spName"].Value.ToString().Trim() + "]";
+            model.FuWuName = "购买商品[" + dataGridView1.SelectedRows[0].Cells["spName"].Value.ToString().Trim();
             model.YMoney = 0;
             model.FuKuan = false;
             model.Count = Convert.ToInt32(numericUpDown2.Value);
@@ -197,7 +200,15 @@ namespace yixiupige
                     return;
                 }
             }
-            dataBind(model, IsHuaKa);
+            fhmodel = model;
+            ishk = IsHuaKa;
+            IsSpRemark from = IsSpRemark.CreateForm(AddRemark);
+            from.Show();
+        }
+        public void AddRemark(string remark)
+        {
+            fhmodel.FuWuName += "-"+remark+"]" ;
+            dataBind(fhmodel, ishk,remark);
             this.Close();
         }
     }

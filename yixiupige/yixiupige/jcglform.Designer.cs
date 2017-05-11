@@ -29,9 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("全部");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("全部");
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.glNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +73,7 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -89,6 +99,16 @@
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.textBox1);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.button6);
+            this.groupBox4.Controls.Add(this.button5);
+            this.groupBox4.Controls.Add(this.button4);
+            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Controls.Add(this.dataGridView1);
             this.groupBox4.Location = new System.Drawing.Point(228, 13);
             this.groupBox4.Name = "groupBox4";
@@ -97,12 +117,104 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "寄存信息";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(557, 484);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 12);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "共0条";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(453, 480);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(46, 21);
+            this.textBox1.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(522, 483);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 12);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "页";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(425, 483);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(17, 12);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "第";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(770, 481);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(50, 20);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "跳转";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(693, 481);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(50, 20);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "尾页";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(615, 481);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(50, 20);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "下一页";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(349, 480);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(50, 20);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "上一页";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(259, 480);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(50, 20);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "首页";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -135,7 +247,7 @@
             this.dataGridView1.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1101, 492);
+            this.dataGridView1.Size = new System.Drawing.Size(1112, 441);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView1_RowContextMenuStripNeeded);
@@ -250,7 +362,7 @@
             // 
             // suoshudp
             // 
-            this.suoshudp.DataPropertyName = "lsdp";
+            this.suoshudp.DataPropertyName = "lsdm";
             this.suoshudp.HeaderText = "所属店铺";
             this.suoshudp.Name = "suoshudp";
             this.suoshudp.ReadOnly = true;
@@ -312,40 +424,40 @@
             this.删除寄存ToolStripMenuItem,
             this.取消取走ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 114);
             // 
             // 查找寄存ToolStripMenuItem
             // 
             this.查找寄存ToolStripMenuItem.Name = "查找寄存ToolStripMenuItem";
-            this.查找寄存ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.查找寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.查找寄存ToolStripMenuItem.Text = "查找寄存";
             this.查找寄存ToolStripMenuItem.Click += new System.EventHandler(this.查找寄存ToolStripMenuItem_Click);
             // 
             // 修改寄存ToolStripMenuItem
             // 
             this.修改寄存ToolStripMenuItem.Name = "修改寄存ToolStripMenuItem";
-            this.修改寄存ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.修改寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.修改寄存ToolStripMenuItem.Text = "修改寄存";
             this.修改寄存ToolStripMenuItem.Click += new System.EventHandler(this.修改寄存ToolStripMenuItem_Click);
             // 
             // 增加寄存ToolStripMenuItem
             // 
             this.增加寄存ToolStripMenuItem.Name = "增加寄存ToolStripMenuItem";
-            this.增加寄存ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.增加寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.增加寄存ToolStripMenuItem.Text = "增加寄存";
             this.增加寄存ToolStripMenuItem.Click += new System.EventHandler(this.增加寄存ToolStripMenuItem_Click);
             // 
             // 删除寄存ToolStripMenuItem
             // 
             this.删除寄存ToolStripMenuItem.Name = "删除寄存ToolStripMenuItem";
-            this.删除寄存ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.删除寄存ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.删除寄存ToolStripMenuItem.Text = "删除寄存";
             this.删除寄存ToolStripMenuItem.Click += new System.EventHandler(this.删除寄存ToolStripMenuItem_Click);
             // 
             // 取消取走ToolStripMenuItem
             // 
             this.取消取走ToolStripMenuItem.Name = "取消取走ToolStripMenuItem";
-            this.取消取走ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.取消取走ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.取消取走ToolStripMenuItem.Text = "取消取走";
             this.取消取走ToolStripMenuItem.Click += new System.EventHandler(this.取消取走ToolStripMenuItem_Click);
             // 
@@ -367,10 +479,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeView1.Location = new System.Drawing.Point(8, 19);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "treeAll";
-            treeNode1.Text = "全部";
+            treeNode2.Name = "treeAll";
+            treeNode2.Text = "全部";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(187, 300);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
@@ -397,6 +509,16 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(19, 468);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 45);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "数据导出";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // jcglform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -411,6 +533,7 @@
             this.Load += new System.EventHandler(this.jcglform_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -456,6 +579,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn glTel;
         private System.Windows.Forms.DataGridViewTextBoxColumn glDanNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn jcImgUrl;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
 
     }
 }
