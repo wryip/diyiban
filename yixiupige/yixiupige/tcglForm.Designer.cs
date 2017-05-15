@@ -131,7 +131,6 @@
             this.wjsradioButton.TabStop = true;
             this.wjsradioButton.Text = "未结算";
             this.wjsradioButton.UseVisualStyleBackColor = true;
-           
             // 
             // yjsradioButton
             // 
@@ -241,6 +240,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(940, 485);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.yjsradioButton);
@@ -257,7 +257,6 @@
             this.Name = "tcglForm";
             this.Text = "员工提成窗口";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.tcglForm_FormClosed);
-       
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
