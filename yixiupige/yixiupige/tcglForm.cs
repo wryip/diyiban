@@ -30,5 +30,45 @@ namespace yixiupige
         {
             tcgl = null;
         }
+
+        private void tcglForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tcjsbutton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tjbutton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void wjsradioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void yjsradioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
