@@ -69,6 +69,10 @@ namespace DAL
                     str += "select count(*) from ";
                     str += "JCInfoTable" + iteam.Value + "";
                     str += " where jcZT='未取走'";
+                    if (name != "全部")
+                    {
+                        str += " and jcType='" + name + "'";
+                    }
                     str += " union all ";
                 }
                 str = str.Substring(0, str.Length - 10);
@@ -84,6 +88,10 @@ namespace DAL
             else
             {
                 str = "select count(*) from JCInfoTable" + ID + " where jcZT='未取走'";
+                if (name != "全部")
+                {
+                    str += " and jcType='" + name + "'";
+                }
                 object oo = SqlHelper.ExecuteScalar(str);
                 count = Convert.ToInt32(oo);
             }
@@ -160,6 +168,38 @@ namespace DAL
                 }
             }
             return list.OrderBy(a=>a.jcBeginDate).ToList();
+        }
+        public int selectAllCount()
+        {
+            int count = 0;
+            string str = "";
+            string dpname = FilterClass.DianPu1.UserName.Trim();
+            if (dpname == "admin")
+            {
+                foreach (KeyValuePair<string, int> iteam in FilterClass.dic)
+                {
+                    str += "select count(*) from ";
+                    str += "JCInfoTable" + iteam.Value + "";
+                    str += " where jcZT='未取走'";
+                    str += " union all ";
+                }
+                str = str.Substring(0, str.Length - 10);
+                SqlDataReader read1 = SqlHelper.ExecuteReader(str);
+                while (read1.Read())
+                {
+                    if (read1.HasRows)
+                    {
+                        count += Convert.ToInt32(read1[0]);
+                    }
+                }
+            }
+            else
+            {
+                str = "select count(*) from JCInfoTable" + ID + " where jcZT='未取走'";
+                object oo = SqlHelper.ExecuteScalar(str);
+                count = Convert.ToInt32(oo);
+            }
+            return count;
         }
         //在寄存管理里面显示的   当点击左边节点的时候   展示的信息
         public List<JCInfoModel> selectAllList(string type)
@@ -962,31 +1002,58 @@ namespace DAL
                     str += " union all ";
                 }
                 str = str.Substring(0, str.Length - 10);
-            //    str = "select * from JCInfoTable where jcBeginDate BETWEEN '" + begindate + "' and '" + enddate + "' and jcQMoney<>@jcQMoney and jcZT=@jcZT";
-            //    pms = new SqlParameter[] { 
-            //new SqlParameter("@jcQMoney","0"),
-            //new SqlParameter("@jcZT","未取走")
-            //};
             }
             else if (name == "")
             {
                 str = "select * from JCInfoTable" + ID + " where jcBeginDate BETWEEN '" + begindate + "' and '" + enddate + "' and jcQMoney<>'0' and jcZT='未取走'";
-            //    pms = new SqlParameter[] { 
-            //new SqlParameter("@jcQMoney","0"),
-            //new SqlParameter("@jcZT","未取走"),
-            //new SqlParameter("@DPName",FilterClass.DianPu1.UserName)
-            //};
             }
             else
             {
                 int id = FilterClass.dic[name];
                 str = "select * from JCInfoTable where jcBeginDate" + id + " BETWEEN '" + begindate + "' and '" + enddate + "' and jcQMoney<>'0' and jcZT='未取走'";
-            //    pms = new SqlParameter[] { 
-            //new SqlParameter("@jcQMoney","0"),
-            //new SqlParameter("@jcZT","未取走"),
-            //new SqlParameter("@DPName",name)
-            //};
             }
+            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    model = new JCInfoModel();
+                    model.jcNo = i;
+                    model.jcID = Convert.ToInt32(read["jcID"]);
+                    model.jcCardNumber = read["jcCardNumber"].ToString();
+                    model.jcName = read["jcName"].ToString();
+                    model.jcQMoney = read["jcQMoney"].ToString();
+                    model.jcType = read["jcType"].ToString();
+                    model.jcPinPai = read["jcPinPai"].ToString();
+                    model.jcColor = read["jcColor"].ToString();
+                    model.jcStaff = read["jcStaff"].ToString();
+                    model.jcBeginDate = read["jcBeginDate"].ToString();
+                    model.jcEndDate = read["jcEndDate"].ToString();
+                    model.jcZT = read["jcZT"].ToString();
+                    model.jcAddress = read["jcAddress"].ToString();
+                    model.jcImgUrl = read["jcImgUrl"].ToString();
+                    model.jcDanNumber = read["jcDanNumber"].ToString();
+                    model.jcPaiNumber = read["jcPaiNumber"].ToString();
+                    model.jcRemark = read["jcRemark"].ToString();
+                    model.jcPression = read["jcPression"].ToString();
+                    model.jcQuestion = read["jcQuestion"].ToString();
+                    model.lsdm = read["DPName"].ToString();
+                    model.Tel = read["YYF"].ToString();
+                    i++;
+                    list.Add(model);
+                }
+            }
+            return list;
+        }
+        //寄存查找    按时间查找
+        public List<JCInfoModel> selectBeginAndEnd(string date, string date1, bool BeginOrEnd)
+        {
+            int i = 1;
+            List<JCInfoModel> list = new List<JCInfoModel>();
+            JCInfoModel model;
+            string str = "";
+
+            str = "select * from JCInfoTable" + ID + " where jcBeginDate BETWEEN '" + date + "' and '" + date1 + "' and jcQMoney<>'0' and jcZT='未取走'";
             SqlDataReader read = SqlHelper.ExecuteReader(str);
             while (read.Read())
             {

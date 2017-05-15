@@ -13,7 +13,7 @@ namespace BLL
     public class JCInfoBLL
     {
         JCInfoDAL dal = new JCInfoDAL();
-        public bool addJCList(List<shInfoList> list,string cardno,string name,string enddate,string danNumber,string Tel)
+        public bool addJCList(List<shInfoList> list,string cardno,string name,string enddate,string danNumber,string Tel,string nowdate)
         {
             List<JCInfoModel> list1 = new List<JCInfoModel>();
             JCInfoModel model;
@@ -35,8 +35,8 @@ namespace BLL
                 model.jcNo = Convert.ToInt32(iteam.CountMoney);
                 model.jcPinPai = iteam.PinPai;
                 model.jcColor = iteam.Color;
-                model.jcStaff = iteam.FuWuName;
-                model.jcBeginDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                model.jcStaff = iteam.Type + ":" + iteam.FuWuName;
+                model.jcBeginDate = nowdate;
                 model.jcEndDate = enddate;
                 model.jcZT = "未取走";
                 model.jcAddress = "在店中";
@@ -54,44 +54,11 @@ namespace BLL
         {
             return dal.selectAllList(type);
         }
-        public List<JCInfoModel> jcDateSelect(string date, bool BeginOrEnd)
+        public List<JCInfoModel> jcDateSelect(string date,string date1, bool BeginOrEnd)
         {
-            List<JCInfoModel> beginlist=dal.selectAllList("全部");
-            List<JCInfoModel> endlist=new List<JCInfoModel>();
-            string pattern = @"[\d]+";
-            Regex regex = new Regex(pattern, RegexOptions.None);
-            int xyear = Convert.ToInt32(regex.Matches(date)[0].Value);
-            int xmonth = Convert.ToInt32(regex.Matches(date)[1].Value);
-            int xday = Convert.ToInt32(regex.Matches(date)[2].Value);
-            if (BeginOrEnd)
-            {                
-                //结束时间
-                foreach (var iteam in beginlist)
-                {
-                    int dyear = Convert.ToInt32(regex.Matches(iteam.jcEndDate)[0].Value);
-                    int dmonth = Convert.ToInt32(regex.Matches(iteam.jcEndDate)[1].Value);
-                    int dday = Convert.ToInt32(regex.Matches(iteam.jcEndDate)[2].Value);
-                    if (xyear == dyear && xmonth == dmonth && xday == dday)
-                    {
-                        endlist.Add(iteam);
-                    }
-                }
-            }
-            else 
-            {
-                //开始时间
-                foreach (var iteam in beginlist)
-                {
-                    int dyear = Convert.ToInt32(iteam.jcBeginDate.Split(new char[]{' '},StringSplitOptions.RemoveEmptyEntries)[0]);
-                    int dmonth = Convert.ToInt32(iteam.jcBeginDate.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[1]);
-                    int dday = Convert.ToInt32(iteam.jcBeginDate.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[2]);
-                    if (xyear == dyear && xmonth == dmonth && xday == dday)
-                    {
-                        endlist.Add(iteam);
-                    }
-                }
-            }
-            return endlist;
+            //false    为按寄存日期查询
+            List<JCInfoModel> beginlist = dal.selectBeginAndEnd(date,date1,BeginOrEnd);
+            return beginlist;
         }
         public List<JCInfoModel> jcContentSelect(bool mohu,bool jc,bool qz,string type,string neirong)
         {
@@ -219,6 +186,10 @@ namespace BLL
         public List<JCInfoModel> selectAllPageList(string name,int pageindex, out int count)
         {
             return dal.selectAllPageList(name, pageindex, out count);
+        }
+        public int selectAllCount()
+        {
+            return dal.selectAllCount();
         }
     }
 }

@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -355,6 +355,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PwdUpDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PwdUpDate.Designer.cs">
+      <DependentUpon>PwdUpDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="QHFrom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -561,6 +567,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="jcSelectFrom.resx">
       <DependentUpon>jcSelectFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PwdUpDate.resx">
+      <DependentUpon>PwdUpDate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QHFrom.resx">
       <DependentUpon>QHFrom.cs</DependentUpon>
@@ -771,6 +780,7 @@
   <ItemGroup>
     <Content Include="imageFile\1.ico" />
     <Content Include="imageFile\timg.jpg" />
+    <Content Include="Info\finish.wav" />
     <Content Include="leiku\AForge.Controls.dll" />
     <Content Include="leiku\AForge.Controls.xml" />
     <Content Include="leiku\AForge.dll" />

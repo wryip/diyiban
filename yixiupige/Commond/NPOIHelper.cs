@@ -122,9 +122,13 @@ namespace Commond
             {
                 return huiyuanExitCard(list, sheet);
             }
-            else //if (model is ExitDanModel)
+            else if (model is ExitDanModel)
             {
                 return huiyuanExitDan(list, sheet);
+            }
+            else //if (model is GoodInfo)
+            {
+                return shangpininfo(list, sheet);
             }
         }
 
@@ -157,6 +161,39 @@ namespace Commond
             return sheet.Workbook;
         }
 
+        private static IWorkbook shangpininfo<T>(List<T> list, ISheet sheet)
+        {
+            int rowIndex = 0;
+            IRow row = sheet.CreateRow(rowIndex);
+            #region MyRegion//表头
+            row.CreateCell(0).SetCellValue("编号");
+            row.CreateCell(1).SetCellValue("名字");
+            row.CreateCell(2).SetCellValue("类型");
+            row.CreateCell(3).SetCellValue("备注");
+            row.CreateCell(4).SetCellValue("售价");
+            row.CreateCell(5).SetCellValue("定价");
+            row.CreateCell(6).SetCellValue("库存");
+            row.CreateCell(7).SetCellValue("总数量");
+            rowIndex++;
+            #endregion
+            foreach (T item in list)
+            {
+                GoodInfo model = item as GoodInfo;
+                //每遍历一条数据创建一行
+                row = sheet.CreateRow(rowIndex);
+                //创建行中的单元格
+                row.CreateCell(0).SetCellValue(model.Gno);
+                row.CreateCell(1).SetCellValue(model.Gname);
+                row.CreateCell(2).SetCellValue(model.Gtype);
+                row.CreateCell(3).SetCellValue(model.Gremark);
+                row.CreateCell(4).SetCellValue(model.Gprice.ToString());
+                row.CreateCell(5).SetCellValue(model.Gbid.ToString());
+                row.CreateCell(4).SetCellValue(model.Gstock.ToString());
+                row.CreateCell(5).SetCellValue(model.Gsum.ToString());
+                rowIndex++;
+            }
+            return sheet.Workbook;
+        }
         private static IWorkbook huiyuanExitDan<T>(List<T> list, ISheet sheet)
         {
             int rowIndex = 0;

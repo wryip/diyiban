@@ -72,19 +72,22 @@ namespace yixiupige
             {
                 //日期查找
                 string date = "";
+                string date1 = "";
                 bool BeginOrEnd = false;//判断是寄存日期还是取走日期默认false为寄存日期的查找
                 if (radioButton1.Checked)//选择为寄存日期
                 {
                     BeginOrEnd = false;
                     date = TimeGuiGe.TimePicterBegin(dateTimePicker1.Text);
-                    list = jcbll.jcDateSelect(date, BeginOrEnd);
+                    date1 = TimeGuiGe.TimePicterEng(dateTimePicker1.Text);
+                    list = jcbll.jcDateSelect(date,date1, BeginOrEnd);
                     databind1(list);
                     this.Close();
                     return;
                 }
                 BeginOrEnd = true;
                 date = TimeGuiGe.TimePicterBegin(dateTimePicker2.Text);
-                list = jcbll.jcDateSelect(date, BeginOrEnd);
+                date1 = TimeGuiGe.TimePicterEng(dateTimePicker2.Text);
+                list = jcbll.jcDateSelect(date,date1, BeginOrEnd);
                 databind1(list);
                 this.Close();
                 return;

@@ -102,31 +102,54 @@ namespace DAL
         //查询一共有多少种会员卡的类别
         public List<string> selectNodes()
         {
-            string dpname=FilterClass.DianPu1.UserName.Trim();
+            List<string> list = new List<string>();
+            string dpname = FilterClass.DianPu1.UserName.Trim();
+            if (dpname == "admin")
+            {
+                return list;
+            }
             string str;
             SqlParameter[] pms;
-            //if (dpname == "admin")
-            //{
-            //    str = "select memberName from memberType";
-            //    pms = new SqlParameter[] {  };
-            //}
-            //else
-            //{
-                str = "select memberName from memberType where DPName=@DPName";
-                pms = new SqlParameter[] { 
+            str = "select memberName from memberType where DPName=@DPName";
+            pms = new SqlParameter[] { 
             new SqlParameter("@DPName",dpname)
             };
-            //}
-            var read = SqlHelper.ExecuteReader(str,pms);
-            List<string> List = new List<string>();
+            var read = SqlHelper.ExecuteReader(str, pms);
+            
             while (read.Read())
             {
                 if (read.HasRows)
                 {
-                    List.Add(read[0].ToString());
+                    list.Add(read[0].ToString());
                 }
             }
-            return List;
+            return list;
+        }
+        //查询所有的会员 类型   合会员类型所带的书数量
+        public List<string> selectNodesAddCount()
+        {
+            List<string> list = new List<string>();
+            string dpname = FilterClass.DianPu1.UserName.Trim();
+            if (dpname == "admin")
+            {
+                return list;
+            }
+            string str;
+            SqlParameter[] pms;
+            str = "select a.memberName,count(b.memberType) as aa from memberType as a join memberInfo as b on a.memberName=b.memberType where a.DPName=@DPName group by a.memberName,b.memberType";
+            pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",dpname)
+            };
+            var read = SqlHelper.ExecuteReader(str, pms);
+
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    list.Add(read["memberName"].ToString().Trim() + "[" + read["aa"].ToString().Trim() + "]");
+                }
+            }
+            return list;
         }
         //查询所有的信息
         public List<memberType> SelectAllList(string name)

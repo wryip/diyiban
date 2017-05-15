@@ -24,6 +24,11 @@ namespace BLL
         {
             return dal.selectInfoCollect(cardTepe,i,out j);
         }
+        //查询会员卡的总数量
+        public int selectAllCount()
+        {
+            return dal.selectAllCount();
+        }
         //修改的时候进行提交
         public bool EditMemberInfo(memberInfoModel model)
         {

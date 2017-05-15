@@ -53,22 +53,11 @@ namespace DAL
             string dpname=FilterClass.DianPu1.UserName.Trim();
             SqlParameter[] pms;
             string str;
-            //if (dpname == "admin")
-            //{
                 pms = new SqlParameter[] {
                  new SqlParameter("@type",type),
                   new SqlParameter("@DPName",dpname)
                  };
                 str = "select text from jbcstable where type=@type and DPName=@DPName";
-            //}
-            //else
-            //{
-            //    pms = new SqlParameter[] {
-            //    new SqlParameter("@type",type),
-            //    new SqlParameter("@DPName",dpname)
-            //     };
-            //    str = "select text from jbcstable where type=@type and DPName=@DPName";
-            //}
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
@@ -81,20 +70,55 @@ namespace DAL
             }
             return list;
         }
-        //public List<string> selectNodes()
-        //{
-        //    var read = SqlHelper.ExecuteReader("select text from jbcstable");
-        //    List<string> List = new List<string>();
-        //    while (read.Read())
-        //    {
-        //        if (read.HasRows)
-        //        {
-        //            List.Add(read[0].ToString());
-        //        }
-        //    }
-        //    return List;
-        //}
-        //修改基本参数
+        //返回都有什么类型   寄存管理的   并且加上数量
+        public List<jbcs> selectListAndCount(int type)
+        {
+            List<jbcs> list = new List<jbcs>();
+            jbcs model;
+            string dpname = FilterClass.DianPu1.UserName.Trim();
+            SqlParameter[] pms;
+            string str;
+            pms = new SqlParameter[] {
+                 new SqlParameter("@type",type),
+                  new SqlParameter("@DPName",dpname)
+                 };
+            str = "select b.text,count(a.jcType) as aa from jbcstable as b join JCInfoTable" + ID + " as a on b.text=a.jcType where b.type=@type and b.DPName=@DPName and a.jcZT='未取走' group by a.jcType,b.text";
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    model = new jbcs();
+                    model.AllType = read["text"].ToString().Trim()+"["+read["aa"].ToString().Trim()+"]";
+                    list.Add(model);
+                }
+            }
+            return list;
+        }
+        public List<jbcs> selectListAndCount1(int type)
+        {
+            List<jbcs> list = new List<jbcs>();
+            jbcs model;
+            string dpname = FilterClass.DianPu1.UserName.Trim();
+            SqlParameter[] pms;
+            string str;
+            pms = new SqlParameter[] {
+                 new SqlParameter("@type",type),
+                  new SqlParameter("@DPName",dpname)
+                 };
+            str = "select b.text,count(a.Gtype) as aa from jbcstable as b join GoodInfo" + ID + " as a on b.text=a.Gtype where b.type=@type and b.DPName=@DPName and a.DPName=@DPName group by a.Gtype,b.text";
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    model = new jbcs();
+                    model.AllType = read["text"].ToString().Trim() + "[" + read["aa"].ToString().Trim() + "]";
+                    list.Add(model);
+                }
+            }
+            return list;
+        }
         public bool updateIteam(string old, string xin)
         {
             bool result = false;

@@ -40,6 +40,7 @@ namespace yixiupige
         public static string Path;
         public string hypassword { get; set; }
         public DateTime EndDate { get; set; }
+        public string nowdate { get; set; }
         //public string hyshurupwd { get; set; }
         public static string Tel;
         //将写有寄存的信息加入到该list集合中
@@ -502,6 +503,7 @@ namespace yixiupige
 
         private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            emptyInfo();
             int index = e.RowIndex;
             dataGridView3.Visible = false;
             string card=listSousuo[index].ID.ToString();
@@ -519,7 +521,7 @@ namespace yixiupige
             textBox4.Text = model.memberName;
             textBox5.Text = model.memberCardNo;
             textBox6.Text = model.memberTel;
-            textBox7.Text = model.rebate;
+            textBox7.Text = model.endDate;
             textBox12.Text = model.cardType;
             textBox10.Text = model.memberType;
             textBox11.Text = model.cardDate;
@@ -781,6 +783,7 @@ namespace yixiupige
         //不管有没有密码   点击保存之后执行的方法
         public void BaoCunClick(bool issave)
         {
+            nowdate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string sb = "";
             string[] ss = DateTime.Now.ToString("yyyy-MM-dd").Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var s in ss)
@@ -804,7 +807,7 @@ namespace yixiupige
                 Tel = textBox6.Text.Trim() == "" ? textBox2.Text.Trim() : textBox6.Text.Trim();
                 model.IsJC = iteam.JiCun;
                 model.LSName = textBox4.Text.Trim() == "" ? textBox1.Text.Trim() : textBox4.Text.Trim();
-                model.LSDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                model.LSDate = nowdate;
                 model.ImgUrl = iteam.ImgUrl;
                 model.LSStaff = iteam.Type + ":" + iteam.FuWuName;
                 if (radioButton1.Checked)
@@ -948,7 +951,7 @@ namespace yixiupige
                 }
             }
             //将寄存数据添加到寄存数据表中
-            bool addjcresult = jcbll.addJCList(jclist, textBox5.Text.Trim(), textBox4.Text.Trim() == "" ? textBox1.Text.Trim() : textBox4.Text.Trim(), TimeGuiGe.TimePicterBegin(dateTimePicker1.Text).ToString(), sb, Tel);
+            bool addjcresult = jcbll.addJCList(jclist, textBox5.Text.Trim(), textBox4.Text.Trim() == "" ? textBox1.Text.Trim() : textBox4.Text.Trim(), TimeGuiGe.TimePicterBegin(dateTimePicker1.Text).ToString(), sb, Tel, nowdate);
 
             jclist = new List<shInfoList>();
             //将数据添加到消费记录里面
@@ -1296,15 +1299,15 @@ namespace yixiupige
                     {
                         #region //寄存表中删除  同上，由于加了退单功能，此处先不进行删除  根据客户要求在进行修改
                         //如果是寄存就把寄存信息删除
-                        //string dianpu = FilterClass.DianPu1.UserName.Trim();
-                        //string cardno = modeldele.LSCardNumber.Trim();
-                        //string date = modeldele.LSDate.Substring(0, 10);
-                        //string money = modeldele.LSYMoney;
-                        //string staff = modeldele.LSStaff;
-                        //string pinpai = modeldele.LSPinPai;
-                        //string color = modeldele.LSColor;
-                        //int id = jcbll.seleDelete(dianpu, cardno, date, money, staff, pinpai, color);
-                        //jcbll.deleteIDIteam(id.ToString()); 
+                        string dianpu = FilterClass.DianPu1.UserName.Trim();
+                        string cardno = modeldele.LSCardNumber.Trim();
+                        string date = modeldele.LSDate;
+                        string money = modeldele.LSYMoney;
+                        string staff = modeldele.LSStaff;
+                        string pinpai = modeldele.LSPinPai;
+                        string color = modeldele.LSColor;
+                        int id = jcbll.seleDelete(dianpu, cardno, date, money, staff, pinpai, color);
+                        jcbll.deleteIDIteam(id.ToString()); 
                         #endregion
                     }
                 }

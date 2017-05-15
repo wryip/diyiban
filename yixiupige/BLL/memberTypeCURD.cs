@@ -39,6 +39,10 @@ namespace BLL
         {
             return memberdal.selectNodes();
         }
+        public List<string> selectNodesAddCount()
+        {
+            return memberdal.selectNodesAddCount();
+        }
         public List<memberType> SelectAllList(string name)
         {
             return memberdal.SelectAllList(name);

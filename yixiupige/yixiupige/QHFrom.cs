@@ -64,6 +64,8 @@ namespace yixiupige
         {
             List<JCInfoModel> listk=new List<JCInfoModel>();
                 List<JCInfoModel> listbk=new List<JCInfoModel>();
+                int i = 1;
+                int j = 1;
             string type = comboBox1.Text.Trim();
             string neirong = textBox1.Text.Trim();
             //string begindate = TimeGuiGe.TimePicterBegin(dateTimePicker1.Text);
@@ -79,10 +81,12 @@ namespace yixiupige
             {
                 if (model.jcAddress.Trim() == "店铺已收" || model.jcAddress.Trim() == "店铺完工")
                 {
+                    model.jcNo = i++;
                     listk.Add(model);
                 }
                 else
                 {
+                    model.jcNo = j++;
                     listbk.Add(model);
                 }
             }
@@ -194,10 +198,20 @@ namespace yixiupige
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            pictureBox1.Width = 400;
+            pictureBox1.Height = 400;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+        }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
             if (pictureBox1.Visible == true)
             {
                 pictureBox1.Visible = false;
+                pictureBox1.Width = 335;
+                pictureBox1.Height = 250;
             }
+           
         }
     }
 }

@@ -19,6 +19,14 @@ namespace BLL
         {
             return dal.selectList(type);
         }
+        public List<jbcs> selectListAndCount(int type)
+        {
+            return dal.selectListAndCount(type);
+        }
+        public List<jbcs> selectListAndCount1(int type)
+        {
+            return dal.selectListAndCount1(type);
+        }
         public bool updateIteam(string old, string xin)
         {
             return dal.updateIteam(old, xin);

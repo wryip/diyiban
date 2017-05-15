@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("全部");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("全部");
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -49,7 +49,7 @@
             this.修改商品ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.商品补货ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除商品ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.打印预览ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -59,11 +59,13 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.Location = new System.Drawing.Point(17, 16);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1323, 541);
+            this.panel1.Size = new System.Drawing.Size(1764, 676);
             this.panel1.TabIndex = 0;
             // 
             // groupBox1
@@ -71,9 +73,11 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.treeView1);
-            this.groupBox1.Location = new System.Drawing.Point(8, 5);
+            this.groupBox1.Location = new System.Drawing.Point(11, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(123, 533);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(164, 604);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "商品分类";
@@ -83,13 +87,14 @@
             this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeView1.Location = new System.Drawing.Point(7, 21);
+            this.treeView1.Location = new System.Drawing.Point(9, 26);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "spAll";
-            treeNode1.Text = "全部";
+            treeNode2.Name = "spAll";
+            treeNode2.Text = "全部";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            this.treeView1.Size = new System.Drawing.Size(110, 506);
+            treeNode2});
+            this.treeView1.Size = new System.Drawing.Size(145, 570);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick_1);
             // 
@@ -99,9 +104,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(137, 5);
+            this.groupBox2.Location = new System.Drawing.Point(183, 6);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1183, 527);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(1577, 659);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "商品信息";
@@ -125,7 +132,8 @@
             this.spLength,
             this.spMark});
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 21);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 26);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -133,7 +141,7 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1170, 500);
+            this.dataGridView1.Size = new System.Drawing.Size(1560, 625);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView1_RowContextMenuStripNeeded);
             // 
@@ -195,63 +203,68 @@
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.查看商品ToolStripMenuItem,
             this.增加商品ToolStripMenuItem,
             this.修改商品ToolStripMenuItem,
             this.商品补货ToolStripMenuItem,
-            this.删除商品ToolStripMenuItem,
-            this.打印预览ToolStripMenuItem});
+            this.删除商品ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 134);
             // 
             // 查看商品ToolStripMenuItem
             // 
             this.查看商品ToolStripMenuItem.Name = "查看商品ToolStripMenuItem";
-            this.查看商品ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.查看商品ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.查看商品ToolStripMenuItem.Text = "查看商品";
             this.查看商品ToolStripMenuItem.Click += new System.EventHandler(this.查看商品ToolStripMenuItem_Click_1);
             // 
             // 增加商品ToolStripMenuItem
             // 
             this.增加商品ToolStripMenuItem.Name = "增加商品ToolStripMenuItem";
-            this.增加商品ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.增加商品ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.增加商品ToolStripMenuItem.Text = "增加商品";
             this.增加商品ToolStripMenuItem.Click += new System.EventHandler(this.增加商品ToolStripMenuItem_Click);
             // 
             // 修改商品ToolStripMenuItem
             // 
             this.修改商品ToolStripMenuItem.Name = "修改商品ToolStripMenuItem";
-            this.修改商品ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.修改商品ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.修改商品ToolStripMenuItem.Text = "修改商品";
             this.修改商品ToolStripMenuItem.Click += new System.EventHandler(this.修改商品ToolStripMenuItem_Click_1);
             // 
             // 商品补货ToolStripMenuItem
             // 
             this.商品补货ToolStripMenuItem.Name = "商品补货ToolStripMenuItem";
-            this.商品补货ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.商品补货ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.商品补货ToolStripMenuItem.Text = "商品补货";
             this.商品补货ToolStripMenuItem.Click += new System.EventHandler(this.商品补货ToolStripMenuItem_Click_1);
             // 
             // 删除商品ToolStripMenuItem
             // 
             this.删除商品ToolStripMenuItem.Name = "删除商品ToolStripMenuItem";
-            this.删除商品ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.删除商品ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.删除商品ToolStripMenuItem.Text = "删除商品";
             this.删除商品ToolStripMenuItem.Click += new System.EventHandler(this.删除商品ToolStripMenuItem_Click_1);
             // 
-            // 打印预览ToolStripMenuItem
+            // button1
             // 
-            this.打印预览ToolStripMenuItem.Name = "打印预览ToolStripMenuItem";
-            this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.打印预览ToolStripMenuItem.Text = "打印预览";
+            this.button1.Location = new System.Drawing.Point(11, 617);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(164, 48);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "数据导出";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // spform
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1348, 561);
+            this.ClientSize = new System.Drawing.Size(1797, 701);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "spform";
@@ -288,7 +301,7 @@
         private System.Windows.Forms.ToolStripMenuItem 修改商品ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 商品补货ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除商品ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 打印预览ToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
 
     }
 }

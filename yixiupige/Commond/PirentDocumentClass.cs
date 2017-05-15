@@ -66,7 +66,7 @@ namespace Commond
             PrintDocument pd = new PrintDocument();
             //设置边距
             Margins margin = new Margins(20, 20, 20, 20);
-            pd.PrinterSettings.PrinterName = FilterClass.MemberXF;
+            //pd.PrinterSettings.PrinterName = FilterClass.MemberXF;
             pd.DefaultPageSettings.Margins = margin;
             //默认纸张
             PaperSize pageSize = new PaperSize("First custom size", getYc(58), 5000);
@@ -143,6 +143,9 @@ namespace Commond
             {
                 jccount++;
                 string nleng = iteam.jcStaff;
+                nleng=nleng.Replace(',', '，');
+                nleng=nleng.Replace('[', '【');
+                nleng=nleng.Replace(']', '】');
                 e.Graphics.DrawString(j.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
                 e.Graphics.DrawString("1", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(125, (100 + i * 15)));
                 e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(155, (100 + i * 15)));
@@ -264,9 +267,9 @@ namespace Commond
                     {
                         nleng += "服务项目：" + iteam.FuWuName;
                     }
-                nleng.Replace(",","，");
-                nleng.Replace("[", "【");
-                nleng.Replace("]", "】");
+                nleng = nleng.Replace(",", "，");
+                nleng = nleng.Replace("[", "【");
+                nleng = nleng.Replace("]", "】");
                 //}                
                 //e.Graphics.DrawString(j.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
                 //e.Graphics.DrawString(iteam.LSCount, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(125, (100 + i * 15)));
@@ -391,7 +394,7 @@ namespace Commond
             sb.Append("卡类型:" + toupmoney.czType + "\r\n");
             sb.Append("本次充值:" + toupmoney.czMoney + "\r\n");
             sb.Append("剩余次数:" + toupmoney.czyCount + "\r\n");
-            sb.Append("本次充值:" + toupmoney.czyMoney + "\r\n");
+            sb.Append("余额:" + (Convert.ToDouble(toupmoney.czyMoney) + Convert.ToDouble(toupmoney.czyMoney)) + "\r\n");
             e.Graphics.DrawString(sb.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, 0));
         }
     }

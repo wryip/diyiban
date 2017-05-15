@@ -60,47 +60,51 @@ namespace DAL
             string str;
             //先获取所有的数量
             str = "select count(*) from memberInfo";
+            if (cardTepe != "全部")
+            {
+                str += " where memberType='" + cardTepe + "'";
+            }
             object oo= SqlHelper.ExecuteScalar(str);
             j = Convert.ToInt32(oo);
             if (cardTepe.Trim() == "全部")
             {
-                if (dpname == "admin")
-                {
+                //if (dpname == "admin")
+                //{
                     str = "select top 300 * from memberInfo where ID NOT IN(select TOP " + (ii - 1) * 300 + " ID from memberInfo order by ID DESC,cardDate DESC)  order by ID DESC";
                     read = SqlHelper.ExecuteReader(str);
-                }
-                else
-                {
-                    pms = new SqlParameter[] { 
-                    new SqlParameter("@dianName",dpname),
-                    new SqlParameter("@dianName1",dpname)
-                    };
-                    str = "select top 300 * from memberInfo where dianName=@dianName and ID NOT IN(select TOP " + (ii - 1) * 300 + " ID from memberInfo where dianName=@dianName1 order by ID DESC,cardDate DESC)  order by ID DESC";
-                    read = SqlHelper.ExecuteReader(str, pms);
-                }
+                //}
+                //else
+                //{
+                //    pms = new SqlParameter[] { 
+                //    new SqlParameter("@dianName",dpname),
+                //    new SqlParameter("@dianName1",dpname)
+                //    };
+                //    str = "select top 300 * from memberInfo where dianName=@dianName and ID NOT IN(select TOP " + (ii - 1) * 300 + " ID from memberInfo where dianName=@dianName1 order by ID DESC,cardDate DESC)  order by ID DESC";
+                //    read = SqlHelper.ExecuteReader(str, pms);
+                //}
             }
             else
             {
-                if (dpname == "admin")
-                {
+                //if (dpname == "admin")
+                //{
                     pms = new SqlParameter[] { 
             new SqlParameter("@memberType",cardTepe),
             new SqlParameter("@memberType1",cardTepe)
             };
                     str = "select top 300 * from memberInfo where memberType=@memberType and ID NOT IN(select TOP " + (ii - 1) * 300 + " ID from memberInfo where memberType=@memberType1 order by ID DESC,cardDate DESC)  order by ID DESC";
                     read = SqlHelper.ExecuteReader(str, pms);
-                }
-                else
-                {
-                    pms = new SqlParameter[] { 
-            new SqlParameter("@memberType",cardTepe),
-            new SqlParameter("@dianName",dpname),
-            new SqlParameter("@memberType1",cardTepe),
-            new SqlParameter("@dianName1",dpname)
-            };
-                    str = "select top 300 * from memberInfo where memberType=@memberType and dianName=@dianName and ID NOT IN(select TOP " + (ii - 1) * 300 + " ID from memberInfo where memberType=@memberType1 and dianName=@dianName1 order by ID DESC,cardDate DESC)  order by ID DESC";
-                    read = SqlHelper.ExecuteReader(str, pms);
-                }
+            //    }
+            //    else
+            //    {
+            //        pms = new SqlParameter[] { 
+            //new SqlParameter("@memberType",cardTepe),
+            //new SqlParameter("@dianName",dpname),
+            //new SqlParameter("@memberType1",cardTepe),
+            //new SqlParameter("@dianName1",dpname)
+            //};
+            //        str = "select top 300 * from memberInfo where memberType=@memberType and dianName=@dianName and ID NOT IN(select TOP " + (ii - 1) * 300 + " ID from memberInfo where memberType=@memberType1 and dianName=@dianName1 order by ID DESC,cardDate DESC)  order by ID DESC";
+            //        read = SqlHelper.ExecuteReader(str, pms);
+            //    }
             }           
             while (read.Read())
             {
@@ -134,13 +138,21 @@ namespace DAL
                     i++;
                 }               
             }
-            return list;
+            return list.OrderBy(a=>a.cardDate).ToList();
+        }
+        //查询会员卡的总数量
+        public int selectAllCount()
+        {
+            string str = "";
+            str = "select count(*) from memberInfo";
+            object oo = SqlHelper.ExecuteScalar(str);
+            return Convert.ToInt32(oo);
         }
         //修改会员信息
         public bool EditMemberInfo(memberInfoModel model)
         {
             bool result = false;
-            string str = "update memberInfo set memberName=@memberName,memberTel=@memberTel,memberDocument=@memberDocument,birDate=@birDate,cardDate=@cardDate,memberSex=@memberSex,rebate=@rebate,endDate=@endDate,fuwuBate=@fuwuBate,cardMoney=@cardMoney,toUpMoney=@toUpMoney,dianName=@dianName,cardType=@cardType,salesMan=@salesMan,memberType=@memberType,address=@address,remark=@remark,imgUrl=@imgUrl,password=@password,zhuangtai=@zhuangtai,membercardNo=@membercardNo where ID=@ID and dianName=@dianName";
+            string str = "update memberInfo set memberName=@memberName,memberTel=@memberTel,memberDocument=@memberDocument,birDate=@birDate,cardDate=@cardDate,memberSex=@memberSex,rebate=@rebate,endDate=@endDate,fuwuBate=@fuwuBate,cardMoney=@cardMoney,toUpMoney=@toUpMoney,cardType=@cardType,salesMan=@salesMan,memberType=@memberType,address=@address,remark=@remark,imgUrl=@imgUrl,password=@password,zhuangtai=@zhuangtai,membercardNo=@membercardNo where ID=@ID";
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@membercardNo",model.memberCardNo),
             new SqlParameter("@ID",model.ID),
@@ -163,7 +175,7 @@ namespace DAL
             new SqlParameter("@imgUrl",model.imageUrl),
             new SqlParameter("@password",model.password==null?DBNull.Value.ToString():model.password),
             new SqlParameter("@zhuangtai",model.zhuangtai),
-            new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
+            //new SqlParameter("@dianName",FilterClass.DianPu1.UserName.Trim())
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {

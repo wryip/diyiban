@@ -39,8 +39,10 @@ namespace yixiupige
         {
             TreeNode child;
             jbcsBLL bll = new jbcsBLL();
-            List<jbcs> list = bll.selectList(5);
+            List<jbcs> list = bll.selectListAndCount(5);
             TreeNode parent = treeView1.Nodes[0];
+            int count = jcinfobll.selectAllCount();
+            parent.Text += "["+count+"]";
             //TreeNode parent=new TreeNode();
             //parent.Text = "全部";
             //treeView1.Nodes.Add(parent);           
@@ -63,6 +65,7 @@ namespace yixiupige
             pageType = cardTepe;
             indexPage = 1;
             PageLoad(cardTepe, 1);
+            textBox1.Text = indexPage.ToString();
             //List<JCInfoModel> list = new List<JCInfoModel>();
             //list = jcinfobll.selectAllList(cardTepe);
             //dataGridView1.DataSource = list;
@@ -71,7 +74,7 @@ namespace yixiupige
         {
             int count;
             int i = 1;
-            List<JCInfoModel> list = jcinfobll.selectAllPageList(name, pageindex, out count);
+            List<JCInfoModel> list = jcinfobll.selectAllPageList(name.Split(new char[]{'['},StringSplitOptions.RemoveEmptyEntries)[0], pageindex, out count);
             foreach (var iteam in list)
             {
                 iteam.jcNo = i++;

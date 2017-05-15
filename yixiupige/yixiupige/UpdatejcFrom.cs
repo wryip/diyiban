@@ -118,7 +118,7 @@ namespace yixiupige
             model.jcType = textBox9.Text;
             model.jcStaff = textBox10.Text;
             model.jcRemark = textBox11.Text;
-            while (Path == "")
+            if (Path == "")
             {
                 Thread.Sleep(1000);
             }

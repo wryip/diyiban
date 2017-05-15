@@ -12,8 +12,9 @@ namespace Commond
     {
         public static void Success()
         {
+            return;
             SoundPlayer p = new SoundPlayer();
-            p.SoundLocation = Application.StartupPath+"//finish.wav";
+            p.SoundLocation = "..//..//Info//finish.wav";
             p.Load();
             p.Play();
         }

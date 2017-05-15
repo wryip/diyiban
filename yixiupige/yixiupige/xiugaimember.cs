@@ -296,6 +296,9 @@ namespace yixiupige
             if (szmmbutton.Text == "修改密码")
             {
                 //那就将密码传入进去
+                string pwd = modelmember.password;
+                PwdUpDate from = PwdUpDate.Create(pwd,SetPwd);
+                from.Show();
             }
             else
             {
@@ -303,6 +306,10 @@ namespace yixiupige
                 pwd.Show();
                 pwd.Focus();
             }
+        }
+        public void SetPwd(string newpwd)
+        {
+            password = newpwd;
         }
     }
 }

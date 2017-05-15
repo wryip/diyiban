@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MODEL;
 using BLL;
+using Commond;
 namespace yixiupige
 {
     public partial class spform : Form
@@ -54,7 +55,7 @@ namespace yixiupige
             TreeNode child;
 
 
-            List<jbcs> list = jbcsbll.selectList(4);
+            List<jbcs> list = jbcsbll.selectListAndCount1(4);
             TreeNode parent = treeView1.Nodes[0];
             int count = jbcsbll.CountNumber();
             parent.Text += "[" + count.ToString() + "]";
@@ -193,10 +194,21 @@ namespace yixiupige
             {
                 Gtype = cardTepe
             };
-            //List<GoodInfo> list = gdbll.Getlist(gd);
-
-            dataGridView1.DataSource = gdbll.Getlist(gd).OrderByDescending(a=>a.Gid);
+            dataGridView1.DataSource = gdbll.Getlist(gd).OrderByDescending(a=>a.Gid).ToList();
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string type = treeView1.SelectedNode.Text;
+            List<GoodInfo> list = (List<GoodInfo>)dataGridView1.DataSource;
+            bool resu = NPOIHelper.PrintDocument(list, type + "-商品信息");
+            if (resu)
+            {
+                MessageBox.Show("导出成功！");
+                return;
+            }
+            MessageBox.Show("导出失败！");
         }
       
     }

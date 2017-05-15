@@ -41,10 +41,11 @@ namespace yixiupige
         {            
             TreeNode child;
             memberTypeCURD bll = new memberTypeCURD();
-            List<string> list = bll.selectNodes();
+            List<string> list = bll.selectNodesAddCount();
             TreeNode parent = treeView1.Nodes[0];
+            int count = infobll.selectAllCount();
             //TreeNode parent=new TreeNode();
-            //parent.Text = "全部";
+            parent.Text += "["+count+"]";
             //treeView1.Nodes.Add(parent);           
             foreach (var i in list)
             {
@@ -79,9 +80,14 @@ namespace yixiupige
         }
         public void PageLoad(string name, int pageindex)
         {
+            int i = 1;
             int count;
-            List<memberInfoModel> list = infobll.selectInfoCollect(name, pageindex, out count);
+            List<memberInfoModel> list = infobll.selectInfoCollect(name.Split(new char []{'['},StringSplitOptions.RemoveEmptyEntries)[0], pageindex, out count);
             PageCount = count;
+            foreach (var iteam in list)
+            {
+                iteam.idbh = i++;
+            }
             label3.Text = "共" + count + "条";
             dataGridView1.DataSource = list;
         }
@@ -92,7 +98,7 @@ namespace yixiupige
             pageType = cardTepe;
             indexPage = 1;
             PageLoad(cardTepe, 1);
-            //textBox1.Text = "1";
+            textBox1.Text = indexPage.ToString();
             //List<memberInfoModel>  list = infobll.selectInfoCollect(cardTepe,1,out count);
             //label3.Text = "共" + count + "条";
             //dataGridView1.DataSource = list.OrderByDescending(a=>a.cardDate);

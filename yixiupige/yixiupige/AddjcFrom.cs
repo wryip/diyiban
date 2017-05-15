@@ -112,8 +112,12 @@ namespace yixiupige
                 }
             }
             VideoCaptureDevice videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
-            videoSource.DesiredFrameSize = new Size(320, 240);
-            videoSource.DesiredFrameRate = 1;
+            //videoSource.DesiredFrameSize = new Size(320, 240);
+            //videoSource.DesiredFrameRate = 1;
+
+            //videoSourcePlayer1.VideoSource = videoSource;
+            //videoSourcePlayer1.Start();
+            videoSource.VideoResolution = videoSource.VideoCapabilities[1];
 
             videoSourcePlayer1.VideoSource = videoSource;
             videoSourcePlayer1.Start();
@@ -151,7 +155,7 @@ namespace yixiupige
             model.ImgUrl = path1;
             List<shInfoList> list = new List<shInfoList>();
             list.Add(model);
-            bool result = jcinfobll.addJCList(list, textBox3.Text.Trim(), textBox1.Text.Trim(), TimeGuiGe.TimePicterBegin((dateTimePicker1.Text)), sb,"1");
+            bool result = jcinfobll.addJCList(list, textBox3.Text.Trim(), textBox1.Text.Trim(), TimeGuiGe.TimePicterBegin((dateTimePicker1.Text)), sb, "1", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             if (result)
             {
                 MessageBox.Show("添加成功！");

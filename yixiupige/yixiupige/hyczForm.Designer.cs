@@ -71,9 +71,9 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
+            "电话",
             "姓名",
             "卡号",
-            "电话",
             "备注",
             "业务员"});
             this.comboBox1.Location = new System.Drawing.Point(196, 15);
