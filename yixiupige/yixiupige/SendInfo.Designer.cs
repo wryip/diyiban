@@ -35,7 +35,7 @@
             // 
             // btnSend
             // 
-            this.btnSend.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSend.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnSend.Location = new System.Drawing.Point(329, 395);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(101, 37);
@@ -64,6 +64,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(792, 444);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.txtMsg);
