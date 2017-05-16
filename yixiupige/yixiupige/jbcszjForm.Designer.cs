@@ -36,28 +36,28 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(117, 15);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Location = new System.Drawing.Point(94, 17);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 25);
+            this.textBox1.Size = new System.Drawing.Size(180, 23);
             this.textBox1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 26);
+            this.label1.Location = new System.Drawing.Point(59, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 15);
+            this.label1.Size = new System.Drawing.Size(32, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "名称";
             // 
             // TJbutton
             // 
-            this.TJbutton.Location = new System.Drawing.Point(41, 64);
-            this.TJbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.TJbutton.Location = new System.Drawing.Point(41, 72);
+            this.TJbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TJbutton.Name = "TJbutton";
-            this.TJbutton.Size = new System.Drawing.Size(100, 29);
+            this.TJbutton.Size = new System.Drawing.Size(100, 33);
             this.TJbutton.TabIndex = 2;
             this.TJbutton.Text = "添加";
             this.TJbutton.UseVisualStyleBackColor = true;
@@ -65,10 +65,10 @@
             // 
             // TCbutton
             // 
-            this.TCbutton.Location = new System.Drawing.Point(199, 64);
-            this.TCbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.TCbutton.Location = new System.Drawing.Point(199, 72);
+            this.TCbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TCbutton.Name = "TCbutton";
-            this.TCbutton.Size = new System.Drawing.Size(100, 29);
+            this.TCbutton.Size = new System.Drawing.Size(100, 33);
             this.TCbutton.TabIndex = 3;
             this.TCbutton.Text = "退出";
             this.TCbutton.UseVisualStyleBackColor = true;
@@ -76,14 +76,16 @@
             // 
             // jbcszjForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 108);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(352, 122);
             this.Controls.Add(this.TCbutton);
             this.Controls.Add(this.TJbutton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "jbcszjForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

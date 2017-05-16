@@ -62,6 +62,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabControl1.Location = new System.Drawing.Point(-1, -1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -71,10 +72,10 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(451, 236);
+            this.tabPage1.Size = new System.Drawing.Size(451, 232);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "数据库处理";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -105,10 +106,10 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(451, 236);
+            this.tabPage2.Size = new System.Drawing.Size(451, 232);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "备份数据库";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -134,7 +135,7 @@
             this.bfljlabel.AutoSize = true;
             this.bfljlabel.Location = new System.Drawing.Point(250, 79);
             this.bfljlabel.Name = "bfljlabel";
-            this.bfljlabel.Size = new System.Drawing.Size(0, 12);
+            this.bfljlabel.Size = new System.Drawing.Size(0, 17);
             this.bfljlabel.TabIndex = 6;
             // 
             // button3
@@ -162,7 +163,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(152, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 12);
+            this.label2.Size = new System.Drawing.Size(80, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "其 它 备 份：";
             // 
@@ -171,7 +172,7 @@
             this.ljlable.AutoSize = true;
             this.ljlable.Location = new System.Drawing.Point(248, 21);
             this.ljlable.Name = "ljlable";
-            this.ljlable.Size = new System.Drawing.Size(41, 12);
+            this.ljlable.Size = new System.Drawing.Size(45, 17);
             this.ljlable.TabIndex = 2;
             this.ljlable.Text = "label2";
             // 
@@ -180,16 +181,16 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(152, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 12);
+            this.label1.Size = new System.Drawing.Size(92, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "默认备份路径：";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::yixiupige.Properties.Resources._995225889bdb82a5c18d57d1793657e4;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 20);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 39);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(110, 201);
+            this.pictureBox1.Size = new System.Drawing.Size(139, 149);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -197,10 +198,10 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.groupBox3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 26);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(451, 236);
+            this.tabPage3.Size = new System.Drawing.Size(451, 232);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "恢复数据库";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -221,9 +222,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(189, 95);
+            this.label4.Location = new System.Drawing.Point(186, 100);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(161, 36);
+            this.label4.Size = new System.Drawing.Size(164, 51);
             this.label4.TabIndex = 2;
             this.label4.Text = "注意：数据将要恢复到您指定\r\n时间内的数据，请您\r\n小心使用！\r\n";
             // 
@@ -240,9 +241,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::yixiupige.Properties.Resources._995225889bdb82a5c18d57d1793657e41;
-            this.pictureBox2.Location = new System.Drawing.Point(7, 20);
+            this.pictureBox2.Location = new System.Drawing.Point(7, 22);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(110, 201);
+            this.pictureBox2.Size = new System.Drawing.Size(173, 187);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -251,6 +252,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(460, 261);
             this.Controls.Add(this.tabControl1);
             this.Name = "sjkglForm";

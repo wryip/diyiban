@@ -47,93 +47,89 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 29);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(45, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 15);
+            this.label1.Size = new System.Drawing.Size(68, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "商品名称：";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 82);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(44, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 15);
+            this.label2.Size = new System.Drawing.Size(68, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "商品库号：";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 131);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(43, 96);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 15);
+            this.label3.Size = new System.Drawing.Size(68, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "商品类型：";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(57, 179);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(44, 142);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 15);
+            this.label4.Size = new System.Drawing.Size(68, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "商品进价：";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(57, 230);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(45, 182);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 15);
+            this.label5.Size = new System.Drawing.Size(68, 17);
             this.label5.TabIndex = 4;
             this.label5.Text = "商品售价：";
             // 
             // nametextBox
             // 
-            this.nametextBox.Location = new System.Drawing.Point(149, 18);
-            this.nametextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nametextBox.Location = new System.Drawing.Point(112, 14);
             this.nametextBox.Name = "nametextBox";
             this.nametextBox.ReadOnly = true;
-            this.nametextBox.Size = new System.Drawing.Size(235, 25);
+            this.nametextBox.Size = new System.Drawing.Size(177, 21);
             this.nametextBox.TabIndex = 5;
             // 
             // notextBox
             // 
-            this.notextBox.Location = new System.Drawing.Point(149, 71);
-            this.notextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.notextBox.Location = new System.Drawing.Point(112, 57);
             this.notextBox.Name = "notextBox";
             this.notextBox.ReadOnly = true;
-            this.notextBox.Size = new System.Drawing.Size(235, 25);
+            this.notextBox.Size = new System.Drawing.Size(177, 21);
             this.notextBox.TabIndex = 6;
             // 
             // bidtextBox
             // 
-            this.bidtextBox.Location = new System.Drawing.Point(149, 175);
-            this.bidtextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bidtextBox.Location = new System.Drawing.Point(112, 140);
             this.bidtextBox.Name = "bidtextBox";
-            this.bidtextBox.Size = new System.Drawing.Size(235, 25);
+            this.bidtextBox.Size = new System.Drawing.Size(177, 21);
             this.bidtextBox.TabIndex = 8;
             // 
             // pricetextBox
             // 
-            this.pricetextBox.Location = new System.Drawing.Point(149, 226);
-            this.pricetextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pricetextBox.Location = new System.Drawing.Point(112, 181);
             this.pricetextBox.Name = "pricetextBox";
-            this.pricetextBox.Size = new System.Drawing.Size(235, 25);
+            this.pricetextBox.Size = new System.Drawing.Size(177, 21);
             this.pricetextBox.TabIndex = 9;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(89, 409);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(67, 327);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 29);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 10;
             this.button1.Text = "确定";
             this.button1.UseVisualStyleBackColor = true;
@@ -141,10 +137,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(285, 409);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(214, 327);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 29);
+            this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 11;
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
@@ -153,36 +149,35 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(87, 271);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(69, 217);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 15);
+            this.label6.Size = new System.Drawing.Size(44, 17);
             this.label6.TabIndex = 12;
             this.label6.Text = "备注：";
             // 
             // remarktextBox
             // 
-            this.remarktextBox.Location = new System.Drawing.Point(149, 271);
-            this.remarktextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.remarktextBox.Location = new System.Drawing.Point(112, 217);
             this.remarktextBox.Multiline = true;
             this.remarktextBox.Name = "remarktextBox";
-            this.remarktextBox.Size = new System.Drawing.Size(235, 105);
+            this.remarktextBox.Size = new System.Drawing.Size(177, 85);
             this.remarktextBox.TabIndex = 13;
             // 
             // typetextBox
             // 
             this.typetextBox.FormattingEnabled = true;
-            this.typetextBox.Location = new System.Drawing.Point(149, 120);
-            this.typetextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.typetextBox.Location = new System.Drawing.Point(112, 96);
             this.typetextBox.Name = "typetextBox";
-            this.typetextBox.Size = new System.Drawing.Size(235, 23);
+            this.typetextBox.Size = new System.Drawing.Size(177, 20);
             this.typetextBox.TabIndex = 14;
             // 
             // xgspFrom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 498);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(348, 398);
             this.Controls.Add(this.typetextBox);
             this.Controls.Add(this.remarktextBox);
             this.Controls.Add(this.label6);
@@ -198,7 +193,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "xgspFrom";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;

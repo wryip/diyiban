@@ -385,70 +385,71 @@
             this.panel1.Controls.Add(this.dateTimePicker2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Location = new System.Drawing.Point(15, 14);
+            this.panel1.Location = new System.Drawing.Point(13, 14);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2048, 812);
+            this.panel1.Size = new System.Drawing.Size(1820, 768);
             this.panel1.TabIndex = 0;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1796, 38);
+            this.label9.Location = new System.Drawing.Point(1596, 37);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(17, 18);
+            this.label9.Size = new System.Drawing.Size(15, 17);
             this.label9.TabIndex = 15;
             this.label9.Text = "0";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1624, 38);
+            this.label8.Location = new System.Drawing.Point(1444, 37);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(17, 18);
+            this.label8.Size = new System.Drawing.Size(15, 17);
             this.label8.TabIndex = 14;
             this.label8.Text = "0";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1725, 38);
+            this.label7.Location = new System.Drawing.Point(1533, 37);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 18);
+            this.label7.Size = new System.Drawing.Size(44, 17);
             this.label7.TabIndex = 13;
             this.label7.Text = "金额：";
+
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1554, 38);
+            this.label6.Location = new System.Drawing.Point(1381, 37);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 18);
+            this.label6.Size = new System.Drawing.Size(44, 17);
             this.label6.TabIndex = 13;
             this.label6.Text = "数量：";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1893, 14);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Location = new System.Drawing.Point(1683, 14);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(135, 50);
+            this.button2.Size = new System.Drawing.Size(120, 48);
             this.button2.TabIndex = 12;
             this.button2.Text = "导出数据";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(1364, 14);
+            //
+           this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(1212, 12);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(181, 26);
+            this.comboBox3.Size = new System.Drawing.Size(161, 23);
             this.comboBox3.TabIndex = 11;
             this.comboBox3.Visible = false;
             // 
@@ -492,9 +493,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(808, 20);
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(723, 18);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 18);
+            this.label3.Size = new System.Drawing.Size(44, 17);
             this.label3.TabIndex = 10;
             this.label3.Text = "员工：";
             // 

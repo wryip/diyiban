@@ -133,7 +133,10 @@ namespace yixiupige
             }
             MessageBox.Show("删除失败1");
         }
-       
-       
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
