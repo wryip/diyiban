@@ -95,7 +95,7 @@ namespace DAL
                     list.Add(model);
                 }
             }
-            return list.OrderByDescending(a=>a.LSDate).ToList();
+            return list.OrderByDescending(a=>a.ID).ToList();
         }
         //散客的消费消费
         public List<LiShiConsumption> selectAllListSK(string skname, string sktel, string name)

@@ -81,7 +81,7 @@ namespace yixiupige
             }
             PageCount = count;
             label3.Text = "共" + count + "条";
-            dataGridView1.DataSource = list.OrderByDescending(a=>a.jcBeginDate).ToList();
+            dataGridView1.DataSource = list;
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {

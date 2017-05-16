@@ -107,14 +107,14 @@ namespace DAL
                     {
                         str += "select top 300 * from ";
                         str += "JCInfoTable" + iteam.Value + "";
-                        str += " where  jcZT='未取走' and jcID NOT IN(select TOP " + (pageindex - 1) * 300 + " jcID from JCInfoTable" + iteam.Value + " order by jcID DESC,jcBeginDate DESC)";
+                        str += " where  jcZT='未取走' and jcID NOT IN(select TOP " + (pageindex - 1) * 300 + " jcID from JCInfoTable" + iteam.Value + " order by jcID DESC)";
                         str += " union all ";
                     }
                     str = str.Substring(0, str.Length - 10);
                 }
                 else
                 {
-                    str = "select top 300 * from JCInfoTable" + ID + " where jcZT='未取走' and jcID NOT IN(select TOP " + (pageindex - 1) * 300 + " jcID from JCInfoTable" + ID + " order by jcID DESC,jcBeginDate DESC)";
+                    str = "select top 300 * from JCInfoTable" + ID + " where jcZT='未取走' and jcID NOT IN(select TOP " + (pageindex - 1) * 300 + " jcID from JCInfoTable" + ID + " order by jcID DESC)";
                 }
             }
             //类型为其中一个
@@ -126,14 +126,14 @@ namespace DAL
                     {
                         str += "select top 300 * from ";
                         str += "JCInfoTable" + iteam.Value + "";
-                        str += " where jcZT='未取走' and jcType='" + name + "' and jcID NOT IN(select TOP " + (pageindex - 1) * 300 + " jcID from JCInfoTable" + iteam.Value + " order by jcID DESC,jcBeginDate DESC)";
+                        str += " where jcZT='未取走' and jcType='" + name + "' and jcID NOT IN(select TOP " + (pageindex - 1) * 300 + " jcID from JCInfoTable" + iteam.Value + " order by jcID DESC)";
                         str += " union all ";
                     }
                     str = str.Substring(0, str.Length - 10);
                 }
                 else
                 {
-                    str = "select top 300 * from JCInfoTable" + ID + " where jcZT='未取走' and jcType='" + name + "' and jcID NOT IN(select TOP " + (pageindex - 1) * 300 + " jcID from JCInfoTable" + ID + " order by jcID DESC,jcBeginDate DESC)";
+                    str = "select top 300 * from JCInfoTable" + ID + " where jcZT='未取走' and jcType='" + name + "' and jcID NOT IN(select TOP " + (pageindex - 1) * 300 + " jcID from JCInfoTable" + ID + " order by jcID DESC)";
                 }
             }
             SqlDataReader read = SqlHelper.ExecuteReader(str);
@@ -167,7 +167,7 @@ namespace DAL
                     list.Add(model);
                 }
             }
-            return list.OrderBy(a=>a.jcBeginDate).ToList();
+            return list.OrderByDescending(a=>Convert.ToDateTime(a.jcBeginDate)).ToList();
         }
         public int selectAllCount()
         {
@@ -1052,8 +1052,14 @@ namespace DAL
             List<JCInfoModel> list = new List<JCInfoModel>();
             JCInfoModel model;
             string str = "";
-
-            str = "select * from JCInfoTable" + ID + " where jcBeginDate BETWEEN '" + date + "' and '" + date1 + "' and jcQMoney<>'0' and jcZT='未取走'";
+            if (!BeginOrEnd)
+            {
+                str = "select * from JCInfoTable" + ID + " where jcBeginDate BETWEEN '" + date + "' and '" + date1 + "'";
+            }
+            else
+            {
+                str = "select * from JCInfoTable" + ID + " where jcEndDate BETWEEN '" + date + "' and '" + date1 + "'";
+            }
             SqlDataReader read = SqlHelper.ExecuteReader(str);
             while (read.Read())
             {

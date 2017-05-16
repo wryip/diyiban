@@ -138,7 +138,7 @@ namespace DAL
                     i++;
                 }               
             }
-            return list.OrderBy(a=>a.cardDate).ToList();
+            return list.OrderByDescending(a=>a.ID).ToList() ;
         }
         //查询会员卡的总数量
         public int selectAllCount()

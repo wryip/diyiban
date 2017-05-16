@@ -844,6 +844,12 @@ namespace yixiupige
                 model.LSDanNumber = sb;
                 if (iteam.JiCun == true)
                 {
+                    if (iteam.Count > 1)
+                    {
+                        MessageBox.Show("寄存物品智能单独寄存！");
+                        jclist = new List<shInfoList>(); ;
+                        return;
+                    }
                     jclist.Add(iteam);
                     if (dateTimePicker1.Value.Day == DateTime.Now.Day)
                     {
@@ -1042,6 +1048,7 @@ namespace yixiupige
         {
             textBox1.Text = "";
             textBox2.Text = "";
+            textBox3.Text = "";
             textBox4.Text = "";
             textBox5.Text = "";
             textBox6.Text = "";
@@ -1151,7 +1158,8 @@ namespace yixiupige
                     return;
                 }
                 string name = FilterClass.DianPu1.UserName;
-                dataGridView1.DataSource = lsbll.selectAllList(textBox5.Text.Trim(), name);
+                List<LiShiConsumption> list=lsbll.selectAllList(textBox5.Text.Trim(), name);
+                dataGridView1.DataSource = list;
             }
             else //不是会员的时候
             {
@@ -1392,6 +1400,7 @@ namespace yixiupige
                 textBox10.Text = "";
                 textBox11.Text = "";
                 textBox12.Text = "";
+                textBox3.Text = "";
                 dateTimePicker1.ResetText();
                 dataGridView1.DataSource = new List<LiShiConsumption>();
                 dataGridView2.DataSource = new List<shInfoList>();
