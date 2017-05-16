@@ -63,6 +63,16 @@ namespace yixiupige.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap _1 {
+            get {
+                object obj = ResourceManager.GetObject("1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap _1084515 {
             get {
                 object obj = ResourceManager.GetObject("1084515", resourceCulture);
@@ -116,6 +126,16 @@ namespace yixiupige.Properties {
         internal static System.Drawing.Bitmap _1631 {
             get {
                 object obj = ResourceManager.GetObject("1631", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _3 {
+            get {
+                object obj = ResourceManager.GetObject("3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,6 +213,16 @@ namespace yixiupige.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap png_0002 {
+            get {
+                object obj = ResourceManager.GetObject("png-0002", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap png_0007 {
             get {
                 object obj = ResourceManager.GetObject("png-0007", resourceCulture);
@@ -256,6 +286,16 @@ namespace yixiupige.Properties {
         internal static System.Drawing.Bitmap png_0014 {
             get {
                 object obj = ResourceManager.GetObject("png-0014", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap png_0017 {
+            get {
+                object obj = ResourceManager.GetObject("png-0017", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

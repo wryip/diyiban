@@ -1,5 +1,6 @@
 ﻿using AForge.Video.DirectShow;
 using BLL;
+using Commond;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace yixiupige
         {
             InitializeComponent();
         }
+        staffInfoBLL staff = new staffInfoBLL();
+        DPInfoBLL dpbll = new DPInfoBLL();
         public delegate void binddata();
         public static binddata bdata;
         private static xiugaimember hyzj;
@@ -65,8 +68,26 @@ namespace yixiupige
             #endregion
             #region//窗口打开的时候初始化的内容
             //初始化会员分类
+            if (FilterClass.isadmin())
+            {
+                List<string> strdp = dpbll.selectDPName();
+                foreach (var iteam in strdp)
+                {
+                    lsdcomboBox.Items.Add(iteam);
+                }
+            }
+            else
+            {
+                lsdcomboBox.Text = modelmember.dianName;
+                lsdcomboBox.Enabled = false;
+            }
+            List<jbcs> listname = staff.selectSH();
+            foreach (var iteam in listname)
+            {
+                ywycomboBox.Items.Add(iteam.AllType);
+            }
             hykhtextBox.Text = modelmember.memberCardNo;
-            hykhtextBox.ReadOnly = true;
+            //hykhtextBox.ReadOnly = true;
             hyxmtextBox.Text = modelmember.memberName;
             hydhtextBox.Text = modelmember.memberTel;
             sfzhtextBox.Text = modelmember.memberDocument;
@@ -87,7 +108,7 @@ namespace yixiupige
             bzxxtextBox.Text = modelmember.remark;
             dwtextBox.Text = modelmember.address;
             ywycomboBox.Text = modelmember.saleMan;
-            lsdcomboBox.Text = modelmember.dianName;
+            
             csrqdateTimePicker.Text = modelmember.birDate.Trim();
             bkrqdateTimePicker.Text = modelmember.cardDate.Trim();
             if (modelmember.password.Trim() != "")
@@ -132,7 +153,7 @@ namespace yixiupige
 
         private void qdbutton_Click(object sender, EventArgs e)
         {
-            if (hydhtextBox.Text == "" || hykhtextBox.Text == "" || hyxmtextBox.Text == "" || sfzhtextBox.Text == "" || hyxbcomboBox.Text == "" || lsdcomboBox.Text == "")
+            if (hydhtextBox.Text == "" || hykhtextBox.Text == "" || hyxmtextBox.Text == ""  || hyxbcomboBox.Text == "" || lsdcomboBox.Text == "")
             {
                 MessageBox.Show("请将信息填写完整！");
                 return;
@@ -141,21 +162,22 @@ namespace yixiupige
             {
                 #region//封装用户填写进去的内容，进行添加
                 memberInfoModel model = new memberInfoModel();
+                model.ID = modelmember.ID;
                 model.memberCardNo = hykhtextBox.Text;
                 model.memberName = hyxmtextBox.Text;
                 model.memberTel = hydhtextBox.Text;
                 model.memberDocument = sfzhtextBox.Text;
-                model.birDate = csrqdateTimePicker.Text.ToString();
-                model.cardDate = bkrqdateTimePicker.Text.ToString();
+                model.birDate = TimeGuiGe.TimePicterBegin(csrqdateTimePicker.Text);
+                model.cardDate = TimeGuiGe.TimePicterEng(bkrqdateTimePicker.Text);
                 model.memberSex = hyxbcomboBox.Text;
                 model.rebate = spzktextBox.Text;
                 if (qydqxzcheckBox.Checked)
                 {
-                    model.endDate = dateTimePicker1.Text.ToString();
+                    model.endDate = TimeGuiGe.TimePicterBegin(dateTimePicker1.Text);
                 }
                 else
                 {
-                    model.endDate = "无";
+                    model.endDate = TimeGuiGe.TimePicterBegin(dateTimePicker1.Text);
                 }
                 model.fuwuBate = fwzktextBox.Text;
                 model.toUpMoney = czjetextBox.Text;
@@ -173,15 +195,22 @@ namespace yixiupige
                 }                
                 Bitmap newImage = new Bitmap(160, 120);
                 Graphics draw = Graphics.FromImage(newImage);
-                draw.DrawImage(bitmap, 0, 0);
-                draw.Dispose();
-                string dirpath = "E:\\mymemberimg";
-                if (!Directory.Exists(dirpath))
-                    Directory.CreateDirectory(dirpath);
-                string path = dirpath + "\\" + hykhtextBox.Text.Trim() + ".bmp";
-                if (newImage != null)
-                    newImage.Save(path, System.Drawing.Imaging.ImageFormat.Bmp);
-                model.imageUrl = path;
+                if (bitmap != null)
+                {
+                    draw.DrawImage(bitmap, 0, 0);
+                    draw.Dispose();
+                    string dirpath = "..\\..\\memberInfo";
+                    if (!Directory.Exists(dirpath))
+                        Directory.CreateDirectory(dirpath);
+                    string path = dirpath + "\\" + hykhtextBox.Text.Trim() + ".bmp";
+                    if (newImage != null)
+                        newImage.Save(path, System.Drawing.Imaging.ImageFormat.Bmp);
+                    model.imageUrl = path;
+                }
+                else
+                {
+                    model.imageUrl = pictureBox1.ImageLocation;
+                }
                 bool result = modelbll.EditMemberInfo(model);
                 if (result)
                 {
@@ -203,9 +232,16 @@ namespace yixiupige
         }
         private void CameraConn()
         {
+            FilterInfo state = new FilterInfo(videoDevices[0].MonikerString);
+            foreach (FilterInfo device in videoDevices)
+            {
+                if (device.Name.Trim() == FilterClass.PicImg.Trim())
+                {
+                    state = device;
+                }
+            }
             VideoCaptureDevice videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
-            videoSource.DesiredFrameSize = new Size(160, 120);
-            videoSource.DesiredFrameRate = 1;
+            videoSource.VideoResolution = videoSource.VideoCapabilities[1];
 
             videoSourcePlayer1.VideoSource = videoSource;
             videoSourcePlayer1.Start();
@@ -260,6 +296,9 @@ namespace yixiupige
             if (szmmbutton.Text == "修改密码")
             {
                 //那就将密码传入进去
+                string pwd = modelmember.password;
+                PwdUpDate from = PwdUpDate.Create(pwd,SetPwd);
+                from.Show();
             }
             else
             {
@@ -267,6 +306,10 @@ namespace yixiupige
                 pwd.Show();
                 pwd.Focus();
             }
+        }
+        public void SetPwd(string newpwd)
+        {
+            password = newpwd;
         }
     }
 }

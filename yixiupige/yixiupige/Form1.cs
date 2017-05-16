@@ -36,8 +36,14 @@ namespace yixiupige
             LoginUser User=new LoginUser();
             if (User.SelectUser(textBox2.Text.Trim(), textBox1.Text.Trim(), comboBox1.Text.Trim()))
             {
+                //登陆成功后判断该店是不是又过了一天，如果是就将DPNumber再踩修改为一
+                dpbll.UpdateDay(DateTime.Now.Day);
                 DefaultForm _default2 = DefaultForm.CreateForm(fromclose);
+                //SendInfo from = SendInfo.CreateForm();
+                //from.Show();
+                //from.Hide();
                 _default2.Show();
+                
                 this.Hide();
             }
             else
@@ -57,7 +63,10 @@ namespace yixiupige
             {
                 comboBox1.Items.Add(iteam);
             }
-            comboBox1.SelectedIndex = 0;
+            if (comboBox1.Items.Count > 0)
+            {
+                comboBox1.SelectedIndex = 0;
+            }
         }
     }
 }

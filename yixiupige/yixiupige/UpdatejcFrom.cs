@@ -1,5 +1,6 @@
 ﻿using AForge.Video.DirectShow;
 using BLL;
+using Commond;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -47,10 +48,10 @@ namespace yixiupige
         {
             model = bll.SelectID(id);
             textBox1.Text = model.jcName;
-            textBox2.Text = "未上架";
+            //textBox2.Text = "未上架";
             textBox3.Text = model.jcCardNumber;
             textBox4.Text = model.jcPinPai;
-            textBox5.Text = model.jcPaiNumber;
+            //textBox5.Text = model.jcPaiNumber;
             textBox6.Text = model.jcColor;
             textBox7.Text = model.jcBeginDate;
             textBox8.Text = model.jcQMoney.Trim();
@@ -82,7 +83,7 @@ namespace yixiupige
             string dirpath = "E:\\mymemberimg";
             if (!Directory.Exists(dirpath))
                 Directory.CreateDirectory(dirpath);
-            string[] name = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] name = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Split(new char[] { '/', ':', ' ', '-' }, StringSplitOptions.RemoveEmptyEntries);
             string name1 = "";
             foreach (var ite in name)
             {
@@ -117,7 +118,7 @@ namespace yixiupige
             model.jcType = textBox9.Text;
             model.jcStaff = textBox10.Text;
             model.jcRemark = textBox11.Text;
-            while (Path == "")
+            if (Path == "")
             {
                 Thread.Sleep(1000);
             }
@@ -159,6 +160,14 @@ namespace yixiupige
         }
         private void CameraConn()
         {
+            FilterInfo state = new FilterInfo(videoDevices[0].MonikerString);
+            foreach (FilterInfo device in videoDevices)
+            {
+                if (device.Name.Trim() == FilterClass.PicImg.Trim())
+                {
+                    state = device;
+                }
+            }
             VideoCaptureDevice videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
             videoSource.DesiredFrameSize = new Size(320, 240);
             videoSource.DesiredFrameRate = 1;
@@ -202,6 +211,56 @@ namespace yixiupige
                 }
             }
             textBox8.Text = money.ToString();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

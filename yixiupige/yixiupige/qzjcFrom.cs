@@ -23,8 +23,11 @@ namespace yixiupige
         JCInfoBLL bll = new JCInfoBLL();
         public delegate void databind();
         public static databind databind1;
-        public static qzjcFrom CreateForm(int ID,databind bind)
+        public delegate void bindsx();
+        public static bindsx binsx;
+        public static qzjcFrom CreateForm(int ID,databind bind,bindsx ndsx)
         {
+            binsx = ndsx;
             id = ID;
             databind1 = bind;
             if (_danli == null)
@@ -47,10 +50,10 @@ namespace yixiupige
         {
             JCInfoModel model = bll.SelectID(id);
             textBox1.Text = model.jcName;
-            textBox2.Text = "未上架";
+            //textBox2.Text = "未上架";
             textBox3.Text = model.jcCardNumber;
             textBox4.Text = model.jcPinPai;
-            textBox5.Text = model.jcPaiNumber;
+            //textBox5.Text = model.jcPaiNumber;
             textBox6.Text = model.jcColor;
             textBox7.Text = model.jcBeginDate;
             textBox8.Text = model.jcQMoney.Trim();
@@ -70,9 +73,16 @@ namespace yixiupige
             bool result = bll.QZInfo(id);
             if (result)
             {
+                MessageBox.Show("成功！");
                 databind1();
+                binsx();
                 this.Close();
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

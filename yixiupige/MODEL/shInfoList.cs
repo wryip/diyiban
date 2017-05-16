@@ -24,5 +24,6 @@ namespace MODEL
         public string Color { get; set; }
         public string ImgUrl { get; set; }
         public string YMPerson { get; set; }
+        //public double TCMoney { get; set; }
     }
 }

@@ -11,6 +11,22 @@
     <AssemblyName>yixiupige</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>E:\店面\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +47,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>D8191C1A7C6BF41E94D29DA4B3D8F72367F5D863</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>yixiupige_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -40,7 +68,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>leiku\AForge.Controls.dll</HintPath>
     </Reference>
-    <Reference Include="AForge.Imaging">
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>leiku\AForge.Imaging.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
@@ -53,11 +82,13 @@
     </Reference>
     <Reference Include="AForge.Video.FFMPEG, Version=2.2.5.0, Culture=neutral, PublicKeyToken=03563089b1be05dd, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>leiku\AForge.Video.FFMPEG.dll</HintPath>
+      <HintPath>bin\Debug\AForge.Video.FFMPEG.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -96,6 +127,12 @@
     <Compile Include="addQtFuWu.Designer.cs">
       <DependentUpon>addQtFuWu.cs</DependentUpon>
     </Compile>
+    <Compile Include="AgainSend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgainSend.Designer.cs">
+      <DependentUpon>AgainSend.cs</DependentUpon>
+    </Compile>
     <Compile Include="baseClass.cs" />
     <Compile Include="bdpjFrom.cs">
       <SubType>Form</SubType>
@@ -127,6 +164,12 @@
     <Compile Include="DefaultForm.Designer.cs">
       <DependentUpon>DefaultForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DMJSFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DMJSFrom.Designer.cs">
+      <DependentUpon>DMJSFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="DPUpdateFrom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +187,18 @@
     </Compile>
     <Compile Include="EditQtFuWu.Designer.cs">
       <DependentUpon>EditQtFuWu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExitCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExitCard.Designer.cs">
+      <DependentUpon>ExitCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FactoryExit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FactoryExit.Designer.cs">
+      <DependentUpon>FactoryExit.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -199,6 +254,12 @@
     <Compile Include="hylxedit.Designer.cs">
       <DependentUpon>hylxedit.cs</DependentUpon>
     </Compile>
+    <Compile Include="HYXFPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HYXFPassword.Designer.cs">
+      <DependentUpon>HYXFPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="hyxgFrom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +271,12 @@
     </Compile>
     <Compile Include="hyzjForm.Designer.cs">
       <DependentUpon>hyzjForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IsSpRemark.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IsSpRemark.Designer.cs">
+      <DependentUpon>IsSpRemark.cs</DependentUpon>
     </Compile>
     <Compile Include="jbcsForm.cs">
       <SubType>Form</SubType>
@@ -290,6 +357,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PwdUpDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PwdUpDate.Designer.cs">
+      <DependentUpon>PwdUpDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QHFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QHFrom.Designer.cs">
+      <DependentUpon>QHFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="qtForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,11 +387,23 @@
     <Compile Include="QtMoney.Designer.cs">
       <DependentUpon>QtMoney.cs</DependentUpon>
     </Compile>
+    <Compile Include="QueRenEnd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueRenEnd.Designer.cs">
+      <DependentUpon>QueRenEnd.cs</DependentUpon>
+    </Compile>
     <Compile Include="qzjcFrom.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="qzjcFrom.Designer.cs">
       <DependentUpon>qzjcFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SendInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendInfo.Designer.cs">
+      <DependentUpon>SendInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="shglform.cs">
       <SubType>Form</SubType>
@@ -368,6 +459,12 @@
     <Compile Include="UpdatejcFrom.Designer.cs">
       <DependentUpon>UpdatejcFrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoAndPicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VideoAndPicture.Designer.cs">
+      <DependentUpon>VideoAndPicture.cs</DependentUpon>
+    </Compile>
     <Compile Include="xiugaimember.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -379,6 +476,12 @@
     </Compile>
     <Compile Include="xgspFrom.Designer.cs">
       <DependentUpon>xgspFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YGFinish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YGFinish.Designer.cs">
+      <DependentUpon>YGFinish.cs</DependentUpon>
     </Compile>
     <Compile Include="ygglForm.cs">
       <SubType>Form</SubType>
@@ -422,11 +525,17 @@
     <EmbeddedResource Include="addQtFuWu.resx">
       <DependentUpon>addQtFuWu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AgainSend.resx">
+      <DependentUpon>AgainSend.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="bdpjFrom.resx">
       <DependentUpon>bdpjFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="cjQuestion.resx">
       <DependentUpon>cjQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DMJSFrom.resx">
+      <DependentUpon>DMJSFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DPUpdateFrom.resx">
       <DependentUpon>DPUpdateFrom.cs</DependentUpon>
@@ -434,11 +543,23 @@
     <EmbeddedResource Include="EditQtFuWu.resx">
       <DependentUpon>EditQtFuWu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ExitCard.resx">
+      <DependentUpon>ExitCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FactoryExit.resx">
+      <DependentUpon>FactoryExit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fuwuEdit.resx">
       <DependentUpon>fuwuEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HYXFPassword.resx">
+      <DependentUpon>HYXFPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="hyxgFrom.resx">
       <DependentUpon>hyxgFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IsSpRemark.resx">
+      <DependentUpon>IsSpRemark.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="jbcsxgFrom.resx">
       <DependentUpon>jbcsxgFrom.cs</DependentUpon>
@@ -449,20 +570,38 @@
     <EmbeddedResource Include="jcSelectFrom.resx">
       <DependentUpon>jcSelectFrom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PwdUpDate.resx">
+      <DependentUpon>PwdUpDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QHFrom.resx">
+      <DependentUpon>QHFrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="qtfuCheckBoxFrom.resx">
       <DependentUpon>qtfuCheckBoxFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QtMoney.resx">
       <DependentUpon>QtMoney.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QueRenEnd.resx">
+      <DependentUpon>QueRenEnd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="qzjcFrom.resx">
       <DependentUpon>qzjcFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SendInfo.resx">
+      <DependentUpon>SendInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="spSalesFrom.resx">
       <DependentUpon>spSalesFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdatejcFrom.resx">
       <DependentUpon>UpdatejcFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoAndPicture.resx">
+      <DependentUpon>VideoAndPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YGFinish.resx">
+      <DependentUpon>YGFinish.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="zjspForm、.resx">
       <DependentUpon>zjspForm、.cs</DependentUpon>
@@ -605,6 +744,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="yixiupige_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -640,14 +780,19 @@
     <None Include="Resources\bj.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="imageFile\1.ico" />
+    <Content Include="imageFile\timg.jpg" />
+    <Content Include="Info\finish.wav" />
     <Content Include="leiku\AForge.Controls.dll" />
     <Content Include="leiku\AForge.Controls.xml" />
     <Content Include="leiku\AForge.dll" />
     <Content Include="leiku\AForge.Video.DirectShow.dll" />
     <Content Include="leiku\AForge.Video.DirectShow.xml" />
     <Content Include="leiku\AForge.Video.dll" />
-    <Content Include="leiku\AForge.Video.FFMPEG.dll" />
-    <Content Include="leiku\AForge.Video.FFMPEG.xml" />
+    <None Include="Resources\3.jpeg" />
+    <None Include="Resources\1.jpeg" />
+    <None Include="Resources\png-0002.png" />
+    <None Include="Resources\png-0017.png" />
     <None Include="Resources\6962.png" />
     <None Include="Resources\1631.png" />
     <None Include="Resources\1133944.png" />
@@ -677,7 +822,27 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="imageFile\" />
+    <Folder Include="memberInfo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

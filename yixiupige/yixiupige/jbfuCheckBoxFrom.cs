@@ -39,7 +39,7 @@ namespace yixiupige
             //double rows = Math.Ceiling(list.Count*1.0/4);
             //int row = Convert.ToInt32(rows);
             CheckBox chek;
-            RowStyle rowsty = new RowStyle(SizeType.Absolute, 40); ;
+            RowStyle rowsty = new RowStyle(SizeType.Absolute, 40); 
             //for (int i = 0; i < row; i++)
             //{
                 int jishu=0;               

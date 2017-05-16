@@ -1,5 +1,6 @@
 ﻿using AForge.Video.DirectShow;
 using BLL;
+using Commond;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -102,9 +103,21 @@ namespace yixiupige
         }
         private void CameraConn()
         {
+            FilterInfo state = new FilterInfo(videoDevices[0].MonikerString);
+            foreach (FilterInfo device in videoDevices)
+            {
+                if (device.Name.Trim() == FilterClass.PicImg.Trim())
+                {
+                    state = device;
+                }
+            }
             VideoCaptureDevice videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
-            videoSource.DesiredFrameSize = new Size(320, 240);
-            videoSource.DesiredFrameRate = 1;
+            //videoSource.DesiredFrameSize = new Size(320, 240);
+            //videoSource.DesiredFrameRate = 1;
+
+            //videoSourcePlayer1.VideoSource = videoSource;
+            //videoSourcePlayer1.Start();
+            videoSource.VideoResolution = videoSource.VideoCapabilities[1];
 
             videoSourcePlayer1.VideoSource = videoSource;
             videoSourcePlayer1.Start();
@@ -114,7 +127,7 @@ namespace yixiupige
         {
             videoSourcePlayer1.NewFrame += new AForge.Controls.VideoSourcePlayer.NewFrameHandler(videoSourcePlayer1_NewFrame);
             string sb = "";
-            string[] ss = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] ss = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Split(new char[] { '/', ':', ' ', '-' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var s in ss)
             {
                 sb += s;
@@ -131,10 +144,10 @@ namespace yixiupige
             model.FuWuName = textBox9.Text;
             model.Remark = textBox11.Text;
             model.CJQuestion = textBox10.Text;
-            model.PaiNumber = textBox5.Text;
+            model.PaiNumber = "";
             model.YMPerson = comboBox4.Text;
             //model.d = DateTime.Now.ToString("yyyy MM dd");
-            //model.jcEndDate = dateTimePicker1.Text.ToString();
+            //model.jcEndDate = TimeGuiGe.TimePicter(dateTimePicker1.Text);
             while (path1 == "")
             {
                 Thread.Sleep(1000);
@@ -142,7 +155,7 @@ namespace yixiupige
             model.ImgUrl = path1;
             List<shInfoList> list = new List<shInfoList>();
             list.Add(model);
-            bool result = jcinfobll.addJCList(list, textBox3.Text.Trim(), textBox1.Text.Trim(), dateTimePicker1.Text.ToString().Trim(), sb);
+            bool result = jcinfobll.addJCList(list, textBox3.Text.Trim(), textBox1.Text.Trim(), TimeGuiGe.TimePicterBegin((dateTimePicker1.Text)), sb, "1", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             if (result)
             {
                 MessageBox.Show("添加成功！");
@@ -161,7 +174,7 @@ namespace yixiupige
             string dirpath = "E:\\mymemberimg";
             if (!Directory.Exists(dirpath))
                 Directory.CreateDirectory(dirpath);
-            string[] name = DateTime.Now.ToString("yyyy MM dd HH:mm:ss").Split(new char[] { '/', ':', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] name = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Split(new char[] { '/', ':', ' ', '-' }, StringSplitOptions.RemoveEmptyEntries);
             string name1 = "";
             foreach (var ite in name)
             {

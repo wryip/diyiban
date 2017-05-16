@@ -9,6 +9,6 @@ namespace MODEL
     public class qtFuWuModel
     {
         public string QtName { get; set; }
-        public int QtTc { get; set; }
+        //public int QtTc { get; set; }
     }
 }

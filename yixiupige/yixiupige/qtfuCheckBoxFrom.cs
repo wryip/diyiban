@@ -18,7 +18,7 @@ namespace yixiupige
         {
             InitializeComponent();
         }
-        public delegate void bindshuju(string name, int money,bool result);
+        public delegate void bindshuju(string name, double money,bool result);
         public static bindshuju action1;
         QtFuWuBLL fuwubl = new QtFuWuBLL();
         public static CheckBox chk;
@@ -98,7 +98,7 @@ namespace yixiupige
             int rows = tableLayoutPanel1.RowStyles.Count;
             CheckBox check;
             string name = "";
-            int money=0;
+            double money=0;
             for (int i = 0; i < rows; i++)
             {
                 //int jishu = 0;
@@ -111,8 +111,8 @@ namespace yixiupige
                     }
                     if (check.Checked == true)
                     {
-                        name += check.Text.Trim() + ",";
-                        money += Convert.ToInt32(check.Tag);
+                        name += check.Text.Trim() + "[" + check.Tag + "],";
+                        money += Convert.ToDouble(check.Tag);
                     }
                 }
             }

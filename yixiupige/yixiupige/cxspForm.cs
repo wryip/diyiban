@@ -47,5 +47,20 @@ namespace yixiupige
             
            
         }
+
+        private void cxspForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cxspForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            cx = null;
+        }
     }
 }

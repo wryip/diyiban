@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MODEL;
 using BLL;
+using Commond;
 namespace yixiupige
 {
     public partial class spform : Form
@@ -48,21 +49,23 @@ namespace yixiupige
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = gdbll.Getlist(gd);
         }
-        GoodTypeInfoBll gtbll = new GoodTypeInfoBll();
+        jbcsBLL jbcsbll = new jbcsBLL();
         private void spform_Load(object sender, EventArgs e)
         {
             TreeNode child;
 
 
-            List<string> list = gtbll.SelecNode(); ;
+            List<jbcs> list = jbcsbll.selectListAndCount1(4);
             TreeNode parent = treeView1.Nodes[0];
+            int count = jbcsbll.CountNumber();
+            parent.Text += "[" + count.ToString() + "]";
             //TreeNode parent=new TreeNode();
             //parent.Text = "全部";
             //treeView1.Nodes.Add(parent);           
             foreach (var i in list)
             {
                 child = new TreeNode();
-                child.Text =i;
+                child.Text =i.AllType;
                 parent.Nodes.Add(child);
             }
             _load();
@@ -74,46 +77,95 @@ namespace yixiupige
             _danli = null;
         }
 
-      
 
-        private void 增加商品ToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
+        private void treeView1_Click(object sender, EventArgs e)
+        {
+
+            //_load();
+            
+        }
+
+        //private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        //{
+            
+           
+        //}
+
+        private void 查看商品ToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            cxspForm cx = cxspForm.Create();
+            cx.loaddd += eventload;
+
+            cx.Show();
+            cx.Focus();
+        }
+
+        private void 增加商品ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             zjspForm_ zjsp = zjspForm_.Create();
-            zjsp.Loadevent +=loadevent;
+            zjsp.Loadevent += loadevent;
             zjsp.Show();
             zjsp.Focus();
         }
 
-        private void 修改商品ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 修改商品ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             GoodInfo gd = new GoodInfo();
-            if (dataGridView1.SelectedRows.Count<=0)
+            if (dataGridView1.SelectedRows.Count <= 0)
             {
                 MessageBox.Show("请选择要修改的商品！");
             }
-            else {
+            else
+            {
                 var row = dataGridView1.SelectedRows[0];
-               
-                gd.Gno = row.Cells[1].Value.ToString();
-              
+
+                gd.Gno = row.Cells["spNumber"].Value.ToString();
+
                 xgspFrom xg = xgspFrom.Create();
                 xg.Add(gd);
                 xg.Loadevent += loadevent;
                 xg.Show();
                 xg.Focus();
-            
+
             }
-          
-            
-            
-           
         }
 
-        private void 删除商品ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 商品补货ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            var cell = dataGridView1.SelectedCells;
             GoodInfo gd = new GoodInfo();
-            gd.Gid = Convert.ToInt32(cell[0].Value);
+            if (dataGridView1.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("请选择要补货的商品！");
+            }
+            else
+            {
+                var row = dataGridView1.SelectedRows[0];
+                gd.Gno = row.Cells["spNumber"].Value.ToString();
+                spbhForm spbh = new spbhForm();
+                spbh.Add(gd);
+                spbh.Loadevent += loadevent;
+                spbh.Show();
+                spbh.Focus();
+                //xgspFrom xg = xgspFrom.Create();
+                //xg.Add(gd);
+                //xg.Loadevent += loadevent;
+                //xg.Show();
+                //xg.Focus();
+
+            }
+        }
+
+        private void 删除商品ToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            var model = (GoodInfo)dataGridView1.SelectedRows[0].DataBoundItem;
+            GoodInfo gd = new GoodInfo();
+            gd.Gid = Convert.ToInt32(model.Gid);
             DialogResult result = MessageBox.Show("确定删除？", "提示", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
@@ -130,66 +182,34 @@ namespace yixiupige
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
         {
-
+            dataGridView1.Rows[e.RowIndex].Selected = true;
         }
 
-        private void 商品补货ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void treeView1_NodeMouseClick_1(object sender, TreeNodeMouseClickEventArgs e)
         {
-            GoodInfo gd = new GoodInfo();
-            if (dataGridView1.SelectedRows.Count <= 0)
-            {
-                MessageBox.Show("请选择要补货的商品！");
-            }
-            else
-            {
-                var row = dataGridView1.SelectedRows[0];
-                gd.Gno = row.Cells[1].Value.ToString();
-                spbhForm spbh = new spbhForm();
-                spbh.Add(gd);
-                spbh.Loadevent += loadevent;
-                spbh.Show();
-                spbh.Focus();
-                //xgspFrom xg = xgspFrom.Create();
-                //xg.Add(gd);
-                //xg.Loadevent += loadevent;
-                //xg.Show();
-                //xg.Focus();
-
-            }
-          
-        }
-
-        private void 查看商品ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cxspForm cx = cxspForm.Create();
-            cx.loaddd += eventload;
-
-            cx.Show();
-            cx.Focus();
-        }
-
-        private void treeView1_Click(object sender, EventArgs e)
-        {
-
-            //_load();
-            
-        }
-
-        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            string cardTepe = e.Node.Text;
+            string cardTepe = e.Node.Text.Split(new char[]{'['},StringSplitOptions.RemoveEmptyEntries)[0];
             GoodInfo gd = new GoodInfo()
             {
-                Gtype=cardTepe
+                Gtype = cardTepe
             };
-            List<GoodInfo> list = gdbll.Getlist(gd);
+            dataGridView1.DataSource = gdbll.Getlist(gd).OrderByDescending(a=>a.Gid).ToList();
             
-            dataGridView1.DataSource = gdbll.Getlist(gd);
-           
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string type = treeView1.SelectedNode.Text;
+            List<GoodInfo> list = (List<GoodInfo>)dataGridView1.DataSource;
+            bool resu = NPOIHelper.PrintDocument(list, type + "-商品信息");
+            if (resu)
+            {
+                MessageBox.Show("导出成功！");
+                return;
+            }
+            MessageBox.Show("导出失败！");
+        }
       
     }
 }

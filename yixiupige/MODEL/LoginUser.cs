@@ -16,6 +16,8 @@ namespace MODEL
         public string LoginName { get; set; }
         public string UserName { get; set; }
         public string UserPwd { get; set; }
+        public string BGJPrint { get; set; }
+        public string MemberPrint { get; set; }
         public int ID { get; set; }
         //相对应个各种权限
         public bool shgl { get; set; }
@@ -25,6 +27,7 @@ namespace MODEL
         public bool spgl { get; set; }
         public bool tjbb { get; set; }
         public bool dxgl { get; set; }
+        public bool dmjs { get; set; }
         public bool tcgl { get; set; }
         public bool glysz { get; set; }
         public bool lsdsz { get; set; }

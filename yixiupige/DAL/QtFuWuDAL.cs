@@ -1,4 +1,5 @@
-﻿using MODEL;
+﻿using Commond;
+using MODEL;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,13 +11,18 @@ namespace DAL
 {
     public class QtFuWuDAL
     {
+        /// <summary>
+        /// 添加其他服务类
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public bool AddModel(qtFuWuModel model)
         {
             bool result = false;
-            string str = "insert into QtFuWu(QtName,QtTc) values(@QtName,@QtTc)";
+            string str = "insert into QtFuWu(QtName,DPName) values(@QtName,@DPName)";
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@QtName",model.QtName),
-            new SqlParameter("@QtTc",model.QtTc)
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
@@ -26,17 +32,30 @@ namespace DAL
         }
         public List<qtFuWuModel> SelectAllList()
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             List<qtFuWuModel> list = new List<qtFuWuModel>();
             qtFuWuModel model;
-            string str = "select * from QtFuWu";
-            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            SqlParameter[] pms;
+            string str;
+            if (dpname == "admin")
+            {
+                pms = new SqlParameter[] { };
+                str = "select * from QtFuWu";
+            }
+            else
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",dpname)
+            };
+                str = "select * from QtFuWu where DPName=@DPName";
+            }
+            SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
                 if (read.HasRows)
                 {
                     model = new qtFuWuModel();
                     model.QtName = read["QtName"].ToString();
-                    model.QtTc = Convert.ToInt32(read["QtTc"]);
                     list.Add(model);
                 }
             }
@@ -45,10 +64,11 @@ namespace DAL
         public bool EditModel(qtFuWuModel model)
         {
             bool result = false;
-            string str = "update QtFuWu set QtTc=@QtTc where QtName=@QtName";
+            string str = "update QtFuWu set QtName=@QtName1 where QtName=@QtName and DPName=@DPName";
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@QtName",model.QtName),
-            new SqlParameter("@QtTc",model.QtTc)
+            new SqlParameter("@QtName1",model.QtName),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
@@ -59,9 +79,10 @@ namespace DAL
         public bool deleteModel(string name)
         {
             bool result = false;
-            string str = "delete from QtFuWu where QtName=@QtName";
+            string str = "delete from QtFuWu where QtName=@QtName and DPName=@DPName";
             SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@QtName",name.Trim())
+            new SqlParameter("@QtName",name.Trim()),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
@@ -71,10 +92,24 @@ namespace DAL
         }
         public List<string> selectAllName()
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             List<string> list = new List<string>();
             string name;
-            string str = "select QtName from QtFuWu";
-            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            SqlParameter[] pms;
+            string str;
+            if (dpname == "admin")
+            {
+                pms = new SqlParameter[] { };
+                str = "select QtName from QtFuWu";
+            }
+            else
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",dpname)
+            };
+                str = "select QtName from QtFuWu where DPName=@DPName";
+            }
+            SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
                 if (read.HasRows)

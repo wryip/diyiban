@@ -35,7 +35,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.hydhtextBox = new System.Windows.Forms.TextBox();
             this.hyxmtextBox = new System.Windows.Forms.TextBox();
-            this.csrqdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.bkrqdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -78,6 +77,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.csrqdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -86,7 +87,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 40);
+            this.label1.Location = new System.Drawing.Point(17, 73);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 15);
@@ -96,7 +97,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 71);
+            this.label2.Location = new System.Drawing.Point(17, 43);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 15);
@@ -135,32 +136,24 @@
             // 
             // hydhtextBox
             // 
-            this.hydhtextBox.Location = new System.Drawing.Point(104, 31);
-            this.hydhtextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.hydhtextBox.Location = new System.Drawing.Point(104, 61);
+            this.hydhtextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.hydhtextBox.Name = "hydhtextBox";
             this.hydhtextBox.Size = new System.Drawing.Size(180, 25);
             this.hydhtextBox.TabIndex = 5;
             // 
             // hyxmtextBox
             // 
-            this.hyxmtextBox.Location = new System.Drawing.Point(104, 62);
-            this.hyxmtextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.hyxmtextBox.Location = new System.Drawing.Point(104, 31);
+            this.hyxmtextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.hyxmtextBox.Name = "hyxmtextBox";
             this.hyxmtextBox.Size = new System.Drawing.Size(180, 25);
             this.hyxmtextBox.TabIndex = 6;
             // 
-            // csrqdateTimePicker
-            // 
-            this.csrqdateTimePicker.Location = new System.Drawing.Point(103, 94);
-            this.csrqdateTimePicker.Margin = new System.Windows.Forms.Padding(4);
-            this.csrqdateTimePicker.Name = "csrqdateTimePicker";
-            this.csrqdateTimePicker.Size = new System.Drawing.Size(181, 25);
-            this.csrqdateTimePicker.TabIndex = 7;
-            // 
             // bkrqdateTimePicker
             // 
             this.bkrqdateTimePicker.Location = new System.Drawing.Point(103, 126);
-            this.bkrqdateTimePicker.Margin = new System.Windows.Forms.Padding(4);
+            this.bkrqdateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bkrqdateTimePicker.Name = "bkrqdateTimePicker";
             this.bkrqdateTimePicker.Size = new System.Drawing.Size(181, 25);
             this.bkrqdateTimePicker.TabIndex = 8;
@@ -218,7 +211,7 @@
             // hykhtextBox
             // 
             this.hykhtextBox.Location = new System.Drawing.Point(375, 29);
-            this.hykhtextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.hykhtextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.hykhtextBox.Name = "hykhtextBox";
             this.hykhtextBox.Size = new System.Drawing.Size(183, 25);
             this.hykhtextBox.TabIndex = 15;
@@ -226,7 +219,7 @@
             // sfzhtextBox
             // 
             this.sfzhtextBox.Location = new System.Drawing.Point(375, 62);
-            this.sfzhtextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.sfzhtextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sfzhtextBox.Name = "sfzhtextBox";
             this.sfzhtextBox.Size = new System.Drawing.Size(183, 25);
             this.sfzhtextBox.TabIndex = 16;
@@ -234,7 +227,7 @@
             // spzktextBox
             // 
             this.spzktextBox.Location = new System.Drawing.Point(375, 130);
-            this.spzktextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.spzktextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spzktextBox.Name = "spzktextBox";
             this.spzktextBox.Size = new System.Drawing.Size(183, 25);
             this.spzktextBox.TabIndex = 17;
@@ -242,7 +235,7 @@
             // fwzktextBox
             // 
             this.fwzktextBox.Location = new System.Drawing.Point(375, 159);
-            this.fwzktextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.fwzktextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fwzktextBox.Name = "fwzktextBox";
             this.fwzktextBox.Size = new System.Drawing.Size(183, 25);
             this.fwzktextBox.TabIndex = 18;
@@ -254,7 +247,7 @@
             "男",
             "女"});
             this.hyxbcomboBox.Location = new System.Drawing.Point(375, 96);
-            this.hyxbcomboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.hyxbcomboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.hyxbcomboBox.Name = "hyxbcomboBox";
             this.hyxbcomboBox.Size = new System.Drawing.Size(183, 23);
             this.hyxbcomboBox.TabIndex = 19;
@@ -303,7 +296,7 @@
             // 
             this.qydqxzcheckBox.AutoSize = true;
             this.qydqxzcheckBox.Location = new System.Drawing.Point(13, 189);
-            this.qydqxzcheckBox.Margin = new System.Windows.Forms.Padding(4);
+            this.qydqxzcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.qydqxzcheckBox.Name = "qydqxzcheckBox";
             this.qydqxzcheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.qydqxzcheckBox.Size = new System.Drawing.Size(119, 19);
@@ -316,7 +309,7 @@
             // 
             this.qyhymmcheckBox.AutoSize = true;
             this.qyhymmcheckBox.Location = new System.Drawing.Point(13, 220);
-            this.qyhymmcheckBox.Margin = new System.Windows.Forms.Padding(4);
+            this.qyhymmcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.qyhymmcheckBox.Name = "qyhymmcheckBox";
             this.qyhymmcheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.qyhymmcheckBox.Size = new System.Drawing.Size(119, 19);
@@ -343,7 +336,7 @@
             "挂失",
             "禁用"});
             this.ztcomboBox.Location = new System.Drawing.Point(197, 189);
-            this.ztcomboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ztcomboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ztcomboBox.Name = "ztcomboBox";
             this.ztcomboBox.Size = new System.Drawing.Size(87, 23);
             this.ztcomboBox.TabIndex = 29;
@@ -351,7 +344,7 @@
             // szmmbutton
             // 
             this.szmmbutton.Location = new System.Drawing.Point(153, 215);
-            this.szmmbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.szmmbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.szmmbutton.Name = "szmmbutton";
             this.szmmbutton.Size = new System.Drawing.Size(132, 29);
             this.szmmbutton.TabIndex = 30;
@@ -363,7 +356,7 @@
             // 
             this.lsdcomboBox.FormattingEnabled = true;
             this.lsdcomboBox.Location = new System.Drawing.Point(103, 250);
-            this.lsdcomboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.lsdcomboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lsdcomboBox.Name = "lsdcomboBox";
             this.lsdcomboBox.Size = new System.Drawing.Size(181, 23);
             this.lsdcomboBox.TabIndex = 31;
@@ -372,15 +365,15 @@
             // 
             this.ywycomboBox.FormattingEnabled = true;
             this.ywycomboBox.Location = new System.Drawing.Point(103, 288);
-            this.ywycomboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ywycomboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ywycomboBox.Name = "ywycomboBox";
-            this.ywycomboBox.Size = new System.Drawing.Size(140, 23);
+            this.ywycomboBox.Size = new System.Drawing.Size(135, 23);
             this.ywycomboBox.TabIndex = 32;
             // 
             // dwtextBox
             // 
             this.dwtextBox.Location = new System.Drawing.Point(104, 318);
-            this.dwtextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.dwtextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dwtextBox.Name = "dwtextBox";
             this.dwtextBox.Size = new System.Drawing.Size(511, 25);
             this.dwtextBox.TabIndex = 33;
@@ -388,7 +381,7 @@
             // bzxxtextBox
             // 
             this.bzxxtextBox.Location = new System.Drawing.Point(103, 352);
-            this.bzxxtextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.bzxxtextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bzxxtextBox.Multiline = true;
             this.bzxxtextBox.Name = "bzxxtextBox";
             this.bzxxtextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -399,7 +392,7 @@
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(44, 524);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(89, 19);
             this.checkBox3.TabIndex = 35;
@@ -409,7 +402,7 @@
             // qdbutton
             // 
             this.qdbutton.Location = new System.Drawing.Point(221, 576);
-            this.qdbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.qdbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.qdbutton.Name = "qdbutton";
             this.qdbutton.Size = new System.Drawing.Size(100, 29);
             this.qdbutton.TabIndex = 36;
@@ -419,8 +412,8 @@
             // 
             // tcbutton
             // 
-            this.tcbutton.Location = new System.Drawing.Point(470, 576);
-            this.tcbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.tcbutton.Location = new System.Drawing.Point(469, 576);
+            this.tcbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tcbutton.Name = "tcbutton";
             this.tcbutton.Size = new System.Drawing.Size(100, 29);
             this.tcbutton.TabIndex = 37;
@@ -471,7 +464,7 @@
             // czjetextBox
             // 
             this.czjetextBox.Location = new System.Drawing.Point(375, 192);
-            this.czjetextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.czjetextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.czjetextBox.Name = "czjetextBox";
             this.czjetextBox.Size = new System.Drawing.Size(183, 25);
             this.czjetextBox.TabIndex = 42;
@@ -479,16 +472,17 @@
             // bkjetextBox
             // 
             this.bkjetextBox.Location = new System.Drawing.Point(375, 224);
-            this.bkjetextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.bkjetextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bkjetextBox.Name = "bkjetextBox";
             this.bkjetextBox.Size = new System.Drawing.Size(183, 25);
             this.bkjetextBox.TabIndex = 43;
+            this.bkjetextBox.TextChanged += new System.EventHandler(this.bkjetextBox_TextChanged);
             // 
             // hyflcomboBox
             // 
             this.hyflcomboBox.FormattingEnabled = true;
             this.hyflcomboBox.Location = new System.Drawing.Point(375, 286);
-            this.hyflcomboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.hyflcomboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.hyflcomboBox.Name = "hyflcomboBox";
             this.hyflcomboBox.Size = new System.Drawing.Size(144, 23);
             this.hyflcomboBox.TabIndex = 45;
@@ -497,7 +491,7 @@
             // cjzpbutton
             // 
             this.cjzpbutton.Location = new System.Drawing.Point(615, 274);
-            this.cjzpbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.cjzpbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cjzpbutton.Name = "cjzpbutton";
             this.cjzpbutton.Size = new System.Drawing.Size(100, 29);
             this.cjzpbutton.TabIndex = 46;
@@ -508,7 +502,7 @@
             // qkzpbutton
             // 
             this.qkzpbutton.Location = new System.Drawing.Point(727, 274);
-            this.qkzpbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.qkzpbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.qkzpbutton.Name = "qkzpbutton";
             this.qkzpbutton.Size = new System.Drawing.Size(100, 29);
             this.qkzpbutton.TabIndex = 47;
@@ -520,9 +514,9 @@
             // 
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Location = new System.Drawing.Point(615, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Size = new System.Drawing.Size(212, 239);
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
@@ -532,6 +526,7 @@
             // 
             this.panel1.Controls.Add(this.videoSourcePlayer1);
             this.panel1.Location = new System.Drawing.Point(7, 16);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 208);
             this.panel1.TabIndex = 0;
@@ -541,17 +536,18 @@
             this.videoSourcePlayer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.videoSourcePlayer1.Location = new System.Drawing.Point(4, 7);
-            this.videoSourcePlayer1.Margin = new System.Windows.Forms.Padding(4);
+            this.videoSourcePlayer1.Location = new System.Drawing.Point(4, 8);
+            this.videoSourcePlayer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.videoSourcePlayer1.Name = "videoSourcePlayer1";
-            this.videoSourcePlayer1.Size = new System.Drawing.Size(192, 197);
+            this.videoSourcePlayer1.Size = new System.Drawing.Size(192, 198);
             this.videoSourcePlayer1.TabIndex = 1;
             this.videoSourcePlayer1.Text = "videoSourcePlayer1";
             this.videoSourcePlayer1.VideoSource = null;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(626, 325);
+            this.pictureBox1.Location = new System.Drawing.Point(627, 325);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(205, 280);
             this.pictureBox1.TabIndex = 49;
@@ -560,24 +556,45 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(103, 156);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(181, 25);
             this.dateTimePicker1.TabIndex = 8;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(375, 257);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Location = new System.Drawing.Point(375, 258);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(183, 25);
             this.textBox1.TabIndex = 43;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(247, 286);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(37, 29);
+            this.button1.TabIndex = 50;
+            this.button1.Text = "+";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // csrqdateTimePicker
+            // 
+            this.csrqdateTimePicker.Location = new System.Drawing.Point(104, 96);
+            this.csrqdateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.csrqdateTimePicker.Name = "csrqdateTimePicker";
+            this.csrqdateTimePicker.Size = new System.Drawing.Size(181, 25);
+            this.csrqdateTimePicker.TabIndex = 8;
             // 
             // hyzjForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 632);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.qkzpbutton);
@@ -617,8 +634,8 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.bkrqdateTimePicker);
             this.Controls.Add(this.csrqdateTimePicker);
+            this.Controls.Add(this.bkrqdateTimePicker);
             this.Controls.Add(this.hyxmtextBox);
             this.Controls.Add(this.hydhtextBox);
             this.Controls.Add(this.label5);
@@ -626,9 +643,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "hyzjForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "会员增加窗口";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.hyzjForm_FormClosed);
             this.Load += new System.EventHandler(this.hyzjForm_Load);
@@ -649,7 +667,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox hydhtextBox;
         private System.Windows.Forms.TextBox hyxmtextBox;
-        private System.Windows.Forms.DateTimePicker csrqdateTimePicker;
         private System.Windows.Forms.DateTimePicker bkrqdateTimePicker;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -692,5 +709,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker csrqdateTimePicker;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AForge.Video.DirectShow;
 using BLL;
+using Commond;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
@@ -33,7 +35,8 @@ namespace yixiupige
             }
             return hyzj;
         }
-
+        staffInfoBLL staffbll = new staffInfoBLL();
+        DPInfoBLL dpbll = new DPInfoBLL();
         public memberInfoBLL modelbll = new memberInfoBLL();
         public memberTypeCURD bll = new memberTypeCURD();
         public string password;
@@ -61,7 +64,7 @@ namespace yixiupige
 
         private void qdbutton_Click(object sender, EventArgs e)
         {
-            if (hydhtextBox.Text == "" || hykhtextBox.Text == "" || hyxmtextBox.Text == "" || sfzhtextBox.Text == "" || hyxbcomboBox.Text == "" || lsdcomboBox.Text == "")
+            if (hydhtextBox.Text == "" || hykhtextBox.Text == "" || hyxmtextBox.Text == "" || hyxbcomboBox.Text == "" || lsdcomboBox.Text == "")
             {
                 MessageBox.Show("请将信息填写完整！");
                 return;
@@ -72,26 +75,27 @@ namespace yixiupige
                 memberInfoModel model = new memberInfoModel();
                 model.memberCardNo = hykhtextBox.Text;
                 model.memberName = hyxmtextBox.Text;
+                model.PY = PinYinZHClass.PinYinZH(hyxmtextBox.Text.Trim());
                 model.memberTel = hydhtextBox.Text;
                 model.memberDocument = sfzhtextBox.Text;
-                model.birDate = csrqdateTimePicker.Text.ToString();
-                model.cardDate = bkrqdateTimePicker.Text.ToString();
+                model.birDate = TimeGuiGe.TimePicterBegin(csrqdateTimePicker.Text);
+                model.cardDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 model.memberSex = hyxbcomboBox.Text;
                 model.rebate = spzktextBox.Text;
                 if (qydqxzcheckBox.Checked)
                 {
-                    model.endDate = dateTimePicker1.Text.ToString();
+                    model.endDate = TimeGuiGe.TimePicterBegin(dateTimePicker1.Text);
                 }
                 else
                 {
-                    model.endDate = "无";
+                    model.endDate = TimeGuiGe.TimePicterBegin(dateTimePicker1.Text);
                 }
                 model.fuwuBate = fwzktextBox.Text;
                 model.toUpMoney = czjetextBox.Text;
                 model.cardMoney = bkjetextBox.Text;
                 model.dianName = lsdcomboBox.Text;
                 model.cardType = textBox1.Text;
-                model.saleMan = ywycomboBox.Text;
+                model.saleMan = ywycomboBox.Text == "" ? FilterClass.DianPu1.LoginName : textBox1.Text;
                 model.memberType = hyflcomboBox.Text;
                 model.address = dwtextBox.Text;
                 model.remark = bzxxtextBox.Text;
@@ -123,20 +127,61 @@ namespace yixiupige
                 #endregion
                 Bitmap newImage = new Bitmap(160, 120);
                 Graphics draw = Graphics.FromImage(newImage);
-                draw.DrawImage(bitmap, 0, 0);
-                draw.Dispose();
-                string dirpath = "E:\\mymemberimg";
-                if (!Directory.Exists(dirpath))
-                    Directory.CreateDirectory(dirpath);
-                string path = dirpath + "\\" + hykhtextBox.Text.Trim()+ ".bmp";
-                if (newImage != null)
-                    newImage.Save(path, System.Drawing.Imaging.ImageFormat.Bmp);
+                //if (bitmap == null)
+                //{
+                //    MessageBox.Show("请采集照片！");
+                //    return;
+                //}
+                string dirpath = "";
+                string path = "";
+                if (bitmap != null)
+                {
+                    draw.DrawImage(bitmap, 0, 0);
+                    draw.Dispose();
+                    dirpath = "..\\..\\memberInfo";
+                    if (!Directory.Exists(dirpath))
+                        Directory.CreateDirectory(dirpath);
+                    path = dirpath + "\\" + hykhtextBox.Text.Trim() + ".bmp";
+                    if (newImage != null)
+                        newImage.Save(path, System.Drawing.Imaging.ImageFormat.Bmp);
+                }                                
                 model.imageUrl = path;
-                bool result=modelbll.AddMemberInfo(model);
+                string name = hyxmtextBox.Text.Trim();
+                //为true的时候为不存在
+                bool result = modelbll.PDHYName(name);
+                if (!result)
+                {
+                    DialogResult resu= MessageBox.Show("已经存在当前姓名，是否继续添加？","提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+                    if (resu == DialogResult.Cancel)
+                    {
+                        return;
+                    }
+                }
+                //为true的时候为不存在
+                result = modelbll.PDCNumber(hykhtextBox.Text);
+                if (!result)
+                {
+                    DialogResult resu = MessageBox.Show("此卡号已经存在，请更换卡号！", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    return;
+                }
+                result=modelbll.AddMemberInfo(model);
                 if (result)
                 {
                     MessageBox.Show("添加成功！");
-                    this.Close();
+                    if (checkBox3.Checked)
+                    {
+                        hyxmtextBox.Text = "";
+                        hykhtextBox.Text = "";
+                        hydhtextBox.Text = "";
+                        sfzhtextBox.Text = "";
+                        ywycomboBox.SelectedIndex = 0;
+                        dwtextBox.Text = "";
+                        bzxxtextBox.Text = "";
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
                 }
                 else
                 {
@@ -153,9 +198,16 @@ namespace yixiupige
         }
         private void CameraConn()
         {
+            FilterInfo state = new FilterInfo(videoDevices[0].MonikerString);
+            foreach (FilterInfo device in videoDevices)
+            {
+                if (device.Name.Trim() == FilterClass.PicImg.Trim())
+                {
+                    state = device;
+                }
+            }
             VideoCaptureDevice videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
-            videoSource.DesiredFrameSize = new Size(160, 120);
-            videoSource.DesiredFrameRate = 1;
+            videoSource.VideoResolution = videoSource.VideoCapabilities[1];
 
             videoSourcePlayer1.VideoSource = videoSource;
             videoSourcePlayer1.Start();
@@ -182,12 +234,16 @@ namespace yixiupige
             }
             #endregion
             #region//窗口打开的时候初始化的内容
+            dateTimePicker1.Value = new DateTime(DateTime.Now.Year+2,DateTime.Now.Month,DateTime.Now.Day);
             //初始化会员分类
             string[] str=new string[]{};
             List<string> list1 = bll.selectNodes();
             str = list1.ToArray();           
             hyflcomboBox.Items.AddRange(str);
-            hyflcomboBox.SelectedIndex = 0;
+            if (hyflcomboBox.Items.Count > 0)
+            {
+                hyflcomboBox.SelectedIndex = 0;
+            }            
             string name = hyflcomboBox.Text;
             memberType mode = bll.EditMember(name);
             spzktextBox.Text = mode.memberRebate;
@@ -204,6 +260,31 @@ namespace yixiupige
             dateTimePicker1.Enabled = false;
             szmmbutton.Enabled = false;
             #endregion
+            //连锁店名初始化
+            if (FilterClass.isadmin())
+            {
+                List<string> strdp = dpbll.selectDPName();
+                foreach (var iteam in strdp)
+                {
+                    lsdcomboBox.Items.Add(iteam);
+                }
+                lsdcomboBox.SelectedIndex = 0;
+            }
+            else
+            {
+                lsdcomboBox.Text = FilterClass.DianPu1.UserName;
+                lsdcomboBox.Enabled = false;
+            }
+            List<jbcs> listname = staffbll.selectSH();
+            foreach (var iteam in listname)
+            {
+                ywycomboBox.Items.Add(iteam.AllType);
+            }
+            if (ywycomboBox.Items.Count > 0)
+            {
+                ywycomboBox.SelectedIndex = 0;
+            }
+            
         }
 
         private void videoSourcePlayer1_NewFrame(object sender, ref Bitmap image)
@@ -255,7 +336,7 @@ namespace yixiupige
             czjetextBox.ReadOnly = true;
             bkjetextBox.Text = mode.memberCardMoney;
             textBox1.Text = mode.memberTypechild;
-            textBox1.ReadOnly = true;
+            textBox1.ReadOnly = true;           
         }
 
         private void qydqxzcheckBox_CheckedChanged(object sender, EventArgs e)
@@ -287,6 +368,23 @@ namespace yixiupige
             szpassword pwd = szpassword.Create(fuzhipwd);
             pwd.Show();
             pwd.Focus();
+        }
+
+        private void bkjetextBox_TextChanged(object sender, EventArgs e)
+        {
+            string name = hyflcomboBox.Text.Trim();
+            double bl = bll.selectBL(name);
+            if (bkjetextBox.Text != "")
+            {
+                czjetextBox.Text = (Convert.ToDouble(bkjetextBox.Text) * bl).ToString();
+            }           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ygglForm yggl = ygglForm.Create();
+            yggl.Show();
+            yggl.Focus();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Commond;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace yixiupige
         {
             InitializeComponent();
         }
+        memberTypeCURD memberbll = new memberTypeCURD();
         fuwuBLL bll = new fuwuBLL();
         private static hyflglfwForm hyfl;
         public static hyflglfwForm Create()
@@ -83,7 +85,6 @@ namespace yixiupige
             DialogResult result= MessageBox.Show("确定删除？","提示",MessageBoxButtons.OKCancel);
             if (result.ToString() == "OK")
             {
-                memberTypeCURD memberbll = new memberTypeCURD();
                 bool res=memberbll.deleteinfo(name);
                 if (res)
                 {
@@ -102,7 +103,6 @@ namespace yixiupige
                 return;
             }
             string name = rows[0].Cells[0].Value.ToString();
-            memberTypeCURD memberbll = new memberTypeCURD();
             memberType edit = memberbll.EditMember(name);
             hylxedit zjhyfl = hylxedit.Create(edit,gridbind);
             zjhyfl.Show();
@@ -117,9 +117,9 @@ namespace yixiupige
         }
         public void gridbind()
         {
-            
-            this.memberTypeTableAdapter.Fill(this.kinyaoo123456DataSet.memberType);
-            //DataGridViewColumn colum=new DataGridViewColumn();            
+            dataBind();   
+            //添加动态服务
+            DataGridViewColumn colum = new DataGridViewColumn();
             int count = dataGridView1.Columns.Count;
             for (int co = 5; co < count; co++)
             {
@@ -152,7 +152,23 @@ namespace yixiupige
                 }
             }
         }
-
+        /// <summary>
+        /// 加载店铺中会员卡的信息
+        /// </summary>
+        public void dataBind()
+        {
+            List<memberType> list = new List<memberType>();
+            list = memberbll.SelectAllList(FilterClass.DianPu1.UserName);
+            memberType model = new memberType() { 
+            memberName="无卡",
+            memberTypechild="",
+            memberCardMoney="",
+            memberRebate="",
+            memberTopUp=""
+            };
+            list.Insert(0,model);
+            dataGridView1.DataSource = list;
+        }
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             dataGridView1.SelectionMode = DataGridViewSelectionMode.ColumnHeaderSelect;

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MODEL;
 using BLL;
+using Commond;
 namespace yixiupige
 {
     public partial class spbhForm : Form
@@ -17,6 +18,7 @@ namespace yixiupige
         {
             InitializeComponent();
         }
+        TJBBBLL tjbbbll = new TJBBBLL();
         private static spbhForm spbh;
         public static spbhForm Create()
         {
@@ -35,13 +37,15 @@ namespace yixiupige
         {
            List<GoodInfo> list=gdbll.Getlist(gd);
            GoodInfo gds = list[0];
-            nametextBox.Text = gds.Gname.ToString();
-            notextBox.Text = gds.Gno.ToString();
-            pricetextBox.Text = gds.Gprice.ToString();
-            bidtextBox.Text = gds.Gbid.ToString();
-            remarktextBox.Text = gds.Gremark.ToString();
-            typetextBox.Text = gds.Gtype.ToString();
-            sumtextBox.Text = gds.Gsum.ToString();
+            nametextBox.Text = gds.Gname.ToString().Trim();
+            notextBox.Text = gds.Gno.ToString().Trim();
+            pricetextBox.Text = gds.Gprice.ToString().Trim();
+            bidtextBox.Text = gds.Gbid.ToString().Trim();
+            remarktextBox.Text = gds.Gremark.ToString().Trim();
+            typetextBox.Text = gds.Gtype.ToString().Trim();
+            //目前剩余的库存
+            sumtextBox.Text = gds.Gstock.ToString().Trim();
+            label9.Text = gds.Gsum.ToString().Trim();
         }
         spform sp = new spform();
         public event Action Loadevent;
@@ -62,15 +66,36 @@ namespace yixiupige
                 Gbid = Convert.ToDecimal(bidtextBox.Text),
                 Gremark = remarktextBox.Text.ToString(),
                 Gtype = typetextBox.Text.ToString(),
-                Gsum = Convert.ToInt32(sumtextBox.Text)
+                //目前剩余的商品数量
+                Gstock = Convert.ToInt32(sumtextBox.Text),
+                Gsum=Convert.ToInt32(label9.Text.Trim())
 
             };
             if (gdbll.Adds(Convert.ToInt32(addtextBox.Text), gd))
             {
                 sp._load();
                 Loadevent();
+                InHuoTJ jinhuo = new InHuoTJ()
+                {
+                    HuoCount = addtextBox.Text.Trim(),
+                    HuoDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                    HuoDianName = FilterClass.DianPu1.UserName.Trim(),
+                    HuoMoney = bidtextBox.Text.Trim(),
+                    HuoName = nametextBox.Text.ToString().Trim(),
+                    HuoNumber = notextBox.Text.ToString().Trim(),
+                    HuoSale = FilterClass.DianPu1.LoginName.Trim(),
+                    HuoSum = sumtextBox.Text.Trim(),
+                    HuoType = typetextBox.Text.ToString().Trim()
+                };
+                tjbbbll.AddIteam(jinhuo);
                 MessageBox.Show("补货成功！");
+                this.Close();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }

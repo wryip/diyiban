@@ -20,9 +20,14 @@ namespace BLL
             return result;
         }
         //返回某种卡类型的所有集合，例如所有金卡或者银卡
-        public List<memberInfoModel> selectInfoCollect(string cardTepe)
+        public List<memberInfoModel> selectInfoCollect(string cardTepe,int i,out int j)
         {
-            return dal.selectInfoCollect(cardTepe);
+            return dal.selectInfoCollect(cardTepe,i,out j);
+        }
+        //查询会员卡的总数量
+        public int selectAllCount()
+        {
+            return dal.selectAllCount();
         }
         //修改的时候进行提交
         public bool EditMemberInfo(memberInfoModel model)
@@ -148,81 +153,29 @@ namespace BLL
                 int xyear = Convert.ToInt32(regex.Matches(xiaodate)[0].Value);
                 int xmonth = Convert.ToInt32(regex.Matches(xiaodate)[1].Value);
                 int xday = Convert.ToInt32(regex.Matches(xiaodate)[2].Value);
+                DateTime bigdate = new DateTime(dyear, dmonth, dday);
+                DateTime smalldate = new DateTime(xyear, xmonth, xday);
                 foreach (var iteam in list1)
                 {
                     int year = Convert.ToInt32(regex.Matches(iteam.cardDate.Trim())[0].Value);
                     int month = Convert.ToInt32(regex.Matches(iteam.cardDate.Trim())[1].Value);
                     int day = Convert.ToInt32(regex.Matches(iteam.cardDate.Trim())[2].Value);
-                    if (year < xyear || year > dyear)
+                    DateTime nowdate = new DateTime(year, month, day);
+                    if (DateTime.Compare(smalldate, nowdate) <= 0 && DateTime.Compare(bigdate, nowdate) >= 0)
                     {
-                        continue;
-                    }
-                    else
-                    {
-                        if (dyear == xyear)
-                        {
-                            if (month > dmonth || month < xmonth)
-                            {
-                                continue;
-                            }
-                            if (day > dday || day < xday)
-                            {
-                                continue;
-                            }
-                            list.Add(iteam);
-                            continue;
-                        }
-                        if (year == dyear)
-                        {
-                            if (month > dmonth)
-                            {
-                                continue;
-                            }
-                            else if (month < dmonth)
-                            {
-                                list.Add(iteam);
-                            }
-                            else
-                            {
-                                if (day > dday)
-                                {
-                                    continue;
-                                }
-                                else
-                                {
-                                    list.Add(iteam);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            if (month < xmonth)
-                            {
-                                continue;
-                            }
-                            else if (month > xmonth)
-                            {
-                                list.Add(iteam);
-                            }
-                            else
-                            {
-                                if (day < xday)
-                                {
-                                    continue;
-                                }
-                                else
-                                {
-                                    list.Add(iteam);
-                                }
-                            }
-                        }
+                        list.Add(iteam);
                     }
                 }
             }
             return list;
         }
+        public List<memberInfoModel> tjbbOfbk(string begindate, string enddate,string dpname)
+        {
+            List<memberInfoModel> list1 = dal.tjbbOfbk( begindate, enddate, dpname);         
+            return list1;
+        }
         //会员充值
-        public bool hyczMoney(string cardno, int money)
+        public bool hyczMoney(string cardno, double money)
         {
             bool result = false;
             result = dal.hyczMoney(cardno,money);
@@ -241,6 +194,7 @@ namespace BLL
         {
             return dal.SelectId(card);
         }
+        //消费
         public bool XFmoney(string cardNumber, string Xmoney)
         {
             return dal.XFmoney(cardNumber, Xmoney);            
@@ -256,6 +210,14 @@ namespace BLL
         public List<DXmemberModel> SelectDXList()
         {
             return dal.SelectDXList();
+        }
+        public bool PDHYName(string name)
+        {
+            return dal.PDHYName(name);
+        }
+        public bool PDCNumber(string cardno)
+        {
+            return dal.PDCNumber(cardno);
         }
     }
 }

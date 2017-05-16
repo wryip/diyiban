@@ -1,4 +1,5 @@
-﻿using MODEL;
+﻿using Commond;
+using MODEL;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,6 +11,8 @@ namespace DAL
 {
     public class staffTableDAL
     {
+        //店铺中的员工的信息表
+        //添加员工的信息
         public bool AddInfoModel(staffTable model)
         {
             bool result = false;
@@ -20,21 +23,37 @@ namespace DAL
             new SqlParameter("@stTel",model.stTel),
             new SqlParameter("@stType",model.stType),
             new SqlParameter("@stAdd",model.stAdd),
-            new SqlParameter("@stRemark",model.stRemark)
+            new SqlParameter("@stRemark",model.stRemark),
+            new SqlParameter("@DPName",FilterClass.DianPu1.UserName.Trim())
             };
-            string str = "insert into staffTable(stName,stDocument,stSex,stTel,stType,stAdd,stRemark) values(@stName,@stDocument,@stSex,@stTel,@stType,@stAdd,@stRemark)";
+            string str = "insert into staffTable(stName,stDocument,stSex,stTel,stType,stAdd,stRemark,DPName) values(@stName,@stDocument,@stSex,@stTel,@stType,@stAdd,@stRemark,@DPName)";
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
                 result = true;
             }
             return result;
         }
+        //查询所有的店铺员工的详细信息
         public List<staffTable> selectAllList()
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             List<staffTable> list = new List<staffTable>();
             staffTable model;
-            string str = "select * from staffTable";
-            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            SqlParameter[] pms;
+            string str;
+            if (dpname == "admin")
+            {
+                pms = new SqlParameter[] {};
+                str = "select * from staffTable";
+            }
+            else
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",dpname)
+            };
+                str = "select * from staffTable where DPName=@DPName";
+            }
+            SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
                 if (read.HasRows)
@@ -53,6 +72,7 @@ namespace DAL
             }
             return list;
         }
+        //修改某一个员工信息
         public bool updateModel(staffTable model)
         {
             bool result = false;
@@ -64,7 +84,7 @@ namespace DAL
             new SqlParameter("@stAdd",model.stAdd),
             new SqlParameter("@stRemark",model.stRemark),
             new SqlParameter("@Id",model.Id),
-            new SqlParameter("@stType",model.stType)
+            new SqlParameter("@stType",model.stType),
             };
             string str = "update staffTable set stName=@stName,stDocument=@stDocument,stSex=@stSex,stTel=@stTel,stType=@stType,stAdd=@stAdd,stRemark=@stRemark where Id=@Id";
             if (SqlHelper.ExecuteNonQuery(str, pms)>0)
@@ -73,6 +93,7 @@ namespace DAL
             }
             return result;
         }
+        //删除某一个员工信息
         public bool deleteIteam(int id)
         {
             bool result = false;
@@ -92,10 +113,55 @@ namespace DAL
         /// <returns></returns>
         public List<jbcs> selectSH()
         {
+            string dpname=FilterClass.DianPu1.UserName.Trim();
             List<jbcs> list = new List<jbcs>();
             jbcs model;
-            string str = "select stName from staffTable";
-            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            SqlParameter[] pms;
+            string str;
+            if (dpname == "admin")
+            {
+                pms = new SqlParameter[] {  };
+                str = "select stName from staffTable";
+            }
+            else
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",dpname)
+            };
+                 str = "select stName from staffTable where DPName=@DPName";
+            }
+            SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    model = new jbcs();
+                    model.AllType = read["stName"].ToString().Trim();
+                    list.Add(model);
+                }
+            }
+            return list;
+        }
+        public List<jbcs> selectDNWC(string dpname1)
+        {
+            string dpname = dpname1;
+            List<jbcs> list = new List<jbcs>();
+            jbcs model;
+            SqlParameter[] pms;
+            string str;
+            if (dpname == "admin")
+            {
+                pms = new SqlParameter[] { };
+                str = "select stName from staffTable";
+            }
+            else
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",dpname)
+            };
+                str = "select stName from staffTable where DPName=@DPName";
+            }
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
                 if (read.HasRows)

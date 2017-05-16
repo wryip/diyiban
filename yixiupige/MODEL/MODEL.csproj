@@ -37,13 +37,21 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="zxing">
+      <HintPath>..\yixiupige\leiku\zxing.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bdpjModel.cs" />
+    <Compile Include="CardExitMoney.cs" />
     <Compile Include="DianPu.cs" />
+    <Compile Include="DPUser.cs" />
     <Compile Include="DXmemberModel.cs" />
+    <Compile Include="ExitCardModel.cs" />
+    <Compile Include="ExitDanModel.cs" />
     <Compile Include="fuwuModel.cs" />
     <Compile Include="GoodInfo.cs" />
+    <Compile Include="InHuoTJ.cs" />
     <Compile Include="jbcs.cs" />
     <Compile Include="JCInfoModel.cs" />
     <Compile Include="LiShiConsumption.cs" />
@@ -53,10 +61,14 @@
     <Compile Include="memberToUpModel.cs" />
     <Compile Include="memberType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PutHuo.cs" />
     <Compile Include="qtFuWuModel.cs" />
     <Compile Include="shInfoList.cs" />
     <Compile Include="shMemberInfo.cs" />
     <Compile Include="staffTable.cs" />
+    <Compile Include="TJBBSR.cs" />
+    <Compile Include="WPEnd.cs" />
+    <Compile Include="YGUser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

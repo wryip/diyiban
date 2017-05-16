@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Commond;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace yixiupige
         {
             InitializeComponent();
         }
+        LSConsumptionBLL lsbll = new LSConsumptionBLL();
         public static memberInfoModel model1;
         private static hyInfoZhanShi _danli = null;
         memberCZMoneyBLL bll1 = new memberCZMoneyBLL();
@@ -55,10 +57,12 @@ namespace yixiupige
                 label12.Text = "剩余次数";
             }
             dataBind();
+            string name = FilterClass.DianPu1.UserName;
+            dataGridView1.DataSource = lsbll.selectAllList(textBox2.Text.Trim(), name);
         }
         public void dataBind()
         {
-            dataGridView2.DataSource = bll1.selectAllList(textBox2.Text.Trim());
+            dataGridView2.DataSource = bll1.selectAllList(textBox2.Text.Trim()).OrderByDescending(a=>a.czDate);
         }
         private void hyInfoZhanShi_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -117,6 +121,30 @@ namespace yixiupige
                 ee = new DataGridViewRowContextMenuStripNeededEventArgs(e.RowIndex);
                 this.dataGridView2_RowContextMenuStripNeeded(e.Location, ee);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<LiShiConsumption> list = (List<LiShiConsumption>)dataGridView1.DataSource;
+            bool result=NPOIHelper.PrintDocument(list,textBox1.Text.Trim()+"会员消费记录");
+            if (result)
+            {
+                MessageBox.Show("成功！");
+                return;
+            }
+            MessageBox.Show("失败！");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            List<memberToUpModel> list = (List<memberToUpModel>)dataGridView2.DataSource;
+            bool result = NPOIHelper.PrintDocument(list, textBox1.Text.Trim() + "会员消费记录");
+            if (result)
+            {
+                MessageBox.Show("成功！");
+                return;
+            }
+            MessageBox.Show("失败！");
         }
     }
 }

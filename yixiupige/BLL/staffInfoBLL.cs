@@ -31,5 +31,9 @@ namespace BLL
         {
             return dal.selectSH();
         }
+        public List<jbcs> selectDNWC(string dpname)
+        {
+            return dal.selectDNWC(dpname);
+        }
     }
 }

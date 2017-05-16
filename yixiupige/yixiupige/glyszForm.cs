@@ -33,7 +33,7 @@ namespace yixiupige
         //窗体加载
         private void glyszForm_Load(object sender, EventArgs e)
         {
-            string name = "";
+            //string name = "";
             groupBox2.Text="管理员列表-有"+dataGridView1.RowCount+"条";
             if (FilterClass.isadmin())
             {
@@ -69,8 +69,10 @@ namespace yixiupige
         //全选操作
         private void button1_Click(object sender, EventArgs e)
         {
+            dmjsbox.Checked = true;
             shglcheckBox.Checked = true;
             hyglcheckBox.Checked = true;
+            //现在表示为物品送洗
             jcsjcheckBox.Checked = true;
             jcglcheckBox.Checked = true;
             spglcheckBox.Checked = true;
@@ -83,6 +85,7 @@ namespace yixiupige
             qtcheckBox.Checked = true;
             flcheckBox.Checked = true;
             hyglcheckBox.Checked = true;
+            //先现在代表取活管理
             tcglcheckBox.Checked = true;
             ygcheckBox.Checked = true;
         }
@@ -102,8 +105,10 @@ namespace yixiupige
         //反选操作
         private void button2_Click(object sender, EventArgs e)
         {
+            dmjsbox.Checked = Check(dmjsbox.Checked);
            shglcheckBox.Checked= Check(shglcheckBox.Checked);
            hyglcheckBox.Checked=Check(hyglcheckBox.Checked);
+           //现在表示为物品送洗
            jcsjcheckBox.Checked= Check(jcsjcheckBox.Checked);
            jcglcheckBox.Checked= Check(jcglcheckBox.Checked);
            spglcheckBox.Checked= Check(spglcheckBox.Checked);
@@ -116,6 +121,7 @@ namespace yixiupige
            qtcheckBox.Checked= Check(qtcheckBox.Checked);
            flcheckBox.Checked= Check(flcheckBox.Checked);
            hyglcheckBox.Checked= Check(hyglcheckBox.Checked);
+           //先现在代表取活管理
            tcglcheckBox.Checked= Check(tcglcheckBox.Checked);
            ygcheckBox.Checked = Check(ygcheckBox.Checked);
            hyglcheckBox.Checked = Check(hyglcheckBox.Checked);
@@ -161,6 +167,7 @@ namespace yixiupige
             textBox3.Text = "";
             shglcheckBox.Checked = false;
             hyglcheckBox.Checked = false;
+            //现在表示为物品送洗
             jcsjcheckBox.Checked = false;
             jcglcheckBox.Checked = false;
             spglcheckBox.Checked = false;
@@ -173,6 +180,7 @@ namespace yixiupige
             qtcheckBox.Checked = false;
             flcheckBox.Checked = false;
             hyglcheckBox.Checked = false;
+            //先现在代表取活管理
             tcglcheckBox.Checked = false;
             ygcheckBox.Checked = false;
         }
@@ -196,6 +204,7 @@ namespace yixiupige
             {
                 model.hygl = true;
             }
+            //现在表示为物品送洗
             if (jcsjcheckBox.Checked)
             {
                 model.jcsj = true;
@@ -216,6 +225,7 @@ namespace yixiupige
             {
                 model.dxgl = true;
             }
+            //先现在代表取活管理
             if (tcglcheckBox.Checked)
             {
                 model.tcgl = true;
@@ -248,7 +258,196 @@ namespace yixiupige
             {
                 model.yggl = true;
             }
-            bool result = AddUserIteam(model);
+            if (dmjsbox.Checked)
+            {
+                model.dmjs = true;
+            }
+            bool result = logbll.AddUserIteam(model);
+            if (result)
+            {
+                MessageBox.Show("添加成功!");
+                databind(comboBox1.Text.Trim());
+                return;
+            }
+            MessageBox.Show("添加失败!");
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                MODEL.LoginUser model = (MODEL.LoginUser)dataGridView1.SelectedRows[0].DataBoundItem;
+                DataXS(model);
+                return;
+            }
+            MessageBox.Show("请选择一行数据！");
+        }
+        public void DataXS(MODEL.LoginUser model)
+        {
+            textBox1.Text = model.LoginName;
+            textBox2.Text = model.UserPwd;
+            textBox3.Text = model.UserPwd;
+            if (model.shgl)
+            {
+                shglcheckBox.Checked=true;
+            }
+            if (model.hygl)
+            {
+                hyglcheckBox.Checked = true;
+            }
+            if (model.jcsj)
+            {
+                //现在表示为物品送洗
+                jcsjcheckBox.Checked = true;
+            }
+            if (model.jcgl)
+            {
+                jcglcheckBox.Checked = true;
+            }
+            if (model.spgl)
+            {
+                spglcheckBox.Checked = true;
+            }
+            if (model.tjbb)
+            {
+                tjbbcheckBox.Checked = true;
+            }
+            if (model.dxgl)
+            {
+                dxglcheckBox.Checked = true;
+            }
+            if (model.tcgl)
+            {
+                //先现在代表取活管理
+                tcglcheckBox.Checked = true;
+            }
+            if (model.glysz)
+            {
+                glyszcheckBox.Checked = true;
+            }
+            if (model.lsdsz)
+            {
+                lsdszcheckBox.Checked = true;
+            }
+            if (model.sjkgl)
+            {
+                sjkglcheckBox.Checked = true;
+            }
+            if (model.jbcs)
+            {
+                jbcscheckBox.Checked = true;
+            }
+            if (model.qtfw)
+            {
+                qtcheckBox.Checked = true;
+            }
+            if (model.flgl)
+            {
+                flcheckBox.Checked = true;
+            }
+            if (model.yggl)
+            {
+                ygcheckBox.Checked = true;
+            }
+            if (model.dmjs)
+            {
+                dmjsbox.Checked = true;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("请选择一行数据！");               
+                return;
+            }
+            MODEL.LoginUser model1 = (MODEL.LoginUser)dataGridView1.SelectedRows[0].DataBoundItem;
+            int id = model1.ID;
+            if (textBox2.Text != textBox3.Text)
+            {
+                MessageBox.Show("两次密码不一致！");
+                return;
+            }
+            MODEL.LoginUser model = new MODEL.LoginUser();
+            model.UserName = comboBox1.Text;
+            model.LoginName = textBox1.Text.Trim();
+            model.UserPwd = textBox2.Text.Trim();
+            if (shglcheckBox.Checked)
+            {
+                model.shgl = true;
+            }
+            if (hyglcheckBox.Checked)
+            {
+                model.hygl = true;
+            }
+            //现在表示为物品送洗
+            if (jcsjcheckBox.Checked)
+            {
+                model.jcsj = true;
+            }
+            if (jcglcheckBox.Checked)
+            {
+                model.jcgl = true;
+            }
+            if (spglcheckBox.Checked)
+            {
+                model.spgl = true;
+            }
+            if (tjbbcheckBox.Checked)
+            {
+                model.tjbb = true;
+            }
+            if (dxglcheckBox.Checked)
+            {
+                model.dxgl = true;
+            }
+            //先现在代表取活管理
+            if (tcglcheckBox.Checked)
+            {
+                model.tcgl = true;
+            }
+            if (dmjsbox.Checked)
+            {
+                model.dmjs = true;
+            }
+            if (glyszcheckBox.Checked)
+            {
+                model.glysz = true;
+            }
+            if (lsdszcheckBox.Checked)
+            {
+                model.lsdsz = true;
+            }
+            if (sjkglcheckBox.Checked)
+            {
+                model.sjkgl = true;
+            }
+            if (jbcscheckBox.Checked)
+            {
+                model.jbcs = true;
+            }
+            if (qtcheckBox.Checked)
+            {
+                model.qtfw = true;
+            }
+            if (flcheckBox.Checked)
+            {
+                model.flgl = true;
+            }
+            if (ygcheckBox.Checked)
+            {
+                model.yggl = true;
+            }
+            model.ID = id;
+            bool result = logbll.UpdateIteam(model);
+            if (result)
+            {
+                MessageBox.Show("修改成功!");
+                databind(comboBox1.Text.Trim());
+                return;
+            }
+            MessageBox.Show("修改失败!");
         }
     }
 }

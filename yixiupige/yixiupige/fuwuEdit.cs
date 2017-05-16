@@ -93,6 +93,7 @@ namespace yixiupige
             }
             List<string> list = new List<string>();
             list = bll.selectNodes();
+            list.Insert(0, "无卡");
             tableLayoutPanel1.Height = (list.Count + 1) * 40;
             RowStyle row;
             Label lab1;

@@ -49,11 +49,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 111);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 89);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(848, 421);
+            this.groupBox1.Size = new System.Drawing.Size(636, 337);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
@@ -73,12 +71,11 @@
             this.jtzz,
             this.bz});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 22);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(840, 395);
+            this.dataGridView1.Size = new System.Drawing.Size(630, 317);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -143,11 +140,11 @@
             this.button4.BackColor = System.Drawing.Color.Transparent;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button4.Image = global::yixiupige.Properties.Resources._4505;
-            this.button4.Location = new System.Drawing.Point(344, 11);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Location = new System.Drawing.Point(258, 9);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 95);
+            this.button4.Size = new System.Drawing.Size(75, 76);
             this.button4.TabIndex = 3;
             this.button4.Text = "\r\n退出";
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -159,11 +156,11 @@
             this.scbutton.BackColor = System.Drawing.Color.Transparent;
             this.scbutton.FlatAppearance.BorderSize = 0;
             this.scbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.scbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.scbutton.Image = global::yixiupige.Properties.Resources._6962;
-            this.scbutton.Location = new System.Drawing.Point(236, 11);
-            this.scbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.scbutton.Location = new System.Drawing.Point(177, 9);
             this.scbutton.Name = "scbutton";
-            this.scbutton.Size = new System.Drawing.Size(100, 95);
+            this.scbutton.Size = new System.Drawing.Size(75, 76);
             this.scbutton.TabIndex = 2;
             this.scbutton.Text = "\r\n删除\r\n";
             this.scbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -175,11 +172,11 @@
             this.xgbutton.BackColor = System.Drawing.Color.Transparent;
             this.xgbutton.FlatAppearance.BorderSize = 0;
             this.xgbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.xgbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.xgbutton.Image = global::yixiupige.Properties.Resources._1631;
-            this.xgbutton.Location = new System.Drawing.Point(128, 11);
-            this.xgbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.xgbutton.Location = new System.Drawing.Point(96, 13);
             this.xgbutton.Name = "xgbutton";
-            this.xgbutton.Size = new System.Drawing.Size(100, 89);
+            this.xgbutton.Size = new System.Drawing.Size(75, 71);
             this.xgbutton.TabIndex = 1;
             this.xgbutton.Text = "\r\n修改";
             this.xgbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -191,11 +188,11 @@
             this.zjbutton.BackColor = System.Drawing.Color.Transparent;
             this.zjbutton.FlatAppearance.BorderSize = 0;
             this.zjbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.zjbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.zjbutton.Image = global::yixiupige.Properties.Resources._1133944;
-            this.zjbutton.Location = new System.Drawing.Point(20, 15);
-            this.zjbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.zjbutton.Location = new System.Drawing.Point(15, 12);
             this.zjbutton.Name = "zjbutton";
-            this.zjbutton.Size = new System.Drawing.Size(100, 89);
+            this.zjbutton.Size = new System.Drawing.Size(75, 71);
             this.zjbutton.TabIndex = 0;
             this.zjbutton.Text = "\r\n增加";
             this.zjbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -204,15 +201,15 @@
             // 
             // ygglForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 548);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(660, 438);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.scbutton);
             this.Controls.Add(this.xgbutton);
             this.Controls.Add(this.zjbutton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MinimizeBox = false;
             this.Name = "ygglForm";
             this.Text = "员工管理";

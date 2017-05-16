@@ -30,6 +30,7 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@
             this.tjbbcheckBox = new System.Windows.Forms.CheckBox();
             this.spglcheckBox = new System.Windows.Forms.CheckBox();
             this.ygcheckBox = new System.Windows.Forms.CheckBox();
+            this.dmjsbox = new System.Windows.Forms.CheckBox();
             this.qtcheckBox = new System.Windows.Forms.CheckBox();
             this.lsdszcheckBox = new System.Windows.Forms.CheckBox();
             this.dxglcheckBox = new System.Windows.Forms.CheckBox();
@@ -58,8 +60,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
             this.Menager = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MemberPrint = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BGJPrint = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dmjs = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.shgl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.hygl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.jcsj = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -98,6 +102,7 @@
             this.groupBox1.Controls.Add(this.tjbbcheckBox);
             this.groupBox1.Controls.Add(this.spglcheckBox);
             this.groupBox1.Controls.Add(this.ygcheckBox);
+            this.groupBox1.Controls.Add(this.dmjsbox);
             this.groupBox1.Controls.Add(this.qtcheckBox);
             this.groupBox1.Controls.Add(this.lsdszcheckBox);
             this.groupBox1.Controls.Add(this.dxglcheckBox);
@@ -114,33 +119,39 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox1.Size = new System.Drawing.Size(704, 622);
+            this.groupBox1.Size = new System.Drawing.Size(528, 498);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "管理员列表";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(479, 516);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Location = new System.Drawing.Point(359, 413);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 29);
+            this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 30;
             this.button4.Text = "添加";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(453, 411);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 25);
+            this.button5.TabIndex = 29;
+            this.button5.Text = "修改";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(345, 516);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Location = new System.Drawing.Point(259, 413);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 31);
+            this.button3.Size = new System.Drawing.Size(75, 25);
             this.button3.TabIndex = 29;
             this.button3.Text = "删除";
             this.button3.UseVisualStyleBackColor = true;
@@ -148,10 +159,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(560, 427);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Location = new System.Drawing.Point(420, 342);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 29);
+            this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 28;
             this.button2.Text = "反选";
             this.button2.UseVisualStyleBackColor = true;
@@ -159,10 +169,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(392, 427);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(294, 342);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 29);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 27;
             this.button1.Text = "全选";
             this.button1.UseVisualStyleBackColor = true;
@@ -171,21 +180,19 @@
             // tcglcheckBox
             // 
             this.tcglcheckBox.AutoSize = true;
-            this.tcglcheckBox.Location = new System.Drawing.Point(472, 271);
-            this.tcglcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcglcheckBox.Location = new System.Drawing.Point(354, 217);
             this.tcglcheckBox.Name = "tcglcheckBox";
-            this.tcglcheckBox.Size = new System.Drawing.Size(89, 19);
+            this.tcglcheckBox.Size = new System.Drawing.Size(72, 16);
             this.tcglcheckBox.TabIndex = 24;
-            this.tcglcheckBox.Text = "提成管理";
+            this.tcglcheckBox.Text = "取活管理";
             this.tcglcheckBox.UseVisualStyleBackColor = true;
             // 
             // flcheckBox
             // 
             this.flcheckBox.AutoSize = true;
-            this.flcheckBox.Location = new System.Drawing.Point(472, 358);
-            this.flcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flcheckBox.Location = new System.Drawing.Point(354, 286);
             this.flcheckBox.Name = "flcheckBox";
-            this.flcheckBox.Size = new System.Drawing.Size(89, 19);
+            this.flcheckBox.Size = new System.Drawing.Size(72, 16);
             this.flcheckBox.TabIndex = 23;
             this.flcheckBox.Text = "分类管理";
             this.flcheckBox.UseVisualStyleBackColor = true;
@@ -193,10 +200,9 @@
             // jbcscheckBox
             // 
             this.jbcscheckBox.AutoSize = true;
-            this.jbcscheckBox.Location = new System.Drawing.Point(584, 315);
-            this.jbcscheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jbcscheckBox.Location = new System.Drawing.Point(438, 252);
             this.jbcscheckBox.Name = "jbcscheckBox";
-            this.jbcscheckBox.Size = new System.Drawing.Size(89, 19);
+            this.jbcscheckBox.Size = new System.Drawing.Size(72, 16);
             this.jbcscheckBox.TabIndex = 22;
             this.jbcscheckBox.Text = "基本参数";
             this.jbcscheckBox.UseVisualStyleBackColor = true;
@@ -204,10 +210,9 @@
             // sjkglcheckBox
             // 
             this.sjkglcheckBox.AutoSize = true;
-            this.sjkglcheckBox.Location = new System.Drawing.Point(472, 315);
-            this.sjkglcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sjkglcheckBox.Location = new System.Drawing.Point(354, 252);
             this.sjkglcheckBox.Name = "sjkglcheckBox";
-            this.sjkglcheckBox.Size = new System.Drawing.Size(104, 19);
+            this.sjkglcheckBox.Size = new System.Drawing.Size(84, 16);
             this.sjkglcheckBox.TabIndex = 21;
             this.sjkglcheckBox.Text = "数据库管理";
             this.sjkglcheckBox.UseVisualStyleBackColor = true;
@@ -215,10 +220,9 @@
             // glyszcheckBox
             // 
             this.glyszcheckBox.AutoSize = true;
-            this.glyszcheckBox.Location = new System.Drawing.Point(584, 271);
-            this.glyszcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.glyszcheckBox.Location = new System.Drawing.Point(438, 217);
             this.glyszcheckBox.Name = "glyszcheckBox";
-            this.glyszcheckBox.Size = new System.Drawing.Size(104, 19);
+            this.glyszcheckBox.Size = new System.Drawing.Size(84, 16);
             this.glyszcheckBox.TabIndex = 20;
             this.glyszcheckBox.Text = "管理员设置";
             this.glyszcheckBox.UseVisualStyleBackColor = true;
@@ -226,10 +230,9 @@
             // tjbbcheckBox
             // 
             this.tjbbcheckBox.AutoSize = true;
-            this.tjbbcheckBox.Location = new System.Drawing.Point(583, 226);
-            this.tjbbcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tjbbcheckBox.Location = new System.Drawing.Point(437, 181);
             this.tjbbcheckBox.Name = "tjbbcheckBox";
-            this.tjbbcheckBox.Size = new System.Drawing.Size(89, 19);
+            this.tjbbcheckBox.Size = new System.Drawing.Size(72, 16);
             this.tjbbcheckBox.TabIndex = 18;
             this.tjbbcheckBox.Text = "统计报表";
             this.tjbbcheckBox.UseVisualStyleBackColor = true;
@@ -237,10 +240,9 @@
             // spglcheckBox
             // 
             this.spglcheckBox.AutoSize = true;
-            this.spglcheckBox.Location = new System.Drawing.Point(473, 228);
-            this.spglcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spglcheckBox.Location = new System.Drawing.Point(355, 182);
             this.spglcheckBox.Name = "spglcheckBox";
-            this.spglcheckBox.Size = new System.Drawing.Size(89, 19);
+            this.spglcheckBox.Size = new System.Drawing.Size(72, 16);
             this.spglcheckBox.TabIndex = 17;
             this.spglcheckBox.Text = "商品管理";
             this.spglcheckBox.UseVisualStyleBackColor = true;
@@ -248,21 +250,29 @@
             // ygcheckBox
             // 
             this.ygcheckBox.AutoSize = true;
-            this.ygcheckBox.Location = new System.Drawing.Point(583, 358);
-            this.ygcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ygcheckBox.Location = new System.Drawing.Point(437, 286);
             this.ygcheckBox.Name = "ygcheckBox";
-            this.ygcheckBox.Size = new System.Drawing.Size(89, 19);
+            this.ygcheckBox.Size = new System.Drawing.Size(72, 16);
             this.ygcheckBox.TabIndex = 16;
             this.ygcheckBox.Text = "员工管理";
             this.ygcheckBox.UseVisualStyleBackColor = true;
             // 
+            // dmjsbox
+            // 
+            this.dmjsbox.AutoSize = true;
+            this.dmjsbox.Location = new System.Drawing.Point(271, 320);
+            this.dmjsbox.Name = "dmjsbox";
+            this.dmjsbox.Size = new System.Drawing.Size(72, 16);
+            this.dmjsbox.TabIndex = 15;
+            this.dmjsbox.Text = "店面接收";
+            this.dmjsbox.UseVisualStyleBackColor = true;
+            // 
             // qtcheckBox
             // 
             this.qtcheckBox.AutoSize = true;
-            this.qtcheckBox.Location = new System.Drawing.Point(363, 358);
-            this.qtcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.qtcheckBox.Location = new System.Drawing.Point(272, 286);
             this.qtcheckBox.Name = "qtcheckBox";
-            this.qtcheckBox.Size = new System.Drawing.Size(89, 19);
+            this.qtcheckBox.Size = new System.Drawing.Size(72, 16);
             this.qtcheckBox.TabIndex = 15;
             this.qtcheckBox.Text = "其他服务";
             this.qtcheckBox.UseVisualStyleBackColor = true;
@@ -270,10 +280,9 @@
             // lsdszcheckBox
             // 
             this.lsdszcheckBox.AutoSize = true;
-            this.lsdszcheckBox.Location = new System.Drawing.Point(363, 315);
-            this.lsdszcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lsdszcheckBox.Location = new System.Drawing.Point(272, 252);
             this.lsdszcheckBox.Name = "lsdszcheckBox";
-            this.lsdszcheckBox.Size = new System.Drawing.Size(104, 19);
+            this.lsdszcheckBox.Size = new System.Drawing.Size(84, 16);
             this.lsdszcheckBox.TabIndex = 14;
             this.lsdszcheckBox.Text = "连锁店设置";
             this.lsdszcheckBox.UseVisualStyleBackColor = true;
@@ -281,10 +290,9 @@
             // dxglcheckBox
             // 
             this.dxglcheckBox.AutoSize = true;
-            this.dxglcheckBox.Location = new System.Drawing.Point(361, 271);
-            this.dxglcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dxglcheckBox.Location = new System.Drawing.Point(271, 217);
             this.dxglcheckBox.Name = "dxglcheckBox";
-            this.dxglcheckBox.Size = new System.Drawing.Size(89, 19);
+            this.dxglcheckBox.Size = new System.Drawing.Size(72, 16);
             this.dxglcheckBox.TabIndex = 13;
             this.dxglcheckBox.Text = "短信管理";
             this.dxglcheckBox.UseVisualStyleBackColor = true;
@@ -292,10 +300,9 @@
             // jcglcheckBox
             // 
             this.jcglcheckBox.AutoSize = true;
-            this.jcglcheckBox.Location = new System.Drawing.Point(363, 228);
-            this.jcglcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jcglcheckBox.Location = new System.Drawing.Point(272, 182);
             this.jcglcheckBox.Name = "jcglcheckBox";
-            this.jcglcheckBox.Size = new System.Drawing.Size(89, 19);
+            this.jcglcheckBox.Size = new System.Drawing.Size(72, 16);
             this.jcglcheckBox.TabIndex = 12;
             this.jcglcheckBox.Text = "寄存管理";
             this.jcglcheckBox.UseVisualStyleBackColor = true;
@@ -303,21 +310,19 @@
             // jcsjcheckBox
             // 
             this.jcsjcheckBox.AutoSize = true;
-            this.jcsjcheckBox.Location = new System.Drawing.Point(584, 188);
-            this.jcsjcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jcsjcheckBox.Location = new System.Drawing.Point(438, 150);
             this.jcsjcheckBox.Name = "jcsjcheckBox";
-            this.jcsjcheckBox.Size = new System.Drawing.Size(89, 19);
+            this.jcsjcheckBox.Size = new System.Drawing.Size(72, 16);
             this.jcsjcheckBox.TabIndex = 11;
-            this.jcsjcheckBox.Text = "寄存上架";
+            this.jcsjcheckBox.Text = "物品送洗";
             this.jcsjcheckBox.UseVisualStyleBackColor = true;
             // 
             // hyglcheckBox
             // 
             this.hyglcheckBox.AutoSize = true;
-            this.hyglcheckBox.Location = new System.Drawing.Point(472, 188);
-            this.hyglcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hyglcheckBox.Location = new System.Drawing.Point(354, 150);
             this.hyglcheckBox.Name = "hyglcheckBox";
-            this.hyglcheckBox.Size = new System.Drawing.Size(89, 19);
+            this.hyglcheckBox.Size = new System.Drawing.Size(72, 16);
             this.hyglcheckBox.TabIndex = 10;
             this.hyglcheckBox.Text = "会员管理";
             this.hyglcheckBox.UseVisualStyleBackColor = true;
@@ -325,10 +330,9 @@
             // shglcheckBox
             // 
             this.shglcheckBox.AutoSize = true;
-            this.shglcheckBox.Location = new System.Drawing.Point(363, 188);
-            this.shglcheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.shglcheckBox.Location = new System.Drawing.Point(272, 150);
             this.shglcheckBox.Name = "shglcheckBox";
-            this.shglcheckBox.Size = new System.Drawing.Size(89, 19);
+            this.shglcheckBox.Size = new System.Drawing.Size(72, 16);
             this.shglcheckBox.TabIndex = 9;
             this.shglcheckBox.Text = "收活管理";
             this.shglcheckBox.UseVisualStyleBackColor = true;
@@ -336,75 +340,69 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(447, 134);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Location = new System.Drawing.Point(335, 107);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(211, 25);
+            this.textBox3.PasswordChar = '*';
+            this.textBox3.Size = new System.Drawing.Size(159, 21);
             this.textBox3.TabIndex = 8;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(447, 101);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Location = new System.Drawing.Point(335, 81);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(211, 25);
+            this.textBox2.PasswordChar = '*';
+            this.textBox2.Size = new System.Drawing.Size(159, 21);
             this.textBox2.TabIndex = 7;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(447, 70);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(335, 56);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(211, 25);
+            this.textBox1.Size = new System.Drawing.Size(159, 21);
             this.textBox1.TabIndex = 6;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(447, 35);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Location = new System.Drawing.Point(335, 28);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(211, 23);
+            this.comboBox1.Size = new System.Drawing.Size(159, 20);
             this.comboBox1.TabIndex = 5;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(360, 145);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(270, 116);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 15);
+            this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 4;
             this.label4.Text = "确认密码：";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(368, 112);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(276, 90);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 15);
+            this.label3.Size = new System.Drawing.Size(59, 12);
             this.label3.TabIndex = 3;
             this.label3.Text = "密   码：";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(360, 81);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(270, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 15);
+            this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "用 户 名：";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(349, 45);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(262, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 15);
+            this.label1.Size = new System.Drawing.Size(77, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "连锁店名称：";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -412,11 +410,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(8, 25);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Location = new System.Drawing.Point(6, 20);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(333, 575);
+            this.groupBox2.Size = new System.Drawing.Size(250, 460);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
@@ -429,6 +425,9 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Menager,
+            this.MemberPrint,
+            this.BGJPrint,
+            this.dmjs,
             this.shgl,
             this.hygl,
             this.jcsj,
@@ -448,25 +447,15 @@
             this.UserName,
             this.ID});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 22);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(325, 549);
+            this.dataGridView1.Size = new System.Drawing.Size(244, 440);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(604, 514);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 31);
-            this.button5.TabIndex = 29;
-            this.button5.Text = "修改";
-            this.button5.UseVisualStyleBackColor = true;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // Menager
             // 
@@ -474,6 +463,30 @@
             this.Menager.HeaderText = "名称";
             this.Menager.Name = "Menager";
             this.Menager.ReadOnly = true;
+            // 
+            // MemberPrint
+            // 
+            this.MemberPrint.DataPropertyName = "MemberPrint";
+            this.MemberPrint.HeaderText = "MemberPrint";
+            this.MemberPrint.Name = "MemberPrint";
+            this.MemberPrint.ReadOnly = true;
+            this.MemberPrint.Visible = false;
+            // 
+            // BGJPrint
+            // 
+            this.BGJPrint.DataPropertyName = "BGJPrint";
+            this.BGJPrint.HeaderText = "BGJPrint";
+            this.BGJPrint.Name = "BGJPrint";
+            this.BGJPrint.ReadOnly = true;
+            this.BGJPrint.Visible = false;
+            // 
+            // dmjs
+            // 
+            this.dmjs.DataPropertyName = "dmjs";
+            this.dmjs.HeaderText = "dmjs";
+            this.dmjs.Name = "dmjs";
+            this.dmjs.ReadOnly = true;
+            this.dmjs.Visible = false;
             // 
             // shgl
             // 
@@ -621,11 +634,10 @@
             // 
             // glyszForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 652);
+            this.ClientSize = new System.Drawing.Size(557, 522);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "glyszForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -673,7 +685,11 @@
         private System.Windows.Forms.CheckBox jcglcheckBox;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.CheckBox dmjsbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn Menager;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MemberPrint;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BGJPrint;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dmjs;
         private System.Windows.Forms.DataGridViewCheckBoxColumn shgl;
         private System.Windows.Forms.DataGridViewCheckBoxColumn hygl;
         private System.Windows.Forms.DataGridViewCheckBoxColumn jcsj;

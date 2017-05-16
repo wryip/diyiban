@@ -14,6 +14,10 @@ namespace BLL
        {
            return gddal.Getlist(gd);
        }
+       public List<GoodInfo> GetlistJQ(GoodInfo gd)
+       {
+           return gddal.GetlistJQ(gd);
+       }
        public bool Add(GoodInfo gd)
        {
            return gddal.Insert(gd) > 0;
@@ -29,6 +33,18 @@ namespace BLL
        public bool Adds(int _add,GoodInfo gd)
        {
            return gddal.Updates(_add,gd) > 0;
+       }
+       public void UpdateXF(string no,int count)
+       {
+           gddal.UpdateXF( no, count);
+       }
+       public void DeleteAdd(int id, int count)
+       {
+           gddal.DeleteAdd(id, count);
+       }
+       public int getNumber()
+       {
+           return gddal.getNumber();
        }
     }
 }

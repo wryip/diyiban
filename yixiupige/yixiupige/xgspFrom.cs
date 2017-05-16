@@ -30,8 +30,9 @@ namespace yixiupige
         }
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
+        jbcsBLL jbcsbll = new jbcsBLL();
         GoodInfoBLL gdbll = new GoodInfoBLL();
         public  void Add(GoodInfo gd)
         {
@@ -73,7 +74,11 @@ namespace yixiupige
         private void xgspFrom_Load(object sender, EventArgs e)
         {
             GoodTypeInfoBll gtbll=new GoodTypeInfoBll();
-            typetextBox.DataSource = gtbll.SelecNode();
+            var list=jbcsbll.selectList(4);
+            foreach (var iteam in list)
+            {
+                typetextBox.Items.Add(iteam.AllType);
+            }
         }
 
         private void xgspFrom_FormClosed(object sender, FormClosedEventArgs e)

@@ -35,7 +35,9 @@ namespace yixiupige
         private void AddFuWuType_Load(object sender, EventArgs e)
         {
             List<string> list = new List<string>();
+            //返回会员卡的类型的名字
             list = bll.selectNodes();
+            list.Insert(0,"无卡");
             tableLayoutPanel1.Height = (list.Count + 1) * 40;
             RowStyle row ;
             Label lab1;
