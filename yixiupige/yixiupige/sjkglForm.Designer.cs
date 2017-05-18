@@ -96,7 +96,7 @@
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSlateGray;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(105, 71);
+            this.button1.Location = new System.Drawing.Point(115, 78);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(216, 66);
             this.button1.TabIndex = 0;
@@ -253,6 +253,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.BackgroundImage = global::yixiupige.Properties.Resources._1;
             this.ClientSize = new System.Drawing.Size(460, 261);
             this.Controls.Add(this.tabControl1);
             this.Name = "sjkglForm";

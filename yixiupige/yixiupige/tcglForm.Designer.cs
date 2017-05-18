@@ -57,6 +57,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(30, 38);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -69,6 +70,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(259, 38);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -81,6 +83,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.Location = new System.Drawing.Point(484, 37);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -142,20 +145,22 @@
             // wjsradioButton
             // 
             this.wjsradioButton.AutoSize = true;
+            this.wjsradioButton.BackColor = System.Drawing.Color.Transparent;
             this.wjsradioButton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.wjsradioButton.Location = new System.Drawing.Point(968, 35);
+            this.wjsradioButton.Location = new System.Drawing.Point(968, 34);
             this.wjsradioButton.Margin = new System.Windows.Forms.Padding(4);
             this.wjsradioButton.Name = "wjsradioButton";
             this.wjsradioButton.Size = new System.Drawing.Size(62, 21);
             this.wjsradioButton.TabIndex = 8;
             this.wjsradioButton.TabStop = true;
             this.wjsradioButton.Text = "未结算";
-            this.wjsradioButton.UseVisualStyleBackColor = true;
+            this.wjsradioButton.UseVisualStyleBackColor = false;
             this.wjsradioButton.CheckedChanged += new System.EventHandler(this.wjsradioButton_CheckedChanged);
             // 
             // yjsradioButton
             // 
             this.yjsradioButton.AutoSize = true;
+            this.yjsradioButton.BackColor = System.Drawing.Color.Transparent;
             this.yjsradioButton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.yjsradioButton.Location = new System.Drawing.Point(1077, 33);
             this.yjsradioButton.Margin = new System.Windows.Forms.Padding(4);
@@ -164,7 +169,7 @@
             this.yjsradioButton.TabIndex = 9;
             this.yjsradioButton.TabStop = true;
             this.yjsradioButton.Text = "已结算\r\n";
-            this.yjsradioButton.UseVisualStyleBackColor = true;
+            this.yjsradioButton.UseVisualStyleBackColor = false;
             this.yjsradioButton.CheckedChanged += new System.EventHandler(this.yjsradioButton_CheckedChanged);
             // 
             // groupBox1
@@ -268,6 +273,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.BackgroundImage = global::yixiupige.Properties.Resources._1;
             this.ClientSize = new System.Drawing.Size(1253, 687);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.yjsradioButton);

@@ -39,6 +39,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(45, 40);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -50,7 +51,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(109, 38);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.PasswordChar = '*';
             this.textBox1.Size = new System.Drawing.Size(116, 21);
@@ -59,6 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(46, 74);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -70,7 +72,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(109, 72);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(116, 21);
@@ -80,7 +82,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.Location = new System.Drawing.Point(57, 119);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(57, 27);
             this.button1.TabIndex = 2;
@@ -92,7 +94,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.Location = new System.Drawing.Point(154, 119);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(71, 27);
             this.button2.TabIndex = 2;
@@ -105,6 +107,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.BackgroundImage = global::yixiupige.Properties.Resources._1;
             this.ClientSize = new System.Drawing.Size(278, 166);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -112,7 +115,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "szpassword";
             this.Text = "密码输入";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.szpassword_FormClosed);
