@@ -95,5 +95,10 @@ namespace yixiupige
             }
             MessageBox.Show("删除失败！");
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -87,45 +87,55 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 58);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(13, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.Size = new System.Drawing.Size(68, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "会员电话：";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 34);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(13, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.Size = new System.Drawing.Size(68, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "会员姓名：";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 80);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(12, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.Size = new System.Drawing.Size(68, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "出生日期：";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 105);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(13, 102);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.Size = new System.Drawing.Size(68, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "办卡日期：";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 129);
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(13, 125);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.Size = new System.Drawing.Size(68, 17);
             this.label5.TabIndex = 4;
             this.label5.Text = "到期日期：";
             // 
@@ -145,7 +155,6 @@
             // 
             // bkrqdateTimePicker
             // 
-            this.bkrqdateTimePicker.Enabled = false;
             this.bkrqdateTimePicker.Location = new System.Drawing.Point(77, 101);
             this.bkrqdateTimePicker.Name = "bkrqdateTimePicker";
             this.bkrqdateTimePicker.Size = new System.Drawing.Size(137, 21);
@@ -154,45 +163,55 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(220, 28);
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(219, 25);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 12);
+            this.label6.Size = new System.Drawing.Size(68, 17);
             this.label6.TabIndex = 10;
             this.label6.Text = "会员卡号：";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(220, 53);
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Location = new System.Drawing.Point(219, 53);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.Size = new System.Drawing.Size(68, 17);
             this.label7.TabIndex = 11;
             this.label7.Text = "身份证号：";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(220, 81);
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Location = new System.Drawing.Point(218, 79);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 12);
+            this.label8.Size = new System.Drawing.Size(68, 17);
             this.label8.TabIndex = 12;
             this.label8.Text = "会员性别：";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(220, 107);
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label9.Location = new System.Drawing.Point(218, 107);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 12);
+            this.label9.Size = new System.Drawing.Size(68, 17);
             this.label9.TabIndex = 13;
             this.label9.Text = "商品折扣：";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(219, 132);
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.Location = new System.Drawing.Point(218, 130);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 12);
+            this.label10.Size = new System.Drawing.Size(68, 17);
             this.label10.TabIndex = 14;
             this.label10.Text = "服务折扣：";
             // 
@@ -238,69 +257,83 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(13, 204);
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.Location = new System.Drawing.Point(23, 201);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 12);
+            this.label13.Size = new System.Drawing.Size(56, 17);
             this.label13.TabIndex = 22;
             this.label13.Text = "连锁店：";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(14, 233);
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.Location = new System.Drawing.Point(25, 231);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 12);
+            this.label14.Size = new System.Drawing.Size(56, 17);
             this.label14.TabIndex = 23;
             this.label14.Text = "业务员：";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(12, 260);
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label15.Location = new System.Drawing.Point(8, 255);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(71, 12);
+            this.label15.Size = new System.Drawing.Size(74, 17);
             this.label15.TabIndex = 24;
             this.label15.Text = "单位/地址：";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(14, 285);
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label16.Location = new System.Drawing.Point(14, 284);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(65, 12);
+            this.label16.Size = new System.Drawing.Size(68, 17);
             this.label16.TabIndex = 25;
             this.label16.Text = "备注信息：";
             // 
             // qydqxzcheckBox
             // 
             this.qydqxzcheckBox.AutoSize = true;
-            this.qydqxzcheckBox.Location = new System.Drawing.Point(10, 151);
+            this.qydqxzcheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.qydqxzcheckBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.qydqxzcheckBox.Location = new System.Drawing.Point(10, 150);
             this.qydqxzcheckBox.Name = "qydqxzcheckBox";
             this.qydqxzcheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.qydqxzcheckBox.Size = new System.Drawing.Size(96, 16);
+            this.qydqxzcheckBox.Size = new System.Drawing.Size(99, 21);
             this.qydqxzcheckBox.TabIndex = 26;
             this.qydqxzcheckBox.Text = "启用到期限制";
-            this.qydqxzcheckBox.UseVisualStyleBackColor = true;
+            this.qydqxzcheckBox.UseVisualStyleBackColor = false;
             this.qydqxzcheckBox.CheckedChanged += new System.EventHandler(this.qydqxzcheckBox_CheckedChanged);
             // 
             // qyhymmcheckBox
             // 
             this.qyhymmcheckBox.AutoSize = true;
-            this.qyhymmcheckBox.Location = new System.Drawing.Point(10, 176);
+            this.qyhymmcheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.qyhymmcheckBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.qyhymmcheckBox.Location = new System.Drawing.Point(10, 173);
             this.qyhymmcheckBox.Name = "qyhymmcheckBox";
             this.qyhymmcheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.qyhymmcheckBox.Size = new System.Drawing.Size(96, 16);
+            this.qyhymmcheckBox.Size = new System.Drawing.Size(99, 21);
             this.qyhymmcheckBox.TabIndex = 27;
             this.qyhymmcheckBox.Text = "启用会员密码";
-            this.qyhymmcheckBox.UseVisualStyleBackColor = true;
+            this.qyhymmcheckBox.UseVisualStyleBackColor = false;
             this.qyhymmcheckBox.CheckedChanged += new System.EventHandler(this.qyhymmcheckBox_CheckedChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(113, 154);
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label11.Location = new System.Drawing.Point(105, 154);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 12);
+            this.label11.Size = new System.Drawing.Size(44, 17);
             this.label11.TabIndex = 28;
             this.label11.Text = "状态：";
             // 
@@ -318,6 +351,7 @@
             // 
             // szmmbutton
             // 
+            this.szmmbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.szmmbutton.Location = new System.Drawing.Point(115, 172);
             this.szmmbutton.Name = "szmmbutton";
             this.szmmbutton.Size = new System.Drawing.Size(99, 23);
@@ -361,15 +395,19 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
+            this.checkBox3.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox3.Location = new System.Drawing.Point(33, 419);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(72, 16);
+            this.checkBox3.Size = new System.Drawing.Size(75, 21);
             this.checkBox3.TabIndex = 35;
             this.checkBox3.Text = "连续添加";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.UseVisualStyleBackColor = false;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // qdbutton
             // 
+            this.qdbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.qdbutton.Location = new System.Drawing.Point(166, 461);
             this.qdbutton.Name = "qdbutton";
             this.qdbutton.Size = new System.Drawing.Size(75, 23);
@@ -380,6 +418,7 @@
             // 
             // tcbutton
             // 
+            this.tcbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tcbutton.Location = new System.Drawing.Point(352, 461);
             this.tcbutton.Name = "tcbutton";
             this.tcbutton.Size = new System.Drawing.Size(75, 23);
@@ -391,36 +430,44 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(220, 154);
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.Location = new System.Drawing.Point(218, 154);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 12);
+            this.label12.Size = new System.Drawing.Size(68, 17);
             this.label12.TabIndex = 38;
             this.label12.Text = "充值金额：";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(219, 179);
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label17.Location = new System.Drawing.Point(218, 179);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 12);
+            this.label17.Size = new System.Drawing.Size(68, 17);
             this.label17.TabIndex = 39;
             this.label17.Text = "办卡金额：";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(219, 206);
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label18.Location = new System.Drawing.Point(222, 207);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(65, 12);
+            this.label18.Size = new System.Drawing.Size(64, 17);
             this.label18.TabIndex = 40;
             this.label18.Text = "卡 类 型：";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label19.Location = new System.Drawing.Point(219, 230);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(65, 12);
+            this.label19.Size = new System.Drawing.Size(68, 17);
             this.label19.TabIndex = 41;
             this.label19.Text = "会员分类：";
             // 
@@ -450,6 +497,7 @@
             // 
             // cjzpbutton
             // 
+            this.cjzpbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cjzpbutton.Location = new System.Drawing.Point(461, 219);
             this.cjzpbutton.Name = "cjzpbutton";
             this.cjzpbutton.Size = new System.Drawing.Size(75, 23);
@@ -460,6 +508,7 @@
             // 
             // qkzpbutton
             // 
+            this.qkzpbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.qkzpbutton.Location = new System.Drawing.Point(545, 219);
             this.qkzpbutton.Name = "qkzpbutton";
             this.qkzpbutton.Size = new System.Drawing.Size(75, 23);
@@ -470,7 +519,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(461, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(159, 191);
@@ -482,7 +533,7 @@
             // 
             this.panel1.Controls.Add(this.videoSourcePlayer1);
             this.panel1.Location = new System.Drawing.Point(5, 13);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(150, 166);
             this.panel1.TabIndex = 0;
@@ -502,7 +553,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(470, 260);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(154, 224);
             this.pictureBox1.TabIndex = 49;
@@ -544,6 +595,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::yixiupige.Properties.Resources._1;
             this.ClientSize = new System.Drawing.Size(632, 506);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);

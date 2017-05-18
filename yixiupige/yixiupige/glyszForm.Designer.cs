@@ -89,6 +89,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.button3);
@@ -119,6 +120,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -129,9 +131,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(359, 413);
+            this.button4.Location = new System.Drawing.Point(354, 413);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(76, 25);
             this.button4.TabIndex = 30;
             this.button4.Text = "添加";
             this.button4.UseVisualStyleBackColor = true;
@@ -139,9 +141,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(453, 411);
+            this.button5.Location = new System.Drawing.Point(445, 413);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 25);
+            this.button5.Size = new System.Drawing.Size(78, 25);
             this.button5.TabIndex = 29;
             this.button5.Text = "修改";
             this.button5.UseVisualStyleBackColor = true;
@@ -182,7 +184,7 @@
             this.tcglcheckBox.AutoSize = true;
             this.tcglcheckBox.Location = new System.Drawing.Point(354, 217);
             this.tcglcheckBox.Name = "tcglcheckBox";
-            this.tcglcheckBox.Size = new System.Drawing.Size(72, 16);
+            this.tcglcheckBox.Size = new System.Drawing.Size(75, 21);
             this.tcglcheckBox.TabIndex = 24;
             this.tcglcheckBox.Text = "取活管理";
             this.tcglcheckBox.UseVisualStyleBackColor = true;
@@ -192,7 +194,7 @@
             this.flcheckBox.AutoSize = true;
             this.flcheckBox.Location = new System.Drawing.Point(354, 286);
             this.flcheckBox.Name = "flcheckBox";
-            this.flcheckBox.Size = new System.Drawing.Size(72, 16);
+            this.flcheckBox.Size = new System.Drawing.Size(75, 21);
             this.flcheckBox.TabIndex = 23;
             this.flcheckBox.Text = "分类管理";
             this.flcheckBox.UseVisualStyleBackColor = true;
@@ -202,7 +204,7 @@
             this.jbcscheckBox.AutoSize = true;
             this.jbcscheckBox.Location = new System.Drawing.Point(438, 252);
             this.jbcscheckBox.Name = "jbcscheckBox";
-            this.jbcscheckBox.Size = new System.Drawing.Size(72, 16);
+            this.jbcscheckBox.Size = new System.Drawing.Size(75, 21);
             this.jbcscheckBox.TabIndex = 22;
             this.jbcscheckBox.Text = "基本参数";
             this.jbcscheckBox.UseVisualStyleBackColor = true;
@@ -212,7 +214,7 @@
             this.sjkglcheckBox.AutoSize = true;
             this.sjkglcheckBox.Location = new System.Drawing.Point(354, 252);
             this.sjkglcheckBox.Name = "sjkglcheckBox";
-            this.sjkglcheckBox.Size = new System.Drawing.Size(84, 16);
+            this.sjkglcheckBox.Size = new System.Drawing.Size(87, 21);
             this.sjkglcheckBox.TabIndex = 21;
             this.sjkglcheckBox.Text = "数据库管理";
             this.sjkglcheckBox.UseVisualStyleBackColor = true;
@@ -222,7 +224,7 @@
             this.glyszcheckBox.AutoSize = true;
             this.glyszcheckBox.Location = new System.Drawing.Point(438, 217);
             this.glyszcheckBox.Name = "glyszcheckBox";
-            this.glyszcheckBox.Size = new System.Drawing.Size(84, 16);
+            this.glyszcheckBox.Size = new System.Drawing.Size(87, 21);
             this.glyszcheckBox.TabIndex = 20;
             this.glyszcheckBox.Text = "管理员设置";
             this.glyszcheckBox.UseVisualStyleBackColor = true;
@@ -232,7 +234,7 @@
             this.tjbbcheckBox.AutoSize = true;
             this.tjbbcheckBox.Location = new System.Drawing.Point(437, 181);
             this.tjbbcheckBox.Name = "tjbbcheckBox";
-            this.tjbbcheckBox.Size = new System.Drawing.Size(72, 16);
+            this.tjbbcheckBox.Size = new System.Drawing.Size(75, 21);
             this.tjbbcheckBox.TabIndex = 18;
             this.tjbbcheckBox.Text = "统计报表";
             this.tjbbcheckBox.UseVisualStyleBackColor = true;
@@ -242,7 +244,7 @@
             this.spglcheckBox.AutoSize = true;
             this.spglcheckBox.Location = new System.Drawing.Point(355, 182);
             this.spglcheckBox.Name = "spglcheckBox";
-            this.spglcheckBox.Size = new System.Drawing.Size(72, 16);
+            this.spglcheckBox.Size = new System.Drawing.Size(75, 21);
             this.spglcheckBox.TabIndex = 17;
             this.spglcheckBox.Text = "商品管理";
             this.spglcheckBox.UseVisualStyleBackColor = true;
@@ -252,7 +254,7 @@
             this.ygcheckBox.AutoSize = true;
             this.ygcheckBox.Location = new System.Drawing.Point(437, 286);
             this.ygcheckBox.Name = "ygcheckBox";
-            this.ygcheckBox.Size = new System.Drawing.Size(72, 16);
+            this.ygcheckBox.Size = new System.Drawing.Size(75, 21);
             this.ygcheckBox.TabIndex = 16;
             this.ygcheckBox.Text = "员工管理";
             this.ygcheckBox.UseVisualStyleBackColor = true;
@@ -262,7 +264,7 @@
             this.dmjsbox.AutoSize = true;
             this.dmjsbox.Location = new System.Drawing.Point(271, 320);
             this.dmjsbox.Name = "dmjsbox";
-            this.dmjsbox.Size = new System.Drawing.Size(72, 16);
+            this.dmjsbox.Size = new System.Drawing.Size(75, 21);
             this.dmjsbox.TabIndex = 15;
             this.dmjsbox.Text = "店面接收";
             this.dmjsbox.UseVisualStyleBackColor = true;
@@ -272,7 +274,7 @@
             this.qtcheckBox.AutoSize = true;
             this.qtcheckBox.Location = new System.Drawing.Point(272, 286);
             this.qtcheckBox.Name = "qtcheckBox";
-            this.qtcheckBox.Size = new System.Drawing.Size(72, 16);
+            this.qtcheckBox.Size = new System.Drawing.Size(75, 21);
             this.qtcheckBox.TabIndex = 15;
             this.qtcheckBox.Text = "其他服务";
             this.qtcheckBox.UseVisualStyleBackColor = true;
@@ -282,7 +284,7 @@
             this.lsdszcheckBox.AutoSize = true;
             this.lsdszcheckBox.Location = new System.Drawing.Point(272, 252);
             this.lsdszcheckBox.Name = "lsdszcheckBox";
-            this.lsdszcheckBox.Size = new System.Drawing.Size(84, 16);
+            this.lsdszcheckBox.Size = new System.Drawing.Size(87, 21);
             this.lsdszcheckBox.TabIndex = 14;
             this.lsdszcheckBox.Text = "连锁店设置";
             this.lsdszcheckBox.UseVisualStyleBackColor = true;
@@ -292,7 +294,7 @@
             this.dxglcheckBox.AutoSize = true;
             this.dxglcheckBox.Location = new System.Drawing.Point(271, 217);
             this.dxglcheckBox.Name = "dxglcheckBox";
-            this.dxglcheckBox.Size = new System.Drawing.Size(72, 16);
+            this.dxglcheckBox.Size = new System.Drawing.Size(75, 21);
             this.dxglcheckBox.TabIndex = 13;
             this.dxglcheckBox.Text = "短信管理";
             this.dxglcheckBox.UseVisualStyleBackColor = true;
@@ -302,7 +304,7 @@
             this.jcglcheckBox.AutoSize = true;
             this.jcglcheckBox.Location = new System.Drawing.Point(272, 182);
             this.jcglcheckBox.Name = "jcglcheckBox";
-            this.jcglcheckBox.Size = new System.Drawing.Size(72, 16);
+            this.jcglcheckBox.Size = new System.Drawing.Size(75, 21);
             this.jcglcheckBox.TabIndex = 12;
             this.jcglcheckBox.Text = "寄存管理";
             this.jcglcheckBox.UseVisualStyleBackColor = true;
@@ -312,7 +314,7 @@
             this.jcsjcheckBox.AutoSize = true;
             this.jcsjcheckBox.Location = new System.Drawing.Point(438, 150);
             this.jcsjcheckBox.Name = "jcsjcheckBox";
-            this.jcsjcheckBox.Size = new System.Drawing.Size(72, 16);
+            this.jcsjcheckBox.Size = new System.Drawing.Size(75, 21);
             this.jcsjcheckBox.TabIndex = 11;
             this.jcsjcheckBox.Text = "物品送洗";
             this.jcsjcheckBox.UseVisualStyleBackColor = true;
@@ -322,7 +324,7 @@
             this.hyglcheckBox.AutoSize = true;
             this.hyglcheckBox.Location = new System.Drawing.Point(354, 150);
             this.hyglcheckBox.Name = "hyglcheckBox";
-            this.hyglcheckBox.Size = new System.Drawing.Size(72, 16);
+            this.hyglcheckBox.Size = new System.Drawing.Size(75, 21);
             this.hyglcheckBox.TabIndex = 10;
             this.hyglcheckBox.Text = "会员管理";
             this.hyglcheckBox.UseVisualStyleBackColor = true;
@@ -332,7 +334,7 @@
             this.shglcheckBox.AutoSize = true;
             this.shglcheckBox.Location = new System.Drawing.Point(272, 150);
             this.shglcheckBox.Name = "shglcheckBox";
-            this.shglcheckBox.Size = new System.Drawing.Size(72, 16);
+            this.shglcheckBox.Size = new System.Drawing.Size(75, 21);
             this.shglcheckBox.TabIndex = 9;
             this.shglcheckBox.Text = "收活管理";
             this.shglcheckBox.UseVisualStyleBackColor = true;
@@ -343,7 +345,7 @@
             this.textBox3.Location = new System.Drawing.Point(335, 107);
             this.textBox3.Name = "textBox3";
             this.textBox3.PasswordChar = '*';
-            this.textBox3.Size = new System.Drawing.Size(159, 21);
+            this.textBox3.Size = new System.Drawing.Size(159, 23);
             this.textBox3.TabIndex = 8;
             // 
             // textBox2
@@ -351,14 +353,14 @@
             this.textBox2.Location = new System.Drawing.Point(335, 81);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(159, 21);
+            this.textBox2.Size = new System.Drawing.Size(159, 23);
             this.textBox2.TabIndex = 7;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(335, 56);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 21);
+            this.textBox1.Size = new System.Drawing.Size(159, 23);
             this.textBox1.TabIndex = 6;
             // 
             // comboBox1
@@ -366,7 +368,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(335, 28);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(159, 20);
+            this.comboBox1.Size = new System.Drawing.Size(159, 25);
             this.comboBox1.TabIndex = 5;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -375,34 +377,34 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(270, 116);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.Size = new System.Drawing.Size(68, 17);
             this.label4.TabIndex = 4;
             this.label4.Text = "确认密码：";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(276, 90);
+            this.label3.Location = new System.Drawing.Point(281, 90);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 12);
+            this.label3.Size = new System.Drawing.Size(56, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "密   码：";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(270, 65);
+            this.label2.Location = new System.Drawing.Point(273, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.Size = new System.Drawing.Size(64, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "用 户 名：";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(262, 36);
+            this.label1.Location = new System.Drawing.Point(257, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 12);
+            this.label1.Size = new System.Drawing.Size(80, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "连锁店名称：";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -447,13 +449,13 @@
             this.UserName,
             this.ID});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 17);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 19);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(244, 440);
+            this.dataGridView1.Size = new System.Drawing.Size(244, 438);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -636,6 +638,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::yixiupige.Properties.Resources._1;
             this.ClientSize = new System.Drawing.Size(557, 522);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
