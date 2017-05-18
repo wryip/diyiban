@@ -95,6 +95,7 @@
             this.menuStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.menuStrip1.AutoSize = false;
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -114,6 +115,7 @@
             this.系统设置ToolStripMenuItem,
             this.管理员设置ToolStripMenuItem,
             this.数据库管理ToolStripMenuItem});
+            this.系统管理ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.系统管理ToolStripMenuItem.Name = "系统管理ToolStripMenuItem";
             this.系统管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.系统管理ToolStripMenuItem.Text = "系统管理";
@@ -121,21 +123,21 @@
             // 系统设置ToolStripMenuItem
             // 
             this.系统设置ToolStripMenuItem.Name = "系统设置ToolStripMenuItem";
-            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.系统设置ToolStripMenuItem.Text = "连锁店设置";
             this.系统设置ToolStripMenuItem.Click += new System.EventHandler(this.系统设置ToolStripMenuItem_Click);
             // 
             // 管理员设置ToolStripMenuItem
             // 
             this.管理员设置ToolStripMenuItem.Name = "管理员设置ToolStripMenuItem";
-            this.管理员设置ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.管理员设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.管理员设置ToolStripMenuItem.Text = "管理员设置";
             this.管理员设置ToolStripMenuItem.Click += new System.EventHandler(this.管理员设置ToolStripMenuItem_Click);
             // 
             // 数据库管理ToolStripMenuItem
             // 
             this.数据库管理ToolStripMenuItem.Name = "数据库管理ToolStripMenuItem";
-            this.数据库管理ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.数据库管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.数据库管理ToolStripMenuItem.Text = "数据库管理";
             this.数据库管理ToolStripMenuItem.Click += new System.EventHandler(this.数据库管理ToolStripMenuItem_Click);
             // 
@@ -146,6 +148,7 @@
             this.分类服务ToolStripMenuItem,
             this.其他服务ToolStripMenuItem,
             this.员工管理ToolStripMenuItem});
+            this.基本设置ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.基本设置ToolStripMenuItem.Name = "基本设置ToolStripMenuItem";
             this.基本设置ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.基本设置ToolStripMenuItem.Text = "基本设置";
@@ -183,6 +186,7 @@
             this.系统帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.注册ToolStripMenuItem,
             this.关于ToolStripMenuItem});
+            this.系统帮助ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.系统帮助ToolStripMenuItem.Name = "系统帮助ToolStripMenuItem";
             this.系统帮助ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.系统帮助ToolStripMenuItem.Text = "系统帮助";
@@ -211,15 +215,14 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1588, 94);
+            this.panel1.Size = new System.Drawing.Size(1588, 99);
             this.panel1.TabIndex = 1;
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.toolStrip1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.BackgroundImage = global::yixiupige.Properties.Resources._1;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(75, 75);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
@@ -247,15 +250,16 @@
             this.toolStripButton13,
             this.toolStripSeparator11,
             this.toolStripButton14});
-            this.toolStrip1.Location = new System.Drawing.Point(2, 5);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1079, 75);
+            this.toolStrip1.Size = new System.Drawing.Size(1588, 99);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripButton1
             // 
             this.toolStripButton1.AutoSize = false;
+            this.toolStripButton1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripButton1.Image = global::yixiupige.Properties.Resources.png_0009;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
@@ -268,11 +272,12 @@
             // toolStripButton2
             // 
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(6, 75);
+            this.toolStripButton2.Size = new System.Drawing.Size(6, 99);
             // 
             // toolStripButton4
             // 
             this.toolStripButton4.AutoSize = false;
+            this.toolStripButton4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripButton4.Image = global::yixiupige.Properties.Resources.png_0012;
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
@@ -284,14 +289,15 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 75);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 99);
             // 
             // toolStripButton12
             // 
+            this.toolStripButton12.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripButton12.Image = global::yixiupige.Properties.Resources._1133944;
             this.toolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton12.Name = "toolStripButton12";
-            this.toolStripButton12.Size = new System.Drawing.Size(79, 72);
+            this.toolStripButton12.Size = new System.Drawing.Size(79, 96);
             this.toolStripButton12.Text = "店面接收";
             this.toolStripButton12.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -300,14 +306,15 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 75);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 99);
             // 
             // toolStripButton11
             // 
+            this.toolStripButton11.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripButton11.Image = global::yixiupige.Properties.Resources.png_0014;
             this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton11.Name = "toolStripButton11";
-            this.toolStripButton11.Size = new System.Drawing.Size(79, 72);
+            this.toolStripButton11.Size = new System.Drawing.Size(79, 96);
             this.toolStripButton11.Text = "取活管理";
             this.toolStripButton11.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripButton11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -316,11 +323,12 @@
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 75);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 99);
             // 
             // toolStripButton3
             // 
             this.toolStripButton3.AutoSize = false;
+            this.toolStripButton3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripButton3.Image = global::yixiupige.Properties.Resources.png_0010;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
@@ -332,11 +340,12 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 75);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 99);
             // 
             // toolStripButton5
             // 
             this.toolStripButton5.AutoSize = false;
+            this.toolStripButton5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripButton5.Image = global::yixiupige.Properties.Resources.png_0007;
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
@@ -348,11 +357,12 @@
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 75);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 99);
             // 
             // toolStripButton6
             // 
             this.toolStripButton6.AutoSize = false;
+            this.toolStripButton6.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripButton6.Image = global::yixiupige.Properties.Resources.png_0555;
             this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton6.Name = "toolStripButton6";
@@ -364,11 +374,12 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 75);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 99);
             // 
             // toolStripButton7
             // 
             this.toolStripButton7.AutoSize = false;
+            this.toolStripButton7.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripButton7.Image = global::yixiupige.Properties.Resources.png_0008;
             this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton7.Name = "toolStripButton7";
@@ -380,15 +391,16 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 75);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 99);
             // 
             // toolStripButton8
             // 
             this.toolStripButton8.AutoToolTip = false;
+            this.toolStripButton8.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripButton8.Image = global::yixiupige.Properties.Resources.png_0014;
             this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(79, 72);
+            this.toolStripButton8.Size = new System.Drawing.Size(79, 96);
             this.toolStripButton8.Text = "统计报表";
             this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
@@ -396,11 +408,12 @@
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 75);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 99);
             // 
             // toolStripButton9
             // 
             this.toolStripButton9.AutoSize = false;
+            this.toolStripButton9.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripButton9.Image = global::yixiupige.Properties.Resources.png_0037;
             this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton9.Name = "toolStripButton9";
@@ -412,11 +425,12 @@
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 75);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 99);
             // 
             // toolStripButton10
             // 
             this.toolStripButton10.AutoSize = false;
+            this.toolStripButton10.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripButton10.Image = global::yixiupige.Properties.Resources.png_0013;
             this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton10.Name = "toolStripButton10";
@@ -428,14 +442,15 @@
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 75);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 99);
             // 
             // toolStripButton13
             // 
+            this.toolStripButton13.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripButton13.Image = global::yixiupige.Properties.Resources.png_0017;
             this.toolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton13.Name = "toolStripButton13";
-            this.toolStripButton13.Size = new System.Drawing.Size(79, 72);
+            this.toolStripButton13.Size = new System.Drawing.Size(79, 96);
             this.toolStripButton13.Text = "第三方查看";
             this.toolStripButton13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolStripButton13.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -443,14 +458,15 @@
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 75);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 99);
             // 
             // toolStripButton14
             // 
+            this.toolStripButton14.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripButton14.Image = global::yixiupige.Properties.Resources.png_0002;
             this.toolStripButton14.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton14.Name = "toolStripButton14";
-            this.toolStripButton14.Size = new System.Drawing.Size(79, 72);
+            this.toolStripButton14.Size = new System.Drawing.Size(79, 96);
             this.toolStripButton14.Text = "通信";
             this.toolStripButton14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolStripButton14.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -494,7 +510,9 @@
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BackgroundImage = global::yixiupige.Properties.Resources._1;
             this.panel4.Controls.Add(this.menuStrip1);
+            this.panel4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panel4.Location = new System.Drawing.Point(0, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1333, 23);
@@ -570,6 +588,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackgroundImage = global::yixiupige.Properties.Resources._1;
             this.ClientSize = new System.Drawing.Size(1333, 700);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);

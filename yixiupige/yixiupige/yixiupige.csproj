@@ -789,6 +789,7 @@
     <Content Include="leiku\AForge.Video.DirectShow.dll" />
     <Content Include="leiku\AForge.Video.DirectShow.xml" />
     <Content Include="leiku\AForge.Video.dll" />
+    <None Include="Resources\log.png" />
     <None Include="Resources\3.jpeg" />
     <None Include="Resources\1.jpeg" />
     <None Include="Resources\png-0002.png" />

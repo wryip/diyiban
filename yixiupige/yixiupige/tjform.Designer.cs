@@ -3088,7 +3088,7 @@
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "tjfrom";
+           // this.Name = "tjfrom";
             this.Text = "统计报表";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.tjform_FormClosing);
             this.Load += new System.EventHandler(this.tjform_Load);
