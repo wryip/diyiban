@@ -478,7 +478,7 @@ namespace DAL
                         {
                             str += "select * from ";
                             str += "JCInfoTable" + iteam.Value + "";
-                            str += " where " + type1 + "='" + neirong + "' and jcZT='未取走'";
+                            str += " where " + type1 + "='" + neirong + "' and jcZT='已取走'";
                             str += " union all ";
                         }
                         str = str.Substring(0, str.Length - 10);
@@ -491,7 +491,7 @@ namespace DAL
                     }
                     else
                     {
-                        str = "select * from JCInfoTable" + ID + " where " + type1 + "='" + neirong + "' and jcZT='未取走'";
+                        str = "select * from JCInfoTable" + ID + " where " + type1 + "='" + neirong + "' and jcZT='已取走'";
                         //string pmstype = "@" + type1;
                     //    pms = new SqlParameter[] { 
                     //new SqlParameter(pmstype,neirong),

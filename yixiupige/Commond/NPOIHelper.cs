@@ -126,12 +126,42 @@ namespace Commond
             {
                 return huiyuanExitDan(list, sheet);
             }
-            else //if (model is GoodInfo)
+            else if (model is GoodInfo)
             {
                 return shangpininfo(list, sheet);
             }
+            else
+            {
+                return XMoneyLS(list, sheet);
+            }
         }
-
+        private static IWorkbook XMoneyLS<T>(List<T> list, ISheet sheet)
+        {
+            int rowIndex = 0;
+            IRow row = sheet.CreateRow(rowIndex);
+            #region MyRegion//表头
+            row.CreateCell(0).SetCellValue("会员姓名");
+            row.CreateCell(1).SetCellValue("消费金额");
+            row.CreateCell(2).SetCellValue("会员卡号");
+            row.CreateCell(3).SetCellValue("消费单号");
+            row.CreateCell(4).SetCellValue("消费时间");
+            rowIndex++;
+            #endregion
+            foreach (T iteam in list)
+            {
+                XMoneyLS model = iteam as XMoneyLS;
+                //每遍历一条数据创建一行
+                row = sheet.CreateRow(rowIndex);
+                //创建行中的单元格
+                row.CreateCell(0).SetCellValue(model.NameXM);
+                row.CreateCell(1).SetCellValue(model.MoneyXM);
+                row.CreateCell(2).SetCellValue(model.CardNumXM);
+                row.CreateCell(3).SetCellValue(model.DanNumberXM);
+                row.CreateCell(4).SetCellValue(model.DateXM);
+                rowIndex++;
+            }
+            return sheet.Workbook;
+        }
         private static IWorkbook wupiaopirent<T>(List<T> list, ISheet sheet)
         {
             //

@@ -13,6 +13,50 @@ namespace DAL
     public class LSConsumptionDAL
     {
         public string ID = FilterClass.ID == null ? null : FilterClass.ID.Trim();
+        //将现金消费的记录添加进来
+        public List<XMoneyLS> SelectXMoney(string begindate, string enddate, string dpname)
+        {
+            int i = 1;
+            List<XMoneyLS> list = new List<XMoneyLS>();
+            XMoneyLS model;
+            string str = "";
+            if (dpname == "")
+            {
+                str = "select LSName,LSMoney,LSCardNumber,LSDanNumber,LSDate from LSConsumption" + ID + " where LSDate between '" + begindate + "' and '" + enddate + "'";
+            }
+            else if (dpname == "全部")
+            {
+                foreach (KeyValuePair<string, int> iteam in FilterClass.dic)
+                {
+                    str += "select LSName,LSMoney,LSCardNumber,LSDanNumber,LSDate ";
+                    str += "from LSConsumption" + iteam.Value + "";
+                    str += " where LSDate between '" + begindate + "' and '" + enddate + "'";
+                    str += " union all ";
+                }
+                str = str.Substring(0, str.Length - 10);
+            }
+            else
+            {
+                int id = FilterClass.dic[dpname];
+                str = "select LSName,LSMoney,LSCardNumber,LSDanNumber,LSDate from LSConsumption" + id + " where LSDate between '" + begindate + "' and '" + enddate + "'";
+            }
+            SqlDataReader read = SqlHelper.ExecuteReader(str);
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    model = new XMoneyLS();
+                    model.DanNumberXM = read["LSDanNumber"].ToString();
+                    model.CardNumXM = read["LSCardNumber"].ToString();
+                    model.DateXM = read["LSDate"].ToString();
+                    model.MoneyXM = read["LSMoney"].ToString();
+                    model.NameXM = read["LSName"].ToString();
+                    model.NOXM = i++;
+                    list.Add(model);
+                }
+            }
+            return list;
+        }
         //添加历史消费记录
         public bool AddList(List<LiShiConsumption> listLS)
         {

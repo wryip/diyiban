@@ -19,6 +19,11 @@ namespace BLL
             result=dal.AddMemberInfo(model);
             return result;
         }
+        //查询莫一种类型的所有的会员信息，导出使用
+        public List<memberInfoModel> selectAll(string type)
+        {
+            return dal.selectAll(type);
+        }
         //返回某种卡类型的所有集合，例如所有金卡或者银卡
         public List<memberInfoModel> selectInfoCollect(string cardTepe,int i,out int j)
         {

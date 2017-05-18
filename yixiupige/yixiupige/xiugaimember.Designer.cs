@@ -477,6 +477,7 @@
             // 
             // bkrqdateTimePicker
             // 
+            this.bkrqdateTimePicker.Enabled = false;
             this.bkrqdateTimePicker.Location = new System.Drawing.Point(76, 106);
             this.bkrqdateTimePicker.Name = "bkrqdateTimePicker";
             this.bkrqdateTimePicker.Size = new System.Drawing.Size(137, 21);

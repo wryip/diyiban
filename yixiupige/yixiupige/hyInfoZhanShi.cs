@@ -62,7 +62,7 @@ namespace yixiupige
         }
         public void dataBind()
         {
-            dataGridView2.DataSource = bll1.selectAllList(textBox2.Text.Trim()).OrderByDescending(a=>a.czDate);
+            dataGridView2.DataSource = bll1.selectAllList(textBox2.Text.Trim()).OrderByDescending(a=>a.czDate).ToList();
         }
         private void hyInfoZhanShi_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -43,9 +43,17 @@ namespace BLL
         {
             return dal.selectNumberAndNo(dpname);
         }
+        public string[] selectDanNumber(string dpname)
+        {
+            return dal.selectDanNumber(dpname);
+        }
         public bool uodateNumber(string dpID, int j)
         {
             return dal.uodateNumber(dpID, j);
+        }
+        public bool uodateDanNumber(string dpID, int j)
+        {
+            return dal.uodateDanNumber(dpID, j);
         }
         //当添加新的店铺的时候,添加相对应要用到的表
         public void AddTable(int id)

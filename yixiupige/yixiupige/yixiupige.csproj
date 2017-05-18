@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationRevision>13</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -435,6 +435,7 @@
     <Compile Include="spSalesFrom.Designer.cs">
       <DependentUpon>spSalesFrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Success.cs" />
     <Compile Include="szpassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -782,13 +783,14 @@
   <ItemGroup>
     <Content Include="imageFile\1.ico" />
     <Content Include="imageFile\timg.jpg" />
-    <Content Include="Info\finish.wav" />
     <Content Include="leiku\AForge.Controls.dll" />
     <Content Include="leiku\AForge.Controls.xml" />
     <Content Include="leiku\AForge.dll" />
     <Content Include="leiku\AForge.Video.DirectShow.dll" />
     <Content Include="leiku\AForge.Video.DirectShow.xml" />
     <Content Include="leiku\AForge.Video.dll" />
+    <None Include="Resources\finish.wav" />
+    <None Include="Resources\finish.bmp" />
     <None Include="Resources\3.jpeg" />
     <None Include="Resources\1.jpeg" />
     <None Include="Resources\png-0002.png" />
@@ -822,6 +824,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Info\" />
     <Folder Include="memberInfo\" />
   </ItemGroup>
   <ItemGroup>

@@ -266,7 +266,7 @@ namespace yixiupige
         private void button1_Click(object sender, EventArgs e)
         {
             string type = treeView1.SelectedNode.Text;
-            List<memberInfoModel> list = (List<memberInfoModel>)dataGridView1.DataSource;
+            List<JCInfoModel> list = jcinfobll.selectAllList(type.Split(new char[] { '[' }, StringSplitOptions.RemoveEmptyEntries)[0]);
             bool resu = NPOIHelper.PrintDocument(list, type + "-寄存信息");
             if (resu)
             {

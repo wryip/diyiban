@@ -65,7 +65,7 @@ namespace yixiupige
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox8.Text != "0")
+            if (Convert.ToDouble(textBox8.Text) != 0)
             {
                 MessageBox.Show("还有欠款，不能取走！");
                 return;

@@ -10,6 +10,7 @@ namespace MODEL
     {
         public int ID { get; set; }
         public string LSNo { get; set; }
+        public string LSDanNumber { get; set; }
         public string LSName { get; set; }
         public string LSDate { get; set; }
         public string LSStaff { get; set; }
@@ -22,8 +23,7 @@ namespace MODEL
         public string LSSalesman { get; set; }
         public string LSMultipleName { get; set; }
         public string LSQuestion { get; set; }
-        public string LSRemark { get; set; }
-        public string LSDanNumber { get; set; }
+        public string LSRemark { get; set; }        
         public string LSCardNumber { get; set; }
         public string ImgUrl { get; set; }
         //判断是不是商品，当撤销（删除记录）时将商品数量加回来

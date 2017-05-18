@@ -48,6 +48,62 @@ namespace DAL
             }
             return result;
         }
+        //为了导出使用的  查询某一种类型的所有数据
+        public List<memberInfoModel> selectAll(string cardTepe)
+        {
+            int i = 1;
+            List<memberInfoModel> list = new List<memberInfoModel>();
+            memberInfoModel model;
+            SqlDataReader read;
+            SqlParameter[] pms;
+            string str;
+            if (cardTepe.Trim() == "全部")
+            {
+                str = "select * from memberInfo";
+                read = SqlHelper.ExecuteReader(str);
+            }
+            else
+            {
+                pms = new SqlParameter[] { 
+            new SqlParameter("@memberType",cardTepe)
+            };
+                str = "select * from memberInfo where memberType=@memberType";
+                read = SqlHelper.ExecuteReader(str, pms);
+            }
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    model = new memberInfoModel();
+                    model.memberCardNo = read["memberCardNo"].ToString();
+                    model.memberName = read["memberName"].ToString();
+                    model.memberTel = read["memberTel"].ToString();
+                    model.memberDocument = read["memberDocument"].ToString();
+                    model.birDate = read["birDate"].ToString();
+                    model.cardDate = read["cardDate"].ToString();
+                    model.memberSex = read["memberSex"].ToString();
+                    model.rebate = read["rebate"].ToString();
+                    model.endDate = read["endDate"].ToString();
+                    model.fuwuBate = read["fuwuBate"].ToString();
+                    model.toUpMoney = read["toUpMoney"].ToString();
+                    model.cardMoney = read["cardMoney"].ToString();
+                    model.dianName = read["dianName"].ToString();
+                    model.cardType = read["cardType"].ToString();
+                    model.saleMan = read["salesMan"].ToString();
+                    model.memberType = read["memberType"].ToString();
+                    model.address = read["address"].ToString();
+                    model.remark = read["remark"].ToString();
+                    model.imageUrl = read["imgUrl"].ToString();
+                    model.password = read["password"].ToString();
+                    model.zhuangtai = read["zhuangtai"].ToString();
+                    model.ID = Convert.ToInt32(read["ID"]);
+                    model.idbh = i;
+                    list.Add(model);
+                    i++;
+                }
+            }
+            return list.OrderByDescending(a => a.ID).ToList();
+        }
         //当点击  会员管理左侧的节点的时候  合首次加载的时候   加载相应的卡的信息
         public List<memberInfoModel> selectInfoCollect(string cardTepe,int ii,out int j)
         {
@@ -68,43 +124,17 @@ namespace DAL
             j = Convert.ToInt32(oo);
             if (cardTepe.Trim() == "全部")
             {
-                //if (dpname == "admin")
-                //{
                     str = "select top 300 * from memberInfo where ID NOT IN(select TOP " + (ii - 1) * 300 + " ID from memberInfo order by ID DESC,cardDate DESC)  order by ID DESC";
                     read = SqlHelper.ExecuteReader(str);
-                //}
-                //else
-                //{
-                //    pms = new SqlParameter[] { 
-                //    new SqlParameter("@dianName",dpname),
-                //    new SqlParameter("@dianName1",dpname)
-                //    };
-                //    str = "select top 300 * from memberInfo where dianName=@dianName and ID NOT IN(select TOP " + (ii - 1) * 300 + " ID from memberInfo where dianName=@dianName1 order by ID DESC,cardDate DESC)  order by ID DESC";
-                //    read = SqlHelper.ExecuteReader(str, pms);
-                //}
             }
             else
             {
-                //if (dpname == "admin")
-                //{
                     pms = new SqlParameter[] { 
             new SqlParameter("@memberType",cardTepe),
             new SqlParameter("@memberType1",cardTepe)
             };
                     str = "select top 300 * from memberInfo where memberType=@memberType and ID NOT IN(select TOP " + (ii - 1) * 300 + " ID from memberInfo where memberType=@memberType1 order by ID DESC,cardDate DESC)  order by ID DESC";
                     read = SqlHelper.ExecuteReader(str, pms);
-            //    }
-            //    else
-            //    {
-            //        pms = new SqlParameter[] { 
-            //new SqlParameter("@memberType",cardTepe),
-            //new SqlParameter("@dianName",dpname),
-            //new SqlParameter("@memberType1",cardTepe),
-            //new SqlParameter("@dianName1",dpname)
-            //};
-            //        str = "select top 300 * from memberInfo where memberType=@memberType and dianName=@dianName and ID NOT IN(select TOP " + (ii - 1) * 300 + " ID from memberInfo where memberType=@memberType1 and dianName=@dianName1 order by ID DESC,cardDate DESC)  order by ID DESC";
-            //        read = SqlHelper.ExecuteReader(str, pms);
-            //    }
             }           
             while (read.Read())
             {
@@ -187,197 +217,77 @@ namespace DAL
         //按条件查找会员
         public List<memberInfoModel> hyczModel(string neirong, string tiaojian, int mouhu)
         {
-            string dpname=FilterClass.DianPu1.UserName.Trim();
+            //string dpname=FilterClass.DianPu1.UserName.Trim();
             int i = 1;
             List<memberInfoModel> list = new List<memberInfoModel>();
             memberInfoModel model;
             SqlParameter[] pms;
             string str = "";
-            switch (tiaojian)
+            switch (tiaojian.Trim())
             {
                 case "姓名":
-                    if (dpname == "admin")
-                    {
                         pms = new SqlParameter[] { 
                     new SqlParameter("@memberName", neirong)
                     };
-                    }
-                    else
-                    {
-                        pms = new SqlParameter[] { 
-                    new SqlParameter("@memberName", neirong),
-                    new SqlParameter("@dianName",dpname)
-                    }; 
-                    }
                     if (mouhu == 1)
                     {
-                        if (dpname == "admin")
-                        {
                             str = "select * from memberInfo where memberName like '%'+@memberName+'%'";
-                        }
-                        else
-                        {
-                            str = "select * from memberInfo where memberName like '%'+@memberName+'%' and dianName=@dianName";
-                        }
                     }
                     else
                     {
-                        if (dpname == "admin")
-                        {
-                            str = "select * from memberInfo where memberName=@memberName";
-                        }
-                        else
-                        {
-                            str = "select * from memberInfo where memberName=@memberName and dianName=@dianName";
-                        }
+                        str = "select * from memberInfo where memberName=@memberName";
                     }
                     break;
                 case "卡号":
-                    if (dpname == "admin")
-                    {
-                        pms = new SqlParameter[] { 
+                    pms = new SqlParameter[] { 
                     new SqlParameter("@memberCardNo", neirong)
                     };
-                    }
-                    else
-                    {
-                        pms = new SqlParameter[] { 
-                    new SqlParameter("@memberCardNo", neirong),
-                    new SqlParameter("@dianName",dpname)
-                    };
-                    }
                     if (mouhu == 1)
                     {
-                        if (dpname == "admin")
-                        {
-                            str = "select * from memberInfo where memberCardNo like '%'+@memberCardNo+'%'";
-                        }
-                        else
-                        {
-                            str = "select * from memberInfo where memberCardNo like '%'+@memberCardNo+'%' and dianName=@dianName";
-                        }
+                        str = "select * from memberInfo where memberCardNo like '%'+@memberCardNo+'%'";
                     }
                     else
                     {
-                        if (dpname == "admin")
-                        {
-                            str = "select * from memberInfo where memberCardNo=@memberCardNo";
-                        }
-                        else
-                        {
-                            str = "select * from memberInfo where memberCardNo=@memberCardNo and dianName=@dianName";
-                        }
+                        str = "select * from memberInfo where memberCardNo=@memberCardNo";
                     }
                     break;
                 case "电话":
-                    if (dpname == "admin")
-                    {
-                        pms = new SqlParameter[] { 
+                    pms = new SqlParameter[] { 
                     new SqlParameter("@memberTel", neirong)
                     };
-                    }
-                    else
-                    {
-                        pms = new SqlParameter[] { 
-                    new SqlParameter("@memberTel", neirong),
-                    new SqlParameter("@dianName",dpname)
-                    };
-                        }
                     if (mouhu == 1)
                     {
-                        if (dpname == "admin")
-                        {
-                            str = "select * from memberInfo where memberTel like '%'+@memberTel+'%'";
-                        }
-                        else
-                        {
-                            str = "select * from memberInfo where memberTel like '%'+@memberTel+'%' and dianName=@dianName";
-                        }
+                        str = "select * from memberInfo where memberTel like '%'+@memberTel+'%'";
                     }
                     else
                     {
-                        if (dpname == "admin")
-                        {
-                            str = "select * from memberInfo where memberTel=@memberTel";
-                        }
-                        else
-                        {
-                            str = "select * from memberInfo where memberTel=@memberTel and dianName=@dianName";
-                        }
+                        str = "select * from memberInfo where memberTel=@memberTel";
                     }
                     break;
                 case "备注":
-                    if (dpname == "admin")
-                    {
-                        pms = new SqlParameter[] { 
+                    pms = new SqlParameter[] { 
                     new SqlParameter("@remark", neirong)
                     };
-                    }
-                    else
-                    {
-                        pms = new SqlParameter[] { 
-                    new SqlParameter("@remark", neirong),
-                    new SqlParameter("@dianName",dpname)
-                    };
-                    }
                     if (mouhu == 1)
                     {
-                        if (dpname == "admin")
-                        {
-                            str = "select * from memberInfo where remark like '%'+@remark+'%'";
-                        }
-                        else
-                        {
-                            str = "select * from memberInfo where remark like '%'+@remark+'%' and dianName=@dianName";
-                        }
+                        str = "select * from memberInfo where remark like '%'+@remark+'%'";
                     }
                     else
                     {
-                        if (dpname == "admin")
-                        {
-                            str = "select * from memberInfo where remark=@remark";
-                        }
-                        else
-                        {
-                            str = "select * from memberInfo where remark=@remark and dianName=@dianName";
-                        }
+                        str = "select * from memberInfo where remark=@remark";
                     }
                     break;
                 case "业务员":
-                    if (dpname == "admin")
-                    {
-                        pms = new SqlParameter[] { 
+                    pms = new SqlParameter[] { 
                     new SqlParameter("@salesMan", neirong)
                     };
-                    }
-                    else
-                    {
-                        pms = new SqlParameter[] { 
-                    new SqlParameter("@salesMan", neirong),
-                    new SqlParameter("@dianName",dpname)
-                    };
-                    }
                     if (mouhu == 1)
                     {
-                        if(dpname=="admin")
-                        {
-                            str = "select * from memberInfo where salesMan like '%'+@salesMan+'%'";
-                        }
-                        else
-                        {
-                            str = "select * from memberInfo where salesMan like '%'+@salesMan+'%' and dianName=@dianName";
-                        }
+                        str = "select * from memberInfo where salesMan like '%'+@salesMan+'%'";
                     }
                     else
                     {
-                        if (dpname == "admin")
-                        {
-                            str = "select * from memberInfo where salesMan=@salesMan";
-                        }
-                        else
-                        {
-                            str = "select * from memberInfo where salesMan=@salesMan and dianName=@dianName";
-                        }
+                        str = "select * from memberInfo where salesMan=@salesMan";
                     }
                     break;
                 default: pms = new SqlParameter[] { 
@@ -411,6 +321,7 @@ namespace DAL
                     model.imageUrl = read["imgUrl"].ToString();
                     model.password = read["password"].ToString();
                     model.zhuangtai = read["zhuangtai"].ToString();
+                    model.ID = Convert.ToInt32(read["ID"]);
                     model.idbh = i;
                     list.Add(model);
                     i++;

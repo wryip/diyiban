@@ -68,6 +68,7 @@
     <Compile Include="staffTable.cs" />
     <Compile Include="TJBBSR.cs" />
     <Compile Include="WPEnd.cs" />
+    <Compile Include="XMoneyLS.cs" />
     <Compile Include="YGUser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

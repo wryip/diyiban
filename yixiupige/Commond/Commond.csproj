@@ -60,7 +60,6 @@
     <Compile Include="BarCodeToHTML.cs" />
     <Compile Include="PinYinZHClass.cs" />
     <Compile Include="PirentZXingNet.cs" />
-    <Compile Include="SuccessInfo.cs" />
     <Compile Include="TicketSet.cs" />
     <Compile Include="FilterClass.cs" />
     <Compile Include="NPOIHelper.cs" />
@@ -76,7 +75,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="2016082638052.jpg" />
+    <Folder Include="Info\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -244,7 +244,7 @@ namespace yixiupige
         private void button1_Click(object sender, EventArgs e)
         {
             string type = treeView1.SelectedNode.Text;
-            List<memberInfoModel> list = (List<memberInfoModel>)dataGridView1.DataSource;
+            List<memberInfoModel> list = infobll.selectAll(type.Split(new char []{'['},StringSplitOptions.RemoveEmptyEntries)[0]);
             bool resu = NPOIHelper.PrintDocument(list, type + "-会员信息");
             if (resu)
             {

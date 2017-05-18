@@ -131,8 +131,8 @@ namespace yixiupige
                 MessageBox.Show("请选择一条数据！");
                 return;
             }
-            int id = Convert.ToInt32(dataGridView1.Rows[0].Cells["jcID"].Value);
-            qzjcFrom qzjc = qzjcFrom.CreateForm(id, databindview1, hsuaxin);
+            //int id = Convert.ToInt32(dataGridView1.Rows[0].Cells["jcID"].Value);
+            qzjcFrom qzjc = qzjcFrom.CreateForm(list[0], databindview1, hsuaxin);
             qzjc.Show();
             qzjc.Focus();
         }

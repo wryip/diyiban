@@ -120,7 +120,7 @@ namespace yixiupige
         {
             #region//配置打印机
             
-            #endregion
+            #endregion;
             //1品牌2颜色3常见问题4商品5寄存（收活类别）6员工工种
             dataGridView3.Visible = false;
             radioButton1.Checked = true;
@@ -783,6 +783,7 @@ namespace yixiupige
         //不管有没有密码   点击保存之后执行的方法
         public void BaoCunClick(bool issave)
         {
+            string dannumber = "";
             nowdate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string sb = "";
             string[] ss = DateTime.Now.ToString("yyyy-MM-dd").Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
@@ -790,6 +791,13 @@ namespace yixiupige
             {
                 sb += s;
             }
+            string dpname = FilterClass.DianPu1.UserName.Trim();
+            string[] sss = dpbll.selectDanNumber(dpname);
+            for (int i = sss[0].Trim().Length; i < 4; i++)
+            {
+                dannumber = "0" + dannumber;
+            }
+            sb += dannumber;
             //Random rad = new Random();
             //sb += rad.Next(1000, 9999);
             //将数据表中的数据拿出来，然后遍历，将是寄存的商品单独提取到另一个收活list中，然后添加到寄存管理里面
@@ -821,7 +829,13 @@ namespace yixiupige
                 //model.LSNumberCount = "0";
                 model.LSMoney = iteam.CountMoney.ToString();
                 model.LSYMoney = iteam.YMoney.ToString();
-                model.IsXMoney = iteam.FuKuan;
+                //此处进行判断什么时候为县级支付
+                //model.IsXMoney = iteam.FuKuan;
+                //此处的想法是只要是应付金额部位0的，就应该是现金支付
+                if (Convert.ToDouble(iteam.YMoney.ToString()) != 0)
+                {
+                    model.IsXMoney = true;
+                }
                 model.LSCount = iteam.Count.ToString();
                 model.LSPinPai = iteam.PinPai;
                 model.LSColor = iteam.Color;
@@ -934,7 +948,7 @@ namespace yixiupige
             {
                 string bgjtm = "";
                 string num = "";
-                string dpname = FilterClass.DianPu1.UserName.Trim();
+                //string dpname = FilterClass.DianPu1.UserName.Trim();
                 //拿到店铺编号，合今日所松溪的数量的number，然后拼接不干胶打印机条码的数字
                 //第一个是前面的店铺编号，后面的是所卖的数量
                 string[] dpnumber = dpbll.selectNumberAndNo(dpname);
@@ -947,7 +961,7 @@ namespace yixiupige
                 //保存为正确格式的条码
                 bgjtm = dpnumber[0].Trim() + DateTime.Now.ToString("yyyy") + DateTime.Now.ToString("MM") + DateTime.Now.ToString("dd") + num;
                 //不干胶打印//成功后打印不干胶条形码!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                bool result = PirentZXingNet.PirentTM(bgjtm, jclist[0].FuWuName, (sb+num), dateTimePicker1.Value.ToString("yyyy-MM-dd"), jclist.Count, (g + 1), jclist[0].CJQuestion, jclist[0].Type, jclist[0].PinPai, jclist[0].Color, jclist[0].Remark);
+                bool result = PirentZXingNet.PirentTM(bgjtm, jclist[0].FuWuName, sb, dateTimePicker1.Value.ToString("yyyy-MM-dd"), jclist.Count, (g + 1), jclist[0].CJQuestion, jclist[0].Type, jclist[0].PinPai, jclist[0].Color, jclist[0].Remark);
                 if (result)
                 {
                     jclist[g].PaiNumber = bgjtm;
@@ -992,6 +1006,7 @@ namespace yixiupige
 
             }//printDocument1.Print();
             dataGridView2.DataSource = new List<shInfoList>();
+            dpbll.uodateDanNumber(sss[1], Convert.ToInt32(sss[0]));
             TJBBBuy(listjieshu);
             //清空数据
             emptyInfo();
@@ -1337,19 +1352,7 @@ namespace yixiupige
         }
         private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
         {
-            int i = dataGridView1.Rows.Count;
-            for (int j = 0; j < i; j++)
-            {
-                dataGridView1.Rows[j].Selected = false;
-            }
-            try
-            {
-                dataGridView1.Rows[e.RowIndex].Selected = true;
-            }
-            catch
-            {
-                return;
-            }
+
         }
         public void videoStar()
         {

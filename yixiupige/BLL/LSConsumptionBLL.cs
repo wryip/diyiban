@@ -20,6 +20,10 @@ namespace BLL
         {
             return dal.AddList(listLS);
         }
+        public List<XMoneyLS> SelectXMoney(string begindate, string enddate, string dpname)
+        {
+            return dal.SelectXMoney(begindate,enddate,dpname);
+        }
         public List<LiShiConsumption> selectAllList(string cardNo,string name)
         {
             return dal.selectAllList(cardNo, name);

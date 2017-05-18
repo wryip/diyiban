@@ -33,7 +33,6 @@
             this.系统管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.管理员设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.数据库管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.基本设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.基本参数ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.分类服务ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,8 +111,7 @@
             // 
             this.系统管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.系统设置ToolStripMenuItem,
-            this.管理员设置ToolStripMenuItem,
-            this.数据库管理ToolStripMenuItem});
+            this.管理员设置ToolStripMenuItem});
             this.系统管理ToolStripMenuItem.Name = "系统管理ToolStripMenuItem";
             this.系统管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.系统管理ToolStripMenuItem.Text = "系统管理";
@@ -121,23 +119,16 @@
             // 系统设置ToolStripMenuItem
             // 
             this.系统设置ToolStripMenuItem.Name = "系统设置ToolStripMenuItem";
-            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.系统设置ToolStripMenuItem.Text = "连锁店设置";
             this.系统设置ToolStripMenuItem.Click += new System.EventHandler(this.系统设置ToolStripMenuItem_Click);
             // 
             // 管理员设置ToolStripMenuItem
             // 
             this.管理员设置ToolStripMenuItem.Name = "管理员设置ToolStripMenuItem";
-            this.管理员设置ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.管理员设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.管理员设置ToolStripMenuItem.Text = "管理员设置";
             this.管理员设置ToolStripMenuItem.Click += new System.EventHandler(this.管理员设置ToolStripMenuItem_Click);
-            // 
-            // 数据库管理ToolStripMenuItem
-            // 
-            this.数据库管理ToolStripMenuItem.Name = "数据库管理ToolStripMenuItem";
-            this.数据库管理ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.数据库管理ToolStripMenuItem.Text = "数据库管理";
-            this.数据库管理ToolStripMenuItem.Click += new System.EventHandler(this.数据库管理ToolStripMenuItem_Click);
             // 
             // 基本设置ToolStripMenuItem
             // 
@@ -604,7 +595,6 @@
         private System.Windows.Forms.ToolStripMenuItem 系统管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 系统设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 管理员设置ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 数据库管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 基本设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 基本参数ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 分类服务ToolStripMenuItem;

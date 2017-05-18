@@ -222,6 +222,24 @@ namespace DAL
             }
             return strarry;
         }
+        public string[] selectDanNumber(string dpname)
+        {
+            string[] strarry = new string[2];
+            string str = "select DPDan,ID from DPInfo where DPName=@DPName";
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@DPName",dpname)
+            };
+            SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
+            while (read.Read())
+            {
+                if (read.HasRows)
+                {
+                    strarry[0] = read["DPDan"].ToString();
+                    strarry[1] = read["ID"].ToString();
+                }
+            }
+            return strarry;
+        }
         public bool uodateNumber(string dpID, int j)
         {
             bool result = false;
@@ -229,6 +247,20 @@ namespace DAL
             SqlParameter[] pms = new SqlParameter[] {
             new SqlParameter("@ID",dpID),
             new SqlParameter("@DPNumber",j)
+            };
+            if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
+            {
+                result = true;
+            }
+            return result;
+        }
+        public bool uodateDanNumber(string dpID, int j)
+        {
+            bool result = false;
+            string str = "update DPInfo set DPDan=@DPDan where ID=@ID";
+            SqlParameter[] pms = new SqlParameter[] {
+            new SqlParameter("@ID",dpID),
+            new SqlParameter("@DPDan",j)
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {

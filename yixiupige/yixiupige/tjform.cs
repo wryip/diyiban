@@ -141,9 +141,24 @@ namespace yixiupige
                     break;
                 case 16: YGFinish(dpname);
                     break;
+                case 17: XMoneyLS(dpname);
+                    break;
             }
         }
-
+        //现金消费
+        private void XMoneyLS(string dpname)
+        {
+            double money = 0;
+            List<XMoneyLS> list = lsbll.SelectXMoney(begindate, enddate, dpname);
+            dataGridView18.DataSource = list;
+            foreach (var iteam in list)
+            {
+                money += Convert.ToDouble(iteam.MoneyXM);
+            }
+            label8.Text = list.Count.ToString();
+            label9.Text = money.ToString();
+        }
+        //店内完成
         private void YGFinish(string dpname)
         {
             double money = 0;
@@ -613,6 +628,26 @@ namespace yixiupige
             else if (selectIndex == 15)
             {
                 bool result = NPOIHelper.PrintDocument<JCInfoModel>((List<JCInfoModel>)dataGridView15.DataSource, "返工统计");
+                if (result)
+                {
+                    MessageBox.Show("导出成功");
+                    return;
+                }
+                MessageBox.Show("导出失败");
+            }
+            else if (selectIndex == 16)
+            {
+                bool result = NPOIHelper.PrintDocument<JCInfoModel>((List<JCInfoModel>)dataGridView17.DataSource, "店内完成");
+                if (result)
+                {
+                    MessageBox.Show("导出成功");
+                    return;
+                }
+                MessageBox.Show("导出失败");
+            }
+            else if (selectIndex == 17)
+            {
+                bool result = NPOIHelper.PrintDocument<XMoneyLS>((List<XMoneyLS>)dataGridView18.DataSource, "现金消费");
                 if (result)
                 {
                     MessageBox.Show("导出成功");
