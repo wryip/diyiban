@@ -95,7 +95,7 @@ namespace yixiupige
                 model.cardMoney = bkjetextBox.Text;
                 model.dianName = lsdcomboBox.Text;
                 model.cardType = textBox1.Text;
-                model.saleMan = ywycomboBox.Text == "" ? FilterClass.DianPu1.LoginName : textBox1.Text;
+                model.saleMan = ywycomboBox.Text == "" ? FilterClass.DianPu1.LoginName : ywycomboBox.Text;
                 model.memberType = hyflcomboBox.Text;
                 model.address = dwtextBox.Text;
                 model.remark = bzxxtextBox.Text;

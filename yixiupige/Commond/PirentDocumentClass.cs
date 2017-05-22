@@ -32,6 +32,7 @@ namespace Commond
         public static string _name { get; set; }
         public static string _time { get; set; }
         public static string _gksy { get; set; }
+        public static string _tel { get; set; }
         public static int _beginy { get; set; }
         public static double _QKMoney { get; set; }
         public static string _cardnumber { get; set; }
@@ -350,8 +351,9 @@ namespace Commond
         {
             return (int)(cm / 25.4) * 100;
         }
-        public static void PrintToUpMoney(memberToUpModel model)
+        public static void PrintToUpMoney(memberToUpModel model,string tel)
         {
+            _tel = tel;
             toupmoney = model;
             //打印预览
             PrintPreviewDialog ppd = new PrintPreviewDialog();
@@ -383,8 +385,6 @@ namespace Commond
             //return;
             string DPTel = FilterClass.DPTel;
             string jiewei = FilterClass.DXInfo;
-            int i = 1;
-            int j = 0;
             StringBuilder sb = new StringBuilder();
             string tou = "顾客充值小票";
             sb.Append("            " + tou + "       \r\n");
@@ -392,10 +392,18 @@ namespace Commond
             sb.Append("日期:" + DateTime.Now.ToShortDateString() + " \r\n");
             sb.Append("姓名:" + toupmoney.czName + "\r\n" + "卡号:" + toupmoney.czNo + "\r\n");
             sb.Append("卡类型:" + toupmoney.czType + "\r\n");
-            sb.Append("本次充值:" + toupmoney.czMoney + "\r\n");
-            sb.Append("剩余次数:" + toupmoney.czyCount + "\r\n");
-            sb.Append("余额:" + (Convert.ToDouble(toupmoney.czyMoney) + Convert.ToDouble(toupmoney.czyMoney)) + "\r\n");
-            e.Graphics.DrawString(sb.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, 0));
+            sb.Append("本次充值:" + toupmoney.czMoney + "\r\n");            
+            if (toupmoney.czType.Trim() != "计次卡")
+            {
+                sb.Append("余额:" + (Convert.ToDouble(toupmoney.czyMoney) + Convert.ToDouble(toupmoney.czCount)) + "\r\n");
+            }
+            else
+            {
+                sb.Append("剩余次数:" + (Convert.ToDouble(toupmoney.czyCount) + Convert.ToDouble(toupmoney.czCount)) + "\r\n");
+            }
+            sb.Append("电话："+_tel + "\r\n");
+            sb.Append("顾客签字 ："  + "\r\n");
+            e.Graphics.DrawString(sb.ToString(), new Font("Segoe UI", 8), Brushes.Black, new Point(0, 0));
         }
     }
 }

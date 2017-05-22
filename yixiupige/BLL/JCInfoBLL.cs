@@ -40,7 +40,7 @@ namespace BLL
                 model.jcEndDate = enddate;
                 model.jcZT = "未取走";
                 model.jcAddress = "在店中";
-                model.jcImgUrl = iteam.ImgUrl;
+                model.jcImgUrl = iteam.ImgUrl == null ? "" : iteam.ImgUrl;
                 model.jcDanNumber = danNumber;
                 model.jcPaiNumber = iteam.PaiNumber;
                 model.jcRemark = iteam.Remark;

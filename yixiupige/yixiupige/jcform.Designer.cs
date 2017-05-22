@@ -104,7 +104,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(1172, 33);
+            this.button7.Location = new System.Drawing.Point(1170, 26);
             this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(90, 33);
@@ -405,8 +405,7 @@
             this.AcceptButton = this.button5;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.BackgroundImage = global::yixiupige.Properties.Resources._1;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1356, 561);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;

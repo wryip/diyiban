@@ -58,6 +58,7 @@ namespace yixiupige
                 return;
             }
             databind1(textBox2.Text.Trim());
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)

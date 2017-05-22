@@ -190,6 +190,7 @@ namespace DAL
                     model.czSaleman = read["czSaleman"].ToString().Trim();
                     model.czNo = read["czNo"].ToString().Trim();
                     model.czId = Convert.ToInt32(read["czId"].ToString().Trim());
+                    model.dianpu = read["DPName"].ToString();
                     model.czXH = i;
                     list.Add(model);
                 }

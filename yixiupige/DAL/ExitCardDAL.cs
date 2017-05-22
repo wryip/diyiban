@@ -70,7 +70,7 @@ namespace DAL
                 if (read.HasRows)
                 {
                     model = new ExitCardModel();
-                    model.DPName = read["memberName"].ToString().Trim();
+                    model.memberName = read["memberName"].ToString().Trim();
                     model.DateTimeCard = read["DateTimeCard"].ToString().Trim();
                     model.saleMen = read["saleMen"].ToString().Trim();
                     model.CardMoney = read["CardMoney"].ToString().Trim();

@@ -16,5 +16,6 @@ namespace MODEL
         public string DanMoney { get; set; }
         public string StaffName { get; set; }
         public string ExitDanTime { get; set; }
+        public string IsMoney { get; set; }
     }
 }

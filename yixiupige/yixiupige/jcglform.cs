@@ -106,12 +106,22 @@ namespace yixiupige
         }
         public void dataviewBind(List<JCInfoModel> list)
         {
-            dataGridView1.DataSource=list;
+            dataGridView1.DataSource=list.OrderByDescending(a=>a.jcBeginDate).ToList();
         }
         //刷新数据
         public void dataviewBind1()
         {
-            List<JCInfoModel> list = jcinfobll.selectAllList("全部");
+            //List<JCInfoModel> list = jcinfobll.selectAllList("全部");
+            //dataGridView1.DataSource = list;
+            int count;
+            int i = 1;
+            List<JCInfoModel> list = jcinfobll.selectAllPageList("全部".Split(new char[] { '[' }, StringSplitOptions.RemoveEmptyEntries)[0], 1, out count);
+            foreach (var iteam in list)
+            {
+                iteam.jcNo = i++;
+            }
+            PageCount = count;
+            label3.Text = "共" + count + "条";
             dataGridView1.DataSource = list;
         }
         private void 寄存取走ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -185,7 +195,8 @@ namespace yixiupige
                 if (result)
                 {
                     MessageBox.Show("修改成功！");
-                    dataviewBind1();
+                    //dataviewBind1();
+                    //if
                 }
                 else
                 {

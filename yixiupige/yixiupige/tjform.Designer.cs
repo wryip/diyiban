@@ -191,14 +191,6 @@
             this.DPName11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.dataGridView11 = new System.Windows.Forms.DataGridView();
-            this.ID2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExitDanTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.memberName2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.memberCardNo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleMen2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DPName2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DanMoney2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StaffName2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.dataGridView12 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -328,15 +320,15 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.tabPage18 = new System.Windows.Forms.TabPage();
-            this.dataGridView18 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn121 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn122 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn123 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn124 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn125 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn126 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn127 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExitDanTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.memberName2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.memberCardNo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleMen2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DPName2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DanMoney2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StaffName2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -373,13 +365,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView16)).BeginInit();
             this.tabPage17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView17)).BeginInit();
-            this.tabPage18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView18)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-this.panel1.BackgroundImage = global::yixiupige.Properties.Resources._1;
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
@@ -492,7 +481,7 @@ this.panel1.BackgroundImage = global::yixiupige.Properties.Resources._1;
             // label4
             // 
             this.label4.AutoSize = true;
-this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(653, 17);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
@@ -503,7 +492,7 @@ this.label4.BackColor = System.Drawing.Color.Transparent;
             // label3
             // 
             this.label3.AutoSize = true;
-this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.Location = new System.Drawing.Point(481, 15);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -534,8 +523,7 @@ this.label3.BackColor = System.Drawing.Color.Transparent;
             this.tabControl1.Controls.Add(this.tabPage15);
             this.tabControl1.Controls.Add(this.tabPage16);
             this.tabControl1.Controls.Add(this.tabPage17);
-            this.tabControl1.Controls.Add(this.tabPage18);
-this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabControl1.Location = new System.Drawing.Point(3, 41);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -545,10 +533,10 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1199, 438);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "办卡统计";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -596,11 +584,10 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // 
             // idbh
             // 
-            this.idbh.DataPropertyName = "id";
+            this.idbh.DataPropertyName = "idbh";
             this.idbh.HeaderText = "编号";
             this.idbh.Name = "idbh";
             this.idbh.ReadOnly = true;
-            this.idbh.Visible = false;
             // 
             // PY
             // 
@@ -774,10 +761,10 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dataGridView2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1199, 438);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "充值统计";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -829,10 +816,9 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // czNo
             // 
             this.czNo.DataPropertyName = "czNo";
-            this.czNo.HeaderText = "序号";
+            this.czNo.HeaderText = "卡号";
             this.czNo.Name = "czNo";
             this.czNo.ReadOnly = true;
-            this.czNo.Visible = false;
             // 
             // czName
             // 
@@ -900,9 +886,9 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dataGridView3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 26);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage3.Size = new System.Drawing.Size(1199, 438);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "寄存统计";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -940,7 +926,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowTemplate.Height = 23;
-            this.dataGridView3.Size = new System.Drawing.Size(1199, 442);
+            this.dataGridView3.Size = new System.Drawing.Size(1199, 438);
             this.dataGridView3.TabIndex = 0;
             // 
             // jcID
@@ -986,6 +972,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.jcNo.HeaderText = "消费金额";
             this.jcNo.Name = "jcNo";
             this.jcNo.ReadOnly = true;
+            this.jcNo.Visible = false;
             // 
             // jcQMoney
             // 
@@ -1102,9 +1089,9 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.dataGridView4);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Location = new System.Drawing.Point(4, 26);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage4.Size = new System.Drawing.Size(1199, 438);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "取走统计";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1142,7 +1129,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowTemplate.Height = 23;
-            this.dataGridView4.Size = new System.Drawing.Size(1199, 442);
+            this.dataGridView4.Size = new System.Drawing.Size(1199, 438);
             this.dataGridView4.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn2
@@ -1188,6 +1175,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridViewTextBoxColumn1.HeaderText = "消费金额";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -1304,9 +1292,9 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.dataGridView6);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Location = new System.Drawing.Point(4, 26);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage6.Size = new System.Drawing.Size(1199, 438);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "会员卡消费";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1330,7 +1318,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridView6.Name = "dataGridView6";
             this.dataGridView6.ReadOnly = true;
             this.dataGridView6.RowTemplate.Height = 23;
-            this.dataGridView6.Size = new System.Drawing.Size(1199, 442);
+            this.dataGridView6.Size = new System.Drawing.Size(1199, 438);
             this.dataGridView6.TabIndex = 0;
             // 
             // IDe
@@ -1386,9 +1374,9 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage7
             // 
             this.tabPage7.Controls.Add(this.dataGridView7);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Location = new System.Drawing.Point(4, 26);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage7.Size = new System.Drawing.Size(1199, 438);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "收入统计";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1411,7 +1399,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridView7.Name = "dataGridView7";
             this.dataGridView7.ReadOnly = true;
             this.dataGridView7.RowTemplate.Height = 23;
-            this.dataGridView7.Size = new System.Drawing.Size(1199, 442);
+            this.dataGridView7.Size = new System.Drawing.Size(1199, 438);
             this.dataGridView7.TabIndex = 0;
             // 
             // No
@@ -1461,9 +1449,9 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage8
             // 
             this.tabPage8.Controls.Add(this.dataGridView8);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Location = new System.Drawing.Point(4, 26);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage8.Size = new System.Drawing.Size(1199, 438);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "短信统计";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1489,7 +1477,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridView8.Name = "dataGridView8";
             this.dataGridView8.ReadOnly = true;
             this.dataGridView8.RowTemplate.Height = 23;
-            this.dataGridView8.Size = new System.Drawing.Size(1199, 442);
+            this.dataGridView8.Size = new System.Drawing.Size(1199, 438);
             this.dataGridView8.TabIndex = 0;
             // 
             // No1
@@ -1561,9 +1549,9 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage9
             // 
             this.tabPage9.Controls.Add(this.dataGridView9);
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Location = new System.Drawing.Point(4, 26);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage9.Size = new System.Drawing.Size(1199, 438);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "商品销售";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -1591,7 +1579,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridView9.Name = "dataGridView9";
             this.dataGridView9.ReadOnly = true;
             this.dataGridView9.RowTemplate.Height = 23;
-            this.dataGridView9.Size = new System.Drawing.Size(1199, 442);
+            this.dataGridView9.Size = new System.Drawing.Size(1199, 438);
             this.dataGridView9.TabIndex = 0;
             // 
             // PutBH
@@ -1607,6 +1595,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.PutNo.HeaderText = "库存号";
             this.PutNo.Name = "PutNo";
             this.PutNo.ReadOnly = true;
+            this.PutNo.Visible = false;
             // 
             // PutName
             // 
@@ -1674,9 +1663,9 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage10
             // 
             this.tabPage10.Controls.Add(this.dataGridView10);
-            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Location = new System.Drawing.Point(4, 26);
             this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage10.Size = new System.Drawing.Size(1199, 438);
             this.tabPage10.TabIndex = 9;
             this.tabPage10.Text = "商品进货";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -1703,7 +1692,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridView10.Name = "dataGridView10";
             this.dataGridView10.ReadOnly = true;
             this.dataGridView10.RowTemplate.Height = 23;
-            this.dataGridView10.Size = new System.Drawing.Size(1199, 442);
+            this.dataGridView10.Size = new System.Drawing.Size(1199, 438);
             this.dataGridView10.TabIndex = 0;
             // 
             // BH
@@ -1779,9 +1768,9 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.dataGridView5);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Location = new System.Drawing.Point(4, 26);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage5.Size = new System.Drawing.Size(1199, 438);
             this.tabPage5.TabIndex = 10;
             this.tabPage5.Text = "退卡统计";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1863,9 +1852,9 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage11
             // 
             this.tabPage11.Controls.Add(this.dataGridView11);
-            this.tabPage11.Location = new System.Drawing.Point(4, 22);
+            this.tabPage11.Location = new System.Drawing.Point(4, 26);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage11.Size = new System.Drawing.Size(1199, 438);
             this.tabPage11.TabIndex = 11;
             this.tabPage11.Text = "退单统计";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -1881,6 +1870,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView11.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID2,
+            this.IsMoney,
             this.ExitDanTime,
             this.memberName2,
             this.memberCardNo2,
@@ -1895,69 +1885,12 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridView11.Size = new System.Drawing.Size(1187, 435);
             this.dataGridView11.TabIndex = 0;
             // 
-            // ID2
-            // 
-            this.ID2.DataPropertyName = "ID";
-            this.ID2.HeaderText = "ID";
-            this.ID2.Name = "ID2";
-            this.ID2.ReadOnly = true;
-            this.ID2.Visible = false;
-            // 
-            // ExitDanTime
-            // 
-            this.ExitDanTime.DataPropertyName = "ExitDanTime";
-            this.ExitDanTime.HeaderText = "退单时间";
-            this.ExitDanTime.Name = "ExitDanTime";
-            this.ExitDanTime.ReadOnly = true;
-            // 
-            // memberName2
-            // 
-            this.memberName2.DataPropertyName = "memberName";
-            this.memberName2.HeaderText = "会员名称";
-            this.memberName2.Name = "memberName2";
-            this.memberName2.ReadOnly = true;
-            // 
-            // memberCardNo2
-            // 
-            this.memberCardNo2.DataPropertyName = "memberCardNo";
-            this.memberCardNo2.HeaderText = "消费单号";
-            this.memberCardNo2.Name = "memberCardNo2";
-            this.memberCardNo2.ReadOnly = true;
-            // 
-            // saleMen2
-            // 
-            this.saleMen2.DataPropertyName = "saleMen";
-            this.saleMen2.HeaderText = "业务员";
-            this.saleMen2.Name = "saleMen2";
-            this.saleMen2.ReadOnly = true;
-            // 
-            // DPName2
-            // 
-            this.DPName2.DataPropertyName = "DPName";
-            this.DPName2.HeaderText = "所属店铺";
-            this.DPName2.Name = "DPName2";
-            this.DPName2.ReadOnly = true;
-            // 
-            // DanMoney2
-            // 
-            this.DanMoney2.DataPropertyName = "DanMoney";
-            this.DanMoney2.HeaderText = "金额";
-            this.DanMoney2.Name = "DanMoney2";
-            this.DanMoney2.ReadOnly = true;
-            // 
-            // StaffName2
-            // 
-            this.StaffName2.DataPropertyName = "StaffName";
-            this.StaffName2.HeaderText = "服务名称";
-            this.StaffName2.Name = "StaffName2";
-            this.StaffName2.ReadOnly = true;
-            // 
             // tabPage12
             // 
             this.tabPage12.Controls.Add(this.dataGridView12);
-            this.tabPage12.Location = new System.Drawing.Point(4, 22);
+            this.tabPage12.Location = new System.Drawing.Point(4, 26);
             this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage12.Size = new System.Drawing.Size(1199, 438);
             this.tabPage12.TabIndex = 12;
             this.tabPage12.Text = "欠款统计";
             this.tabPage12.UseVisualStyleBackColor = true;
@@ -1995,7 +1928,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridView12.Name = "dataGridView12";
             this.dataGridView12.ReadOnly = true;
             this.dataGridView12.RowTemplate.Height = 23;
-            this.dataGridView12.Size = new System.Drawing.Size(1199, 442);
+            this.dataGridView12.Size = new System.Drawing.Size(1199, 438);
             this.dataGridView12.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn21
@@ -2156,10 +2089,10 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage13
             // 
             this.tabPage13.Controls.Add(this.dataGridView13);
-            this.tabPage13.Location = new System.Drawing.Point(4, 22);
+            this.tabPage13.Location = new System.Drawing.Point(4, 26);
             this.tabPage13.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage13.Size = new System.Drawing.Size(1199, 438);
             this.tabPage13.TabIndex = 13;
             this.tabPage13.Text = "无票取走";
             this.tabPage13.UseVisualStyleBackColor = true;
@@ -2242,9 +2175,9 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage14
             // 
             this.tabPage14.Controls.Add(this.dataGridView14);
-            this.tabPage14.Location = new System.Drawing.Point(4, 22);
+            this.tabPage14.Location = new System.Drawing.Point(4, 26);
             this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage14.Size = new System.Drawing.Size(1199, 438);
             this.tabPage14.TabIndex = 14;
             this.tabPage14.Text = "送洗统计";
             this.tabPage14.UseVisualStyleBackColor = true;
@@ -2282,7 +2215,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridView14.Name = "dataGridView14";
             this.dataGridView14.ReadOnly = true;
             this.dataGridView14.RowTemplate.Height = 23;
-            this.dataGridView14.Size = new System.Drawing.Size(1199, 442);
+            this.dataGridView14.Size = new System.Drawing.Size(1199, 438);
             this.dataGridView14.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn42
@@ -2328,6 +2261,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridViewTextBoxColumn41.HeaderText = "金额";
             this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
             this.dataGridViewTextBoxColumn41.ReadOnly = true;
+            this.dataGridViewTextBoxColumn41.Visible = false;
             // 
             // dataGridViewTextBoxColumn46
             // 
@@ -2444,9 +2378,9 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage15
             // 
             this.tabPage15.Controls.Add(this.dataGridView15);
-            this.tabPage15.Location = new System.Drawing.Point(4, 22);
+            this.tabPage15.Location = new System.Drawing.Point(4, 26);
             this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage15.Size = new System.Drawing.Size(1199, 438);
             this.tabPage15.TabIndex = 15;
             this.tabPage15.Text = "接收统计";
             this.tabPage15.UseVisualStyleBackColor = true;
@@ -2484,7 +2418,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridView15.Name = "dataGridView15";
             this.dataGridView15.ReadOnly = true;
             this.dataGridView15.RowTemplate.Height = 23;
-            this.dataGridView15.Size = new System.Drawing.Size(1199, 442);
+            this.dataGridView15.Size = new System.Drawing.Size(1199, 438);
             this.dataGridView15.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn61
@@ -2493,6 +2427,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridViewTextBoxColumn61.HeaderText = "编号";
             this.dataGridViewTextBoxColumn61.Name = "dataGridViewTextBoxColumn61";
             this.dataGridViewTextBoxColumn61.ReadOnly = true;
+            this.dataGridViewTextBoxColumn61.Visible = false;
             // 
             // tel3
             // 
@@ -2646,9 +2581,9 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage16
             // 
             this.tabPage16.Controls.Add(this.dataGridView16);
-            this.tabPage16.Location = new System.Drawing.Point(4, 22);
+            this.tabPage16.Location = new System.Drawing.Point(4, 26);
             this.tabPage16.Name = "tabPage16";
-            this.tabPage16.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage16.Size = new System.Drawing.Size(1199, 438);
             this.tabPage16.TabIndex = 16;
             this.tabPage16.Text = "返工统计";
             this.tabPage16.UseVisualStyleBackColor = true;
@@ -2686,7 +2621,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridView16.Name = "dataGridView16";
             this.dataGridView16.ReadOnly = true;
             this.dataGridView16.RowTemplate.Height = 23;
-            this.dataGridView16.Size = new System.Drawing.Size(1199, 442);
+            this.dataGridView16.Size = new System.Drawing.Size(1199, 438);
             this.dataGridView16.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn81
@@ -2695,6 +2630,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridViewTextBoxColumn81.HeaderText = "编号";
             this.dataGridViewTextBoxColumn81.Name = "dataGridViewTextBoxColumn81";
             this.dataGridViewTextBoxColumn81.ReadOnly = true;
+            this.dataGridViewTextBoxColumn81.Visible = false;
             // 
             // tel2
             // 
@@ -2848,9 +2784,9 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // tabPage17
             // 
             this.tabPage17.Controls.Add(this.dataGridView17);
-            this.tabPage17.Location = new System.Drawing.Point(4, 22);
+            this.tabPage17.Location = new System.Drawing.Point(4, 26);
             this.tabPage17.Name = "tabPage17";
-            this.tabPage17.Size = new System.Drawing.Size(1199, 442);
+            this.tabPage17.Size = new System.Drawing.Size(1199, 438);
             this.tabPage17.TabIndex = 17;
             this.tabPage17.Text = "店内完成";
             this.tabPage17.UseVisualStyleBackColor = true;
@@ -2888,7 +2824,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridView17.Name = "dataGridView17";
             this.dataGridView17.ReadOnly = true;
             this.dataGridView17.RowTemplate.Height = 23;
-            this.dataGridView17.Size = new System.Drawing.Size(1199, 442);
+            this.dataGridView17.Size = new System.Drawing.Size(1199, 438);
             this.dataGridView17.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn102
@@ -2927,6 +2863,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             this.dataGridViewTextBoxColumn101.HeaderText = "金额";
             this.dataGridViewTextBoxColumn101.Name = "dataGridViewTextBoxColumn101";
             this.dataGridViewTextBoxColumn101.ReadOnly = true;
+            this.dataGridViewTextBoxColumn101.Visible = false;
             // 
             // dataGridViewTextBoxColumn105
             // 
@@ -3060,7 +2997,7 @@ this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawi
             // label2
             // 
             this.label2.AutoSize = true;
-this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(207, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
@@ -3077,7 +3014,7 @@ this.label2.BackColor = System.Drawing.Color.Transparent;
             // label1
             // 
             this.label1.AutoSize = true;
- this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(14, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
@@ -3091,93 +3028,74 @@ this.label2.BackColor = System.Drawing.Color.Transparent;
             this.dateTimePicker1.Size = new System.Drawing.Size(123, 21);
             this.dateTimePicker1.TabIndex = 5;
             // 
-            // tabPage18
+            // ID2
             // 
-            this.tabPage18.Controls.Add(this.dataGridView18);
-            this.tabPage18.Location = new System.Drawing.Point(4, 22);
-            this.tabPage18.Name = "tabPage18";
-            this.tabPage18.Size = new System.Drawing.Size(1199, 442);
-            this.tabPage18.TabIndex = 18;
-            this.tabPage18.Text = "现金消费";
-            this.tabPage18.UseVisualStyleBackColor = true;
+            this.ID2.DataPropertyName = "ID";
+            this.ID2.HeaderText = "ID";
+            this.ID2.Name = "ID2";
+            this.ID2.ReadOnly = true;
+            this.ID2.Visible = false;
             // 
-            // dataGridView18
+            // IsMoney
             // 
-            this.dataGridView18.AllowUserToAddRows = false;
-            this.dataGridView18.AllowUserToDeleteRows = false;
-            this.dataGridView18.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView18.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView18.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn121,
-            this.dataGridViewTextBoxColumn122,
-            this.dataGridViewTextBoxColumn123,
-            this.dataGridViewTextBoxColumn124,
-            this.dataGridViewTextBoxColumn125,
-            this.dataGridViewTextBoxColumn126,
-            this.dataGridViewTextBoxColumn127});
-            this.dataGridView18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView18.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView18.Name = "dataGridView18";
-            this.dataGridView18.ReadOnly = true;
-            this.dataGridView18.RowTemplate.Height = 23;
-            this.dataGridView18.Size = new System.Drawing.Size(1199, 442);
-            this.dataGridView18.TabIndex = 1;
+            this.IsMoney.DataPropertyName = "IsMoney";
+            this.IsMoney.HeaderText = "是否现金";
+            this.IsMoney.Name = "IsMoney";
+            this.IsMoney.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn121
+            // ExitDanTime
             // 
-            this.dataGridViewTextBoxColumn121.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn121.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn121.Name = "dataGridViewTextBoxColumn121";
-            this.dataGridViewTextBoxColumn121.ReadOnly = true;
-            this.dataGridViewTextBoxColumn121.Visible = false;
+            this.ExitDanTime.DataPropertyName = "ExitDanTime";
+            this.ExitDanTime.HeaderText = "退单时间";
+            this.ExitDanTime.Name = "ExitDanTime";
+            this.ExitDanTime.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn122
+            // memberName2
             // 
-            this.dataGridViewTextBoxColumn122.DataPropertyName = "membername";
-            this.dataGridViewTextBoxColumn122.HeaderText = "会员姓名";
-            this.dataGridViewTextBoxColumn122.Name = "dataGridViewTextBoxColumn122";
-            this.dataGridViewTextBoxColumn122.ReadOnly = true;
+            this.memberName2.DataPropertyName = "memberName";
+            this.memberName2.HeaderText = "会员名称";
+            this.memberName2.Name = "memberName2";
+            this.memberName2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn123
+            // memberCardNo2
             // 
-            this.dataGridViewTextBoxColumn123.DataPropertyName = "membernum";
-            this.dataGridViewTextBoxColumn123.HeaderText = "会员卡号";
-            this.dataGridViewTextBoxColumn123.Name = "dataGridViewTextBoxColumn123";
-            this.dataGridViewTextBoxColumn123.ReadOnly = true;
+            this.memberCardNo2.DataPropertyName = "memberCardNo";
+            this.memberCardNo2.HeaderText = "消费单号";
+            this.memberCardNo2.Name = "memberCardNo2";
+            this.memberCardNo2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn124
+            // saleMen2
             // 
-            this.dataGridViewTextBoxColumn124.DataPropertyName = "cardname";
-            this.dataGridViewTextBoxColumn124.HeaderText = "卡名字";
-            this.dataGridViewTextBoxColumn124.Name = "dataGridViewTextBoxColumn124";
-            this.dataGridViewTextBoxColumn124.ReadOnly = true;
+            this.saleMen2.DataPropertyName = "saleMen";
+            this.saleMen2.HeaderText = "业务员";
+            this.saleMen2.Name = "saleMen2";
+            this.saleMen2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn125
+            // DPName2
             // 
-            this.dataGridViewTextBoxColumn125.DataPropertyName = "cardtype";
-            this.dataGridViewTextBoxColumn125.HeaderText = "卡类型";
-            this.dataGridViewTextBoxColumn125.Name = "dataGridViewTextBoxColumn125";
-            this.dataGridViewTextBoxColumn125.ReadOnly = true;
+            this.DPName2.DataPropertyName = "DPName";
+            this.DPName2.HeaderText = "所属店铺";
+            this.DPName2.Name = "DPName2";
+            this.DPName2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn126
+            // DanMoney2
             // 
-            this.dataGridViewTextBoxColumn126.DataPropertyName = "cardmoney";
-            this.dataGridViewTextBoxColumn126.HeaderText = "消费金额";
-            this.dataGridViewTextBoxColumn126.Name = "dataGridViewTextBoxColumn126";
-            this.dataGridViewTextBoxColumn126.ReadOnly = true;
+            this.DanMoney2.DataPropertyName = "DanMoney";
+            this.DanMoney2.HeaderText = "金额";
+            this.DanMoney2.Name = "DanMoney2";
+            this.DanMoney2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn127
+            // StaffName2
             // 
-            this.dataGridViewTextBoxColumn127.DataPropertyName = "dpname";
-            this.dataGridViewTextBoxColumn127.HeaderText = "所属店铺";
-            this.dataGridViewTextBoxColumn127.Name = "dataGridViewTextBoxColumn127";
-            this.dataGridViewTextBoxColumn127.ReadOnly = true;
+            this.StaffName2.DataPropertyName = "StaffName";
+            this.StaffName2.HeaderText = "服务名称";
+            this.StaffName2.Name = "StaffName2";
+            this.StaffName2.ReadOnly = true;
             // 
             // tjfrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
- this.BackgroundImage = global::yixiupige.Properties.Resources._1;
             this.ClientSize = new System.Drawing.Size(1276, 553);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -3223,8 +3141,6 @@ this.label2.BackColor = System.Drawing.Color.Transparent;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView16)).EndInit();
             this.tabPage17.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView17)).EndInit();
-            this.tabPage18.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView18)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3259,18 +3175,6 @@ this.label2.BackColor = System.Drawing.Color.Transparent;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn czId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn czXH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn czNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn czName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn czMoney;
-        private System.Windows.Forms.DataGridViewTextBoxColumn czCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn czyMoney;
-        private System.Windows.Forms.DataGridViewTextBoxColumn czyCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn czType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn czDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn czSaleman;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dianpu;
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
@@ -3297,17 +3201,6 @@ this.label2.BackColor = System.Drawing.Color.Transparent;
         private System.Windows.Forms.DataGridViewTextBoxColumn HuoDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn HuoSale;
         private System.Windows.Forms.DataGridViewTextBoxColumn HuoDianName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PutBH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PutNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PutName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PutType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PutMoney;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PutCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PutCardNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PubPersonName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PutDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PutSale;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PutDianName;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label5;
@@ -3345,6 +3238,58 @@ this.label2.BackColor = System.Drawing.Color.Transparent;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn DanNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn DPName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tel5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn membername111;
+        private System.Windows.Forms.DataGridViewTextBoxColumn membernum111;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardtype111;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardmoney111;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dpname111;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idbh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn memberCardNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn memberDocument;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saleMan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imageUrl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn memberName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn memberSex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn memberTel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn toUpMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn birDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn memberType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zhuangtai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fuwuBate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rebate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dianName;
         private System.Windows.Forms.DataGridViewTextBoxColumn jcID;
         private System.Windows.Forms.DataGridViewTextBoxColumn tel8;
         private System.Windows.Forms.DataGridViewTextBoxColumn jcCardNumber;
@@ -3387,27 +3332,17 @@ this.label2.BackColor = System.Drawing.Color.Transparent;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tel5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutBH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutCardNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PubPersonName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutSale;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PutDianName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
         private System.Windows.Forms.DataGridViewTextBoxColumn tel4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
@@ -3429,6 +3364,27 @@ this.label2.BackColor = System.Drawing.Color.Transparent;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn58;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn59;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn60;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn102;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn103;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn104;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn101;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn105;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn106;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn107;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn108;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn109;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn110;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn111;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn112;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn113;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn114;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn115;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn116;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn117;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn118;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn119;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn120;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn61;
         private System.Windows.Forms.DataGridViewTextBoxColumn tel3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn62;
@@ -3471,59 +3427,20 @@ this.label2.BackColor = System.Drawing.Color.Transparent;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn98;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn99;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn100;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn102;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tel1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn103;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn104;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn101;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn105;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn106;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn107;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn108;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn109;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn110;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn111;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn112;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn113;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn114;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn115;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn116;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn117;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn118;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn119;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn120;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn membername111;
-        private System.Windows.Forms.DataGridViewTextBoxColumn membernum111;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardtype111;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardmoney111;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dpname111;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idbh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PY;
-        private System.Windows.Forms.DataGridViewTextBoxColumn memberCardNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn memberDocument;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardMoney;
-        private System.Windows.Forms.DataGridViewTextBoxColumn saleMan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn remark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn imageUrl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn memberName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn memberSex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn memberTel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn toUpMoney;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn birDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn memberType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zhuangtai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn password;
-        private System.Windows.Forms.DataGridViewTextBoxColumn endDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fuwuBate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rebate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dianName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czXH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czyMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czyCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czSaleman;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dianpu;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsMoney;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExitDanTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn memberName2;
         private System.Windows.Forms.DataGridViewTextBoxColumn memberCardNo2;
@@ -3531,15 +3448,6 @@ this.label2.BackColor = System.Drawing.Color.Transparent;
         private System.Windows.Forms.DataGridViewTextBoxColumn DPName2;
         private System.Windows.Forms.DataGridViewTextBoxColumn DanMoney2;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffName2;
-        private System.Windows.Forms.TabPage tabPage18;
-        private System.Windows.Forms.DataGridView dataGridView18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn121;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn122;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn123;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn124;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn125;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn126;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn127;
 
     }
 }

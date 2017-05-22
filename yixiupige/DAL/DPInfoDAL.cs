@@ -260,7 +260,7 @@ namespace DAL
             string str = "update DPInfo set DPDan=@DPDan where ID=@ID";
             SqlParameter[] pms = new SqlParameter[] {
             new SqlParameter("@ID",dpID),
-            new SqlParameter("@DPDan",j)
+            new SqlParameter("@DPDan",++j)
             };
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
@@ -274,7 +274,7 @@ namespace DAL
             string str = "create Table CardExitMoney" + id + " (ID int primary key identity(1,1),membername nvarchar(50),membernum nvarchar(50),cardname nvarchar(50),cardtype nvarchar(50),cardmoney nvarchar(50),dpname nvarchar(50),DateTime smalldatetime)";
             str += "create Table DXSend" + id + " (id int primary key identity(1,1),CardNumber nvarchar(50),MemberName nvarchar(50),TelPhone nvarchar(50),SaleMan nvarchar(50),ContentNR nvarchar(50),DianPu nvarchar(50),Date smalldatetime)";
             str += "create Table ExitCard" + id + " (ID int primary key identity(1,1),memberName nchar(10),saleMen nchar(10),CardMoney nchar(10),CardType nvarchar(50),DPName nvarchar(50),DateTimeCard smalldatetime)";
-            str += "create Table ExitDan" + id + " (ID int primary key identity(1,1),memberName nchar(50),memberCardNo nchar(50),saleMen nchar(50),DPName nvarchar(50),DanMoney nvarchar(50),StaffName nvarchar(50),ExitDanTime smalldatetime)";
+            str += "create Table ExitDan" + id + " (ID int primary key identity(1,1),memberName nchar(50),memberCardNo nchar(50),saleMen nchar(50),DPName nvarchar(50),DanMoney nvarchar(50),StaffName nvarchar(50),IsMoney nvarchar(50),ExitDanTime smalldatetime)";
             str += "create Table GoodInfo" + id + " (Gid int primary key identity(1,1),Gno nvarchar(50),Gname nvarchar(50),Gtype nvarchar(50),Gremark nvarchar(50),DPName nvarchar(50),Gprice decimal(5, 2),Gbid decimal(5, 2),Gstock int,Gsum int)";
             str += "create Table InHuoTJ" + id + " (ID int primary key identity(1,1),HuoNumber nvarchar(50),HuoName nvarchar(50),HuoType nvarchar(50),HuoMoney nvarchar(50),HuoCount nvarchar(50),HuoSum nvarchar(50),HuoDate smalldatetime,HuoSale nvarchar(50),HuoDianName nvarchar(50))";
             str += "create Table JCInfoTable" + id + " (jcID int primary key identity(1,1),jcCardNumber nvarchar(50),jcName nvarchar(50),jcQMoney nvarchar(50),jcType nvarchar(50),jcPinPai nvarchar(50),jcColor nvarchar(50),jcStaff nvarchar(50),jcBeginDate smalldatetime,jcEndDate smalldatetime,jcZT nchar(10),jcAddress nvarchar(50),jcImgUrl nvarchar(50),jcDanNumber nvarchar(50),jcPaiNumber nvarchar(50),jcRemark nvarchar(50),jcQuestion nvarchar(50),jcPression nvarchar(50),DPName nvarchar(50),XYF nvarchar(50),YYF nvarchar(50))";

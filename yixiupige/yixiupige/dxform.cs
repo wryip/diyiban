@@ -56,9 +56,21 @@ namespace yixiupige
         private void button1_Click(object sender, EventArgs e)
         {
             int count = dataGridView1.Rows.Count;
-            for (int i = 0; i < count; i++)
+            if (button1.Text.Trim() == "全选")
             {
-                dataGridView1.Rows[i].Cells[4].Value = true;
+                button1.Text = "取消";
+                for (int i = 0; i < count; i++)
+                {
+                    dataGridView1.Rows[i].Cells[4].Value = true;
+                }
+            }
+            else
+            {
+                button1.Text = "全选";
+                for (int i = 0; i < count; i++)
+                {
+                    dataGridView1.Rows[i].Cells[4].Value = false;
+                }
             }
         }
 

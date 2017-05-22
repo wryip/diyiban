@@ -20,6 +20,7 @@ namespace yixiupige
             InitializeComponent();
         }
         public static double InfoBL { get; set; }
+        staffInfoBLL staffbll = new staffInfoBLL();
         public static List<memberToUpModel> Alllist = new List<memberToUpModel>();
         private static hyczck _danli = null;
         public static memberInfoModel model1;
@@ -49,19 +50,28 @@ namespace yixiupige
             textBox4.Text = model1.memberCardNo;
             textBox5.Text = model1.fuwuBate;
             textBox6.Text = model1.cardMoney;
-            
+            textBox6.Focus();
             textBox7.Text = model1.memberTel;
             textBox8.Text = model1.rebate;
             textBox9.Text = model1.cardType;
             textBox10.Text = model1.cardDate;
             textBox11.Text = model1.remark;
             textBox12.Text = model1.memberType;
-            comboBox1.Text = model1.saleMan;
+            //comboBox1.Text = model1.saleMan;
             //去拿相应卡的充值比例
             string cardtype = textBox12.Text.Trim();
             InfoBL = typebll.selectBL(cardtype);
             textBox3.Text = (Convert.ToDouble(textBox6.Text.Trim() == "" ? "1" : textBox6.Text) * InfoBL).ToString(); 
             dataBind();
+            List<jbcs> listname = staffbll.selectSH();
+            foreach (var iteam in listname)
+            {
+                comboBox1.Items.Add(iteam.AllType);
+            }
+            if (comboBox1.Items.Count > 0)
+            {
+                comboBox1.SelectedIndex = 0;
+            }
         }
 
         private void hyczck_FormClosed(object sender, FormClosedEventArgs e)
@@ -89,14 +99,14 @@ namespace yixiupige
             }
             else if (textBox9.Text.Trim() == "储值卡")
             {
-                model.czCount = "0";
+                model.czCount = textBox3.Text.Trim();
                 model.czyCount = "0";
                 model.czMoney = textBox6.Text.Trim();
                 model.czyMoney = textBox2.Text.Trim();
             }
             else if (textBox9.Text.Trim() == "折扣卡")
             {
-                model.czCount = "0";
+                model.czCount = textBox3.Text.Trim();
                 model.czyCount = "0";
                 model.czMoney = textBox6.Text.Trim();
                 model.czyMoney = textBox2.Text.Trim();
@@ -116,7 +126,7 @@ namespace yixiupige
                 MessageBox.Show("充值成功！");
                 bind();
                 //充值成功之后，打印小票
-                PirentDocumentClass.PrintToUpMoney(model);
+                PirentDocumentClass.PrintToUpMoney(model, textBox7.Text);
                 this.Close();
             }
             else 

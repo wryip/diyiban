@@ -20,7 +20,7 @@ namespace DAL
             {
                 return;
             }
-            string str = "insert into ExitDan"+ID+"(memberName,memberCardNo,saleMen,DPName,DanMoney,StaffName,ExitDanTime) values(@memberName,@memberCardNo,@saleMen,@DPName,@DanMoney,@StaffName,@ExitDanTime)";
+            string str = "insert into ExitDan" + ID + "(memberName,memberCardNo,saleMen,DPName,DanMoney,StaffName,ExitDanTime,IsMoney) values(@memberName,@memberCardNo,@saleMen,@DPName,@DanMoney,@StaffName,@ExitDanTime,@IsMoney)";
             SqlParameter[] pms = new SqlParameter[] {
             new SqlParameter("@memberName",model.memberName),
             new SqlParameter("@memberCardNo",model.memberCardNo),
@@ -28,7 +28,8 @@ namespace DAL
             new SqlParameter("@DPName",model.DPName),
             new SqlParameter("@DanMoney",model.DanMoney),
             new SqlParameter("@StaffName",model.StaffName),
-            new SqlParameter("@ExitDanTime",model.ExitDanTime)
+            new SqlParameter("@ExitDanTime",model.ExitDanTime),
+            new SqlParameter("@IsMoney",model.IsMoney)
             };
             SqlHelper.ExecuteNonQuery(str, pms);
         }

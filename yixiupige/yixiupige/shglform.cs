@@ -91,7 +91,7 @@ namespace yixiupige
             {
                 DisableECI = true,
                 CharacterSet = "UTF-8",
-                Width = 320,
+                Width = 240,
                 Height = 240
             };
             writer = new BarcodeWriter();
@@ -126,7 +126,7 @@ namespace yixiupige
             radioButton1.Checked = true;
             textBox1.ReadOnly = true;
             textBox2.ReadOnly = true;
-            checkBox1.Checked = true;
+            //checkBox1.Checked = true;
             try
             {
                 //连接//开启摄像头
@@ -521,7 +521,7 @@ namespace yixiupige
             textBox4.Text = model.memberName;
             textBox5.Text = model.memberCardNo;
             textBox6.Text = model.memberTel;
-            textBox7.Text = model.endDate;
+            textBox7.Text = model.endDate.Split(new char[]{' '},StringSplitOptions.RemoveEmptyEntries)[0];
             textBox12.Text = model.cardType;
             textBox10.Text = model.memberType;
             textBox11.Text = model.cardDate;
@@ -793,6 +793,7 @@ namespace yixiupige
             }
             string dpname = FilterClass.DianPu1.UserName.Trim();
             string[] sss = dpbll.selectDanNumber(dpname);
+            dannumber = sss[0].ToString();
             for (int i = sss[0].Trim().Length; i < 4; i++)
             {
                 dannumber = "0" + dannumber;
@@ -1019,6 +1020,11 @@ namespace yixiupige
         /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
+            if (dataGridView2.RowCount == 0)
+            {
+                MessageBox.Show("收活处无数据！");
+                return;
+            }
             bool IsSave = true;
             if (radioButton2.Checked&&textBox1.Text==""&&textBox2.Text=="")
             {
@@ -1263,6 +1269,7 @@ namespace yixiupige
         {
             string name = FilterClass.DianPu1.UserName;
                 LSConsumptionBLL infobll = new LSConsumptionBLL();
+            //删除相应的信息
                 bool result = infobll.deleteID(cardNo);
                 dataGridView1.DataSource = lsbll.selectAllList(textBox5.Text.Trim(), name);
                 if (result)
@@ -1316,8 +1323,9 @@ namespace yixiupige
                         //tjbb.DeleteIteamID(gid);
                         #endregion
                     }
-                    #region MyRegion//无论是不是商品或者寄存，一旦退单九江退单记录进行添加，加到退单统计表中
-                    ExitDanTJ();
+                    #region MyRegion//无论是不是商品或者寄存，一旦退单就将退单记录进行添加，加到退单统计表中
+                    bool isxmoney = modeldele.IsXMoney;
+                    ExitDanTJ(isxmoney);
                     #endregion
                     if (modeldele.IsJC)
                     {
@@ -1338,9 +1346,17 @@ namespace yixiupige
         /// <summary>
         /// 此方法是将退单信息添加到退单记录中
         /// </summary>
-        public void ExitDanTJ()
+        public void ExitDanTJ(bool isxm)
         {
             ExitDanModel model = new ExitDanModel();
+            if (isxm)
+            {
+                model.IsMoney = "现金";
+            }
+            else
+            {
+                model.IsMoney = "划卡";
+            }
             model.DanMoney = modeldele.LSMoney;
             model.memberName = modeldele.LSName;
             model.memberCardNo = modeldele.LSDanNumber;
@@ -1417,6 +1433,12 @@ namespace yixiupige
             {
                 textBox18.Text = "";
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            PictureShow from = PictureShow.Create(pictureBox1.ImageLocation);
+            from.Show();
         }
     }
 }

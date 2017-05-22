@@ -155,6 +155,7 @@
             // 
             // bkrqdateTimePicker
             // 
+            this.bkrqdateTimePicker.Enabled = false;
             this.bkrqdateTimePicker.Location = new System.Drawing.Point(77, 101);
             this.bkrqdateTimePicker.Name = "bkrqdateTimePicker";
             this.bkrqdateTimePicker.Size = new System.Drawing.Size(137, 21);
@@ -595,7 +596,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::yixiupige.Properties.Resources._1;
             this.ClientSize = new System.Drawing.Size(632, 506);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);

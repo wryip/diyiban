@@ -58,7 +58,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.删除本条 = new System.Windows.Forms.ToolStripMenuItem();
+            this.全部删除 = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox12 = new System.Windows.Forms.TextBox();
             this.czXH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.czNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.caName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,11 +73,6 @@
             this.czType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czSalman = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.czNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.删除本条 = new System.Windows.Forms.ToolStripMenuItem();
-            this.全部删除 = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBox12 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -92,7 +92,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(98, 19);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(101, 21);
@@ -113,7 +113,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(273, 19);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(101, 21);
@@ -134,7 +134,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(452, 19);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(101, 21);
@@ -179,7 +179,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(98, 46);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(101, 21);
@@ -188,7 +188,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(273, 46);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(101, 21);
@@ -197,7 +197,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(452, 46);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(101, 21);
             this.textBox6.TabIndex = 1;
@@ -242,7 +242,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(98, 72);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(101, 21);
@@ -251,7 +251,7 @@
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(273, 72);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(101, 21);
@@ -260,7 +260,7 @@
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(452, 72);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(2);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(101, 21);
@@ -281,7 +281,7 @@
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(98, 100);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(2);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(101, 21);
@@ -315,7 +315,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(274, 100);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(101, 20);
             this.comboBox1.TabIndex = 2;
@@ -335,7 +335,7 @@
             // textBox11
             // 
             this.textBox11.Location = new System.Drawing.Point(98, 133);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(2);
             this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(454, 110);
@@ -346,7 +346,7 @@
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.Location = new System.Drawing.Point(184, 262);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(56, 32);
             this.button1.TabIndex = 5;
@@ -358,7 +358,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.Location = new System.Drawing.Point(384, 262);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(56, 32);
             this.button2.TabIndex = 5;
@@ -385,6 +385,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.czXH,
+            this.czNo,
             this.czId,
             this.caName,
             this.czMoney,
@@ -393,10 +394,9 @@
             this.czyCount,
             this.czType,
             this.czDate,
-            this.czSalman,
-            this.czNo});
+            this.czSalman});
             this.dataGridView1.Location = new System.Drawing.Point(10, 305);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
@@ -406,6 +406,37 @@
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             this.dataGridView1.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView1_RowContextMenuStripNeeded);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.删除本条,
+            this.全部删除});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
+            // 
+            // 删除本条
+            // 
+            this.删除本条.Name = "删除本条";
+            this.删除本条.Size = new System.Drawing.Size(124, 22);
+            this.删除本条.Text = "删除本条";
+            this.删除本条.Click += new System.EventHandler(this.删除本条_Click);
+            // 
+            // 全部删除
+            // 
+            this.全部删除.Name = "全部删除";
+            this.全部删除.Size = new System.Drawing.Size(124, 22);
+            this.全部删除.Text = "全部删除";
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(452, 100);
+            this.textBox12.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
+            this.textBox12.Size = new System.Drawing.Size(101, 21);
+            this.textBox12.TabIndex = 1;
+            // 
             // czXH
             // 
             this.czXH.DataPropertyName = "czXH";
@@ -413,12 +444,20 @@
             this.czXH.Name = "czXH";
             this.czXH.ReadOnly = true;
             // 
+            // czNo
+            // 
+            this.czNo.DataPropertyName = "czNo";
+            this.czNo.HeaderText = "会员卡号";
+            this.czNo.Name = "czNo";
+            this.czNo.ReadOnly = true;
+            // 
             // czId
             // 
             this.czId.DataPropertyName = "czId";
             this.czId.HeaderText = "编号";
             this.czId.Name = "czId";
             this.czId.ReadOnly = true;
+            this.czId.Visible = false;
             // 
             // caName
             // 
@@ -430,14 +469,14 @@
             // czMoney
             // 
             this.czMoney.DataPropertyName = "czMoney";
-            this.czMoney.HeaderText = "充值金额";
+            this.czMoney.HeaderText = "实充金额";
             this.czMoney.Name = "czMoney";
             this.czMoney.ReadOnly = true;
             // 
             // czCount
             // 
             this.czCount.DataPropertyName = "czCount";
-            this.czCount.HeaderText = "充值次数";
+            this.czCount.HeaderText = "充值 次/金";
             this.czCount.Name = "czCount";
             this.czCount.ReadOnly = true;
             // 
@@ -476,49 +515,10 @@
             this.czSalman.Name = "czSalman";
             this.czSalman.ReadOnly = true;
             // 
-            // czNo
-            // 
-            this.czNo.DataPropertyName = "czNo";
-            this.czNo.HeaderText = "会员卡号";
-            this.czNo.Name = "czNo";
-            this.czNo.ReadOnly = true;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.删除本条,
-            this.全部删除});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
-            // 
-            // 删除本条
-            // 
-            this.删除本条.Name = "删除本条";
-            this.删除本条.Size = new System.Drawing.Size(124, 22);
-            this.删除本条.Text = "删除本条";
-            this.删除本条.Click += new System.EventHandler(this.删除本条_Click);
-            // 
-            // 全部删除
-            // 
-            this.全部删除.Name = "全部删除";
-            this.全部删除.Size = new System.Drawing.Size(124, 22);
-            this.全部删除.Text = "全部删除";
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(452, 100);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(101, 21);
-            this.textBox12.TabIndex = 1;
-            // 
             // hyczck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::yixiupige.Properties.Resources._1;
             this.ClientSize = new System.Drawing.Size(619, 500);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label14);
@@ -550,7 +550,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "hyczck";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "充值窗口";
@@ -595,7 +595,11 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 删除本条;
+        private System.Windows.Forms.ToolStripMenuItem 全部删除;
         private System.Windows.Forms.DataGridViewTextBoxColumn czXH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn czId;
         private System.Windows.Forms.DataGridViewTextBoxColumn caName;
         private System.Windows.Forms.DataGridViewTextBoxColumn czMoney;
@@ -605,9 +609,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn czType;
         private System.Windows.Forms.DataGridViewTextBoxColumn czDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn czSalman;
-        private System.Windows.Forms.DataGridViewTextBoxColumn czNo;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 删除本条;
-        private System.Windows.Forms.ToolStripMenuItem 全部删除;
     }
 }

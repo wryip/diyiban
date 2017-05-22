@@ -187,32 +187,32 @@ namespace yixiupige
         //    }
         //}
 
-        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView2_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex > 0)
             {
-                string path = dataGridView1.Rows[e.RowIndex].Cells["jcImgUrl"].Value.ToString();
-                pictureBox1.ImageLocation = path;
-                pictureBox1.Visible = true;
+                string path = dataGridView2.Rows[e.RowIndex].Cells["jcImgUrl1"].Value.ToString();
+                PictureShow from = PictureShow.Create(path);
+                from.Focus();
+                from.Show();
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            pictureBox1.Width = 400;
-            pictureBox1.Height = 400;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            int index = dataGridView1.SelectedRows[0].Index;
+            if (index > 0)
+            {
+                string path = dataGridView1.Rows[index].Cells["jcImgUrl"].Value.ToString();
+                PictureShow from = PictureShow.Create(path);
+                from.Focus();
+                from.Show();
+            }
         }
 
-        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (pictureBox1.Visible == true)
-            {
-                pictureBox1.Visible = false;
-                pictureBox1.Width = 335;
-                pictureBox1.Height = 250;
-            }
-           
+            textBox1.Text = "";
         }
     }
 }

@@ -342,6 +342,16 @@ namespace yixiupige.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap timg {
+            get {
+                object obj = ResourceManager.GetObject("timg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap 千库网_添加字符增加数学加上标志数学和商业 {
             get {
                 object obj = ResourceManager.GetObject("千库网-添加字符增加数学加上标志数学和商业", resourceCulture);

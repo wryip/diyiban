@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 using BLL;
+using Commond;
 
 namespace yixiupige
 {
@@ -39,6 +40,7 @@ namespace yixiupige
                 //登陆成功后判断该店是不是又过了一天，如果是就将DPNumber再踩修改为一
                 dpbll.UpdateDay(DateTime.Now.Day);
                 DefaultForm _default2 = DefaultForm.CreateForm(fromclose);
+                _default2.Text = FilterClass.DianPu1.UserName;
                 //SendInfo from = SendInfo.CreateForm();
                 //from.Show();
                 //from.Hide();
