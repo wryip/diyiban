@@ -68,6 +68,11 @@ namespace yixiupige
                 int i = 1;
                 int j = 1;
             string type = comboBox1.Text.Trim();
+            if (type == "")
+            {
+                MessageBox.Show("数据为空，请输入数据之后在进行搜索！");
+                return;
+            }
             string neirong = textBox1.Text.Trim();
             //string begindate = TimeGuiGe.TimePicterBegin(dateTimePicker1.Text);
             //string enddate = TimeGuiGe.TimePicterEng(dateTimePicker2.Text);
@@ -80,7 +85,7 @@ namespace yixiupige
             }
             foreach (JCInfoModel model in list)
             {
-                if (model.jcAddress.Trim() == "店铺已收" || model.jcAddress.Trim() == "店铺完工")
+                if (model.jcAddress.Trim() == "店铺已收" || model.jcAddress.Trim() == "店铺完工" || model.jcAddress.Trim() == "退回待处理")
                 {
                     model.jcNo = i++;
                     listk.Add(model);
@@ -189,19 +194,13 @@ namespace yixiupige
 
         private void dataGridView2_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > 0)
-            {
-                string path = dataGridView2.Rows[e.RowIndex].Cells["jcImgUrl1"].Value.ToString();
-                PictureShow from = PictureShow.Create(path);
-                from.Focus();
-                from.Show();
-            }
+            
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
             int index = dataGridView1.SelectedRows[0].Index;
-            if (index > 0)
+            if (index >= 0)
             {
                 string path = dataGridView1.Rows[index].Cells["jcImgUrl"].Value.ToString();
                 PictureShow from = PictureShow.Create(path);
@@ -213,6 +212,18 @@ namespace yixiupige
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox1.Text = "";
+        }
+
+        private void dataGridView2_DoubleClick(object sender, EventArgs e)
+        {
+            int index = dataGridView2.SelectedRows[0].Index;
+            if (index >= 0)
+            {
+                string path = dataGridView2.Rows[index].Cells["jcImgUrl1"].Value.ToString();
+                PictureShow from = PictureShow.Create(path);
+                from.Focus();
+                from.Show();
+            }
         }
     }
 }

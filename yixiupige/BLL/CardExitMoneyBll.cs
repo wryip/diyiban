@@ -12,7 +12,7 @@ namespace BLL
     public class CardExitMoneyBll
     {
         CardExitMoneyDal dal = new CardExitMoneyDal();
-        public void AddList(List<shInfoList> list,string membername,string membernum,string cardname,string cardtype)
+        public void AddList(List<shInfoList> list,string membername,string membernum,string cardname,string cardtype,string date)
         {
             List<CardExitMoney> list1 = new List<CardExitMoney>();
             CardExitMoney model;
@@ -24,17 +24,24 @@ namespace BLL
                 model.dpname = FilterClass.DianPu1.UserName;
                 model.membername = membername;
                 model.membernum = membernum;
+                model.LSStaff = iteam.Type + ":" + iteam.FuWuName;
                 model.cardmoney = (Convert.ToDouble(iteam.CountMoney) - Convert.ToDouble(iteam.YMoney)).ToString();
                 if (model.cardmoney.Trim() != "0")
                 {
                     list1.Add(model);
                 }                
             }
-            dal.AddList(list1);
+            dal.AddList(list1, date);
         }
         public List<CardExitMoney> selectTJ(string begindate,string enddate,string name)
         {
-            return dal.selectTJ(begindate, enddate, name);
+            List<CardExitMoney> list=dal.selectTJ(begindate, enddate, name);
+            list=list.OrderByDescending(a=>a.ID).ToList();
+            return list;
+        }
+        public bool deleteOnly(string membername,string membercard,string dpname,string staff,string datetime)
+        {
+            return dal.deleteOnly(membername, membercard, dpname, staff, datetime);
         }
     }
 }

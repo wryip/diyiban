@@ -100,30 +100,7 @@ namespace yixiupige
             indexPage = 1;
             PageLoad(cardTepe, 1);
             textBox1.Text = indexPage.ToString();
-            //dataGridView1.DataSource = list;
-            //int i = dataGridView1.Rows.Count;
-            //if (e.Button == MouseButtons.Right)
-            //{
-            //    for (int j = 0; j < i; j++)
-            //    {
-            //        dataGridView1.Rows[j].ContextMenuStrip = null;
-            //    }
-            //}
         }
-            //int i = dataGridView1.Rows.Count;
-            //if (e.Button == MouseButtons.Right)
-            //{
-            //    for (int j = 0; j < i; j++)
-            //    {
-            //        dataGridView1.Rows[j].Selected = false;
-            //        //dataGridView1.Rows[j].ContextMenuStrip = null;
-            //    }
-            //    dataGridView1.Rows[e.RowIndex].Selected = true;
-            //    //dataGridView1.Rows[e.RowIndex].ContextMenuStrip = contextMenuStrip1;
-            //    //Point point = new Point(e.X + (e.ColumnIndex) * 130, e.Y + (e.RowIndex+1) * 23);
-            //    //MessageBox.Show((e.X + (e.ColumnIndex) * 130).ToString(), (e.Y + (e.RowIndex + 1) * 23).ToString());
-            //    //dataGridView1.Rows[e.RowIndex].ContextMenuStrip.Show(dataGridView1, e.X + (e.ColumnIndex) * (dataGridView1.Columns.GetColumnsWidth(DataGridViewElementStates.Displayed)), e.Y + (e.RowIndex+1) * (dataGridView1.Rows.GetRowsHeight(DataGridViewElementStates.Displayed)));
-            //}
         public void bindData()
         {
             PageLoad("全部", 1);
@@ -142,22 +119,6 @@ namespace yixiupige
             xiugais.Focus();
             //id = -1;
         }
-        //protected override void OnMouseDown(MouseEventArgs e)
-        //{
-        //    base.OnMouseDown(e);
-        //    if (e.Button == MouseButtons.Right)
-        //    {
-        //        //if (this.ContextMenuStrip != null && this.ContextMenuStripNeeded != null)
-        //        //{
-        //            //int rowIndex = this.GetRowIndexAt(e.Location);  // 计算行号  
-        //            //int colIndex = this.GetColIndexAt(e.Location);  // 计算列号  this.ContextMenuStrip, rowIndex, colIndex
-        //            DataGridViewRowContextMenuStripNeededEventArgs ee;  // 事件参数  
-        //            ee = new DataGridViewRowContextMenuStripNeededEventArgs(1);
-        //            this.dataGridView1_RowContextMenuStripNeeded(e.Location,ee);  // 引发自定义事件，执行事件方法  
-        //        //}
-
-        //    }
-        //}
 
         private void dataGridView1_RowContextMenuStripNeeded(object sendel, DataGridViewRowContextMenuStripNeededEventArgs e)
         {
@@ -243,7 +204,7 @@ namespace yixiupige
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            string type = treeView1.SelectedNode.Text;
+            string type = treeView1.SelectedNode.Text.Split(new char[]{'['},StringSplitOptions.RemoveEmptyEntries)[0];
             List<memberInfoModel> list = infobll.selectAll(type.Split(new char []{'['},StringSplitOptions.RemoveEmptyEntries)[0]);
             bool resu = NPOIHelper.PrintDocument(list, type + "-会员信息");
             if (resu)

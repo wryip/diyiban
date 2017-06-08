@@ -342,10 +342,10 @@ namespace DAL
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@membercardNo",cardno),
             new SqlParameter("@toUpMoney",money),
-            new SqlParameter("@dianName",dpname),
+            //new SqlParameter("@dianName",dpname),
             new SqlParameter("@endDate",(DateTime.Now.Year+2)+"-"+DateTime.Now.Month+"-"+DateTime.Now.Day+" ")
             };
-            string str = "update memberInfo set toUpMoney=@toUpMoney,endDate=@endDate where membercardNo=@membercardNo and dianName=@dianName";
+            string str = "update memberInfo set toUpMoney=@toUpMoney,endDate=@endDate where membercardNo=@membercardNo";
             if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
             {
                 result = true;
@@ -580,7 +580,7 @@ namespace DAL
         /// <returns></returns>
         public List<memberInfoModel> tjbbOfbk(string begindate, string enddate, string dpname)
         {
-            int i = 1;
+            
             List<memberInfoModel> list = new List<memberInfoModel>();
             memberInfoModel model;
             string dpinfo = FilterClass.DianPu1.UserName.Trim();
@@ -614,7 +614,7 @@ namespace DAL
                 if (read.HasRows)
                 {
                     model = new memberInfoModel();
-                    model.idbh = i;
+                    
                     model.memberCardNo = read["memberCardNo"].ToString();
                     model.memberName = read["memberName"].ToString();
                     model.memberTel = read["memberTel"].ToString();
@@ -637,7 +637,7 @@ namespace DAL
                     model.password = read["password"].ToString();
                     model.zhuangtai = read["zhuangtai"].ToString();
                     list.Add(model);
-                    i++;
+                   
                 }
             }
             return list;

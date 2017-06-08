@@ -271,14 +271,14 @@ namespace DAL
         //添加新表
         public void AddTable(int id)
         {
-            string str = "create Table CardExitMoney" + id + " (ID int primary key identity(1,1),membername nvarchar(50),membernum nvarchar(50),cardname nvarchar(50),cardtype nvarchar(50),cardmoney nvarchar(50),dpname nvarchar(50),DateTime smalldatetime)";
+            string str = "create Table CardExitMoney" + id + " (ID int primary key identity(1,1),membername nvarchar(50),membernum nvarchar(50),cardname nvarchar(50),cardtype nvarchar(50),cardmoney nvarchar(50),dpname nvarchar(50),DateTime smalldatetime,LSStaff nvarchar(50))";
             str += "create Table DXSend" + id + " (id int primary key identity(1,1),CardNumber nvarchar(50),MemberName nvarchar(50),TelPhone nvarchar(50),SaleMan nvarchar(50),ContentNR nvarchar(50),DianPu nvarchar(50),Date smalldatetime)";
             str += "create Table ExitCard" + id + " (ID int primary key identity(1,1),memberName nchar(10),saleMen nchar(10),CardMoney nchar(10),CardType nvarchar(50),DPName nvarchar(50),DateTimeCard smalldatetime)";
             str += "create Table ExitDan" + id + " (ID int primary key identity(1,1),memberName nchar(50),memberCardNo nchar(50),saleMen nchar(50),DPName nvarchar(50),DanMoney nvarchar(50),StaffName nvarchar(50),IsMoney nvarchar(50),ExitDanTime smalldatetime)";
             str += "create Table GoodInfo" + id + " (Gid int primary key identity(1,1),Gno nvarchar(50),Gname nvarchar(50),Gtype nvarchar(50),Gremark nvarchar(50),DPName nvarchar(50),Gprice decimal(5, 2),Gbid decimal(5, 2),Gstock int,Gsum int)";
             str += "create Table InHuoTJ" + id + " (ID int primary key identity(1,1),HuoNumber nvarchar(50),HuoName nvarchar(50),HuoType nvarchar(50),HuoMoney nvarchar(50),HuoCount nvarchar(50),HuoSum nvarchar(50),HuoDate smalldatetime,HuoSale nvarchar(50),HuoDianName nvarchar(50))";
             str += "create Table JCInfoTable" + id + " (jcID int primary key identity(1,1),jcCardNumber nvarchar(50),jcName nvarchar(50),jcQMoney nvarchar(50),jcType nvarchar(50),jcPinPai nvarchar(50),jcColor nvarchar(50),jcStaff nvarchar(50),jcBeginDate smalldatetime,jcEndDate smalldatetime,jcZT nchar(10),jcAddress nvarchar(50),jcImgUrl nvarchar(50),jcDanNumber nvarchar(50),jcPaiNumber nvarchar(50),jcRemark nvarchar(50),jcQuestion nvarchar(50),jcPression nvarchar(50),DPName nvarchar(50),XYF nvarchar(50),YYF nvarchar(50))";
-            str += "create Table LSConsumption" + id + " (ID int primary key identity(1,1),IsJC bit,IsSP bit,IsXMoney bit,LSName nvarchar(50),LSStaff nvarchar(50),LSNumberCount nvarchar(50),LSMoney nvarchar(50),LSYMoney nvarchar(50),LSCount nvarchar(50),LSPinPai nvarchar(50),LSDate smalldatetime,LSColor nvarchar(50),LSSalesman nvarchar(50),LSMultipleName nvarchar(50),LSQuestion nvarchar(50),LSRemark nvarchar(50),LSDanNumber nvarchar(50),LSCardNumber nvarchar(50),ImgUrl nvarchar(50))";
+            str += "create Table LSConsumption" + id + " (ID int primary key identity(1,1),IsJC bit,IsSP bit,IsXMoney bit,LSName nvarchar(50),LSStaff nvarchar(50),LSNumberCount nvarchar(50),LSMoney nvarchar(50),LSYMoney nvarchar(50),LSCount nvarchar(50),LSPinPai nvarchar(50),LSDate smalldatetime,LSColor nvarchar(50),LSSalesman nvarchar(50),LSMultipleName nvarchar(50),LSQuestion nvarchar(50),LSRemark nvarchar(50),LSDanNumber nvarchar(50),LSCardNumber nvarchar(50),ImgUrl nvarchar(50),FUKUAN bit)";
             str += "create Table memberToUpMoney" + id + " (czId int primary key identity(1,1),czNo nvarchar(50),czSaleman nvarchar(50),czType nvarchar(50),czyCount nvarchar(50),DPName nvarchar(50),czDate smalldatetime,czyMoney nvarchar(50),czCount nvarchar(50),czMoney nvarchar(50),czName nvarchar(50))";
             str += "create Table PutHuo-" + id + " (ID int primary key identity(1,1),PutNo nvarchar(50),PutName nvarchar(50),PutType nvarchar(50),PutMoney nvarchar(50),PutCount nvarchar(50),PutCardNo nvarchar(50),PutDate smalldatetime,PutPersonName nvarchar(50),PutSale nvarchar(50),PutDianName nvarchar(50))";
             str += "create Table WPEnd" + id + " (ID int primary key identity(1,1),Name nvarchar(50),TelPhon nvarchar(50),DanNumber nvarchar(50),DPName nvarchar(50),DateTime smalldatetime,JCID int)";
@@ -317,6 +317,34 @@ namespace DAL
                 }
             }
             return dic;
+        }
+        //将没vi登陆的信息保存，以便下次登陆时自动填充
+        public void AddDPAndUser(string id, string dpname, string username,string ipaddress)
+        {
+            if (id == null)
+            {
+                return;
+            }
+            string str = "update DPInfo set LoginInfo=@LoginInfo,IpAddress=@IpAddress where ID=@ID";
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@LoginInfo",dpname.Trim()+","+username.Trim()),
+            new SqlParameter("@IpAddress",ipaddress),
+            new SqlParameter("@ID",id)
+            };
+            SqlHelper.ExecuteNonQuery(str, pms);
+        }
+        public string selectLoginInfo(string ipaddress)
+        {
+            string str = "select LoginInfo from DPInfo where IpAddress=@IpAddress";
+            SqlParameter[] pms = new SqlParameter[] { 
+            new SqlParameter("@IpAddress",ipaddress)
+            };
+            object oo = SqlHelper.ExecuteScalar(str, pms);
+            if (oo != null)
+            {
+                return oo.ToString();
+            }
+            return "";
         }
     }
 }

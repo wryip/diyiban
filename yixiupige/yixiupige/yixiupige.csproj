@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationRevision>18</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -798,6 +798,7 @@
     <Content Include="leiku\AForge.Video.DirectShow.dll" />
     <Content Include="leiku\AForge.Video.DirectShow.xml" />
     <Content Include="leiku\AForge.Video.dll" />
+    <Content Include="leiku\dog_net_windows.dll" />
     <None Include="Resources\log.png" />
     <None Include="Resources\finish.wav" />
     <None Include="Resources\finish.bmp" />
@@ -831,6 +832,10 @@
     <ProjectReference Include="..\MODEL\MODEL.csproj">
       <Project>{302fa470-2512-4f1b-b463-4061e4370f18}</Project>
       <Name>MODEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\sample\sample.csproj">
+      <Project>{a416996d-43ca-4db1-b5a8-536b8ad42582}</Project>
+      <Name>sample</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

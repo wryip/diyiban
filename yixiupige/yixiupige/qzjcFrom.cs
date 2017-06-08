@@ -74,6 +74,7 @@ namespace yixiupige
             if (result)
             {
                 MessageBox.Show("成功！");
+                SuccessInfo.Success();
                 databind1();
                 binsx();
                 this.Close();

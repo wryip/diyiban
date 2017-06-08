@@ -98,6 +98,7 @@ namespace yixiupige
             if (result)
             {
                 MessageBox.Show("成功！");
+                BindData();
                 return;
             }
         }

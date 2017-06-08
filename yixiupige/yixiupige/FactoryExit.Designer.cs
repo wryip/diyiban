@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FactoryExit));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
@@ -69,6 +70,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(13, 13);
@@ -79,9 +81,8 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.BackgroundImage = global::yixiupige.Properties.Resources._1;
             this.groupBox2.Controls.Add(this.dataGridView3);
-            this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox2.Font = new System.Drawing.Font("微软雅黑 Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(4, 134);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(884, 334);
@@ -97,6 +98,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.XZ,
@@ -132,6 +134,7 @@
             // 
             // XZ
             // 
+            this.XZ.FillWeight = 78.23604F;
             this.XZ.HeaderText = "选择";
             this.XZ.Name = "XZ";
             this.XZ.ReadOnly = true;
@@ -139,6 +142,7 @@
             // jcNo
             // 
             this.jcNo.DataPropertyName = "jcNo";
+            this.jcNo.FillWeight = 78.23604F;
             this.jcNo.HeaderText = "编号";
             this.jcNo.Name = "jcNo";
             this.jcNo.ReadOnly = true;
@@ -154,6 +158,7 @@
             // jcCardNumber
             // 
             this.jcCardNumber.DataPropertyName = "jcCardNumber";
+            this.jcCardNumber.FillWeight = 78.23604F;
             this.jcCardNumber.HeaderText = "卡号";
             this.jcCardNumber.Name = "jcCardNumber";
             this.jcCardNumber.ReadOnly = true;
@@ -161,6 +166,7 @@
             // jcName
             // 
             this.jcName.DataPropertyName = "jcName";
+            this.jcName.FillWeight = 78.23604F;
             this.jcName.HeaderText = "姓名";
             this.jcName.Name = "jcName";
             this.jcName.ReadOnly = true;
@@ -184,6 +190,7 @@
             // jcType
             // 
             this.jcType.DataPropertyName = "jcType";
+            this.jcType.FillWeight = 78.23604F;
             this.jcType.HeaderText = "寄存类型";
             this.jcType.Name = "jcType";
             this.jcType.ReadOnly = true;
@@ -199,6 +206,7 @@
             // jcStaff
             // 
             this.jcStaff.DataPropertyName = "jcStaff";
+            this.jcStaff.FillWeight = 78.23604F;
             this.jcStaff.HeaderText = "服务项目";
             this.jcStaff.Name = "jcStaff";
             this.jcStaff.ReadOnly = true;
@@ -206,6 +214,7 @@
             // jcBeginDate
             // 
             this.jcBeginDate.DataPropertyName = "jcBeginDate";
+            this.jcBeginDate.FillWeight = 78.23604F;
             this.jcBeginDate.HeaderText = "寄存时间";
             this.jcBeginDate.Name = "jcBeginDate";
             this.jcBeginDate.ReadOnly = true;
@@ -261,7 +270,9 @@
             // jcRemark
             // 
             this.jcRemark.DataPropertyName = "jcRemark";
+            this.jcRemark.FillWeight = 274.1117F;
             this.jcRemark.HeaderText = "备注";
+            this.jcRemark.MinimumWidth = 60;
             this.jcRemark.Name = "jcRemark";
             this.jcRemark.ReadOnly = true;
             // 
@@ -276,6 +287,7 @@
             // jcPression
             // 
             this.jcPression.DataPropertyName = "jcPression";
+            this.jcPression.FillWeight = 78.23604F;
             this.jcPression.HeaderText = "业务员";
             this.jcPression.Name = "jcPression";
             this.jcPression.ReadOnly = true;
@@ -291,13 +303,12 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.BackgroundImage = global::yixiupige.Properties.Resources._1;
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox1.Font = new System.Drawing.Font("微软雅黑 Light", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(884, 123);
@@ -317,6 +328,7 @@
             // 
             // button3
             // 
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.button3.Location = new System.Drawing.Point(609, 39);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(91, 39);
@@ -335,6 +347,7 @@
             // 
             // button2
             // 
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.button2.Location = new System.Drawing.Point(197, 40);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.button2.Name = "button2";
@@ -346,6 +359,7 @@
             // 
             // button1
             // 
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.button1.Location = new System.Drawing.Point(47, 40);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.button1.Name = "button1";
@@ -360,9 +374,10 @@
             this.AcceptButton = this.button3;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::yixiupige.Properties.Resources._1;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(916, 496);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FactoryExit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "工厂退回";

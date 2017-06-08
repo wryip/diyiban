@@ -98,7 +98,7 @@ namespace yixiupige
             fwzktextBox.Text = "0";
             fwzktextBox.ReadOnly = true;
             czjetextBox.Text = modelmember.toUpMoney;
-            czjetextBox.ReadOnly = false;
+            //czjetextBox.ReadOnly = false;
             bkjetextBox.Text = modelmember.cardMoney;
             bkjetextBox.ReadOnly = true;
             textBox1.Text = modelmember.cardType;
@@ -155,6 +155,14 @@ namespace yixiupige
         {
             if (hydhtextBox.Text == "" || hykhtextBox.Text == "" || hyxmtextBox.Text == ""  || hyxbcomboBox.Text == "" || lsdcomboBox.Text == "")
             {
+                //此处验证的是    要修改的会员卡号   是否是有重复的信息
+                string cardno = hykhtextBox.Text.Trim();
+                bool result = modelbll.PDCNumber(cardno);
+                if (!result)
+                {
+                    DialogResult resu = MessageBox.Show("此卡号已经存在，请更换卡号！", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    return;
+                }
                 MessageBox.Show("请将信息填写完整！");
                 return;
             }
@@ -168,7 +176,7 @@ namespace yixiupige
                 model.memberTel = hydhtextBox.Text;
                 model.memberDocument = sfzhtextBox.Text;
                 model.birDate = TimeGuiGe.TimePicterBegin(csrqdateTimePicker.Text);
-                model.cardDate = TimeGuiGe.TimePicterEng(bkrqdateTimePicker.Text);
+                model.cardDate = modelmember.cardDate.Trim();
                 model.memberSex = hyxbcomboBox.Text;
                 model.rebate = spzktextBox.Text;
                 if (qydqxzcheckBox.Checked)
@@ -199,7 +207,7 @@ namespace yixiupige
                 {
                     draw.DrawImage(bitmap, 0, 0);
                     draw.Dispose();
-                    string dirpath = "..\\..\\memberInfo";
+                    string dirpath = "memberInfo";
                     if (!Directory.Exists(dirpath))
                         Directory.CreateDirectory(dirpath);
                     string path = dirpath + "\\" + hykhtextBox.Text.Trim() + ".bmp";
@@ -310,6 +318,23 @@ namespace yixiupige
         public void SetPwd(string newpwd)
         {
             password = newpwd;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            caocuofrom from = caocuofrom.Create(deletePassword,"1");
+            from.Show();
+        }
+        public void deletePassword(string pas, string cardNo)
+        {
+            if (pas.Trim() == "admin888")
+            {
+                czjetextBox.ReadOnly = false;
+            }
+            else
+            {
+                MessageBox.Show("密码错误，不能修改金额！");
+            }
         }
     }
 }

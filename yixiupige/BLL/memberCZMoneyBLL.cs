@@ -27,21 +27,12 @@ namespace BLL
         public List<memberToUpModel> selectTJ(string begindate, string enddate, string yginfo,string dpname)
         {
             List<memberToUpModel> list1 = dal.selectTJ(begindate, enddate, yginfo,dpname);
-            //List<memberToUpModel> list = new List<memberToUpModel>();
-            //if (dpname == "")
-            //{
-            //    return list1;
-            //}
-            //else
-            //{
-            //    foreach (var iteam in list1)
-            //    {
-            //        if (iteam.dianpu.Trim() == dpname)
-            //        {
-            //            list.Add(iteam); 
-            //        }
-            //    }
-            //}
+            list1 = list1.OrderByDescending(a => Convert.ToDateTime(a.czDate)).ToList();
+            int count = list1.Count();
+            foreach (var iteam in list1)
+            {
+                iteam.czXH = count--;
+            }
             return list1;
         }
     }

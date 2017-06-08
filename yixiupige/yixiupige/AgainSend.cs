@@ -82,6 +82,7 @@ namespace yixiupige
             {
                 tjbb.AgainSend(list);
                 MessageBox.Show("成功！");
+                dataGridView3.DataSource = new List<JCInfoModel>();
                 return;
             }
         }
@@ -112,15 +113,23 @@ namespace yixiupige
         {
             if (dataGridView3.Rows.Count == 0)
             {
+                list[0].jcNo = 1;
                 dataGridView3.DataSource = list;
             }
             else
             {
                 foreach (DataGridViewRow iteam in dataGridView3.Rows)
                 {
-                    list.Add((JCInfoModel)iteam.DataBoundItem);
+                    if (iteam.Cells["jcPaiNumber"].Value.ToString().Trim() == list[0].jcPaiNumber.Trim())
+                    {
+                        MessageBox.Show("已经含有此条数据！");
+                        return;
+                    }
                 }
-                dataGridView3.DataSource = list;
+                List<JCInfoModel> listt1 = (List<JCInfoModel>)dataGridView3.DataSource;
+                list[0].jcNo = listt1.Count + 1;
+                listt1.Add(list[0]);
+                dataGridView3.DataSource = listt1;
             }
         }
 

@@ -95,7 +95,7 @@ namespace Commond
             PrintDocument pd = new PrintDocument();
             //设置边距
             Margins margin = new Margins(20, 20, 20, 20);
-            pd.PrinterSettings.PrinterName = FilterClass.MemberXF;
+            //pd.PrinterSettings.PrinterName = FilterClass.MemberXF;
             pd.DefaultPageSettings.Margins = margin;
             //默认纸张
             PaperSize pageSize = new PaperSize("First custom size", getYc(58), 5000);
@@ -135,10 +135,10 @@ namespace Commond
             sb.Append("日期:" + DateTime.Now.ToShortDateString() + " \r\n" + "说明:" + wulizt + "\r\n");
             sb.Append("店铺:" + dpname + "\r\n");
             sb.Append("_____________________________________________\r\n");
-            e.Graphics.DrawString("号", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, 100));
-            e.Graphics.DrawString("内容", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(65, 100));
-            e.Graphics.DrawString("数量", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(125, 100));
-            e.Graphics.DrawString("确认", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(155, 100));
+            e.Graphics.DrawString("号", new Font("Segoe UI", 8), Brushes.Black, new Point(0, 100));
+            e.Graphics.DrawString("内容", new Font("Segoe UI", 8), Brushes.Black, new Point(65, 100));
+            e.Graphics.DrawString("数量", new Font("Segoe UI", 8), Brushes.Black, new Point(125, 100));
+            e.Graphics.DrawString("确认", new Font("Segoe UI", 8), Brushes.Black, new Point(155, 100));
             e.Graphics.DrawLine(new Pen(Color.Black), new Point(0, 115), new Point(185, 115));
             foreach (var iteam in _listwl)
             {
@@ -147,12 +147,12 @@ namespace Commond
                 nleng=nleng.Replace(',', '，');
                 nleng=nleng.Replace('[', '【');
                 nleng=nleng.Replace(']', '】');
-                e.Graphics.DrawString(j.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
-                e.Graphics.DrawString("1", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(125, (100 + i * 15)));
-                e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(155, (100 + i * 15)));
+                e.Graphics.DrawString(j.ToString(), new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
+                e.Graphics.DrawString("1", new Font("Segoe UI", 8), Brushes.Black, new Point(125, (100 + i * 15)));
+                e.Graphics.DrawString("", new Font("Segoe UI", 8), Brushes.Black, new Point(155, (100 + i * 15)));
                 if (nleng.Length < 9)
                 {
-                    e.Graphics.DrawString(nleng, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(20, (100 + i * 15)));
+                    e.Graphics.DrawString(nleng, new Font("Segoe UI", 8), Brushes.Black, new Point(20, (100 + i * 15)));
                     e.Graphics.DrawLine(new Pen(Color.Black), new Point(0, 115 + i * 15), new Point(185, 115 + i * 15));
                     i++;
                     j++;
@@ -160,11 +160,11 @@ namespace Commond
                 }
                 while (nleng.Length > 9)
                 {
-                    e.Graphics.DrawString(nleng.Substring(0, 9), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(20, (100 + i * 15)));
+                    e.Graphics.DrawString(nleng.Substring(0, 9), new Font("Segoe UI", 8), Brushes.Black, new Point(20, (100 + i * 15)));
                     nleng = nleng.Substring(9, nleng.Length - 9);
                     i++;
                 }
-                e.Graphics.DrawString(nleng, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(20, (100 + i * 15)));
+                e.Graphics.DrawString(nleng, new Font("Segoe UI", 8), Brushes.Black, new Point(20, (100 + i * 15)));
                 e.Graphics.DrawLine(new Pen(Color.Black), new Point(0, 115 + i * 15), new Point(185, 115 + i * 15));
                 i++;
                 j++;
@@ -174,7 +174,7 @@ namespace Commond
             e.Graphics.DrawLine(new Pen(Color.Black), new Point(125, 100), new Point(125, (100 + i * 15)));
             e.Graphics.DrawLine(new Pen(Color.Black), new Point(155, 100), new Point(155, (100 + i * 15)));
             e.Graphics.DrawLine(new Pen(Color.Black), new Point(185, 100), new Point(185, (100 + i * 15)));
-            e.Graphics.DrawString("数量:" + _listwl.Count , new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("数量:" + _listwl.Count , new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
             //e.Graphics.DrawString("应付金额:" + _yfje, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
             //i++;
@@ -184,19 +184,19 @@ namespace Commond
             //i++;
             //while (jiewei.Length > 16)
             //{
-                e.Graphics.DrawString("物流签字：", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+                e.Graphics.DrawString("物流签字：", new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             //    jiewei = jiewei.Substring(16, jiewei.Length - 16);
                 i++;
             //}
-                e.Graphics.DrawString("店主签字：", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+                e.Graphics.DrawString("店主签字：", new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             //i++;
-            e.Graphics.DrawString(sb.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(0, 0));
+            e.Graphics.DrawString(sb.ToString(), new Font("Segoe UI", 8), Brushes.Black, new System.Drawing.Point(0, 0));
             i++;
-            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("", new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
-            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("", new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
-            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("", new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             ////e.Graphics.DrawImage(_ibmap, new Rectangle(new System.Drawing.Point(-100, 200), new Size(400,400)));
             //e.Graphics.DrawImage(_ibmap, new Rectangle(new System.Drawing.Point(0, (100 + i * 15)), new Size(250, 250)));
             #endregion
@@ -229,10 +229,10 @@ namespace Commond
             sb.Append("日期:" + DateTime.Now.ToShortDateString() + " \r\n" + "单号:" + _sb + "\r\n");
             sb.Append("姓名:" + (_name == "" ? "散客" : _name) + "   " + _gksy + "  \r\n" + "卡号:" + (_cardnumber == "" ? "无卡" : _cardnumber) + "\r\n");
             sb.Append("_____________________________________________\r\n");
-            e.Graphics.DrawString("号", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, 100));
-            e.Graphics.DrawString("内容", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(65, 100));
-            e.Graphics.DrawString("数量", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(125, 100));
-            e.Graphics.DrawString("金额", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(155, 100));
+            e.Graphics.DrawString("号", new Font("Segoe UI", 8), Brushes.Black, new Point(0, 100));
+            e.Graphics.DrawString("内容", new Font("Segoe UI", 8), Brushes.Black, new Point(65, 100));
+            e.Graphics.DrawString("数量", new Font("Segoe UI", 8), Brushes.Black, new Point(125, 100));
+            e.Graphics.DrawString("金额", new Font("Segoe UI", 8), Brushes.Black, new Point(155, 100));
             e.Graphics.DrawLine(new Pen(Color.Black), new Point(0, 115), new Point(185, 115));
             foreach (var iteam in _list)
             {
@@ -262,6 +262,14 @@ namespace Commond
                 {
                     nleng += "颜色：" + iteam.Color;
                 }
+                if (iteam.CJQuestion != "")
+                {
+                    nleng += "常见问题：" + iteam.CJQuestion;
+                }
+                if (iteam.Remark != "")
+                {
+                    nleng += "备注：" + iteam.Remark;
+                }
                 //if (str.Length > 1)
                 //{
                 if (iteam.FuWuName != "")
@@ -277,28 +285,32 @@ namespace Commond
                 //e.Graphics.DrawString(iteam.LSMoney, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(155, (100 + i * 15)));
                 if (nleng.Length < 9)
                 {
-                    e.Graphics.DrawString(nleng, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(20, (100 + i * 15)));          
+                    e.Graphics.DrawString(nleng, new Font("Segoe UI", 8), Brushes.Black, new Point(20, (100 + i * 15)));          
                     e.Graphics.DrawLine(new Pen(Color.Black), new Point(0, 115+i*15), new Point(185, 115+i*15));
                     i++;
                     j++;
-                    e.Graphics.DrawString(" " + j.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, 100 + i * 15 - (i * 15 - _beginy) / 2));
-                    e.Graphics.DrawString(" " + iteam.Count, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(125, 100 + i * 15 - (i * 15 - _beginy) / 2));
-                    e.Graphics.DrawString(" " + iteam.CountMoney, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(155, 100 + i * 15 - (i * 15 - _beginy) / 2));
+                    e.Graphics.DrawString(" " + j.ToString(), new Font("Segoe UI", 8), Brushes.Black, new Point(0, 100 + i * 15 - (i * 15 - _beginy) / 2));
+                    e.Graphics.DrawString(" " + iteam.Count, new Font("Segoe UI", 8), Brushes.Black, new Point(125, 100 + i * 15 - (i * 15 - _beginy) / 2));
+                    e.Graphics.DrawString(" " + iteam.CountMoney, new Font("Segoe UI", 8), Brushes.Black, new Point(155, 100 + i * 15 - (i * 15 - _beginy) / 2));
                     continue;
                 }
                 while (nleng.Length > 9)
                 {
-                    e.Graphics.DrawString(nleng.Substring(0, 9), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(20, (100 + i * 15)));
+                    e.Graphics.DrawString(nleng.Substring(0, 9), new Font("Segoe UI", 8), Brushes.Black, new Point(20, (100 + i * 15)));
                     nleng = nleng.Substring(9, nleng.Length-9);
                     i++;
                 }
-                e.Graphics.DrawString(nleng, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(20, (100 + i * 15)));
+                e.Graphics.DrawString(nleng, new Font("Segoe UI", 8), Brushes.Black, new Point(20, (100 + i * 15)));
                 e.Graphics.DrawLine(new Pen(Color.Black), new Point(0, 115 + i * 15), new Point(185, 115 + i * 15));             
                 i++;
                 j++;
-                e.Graphics.DrawString(" " + j.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, 100 + i * 15 - (i * 15 - _beginy) / 2));
-                e.Graphics.DrawString(" " + iteam.Count, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(125, 100 + i * 15 - (i * 15 - _beginy) / 2));
-                e.Graphics.DrawString(" " + iteam.CountMoney, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(155, 100 + i * 15 - (i * 15 - _beginy) / 2));
+                e.Graphics.DrawString(" " + j.ToString(), new Font("Segoe UI", 8), Brushes.Black, new Point(0, 100 + i * 15 - (i * 15 - _beginy) / 2));
+                e.Graphics.DrawString(" " + iteam.Count, new Font("Segoe UI", 8), Brushes.Black, new Point(125, 100 + i * 15 - (i * 15 - _beginy) / 2));
+                if (iteam.CountMoney.ToString().Length > 3)
+                {
+                    iteam.CountMoney = Convert.ToDouble(iteam.CountMoney.ToString().Substring(0,3));
+                }
+                e.Graphics.DrawString(" " + iteam.CountMoney, new Font("Segoe UI", 8), Brushes.Black, new Point(155, 100 + i * 15 - (i * 15 - _beginy) / 2));
                 _beginy = i * 15;
             }         
             e.Graphics.DrawLine(new Pen(Color.Black), new Point(0, 100), new Point(0, (100 + i * 15)));
@@ -306,42 +318,42 @@ namespace Commond
             e.Graphics.DrawLine(new Pen(Color.Black), new Point(125, 100), new Point(125, (100 + i * 15)));
             e.Graphics.DrawLine(new Pen(Color.Black), new Point(155, 100), new Point(155, (100 + i * 15)));
             e.Graphics.DrawLine(new Pen(Color.Black), new Point(185, 100), new Point(185, (100 + i * 15)));
-            e.Graphics.DrawString("数量:" + _list.Count + "  合计金额:" + _hije, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("数量:" + _list.Count + "  合计金额:" + _hije, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
-            e.Graphics.DrawString("应付金额:" + _yfje, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("应付金额:" + _yfje, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
-            e.Graphics.DrawString("寄存件数:" + jccount, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("寄存件数:" + jccount, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
-            e.Graphics.DrawString("欠款金额:" + _QKMoney, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("欠款金额:" + _QKMoney, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
-            e.Graphics.DrawString("取活日期:" + _time.Split(new char[]{' '},StringSplitOptions.RemoveEmptyEntries)[0], new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("取活日期:" + _time.Split(new char[]{' '},StringSplitOptions.RemoveEmptyEntries)[0], new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;          
             while (jiewei.Length > 16)
             {
-                e.Graphics.DrawString(jiewei.Substring(0, 16), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));                
+                e.Graphics.DrawString(jiewei.Substring(0, 16), new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));                
                 jiewei = jiewei.Substring(16, jiewei.Length - 16);
                 i++;
             }
-            e.Graphics.DrawString(jiewei, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString(jiewei, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
-            e.Graphics.DrawString("店铺电话：" + DPTel, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("店铺电话：" + DPTel, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
-            e.Graphics.DrawString(sb.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(0,0));
+            e.Graphics.DrawString(sb.ToString(), new Font("Segoe UI", 8), Brushes.Black, new System.Drawing.Point(0,0));
             ////e.Graphics.DrawImage(_ibmap, new Rectangle(new System.Drawing.Point(-100, 200), new Size(400,400)));
-            e.Graphics.DrawImage(_ibmap, new Rectangle(new System.Drawing.Point(-10, (100 + i * 15)), new Size(200, 200)));
-            e.Graphics.DrawString("扫描二维码，即可查看订单信息！", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)+200));
+            e.Graphics.DrawImage(_ibmap, new Rectangle(new System.Drawing.Point(-10, (100 + i * 15)), new Size(150, 150)));
+            e.Graphics.DrawString("扫描二维码，即可查看订单信息！", new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)+200));
             i++;
-            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("", new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
-            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("", new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
-            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("", new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
-            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("", new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
-            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("", new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
-            e.Graphics.DrawString("", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
+            e.Graphics.DrawString("", new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             _beginy = 0;
             _QKMoney = 0;
 	#endregion
@@ -360,7 +372,7 @@ namespace Commond
             PrintDocument pd = new PrintDocument();
             //设置边距
             Margins margin = new Margins(20, 20, 20, 20);
-            pd.PrinterSettings.PrinterName = FilterClass.MemberXF;
+            //pd.PrinterSettings.PrinterName = FilterClass.MemberXF;
             pd.DefaultPageSettings.Margins = margin;
             //默认纸张
             PaperSize pageSize = new PaperSize("First custom size", getYc(58), 600);
@@ -392,13 +404,19 @@ namespace Commond
             sb.Append("日期:" + DateTime.Now.ToShortDateString() + " \r\n");
             sb.Append("姓名:" + toupmoney.czName + "\r\n" + "卡号:" + toupmoney.czNo + "\r\n");
             sb.Append("卡类型:" + toupmoney.czType + "\r\n");
-            sb.Append("本次充值:" + toupmoney.czMoney + "\r\n");            
-            if (toupmoney.czType.Trim() != "计次卡")
+            sb.Append("剩余金额:" + toupmoney.czyMoney + "\r\n");
+            if (toupmoney.czType.Trim().Split(new char[]{'-'},StringSplitOptions.RemoveEmptyEntries)[1] == "计次卡")
             {
-                sb.Append("余额:" + (Convert.ToDouble(toupmoney.czyMoney) + Convert.ToDouble(toupmoney.czCount)) + "\r\n");
+                sb.Append("剩余次数:" + toupmoney.czyCount + "\r\n");
+            }
+            sb.Append("本次充值:" + toupmoney.czMoney + "\r\n");
+            if (toupmoney.czType.Trim().Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries)[1] != "计次卡")
+            {
+                sb.Append("结余余额:" + (Convert.ToDouble(toupmoney.czyMoney) + Convert.ToDouble(toupmoney.czCount)) + "\r\n");
             }
             else
             {
+                sb.Append("充值次数:" + toupmoney.czCount + "\r\n");
                 sb.Append("剩余次数:" + (Convert.ToDouble(toupmoney.czyCount) + Convert.ToDouble(toupmoney.czCount)) + "\r\n");
             }
             sb.Append("电话："+_tel + "\r\n");

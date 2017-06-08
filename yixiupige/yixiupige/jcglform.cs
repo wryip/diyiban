@@ -85,12 +85,15 @@ namespace yixiupige
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >=0)
+            {
+                pictureBox1.ImageLocation = dataGridView1.Rows[e.RowIndex].Cells["jcImgUrl"].Value.ToString();
+            }
             //for (int i = 0; i < dataGridView1.Rows.Count; i++)
             //{
             //    dataGridView1.Rows[i].Selected = false;
             //}
-            //dataGridView1.Rows[e.RowIndex].Selected = true;
-            pictureBox1.ImageLocation = dataGridView1.Rows[e.RowIndex].Cells["jcImgUrl"].Value.ToString();
+            //dataGridView1.Rows[e.RowIndex].Selected = true;           
         }
 
         private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
@@ -106,7 +109,13 @@ namespace yixiupige
         }
         public void dataviewBind(List<JCInfoModel> list)
         {
-            dataGridView1.DataSource=list.OrderByDescending(a=>a.jcBeginDate).ToList();
+            list = list.OrderByDescending(a => Convert.ToDateTime(a.jcBeginDate)).ToList();
+            int count = list.Count;
+            foreach (var iteam in list)
+            {
+                iteam.jcNo = count--;
+            }
+            dataGridView1.DataSource = list;
         }
         //刷新数据
         public void dataviewBind1()
@@ -276,7 +285,7 @@ namespace yixiupige
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string type = treeView1.SelectedNode.Text;
+            string type = treeView1.SelectedNode.Text.Split(new char[]{'['},StringSplitOptions.RemoveEmptyEntries)[0];
             List<JCInfoModel> list = jcinfobll.selectAllList(type.Split(new char[] { '[' }, StringSplitOptions.RemoveEmptyEntries)[0]);
             bool resu = NPOIHelper.PrintDocument(list, type + "-寄存信息");
             if (resu)

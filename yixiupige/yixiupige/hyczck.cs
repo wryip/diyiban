@@ -49,14 +49,14 @@ namespace yixiupige
             //textBox3.Text = model1.cardMoney;
             textBox4.Text = model1.memberCardNo;
             textBox5.Text = model1.fuwuBate;
-            textBox6.Text = model1.cardMoney;
-            textBox6.Focus();
+                   
             textBox7.Text = model1.memberTel;
             textBox8.Text = model1.rebate;
             textBox9.Text = model1.cardType;
             textBox10.Text = model1.cardDate;
             textBox11.Text = model1.remark;
             textBox12.Text = model1.memberType;
+            textBox6.Text = model1.cardMoney;  
             //comboBox1.Text = model1.saleMan;
             //去拿相应卡的充值比例
             string cardtype = textBox12.Text.Trim();
@@ -113,7 +113,7 @@ namespace yixiupige
             }
             model.czNo = textBox4.Text.Trim();
             model.czName = textBox1.Text;
-            model.czType = textBox12.Text;
+            model.czType = textBox12.Text.Trim() + "-" + textBox9.Text.Trim(); ;
             model.czDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             model.czSaleman = comboBox1.Text == "" ? FilterClass.DianPu1.LoginName : comboBox1.Text;
             double m1 = Convert.ToDouble(textBox3.Text.Trim());

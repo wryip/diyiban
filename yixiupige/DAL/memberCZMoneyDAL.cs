@@ -173,7 +173,7 @@ namespace DAL
                 }
             }
             
-            int i = 1;
+
             SqlDataReader  read = SqlHelper.ExecuteReader(str);
             while (read.Read())
             {
@@ -191,10 +191,8 @@ namespace DAL
                     model.czNo = read["czNo"].ToString().Trim();
                     model.czId = Convert.ToInt32(read["czId"].ToString().Trim());
                     model.dianpu = read["DPName"].ToString();
-                    model.czXH = i;
                     list.Add(model);
                 }
-                i++;
             }
             return list;
         }

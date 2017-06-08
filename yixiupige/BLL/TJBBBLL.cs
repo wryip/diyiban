@@ -90,42 +90,8 @@ namespace BLL
             }
             #endregion
             #region//时间过滤
-            string pattern = @"[\d]+";
-            int i = 1;
-            Regex regex = new Regex(pattern, RegexOptions.None);
-            int dyear = Convert.ToInt32(regex.Matches(enddate)[0].Value);
-            int dmonth = Convert.ToInt32(regex.Matches(enddate)[1].Value);
-            int dday = Convert.ToInt32(regex.Matches(enddate)[2].Value);
-            int xyear = Convert.ToInt32(regex.Matches(begindate)[0].Value);
-            int xmonth = Convert.ToInt32(regex.Matches(begindate)[1].Value);
-            int xday = Convert.ToInt32(regex.Matches(begindate)[2].Value);
-            DateTime bigdate = new DateTime(dyear, dmonth, dday);
-            DateTime smalldate = new DateTime(xyear, xmonth, xday);
-            foreach (var iteam in list1)
-            {
-                iteam.No = i.ToString();
-                int year = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[0].Value);
-                int month = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[1].Value);
-                int day = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[2].Value);
-                DateTime nowdate = new DateTime(year, month, day);
-                if (DateTime.Compare(smalldate, nowdate) <= 0 && DateTime.Compare(bigdate, nowdate) >= 0)
-                {
-                    list.Add(iteam);
-                }                
-                i++;
-            }
-            #endregion
-            return list;
-        }
-        public void AddIteam(InHuoTJ jinhuo)
-        {
-            dal.AddIteam(jinhuo);
-        }
-        public List<InHuoTJ> selectListTJ(string begindate,string enddate,string yginfo,string name)
-        {
-            List<InHuoTJ> list1 = dal.selectListTJ(begindate, enddate,yginfo,name);
-            //List<InHuoTJ> list = new List<InHuoTJ>();
             //string pattern = @"[\d]+";
+            //int i = 1;
             //Regex regex = new Regex(pattern, RegexOptions.None);
             //int dyear = Convert.ToInt32(regex.Matches(enddate)[0].Value);
             //int dmonth = Convert.ToInt32(regex.Matches(enddate)[1].Value);
@@ -137,15 +103,33 @@ namespace BLL
             //DateTime smalldate = new DateTime(xyear, xmonth, xday);
             //foreach (var iteam in list1)
             //{
-            //    int year = Convert.ToInt32(regex.Matches(iteam.HuoDate.Trim())[0].Value);
-            //    int month = Convert.ToInt32(regex.Matches(iteam.HuoDate.Trim())[1].Value);
-            //    int day = Convert.ToInt32(regex.Matches(iteam.HuoDate.Trim())[2].Value);
+            //    iteam.No = i.ToString();
+            //    int year = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[0].Value);
+            //    int month = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[1].Value);
+            //    int day = Convert.ToInt32(regex.Matches(iteam.Date.Trim())[2].Value);
             //    DateTime nowdate = new DateTime(year, month, day);
             //    if (DateTime.Compare(smalldate, nowdate) <= 0 && DateTime.Compare(bigdate, nowdate) >= 0)
             //    {
             //        list.Add(iteam);
-            //    }
-            //}      
+            //    }                
+            //    i++;
+            //}
+            #endregion
+            return list1;
+        }
+        public void AddIteam(InHuoTJ jinhuo)
+        {
+            dal.AddIteam(jinhuo);
+        }
+        public List<InHuoTJ> selectListTJ(string begindate,string enddate,string yginfo,string name)
+        {
+            List<InHuoTJ> list1 = dal.selectListTJ(begindate, enddate,yginfo,name);
+            list1 = list1.OrderByDescending(a => Convert.ToDateTime(a.HuoDate)).ToList();
+            int count = list1.Count();
+            foreach (var iteam in list1)
+            {
+                iteam.BH = count--;
+            }
             return list1;
         }
         public void AddIteam(PutHuo model)
@@ -155,28 +139,12 @@ namespace BLL
         public List<PutHuo> SelectListXS(string begindate, string enddate, string yginfo,string name)
         {
             List<PutHuo> list1 = dal.SelectListXS(begindate, enddate, yginfo.Trim(), name);
-            //List<PutHuo> list = new List<PutHuo>();
-            //string pattern = @"[\d]+";
-            //Regex regex = new Regex(pattern, RegexOptions.None);
-            //int dyear = Convert.ToInt32(regex.Matches(enddate)[0].Value);
-            //int dmonth = Convert.ToInt32(regex.Matches(enddate)[1].Value);
-            //int dday = Convert.ToInt32(regex.Matches(enddate)[2].Value);
-            //int xyear = Convert.ToInt32(regex.Matches(begindate)[0].Value);
-            //int xmonth = Convert.ToInt32(regex.Matches(begindate)[1].Value);
-            //int xday = Convert.ToInt32(regex.Matches(begindate)[2].Value);
-            //DateTime bigdate = new DateTime(dyear, dmonth, dday);
-            //DateTime smalldate = new DateTime(xyear, xmonth, xday);
-            //foreach (var iteam in list1)
-            //{
-            //    int year = Convert.ToInt32(regex.Matches(iteam.PutDate.Trim())[0].Value);
-            //    int month = Convert.ToInt32(regex.Matches(iteam.PutDate.Trim())[1].Value);
-            //    int day = Convert.ToInt32(regex.Matches(iteam.PutDate.Trim())[2].Value);
-            //    DateTime nowdate = new DateTime(year, month, day);
-            //    if (DateTime.Compare(smalldate, nowdate) <= 0 && DateTime.Compare(bigdate, nowdate) >= 0)
-            //    {
-            //        list.Add(iteam);
-            //    }
-            //}      
+            list1 = list1.OrderByDescending(a => Convert.ToDateTime(a.PutDate)).ToList();
+            int count = list1.Count();
+            foreach (var iteam in list1)
+            {
+                iteam.PutBH = count--;
+            }
             return list1;
         }
         public int getIteamId(string staff, string dianpu, string cardno, string date)
@@ -193,7 +161,7 @@ namespace BLL
             return dal.AddSendXi(list);
         }
         //添加店面接收统计的添加AgainSend  
-        public void InDP(List<int> list)
+        public void InDP(Dictionary<int, string> list)
         {
             dal.InDP(list);
         }

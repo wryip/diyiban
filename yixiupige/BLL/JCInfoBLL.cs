@@ -93,6 +93,7 @@ namespace BLL
         public List<JCInfoModel> selectTJ(string begindate, string enddate, string yginfo,string jctype,string dpname)
         {
             List<JCInfoModel> list1 = dal.selectTJ(begindate, enddate, yginfo, jctype, dpname);
+            list1 = list1.OrderByDescending(a => Convert.ToDateTime(a.jcBeginDate)).ToList();
             return list1;
         }
         public List<JCInfoModel> selectQZTJ(string begindate, string enddate, string yginfo, string jctype,string dpname)
@@ -106,7 +107,14 @@ namespace BLL
         }
         public List<JCInfoModel> selectQMoney(string begindate, string enddate,string name)
         {
-            return dal.selectQMoney(begindate, enddate,name);
+            List<JCInfoModel> list=dal.selectQMoney(begindate, enddate,name);
+            list = list.OrderByDescending(a => Convert.ToDateTime(a.jcBeginDate)).ToList();
+            int count = list.Count();
+            foreach (var iteam in list)
+            {
+                iteam.jcNo = count--;
+            }
+            return list;
         }
         public List<JCInfoModel> SelectSongXi(string dpname)
         {
@@ -137,7 +145,7 @@ namespace BLL
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        public bool UpdateEnd(List<int> list)
+        public bool UpdateEnd(Dictionary<int, string> list)
         {
             return dal.UpdateEnd(list);
         }

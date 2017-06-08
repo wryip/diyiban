@@ -16,7 +16,7 @@ namespace BLL
         public bool AddMemberInfo(memberInfoModel model)
         {
             bool result = false;
-            result=dal.AddMemberInfo(model);
+            result = dal.AddMemberInfo(model);
             return result;
         }
         //查询莫一种类型的所有的会员信息，导出使用
@@ -25,9 +25,9 @@ namespace BLL
             return dal.selectAll(type);
         }
         //返回某种卡类型的所有集合，例如所有金卡或者银卡
-        public List<memberInfoModel> selectInfoCollect(string cardTepe,int i,out int j)
+        public List<memberInfoModel> selectInfoCollect(string cardTepe, int i, out int j)
         {
-            return dal.selectInfoCollect(cardTepe,i,out j);
+            return dal.selectInfoCollect(cardTepe, i, out j);
         }
         //查询会员卡的总数量
         public int selectAllCount()
@@ -46,7 +46,7 @@ namespace BLL
         {
             List<memberInfoModel> list = new List<memberInfoModel>();
             List<memberInfoModel> list1 = new List<memberInfoModel>();
-            list1=dal.hyczModel(neirong, tiaojian, mouhu);
+            list1 = dal.hyczModel(neirong, tiaojian, mouhu);
             if (list1.Count() == 0)
             {
                 return list1;
@@ -57,8 +57,8 @@ namespace BLL
             }
             else if (xiaodate != "0" && dadate == "0")
             {
-                string pattern=@"[\d]+";
-                Regex regex=new Regex(pattern,RegexOptions.None);
+                string pattern = @"[\d]+";
+                Regex regex = new Regex(pattern, RegexOptions.None);
                 int xyear = Convert.ToInt32(regex.Matches(xiaodate)[0].Value);
                 int xmonth = Convert.ToInt32(regex.Matches(xiaodate)[1].Value);
                 int xday = Convert.ToInt32(regex.Matches(xiaodate)[2].Value);
@@ -100,7 +100,7 @@ namespace BLL
                             }
                         }
                     }
-                  
+
                 }
             }
             else if (xiaodate == "0" && dadate != "0")
@@ -174,16 +174,22 @@ namespace BLL
             }
             return list;
         }
-        public List<memberInfoModel> tjbbOfbk(string begindate, string enddate,string dpname)
+        public List<memberInfoModel> tjbbOfbk(string begindate, string enddate, string dpname)
         {
-            List<memberInfoModel> list1 = dal.tjbbOfbk( begindate, enddate, dpname);         
+            List<memberInfoModel> list1 = dal.tjbbOfbk(begindate, enddate, dpname);
+            list1 = list1.OrderByDescending(a => Convert.ToDateTime(a.cardDate)).ToList();
+            int count = list1.Count();
+            foreach (var iteam in list1)
+            {
+                iteam.idbh = count--;
+            }
             return list1;
         }
         //会员充值
         public bool hyczMoney(string cardno, double money)
         {
             bool result = false;
-            result = dal.hyczMoney(cardno,money);
+            result = dal.hyczMoney(cardno, money);
             return result;
         }
         //会员删除
@@ -191,7 +197,7 @@ namespace BLL
         {
             return dal.deleteInfoModel(cardNo);
         }
-        public List<shMemberInfo> selectForIdList(string sousuo,bool mohu)
+        public List<shMemberInfo> selectForIdList(string sousuo, bool mohu)
         {
             return dal.selectForIdList(sousuo, mohu);
         }
@@ -202,7 +208,7 @@ namespace BLL
         //消费
         public bool XFmoney(string cardNumber, string Xmoney)
         {
-            return dal.XFmoney(cardNumber, Xmoney);            
+            return dal.XFmoney(cardNumber, Xmoney);
         }
         public string selectType(string cardno)
         {

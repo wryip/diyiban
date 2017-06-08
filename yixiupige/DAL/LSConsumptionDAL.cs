@@ -60,16 +60,23 @@ namespace DAL
         //添加历史消费记录
         public bool AddList(List<LiShiConsumption> listLS)
         {
+            bool ISFUKUAN = false;
+            //ISFUKUAN   代表的是  是否当时就进行了付款
             bool result = false;
             string str = "";
             SqlParameter[] pms;
             foreach (var iteam in listLS)
             {
-                str = "insert into LSConsumption"+ID+"(LSName,LSDate,LSStaff,LSNumberCount,LSMoney,LSYMoney,LSCount,LSPinPai,LSColor,LSSalesman,LSMultipleName,LSQuestion,LSRemark,LSDanNumber,LSCardNumber,ImgUrl,IsJC,IsSP,IsXMoney) values(@LSName,@LSDate,@LSStaff,@LSNumberCount,@LSMoney,@LSYMoney,@LSCount,@LSPinPai,@LSColor,@LSSalesman,@LSMultipleName,@LSQuestion,@LSRemark,@LSDanNumber,@LSCardNumber,@ImgUrl,@IsJC,@IsSP,@IsXMoney)";
+                if (iteam.LSStaff.Split(new char[] { '+' }, StringSplitOptions.RemoveEmptyEntries).Count()==2)
+                {
+                    if (iteam.LSStaff.Split(new char[] { '+' }, StringSplitOptions.RemoveEmptyEntries)[1]=="Y")
+                    ISFUKUAN = true;
+                }
+                str = "insert into LSConsumption" + ID + "(LSName,LSDate,LSStaff,LSNumberCount,LSMoney,LSYMoney,LSCount,LSPinPai,LSColor,LSSalesman,LSMultipleName,LSQuestion,LSRemark,LSDanNumber,LSCardNumber,ImgUrl,IsJC,IsSP,IsXMoney,FUKUAN) values(@LSName,@LSDate,@LSStaff,@LSNumberCount,@LSMoney,@LSYMoney,@LSCount,@LSPinPai,@LSColor,@LSSalesman,@LSMultipleName,@LSQuestion,@LSRemark,@LSDanNumber,@LSCardNumber,@ImgUrl,@IsJC,@IsSP,@IsXMoney,@FUKUAN)";
                 pms = new SqlParameter[] { 
                 new SqlParameter("@LSName",iteam.LSName),
                 new SqlParameter("@LSDate",SqlDbType.SmallDateTime){Value=iteam.LSDate},
-                new SqlParameter("@LSStaff",iteam.LSStaff),
+                new SqlParameter("@LSStaff",iteam.LSStaff.Split(new char[]{'+'},StringSplitOptions.RemoveEmptyEntries)[0]),
                 new SqlParameter("@LSNumberCount",iteam.LSNumberCount),
                 new SqlParameter("@LSMoney",iteam.LSMoney),
                 new SqlParameter("@LSYMoney",iteam.LSYMoney),
@@ -85,7 +92,8 @@ namespace DAL
                 new SqlParameter("@ImgUrl",iteam.ImgUrl),
                 new SqlParameter("@IsJC",iteam.IsJC),
                 new SqlParameter("@IsSP",iteam.IsSP),
-                new SqlParameter("@IsXMoney",iteam.IsXMoney)
+                new SqlParameter("@IsXMoney",iteam.IsXMoney),
+                new SqlParameter("@FUKUAN",ISFUKUAN)
                 };
                 result = SqlHelper.ExecuteNonQuery(str, pms)>0;
                 if (!result)
@@ -152,11 +160,29 @@ namespace DAL
             LiShiConsumption model;
             string str;
             SqlParameter[] pms;
-            str = "select * from LSConsumption" + ID + " where LSName=@LSName or LSNumberCount=@LSNumberCount";
-            pms = new SqlParameter[] { 
+            
+            if (skname.Trim() == "")
+            {
+                str = "select * from LSConsumption" + ID + " where LSNumberCount=@LSNumberCount";
+                pms = new SqlParameter[] { 
+            new SqlParameter("@LSNumberCount",sktel)
+            };
+            }
+            else if (sktel.Trim() == "")
+            {
+                str = "select * from LSConsumption" + ID + " where LSName=@LSName";
+                pms = new SqlParameter[] { 
+            new SqlParameter("@LSName",skname)
+            };
+            }
+            else
+            {
+                str = "select * from LSConsumption" + ID + " where LSName=@LSName and LSNumberCount=@LSNumberCount";
+                pms = new SqlParameter[] { 
             new SqlParameter("@LSName",skname),
             new SqlParameter("@LSNumberCount",sktel)
             };
+            }
             SqlDataReader read = SqlHelper.ExecuteReader(str, pms);
             while (read.Read())
             {
@@ -200,22 +226,43 @@ namespace DAL
             bdpjModel model;
             string str;
             SqlParameter[] pms;
-            //if (dpname == "admin")
-            //{
-            str = "select LSDanNumber,LSName,LSCardNumber,LSDate from LSConsumption" + ID + " where LSNumberCount=@LSNumberCount or LSName=@LSName or LSCardNumber=@LSCardNumber  group by LSDanNumber,LSName,LSCardNumber,LSDate order by LSDate desc";
-                pms = new SqlParameter[] { 
+            
+            //是散客的话   卡号为空
+                if (cardno == "")
+                {
+                    if (name == "")
+                    {
+                        str = "select LSDanNumber,LSName,LSCardNumber,LSDate from LSConsumption" + ID + " where LSName=@LSName group by LSDanNumber,LSName,LSCardNumber,LSDate order by LSDate desc";
+                        pms = new SqlParameter[] { 
+                new SqlParameter("@LSName",name)
+                };
+                    }
+                    else if (tel == "")
+                    {
+                        str = "select LSDanNumber,LSName,LSCardNumber,LSDate from LSConsumption" + ID + " where LSNumberCount=@LSNumberCount group by LSDanNumber,LSName,LSCardNumber,LSDate order by LSDate desc";
+                        pms = new SqlParameter[] { 
+                new SqlParameter("@LSNumberCount",tel)
+                };
+                    }
+                    else
+                    {
+                        str = "select LSDanNumber,LSName,LSCardNumber,LSDate from LSConsumption" + ID + " where LSNumberCount=@LSNumberCount and LSName=@LSName group by LSDanNumber,LSName,LSCardNumber,LSDate order by LSDate desc";
+                        pms = new SqlParameter[] { 
+                new SqlParameter("@LSNumberCount",tel),
+                new SqlParameter("@LSName",name)
+                };
+                    }
+                }
+                    //是会员
+                else
+                {
+                    str = "select LSDanNumber,LSName,LSCardNumber,LSDate from LSConsumption" + ID + " where LSNumberCount=@LSNumberCount and LSName=@LSName and LSCardNumber=@LSCardNumber  group by LSDanNumber,LSName,LSCardNumber,LSDate order by LSDate desc";
+                    pms = new SqlParameter[] { 
                 new SqlParameter("@LSNumberCount",tel),
                 new SqlParameter("@LSName",name),
                 new SqlParameter("@LSCardNumber",cardno)
                 };
-            //}
-            //else
-            //{
-            //    str = "select LSDanNumber,LSName,LSCardNumber from LSConsumption where LSMultipleName=@LSMultipleName group by LSDanNumber,LSName,LSCardNumber";
-            //    pms = new SqlParameter[] { 
-            //new SqlParameter("@LSMultipleName",dpname)
-            //};
-            //}
+                }
             SqlDataReader read = SqlHelper.ExecuteReader(str,pms);
             while (read.Read())
             {
@@ -347,7 +394,7 @@ namespace DAL
                         {
                             str += "select * from ";
                             str += "LSConsumption" + iteam.Value + "";
-                            str += " where LSDate between '" + begindate + "' and '" + enddate + "' and IsXMoney='true'";
+                            str += " where LSDate between '" + begindate + "' and '" + enddate + "' and IsXMoney='true' and FUKUAN='true'";
                             str += " union all ";
                         }
                         str = str.Substring(0, str.Length - 10);                 
@@ -355,7 +402,7 @@ namespace DAL
                     else
                     {
                         int id = FilterClass.dic[dpname];
-                        str = "select * from LSConsumption"+id+" where and IsXMoney='true' and LSDate between '" + begindate + "' and '" + enddate + "'";                        
+                        str = "select * from LSConsumption" + id + " where and IsXMoney='true' and FUKUAN='true' and LSDate between '" + begindate + "' and '" + enddate + "'";                        
                     }
                 }
                 else
@@ -366,7 +413,7 @@ namespace DAL
                         {
                             str += "select * from ";
                             str += "LSConsumption" + iteam.Value + "";
-                            str += " where LSDate between '" + begindate + "' and '" + enddate + "' and IsXMoney='true' and LSSalesman='" + yginfo.Trim() + "'";
+                            str += " where LSDate between '" + begindate + "' and '" + enddate + "' and IsXMoney='true' and FUKUAN='true' and LSSalesman='" + yginfo.Trim() + "'";
                             str += " union all ";
                         }
                         str = str.Substring(0, str.Length - 10);
@@ -374,7 +421,7 @@ namespace DAL
                     else
                     {
                         int id = FilterClass.dic[dpname];
-                        str = "select * from LSConsumption" + id + " where and IsXMoney='true' and LSDate between '" + begindate + "' and '" + enddate + "' and LSSalesman='" + yginfo.Trim() + "'";
+                        str = "select * from LSConsumption" + id + " where and IsXMoney='true' and FUKUAN='true' and LSDate between '" + begindate + "' and '" + enddate + "' and LSSalesman='" + yginfo.Trim() + "'";
                     }
                 }
             }
@@ -382,11 +429,11 @@ namespace DAL
             {
                 if (yginfo.Trim() == "全部")
                 {
-                    str = "select * from LSConsumption"+ID+" where IsXMoney='true' and LSDate between '" + begindate + "' and '" + enddate + "'";
+                    str = "select * from LSConsumption" + ID + " where IsXMoney='true' and FUKUAN='true' and LSDate between '" + begindate + "' and '" + enddate + "'";
                 }
                 else
                 {
-                    str = "select * from LSConsumption" + ID + " where and LSSalesman='" + yginfo.Trim() + "' and IsXMoney='true' and LSDate between '" + begindate + "' and '" + enddate + "'";                    
+                    str = "select * from LSConsumption" + ID + " where and LSSalesman='" + yginfo.Trim() + "' and IsXMoney='true' and FUKUAN='true' and LSDate between '" + begindate + "' and '" + enddate + "'";                    
                 }
             }
             SqlDataReader read = SqlHelper.ExecuteReader(str);

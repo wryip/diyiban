@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(hyflglfwForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.memberNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,11 +69,9 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.memberNameDataGridViewTextBoxColumn,
@@ -81,7 +80,7 @@
             this.memberTopUpDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.memberTypeBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 21);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 27;
@@ -93,34 +92,43 @@
             // memberNameDataGridViewTextBoxColumn
             // 
             this.memberNameDataGridViewTextBoxColumn.DataPropertyName = "memberName";
+            this.memberNameDataGridViewTextBoxColumn.Frozen = true;
             this.memberNameDataGridViewTextBoxColumn.HeaderText = "卡名称";
+            this.memberNameDataGridViewTextBoxColumn.MinimumWidth = 30;
             this.memberNameDataGridViewTextBoxColumn.Name = "memberNameDataGridViewTextBoxColumn";
             this.memberNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.memberNameDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.memberNameDataGridViewTextBoxColumn.Width = 50;
             // 
             // memberCardMoneyDataGridViewTextBoxColumn
             // 
             this.memberCardMoneyDataGridViewTextBoxColumn.DataPropertyName = "memberCardMoney";
             this.memberCardMoneyDataGridViewTextBoxColumn.HeaderText = "办卡金额";
+            this.memberCardMoneyDataGridViewTextBoxColumn.MinimumWidth = 30;
             this.memberCardMoneyDataGridViewTextBoxColumn.Name = "memberCardMoneyDataGridViewTextBoxColumn";
             this.memberCardMoneyDataGridViewTextBoxColumn.ReadOnly = true;
             this.memberCardMoneyDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.memberCardMoneyDataGridViewTextBoxColumn.Width = 62;
             // 
             // memberRebateDataGridViewTextBoxColumn
             // 
             this.memberRebateDataGridViewTextBoxColumn.DataPropertyName = "memberRebate";
             this.memberRebateDataGridViewTextBoxColumn.HeaderText = "消费折扣";
+            this.memberRebateDataGridViewTextBoxColumn.MinimumWidth = 30;
             this.memberRebateDataGridViewTextBoxColumn.Name = "memberRebateDataGridViewTextBoxColumn";
             this.memberRebateDataGridViewTextBoxColumn.ReadOnly = true;
             this.memberRebateDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.memberRebateDataGridViewTextBoxColumn.Width = 62;
             // 
             // memberTopUpDataGridViewTextBoxColumn
             // 
             this.memberTopUpDataGridViewTextBoxColumn.DataPropertyName = "memberTopUp";
             this.memberTopUpDataGridViewTextBoxColumn.HeaderText = "充值金额";
+            this.memberTopUpDataGridViewTextBoxColumn.MinimumWidth = 30;
             this.memberTopUpDataGridViewTextBoxColumn.Name = "memberTopUpDataGridViewTextBoxColumn";
             this.memberTopUpDataGridViewTextBoxColumn.ReadOnly = true;
             this.memberTopUpDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.memberTopUpDataGridViewTextBoxColumn.Width = 62;
             // 
             // memberTypeBindingSource
             // 
@@ -260,7 +268,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::yixiupige.Properties.Resources._1;
             this.ClientSize = new System.Drawing.Size(731, 435);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -271,6 +278,7 @@
             this.Controls.Add(this.hylbscbutton);
             this.Controls.Add(this.hylbxgbutton);
             this.Controls.Add(this.zjhylbbutton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "hyflglfwForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

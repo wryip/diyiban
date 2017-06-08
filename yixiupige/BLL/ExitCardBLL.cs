@@ -23,7 +23,9 @@ namespace BLL
         }
         public List<ExitCardModel> SelectAllList(string begindate,string enddate,string dpname)
         {
-            return dal.SelectAllList(begindate, enddate, dpname);
+            List<ExitCardModel> list=dal.SelectAllList(begindate, enddate, dpname);
+            list=list.OrderByDescending(a=>Convert.ToDateTime(a.DateTimeCard)).ToList();
+            return list;
         }
     }
 }

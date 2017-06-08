@@ -44,7 +44,13 @@ namespace yixiupige
         {
             List<JCInfoModel> list = new List<JCInfoModel>();
             list = bll.selectFinishJC(FilterClass.DianPu1.UserName);
-            dataGridView3.DataSource = list.OrderByDescending(a => a.jcBeginDate).ToList(); 
+            list = list.OrderByDescending(a => Convert.ToDateTime(a.jcBeginDate)).ToList();
+            int count = list.Count;
+            foreach (var iteam in list)
+            {
+                iteam.jcNo = count--;
+            }
+            dataGridView3.DataSource = list;
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -96,24 +102,25 @@ namespace yixiupige
         private void button4_Click(object sender, EventArgs e)
         {
             List<JCInfoModel> jclist = new List<JCInfoModel>();
-            List<int> list = new List<int>();
+            //List<int> list = new List<int>();
+            Dictionary<int, string> dic = new Dictionary<int, string>();
             foreach (DataGridViewRow iteam in dataGridView3.Rows)
             {
                 if (Convert.ToBoolean(iteam.Cells["XZ"].Value))
                 {
-                    list.Add(Convert.ToInt32(iteam.Cells["jcID"].Value));
+                    dic.Add(Convert.ToInt32(iteam.Cells["jcID"].Value), iteam.Cells["jcAddress"].Value.ToString());
                     jclist.Add(iteam.DataBoundItem as JCInfoModel);
                 }
             }
-            if (list.Count <= 0)
+            if (dic.Count <= 0)
             {
                 MessageBox.Show("请选择数据！");
                 return;
             }
-            bool result = bll.UpdateEnd(list);
+            bool result = bll.UpdateEnd(dic);
             if (result)
             {
-                tjbb.InDP(list);
+                tjbb.InDP(dic);
                 MessageBox.Show("成功！");
                 datagridviewbind();
                 PirentDocumentClass.SendWuLiu(jclist, "店面接收");
@@ -137,6 +144,7 @@ namespace yixiupige
                 {
                     row.Cells["XZ"].Value = true;
                     textBox1.Text = "";
+                    SuccessInfo.Success();
                     //该表lable中的数量信息
                     numberAdd();
                     return;

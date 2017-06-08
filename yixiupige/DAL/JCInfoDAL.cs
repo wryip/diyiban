@@ -97,6 +97,7 @@ namespace DAL
             }
             List<JCInfoModel> list = new List<JCInfoModel>();
             JCInfoModel model;
+            str = "";
             //SqlParameter[] pms;             
             //类型为全部
             if (name.Trim() == "全部")
@@ -831,7 +832,7 @@ namespace DAL
                             {
                                 str += "select * from ";
                                 str += "JCInfoTable" + iteam.Value + "";
-                                str += " where jcBeginDate between '" + begindate + "' and '" + enddate + "' and jcZT='已取走'";
+                                str += " where jcEndDate between '" + begindate + "' and '" + enddate + "' and jcZT='已取走'";
                                 str += " union all ";
                             }
                             str = str.Substring(0, str.Length - 10);
@@ -842,7 +843,7 @@ namespace DAL
                             {
                                 str += "select * from ";
                                 str += "JCInfoTable" + iteam.Value + "";
-                                str += " where jcBeginDate between '" + begindate + "' and '" + enddate + "' and jcZT='已取走' and jcPression='" + yginfo.Trim() + "'";
+                                str += " where jcEndDate between '" + begindate + "' and '" + enddate + "' and jcZT='已取走' and jcPression='" + yginfo.Trim() + "'";
                                 str += " union all ";
                             }
                             str = str.Substring(0, str.Length - 10);
@@ -857,7 +858,7 @@ namespace DAL
                             {
                                 str += "select * from ";
                                 str += "JCInfoTable" + iteam.Value + "";
-                                str += " where jcBeginDate between '" + begindate + "' and '" + enddate + "' and jcZT='已取走' and jcType='" + jctype.Trim() + "'";
+                                str += " where jcEndDate between '" + begindate + "' and '" + enddate + "' and jcZT='已取走' and jcType='" + jctype.Trim() + "'";
                                 str += " union all ";
                             }
                             str = str.Substring(0, str.Length - 10);
@@ -868,7 +869,7 @@ namespace DAL
                             {
                                 str += "select * from ";
                                 str += "JCInfoTable" + iteam.Value + "";
-                                str += " where jcBeginDate between '" + begindate + "' and '" + enddate + "' and jcZT='已取走' and jcType='" + jctype.Trim() + "' and jcPression='" + yginfo.Trim() + "'";
+                                str += " where jcEndDate between '" + begindate + "' and '" + enddate + "' and jcZT='已取走' and jcType='" + jctype.Trim() + "' and jcPression='" + yginfo.Trim() + "'";
                                 str += " union all ";
                             }
                             str = str.Substring(0, str.Length - 10);
@@ -882,11 +883,11 @@ namespace DAL
                     {
                         if (yginfo.Trim() == "全部")
                         {
-                            str = "select * from JCInfoTable" + id + " where jcZT='已取走' and jcBeginDate between '" + begindate + "' and '" + enddate + "'";
+                            str = "select * from JCInfoTable" + id + " where jcZT='已取走' and jcEndDate between '" + begindate + "' and '" + enddate + "'";
                         }
                         else
                         {
-                            str = "select * from JCInfoTable" + id + " where jcZT='已取走' and jcPression='" + yginfo.Trim() + "' and jcBeginDate between '" + begindate + "' and '" + enddate + "'";
+                            str = "select * from JCInfoTable" + id + " where jcZT='已取走' and jcPression='" + yginfo.Trim() + "' and jcEndDate between '" + begindate + "' and '" + enddate + "'";
                         }
 
                     }
@@ -894,11 +895,11 @@ namespace DAL
                     {
                         if (yginfo.Trim() == "全部")
                         {
-                            str = "select * from JCInfoTable" + id + " where jcZT='已取走' and jcType='" + jctype.Trim() + "' and jcBeginDate between '" + begindate + "' and '" + enddate + "'";
+                            str = "select * from JCInfoTable" + id + " where jcZT='已取走' and jcType='" + jctype.Trim() + "' and jcEndDate between '" + begindate + "' and '" + enddate + "'";
                         }
                         else
                         {
-                            str = "select * from JCInfoTable" + id + " where jcZT='已取走' and jcPression='" + yginfo.Trim() + "' and jcType='" + jctype.Trim() + "' and jcBeginDate between '" + begindate + "' and '" + enddate + "'";
+                            str = "select * from JCInfoTable" + id + " where jcZT='已取走' and jcPression='" + yginfo.Trim() + "' and jcType='" + jctype.Trim() + "' and jcEndDate between '" + begindate + "' and '" + enddate + "'";
                         }
                     }
                 }
@@ -910,11 +911,11 @@ namespace DAL
                 {
                     if (yginfo.Trim() == "全部")
                     {
-                        str = "select * from JCInfoTable" + ID + " where jcZT='已取走' and jcBeginDate between '" + begindate + "' and '" + enddate + "'";
+                        str = "select * from JCInfoTable" + ID + " where jcZT='已取走' and jcEndDate between '" + begindate + "' and '" + enddate + "'";
                     }
                     else
                     {
-                        str = "select * from JCInfoTable" + ID + " where jcZT='已取走' and jcPression='" + yginfo.Trim() + "' and jcBeginDate between '" + begindate + "' and '" + enddate + "'";
+                        str = "select * from JCInfoTable" + ID + " where jcZT='已取走' and jcPression='" + yginfo.Trim() + "' and jcEndDate between '" + begindate + "' and '" + enddate + "'";
                     }
 
                 }
@@ -922,11 +923,11 @@ namespace DAL
                 {
                     if (yginfo.Trim() == "全部")
                     {
-                        str = "select * from JCInfoTable" + ID + " where jcZT='已取走' and jcType='" + jctype.Trim() + "' and jcBeginDate between '" + begindate + "' and '" + enddate + "'";
+                        str = "select * from JCInfoTable" + ID + " where jcZT='已取走' and jcType='" + jctype.Trim() + "' and jcEndDate between '" + begindate + "' and '" + enddate + "'";
                     }
                     else
                     {
-                        str = "select * from JCInfoTable" + ID + " where jcZT='已取走' and jcPression='" + yginfo.Trim() + "' and jcType='" + jctype.Trim() + "' and jcBeginDate between '" + begindate + "' and '" + enddate + "'";
+                        str = "select * from JCInfoTable" + ID + " where jcZT='已取走' and jcPression='" + yginfo.Trim() + "' and jcType='" + jctype.Trim() + "' and jcEndDate between '" + begindate + "' and '" + enddate + "'";
                     }
                 }
             }
@@ -967,12 +968,12 @@ namespace DAL
         public int seleDelete(string dianpu, string cardno, string date, string money, string staff, string pinpai, string color)
         {
             int id = 0;
-            string str = "select jcID from  JCInfoTable"+ID+" where jcCardNumber=@jcCardNumber and DPName=@DPName and jcBeginDate=@jcBeginDate and jcQMoney=@jcQMoney and jcStaff=@jcStaff and jcPinPai=@jcPinPai and jcColor=@jcColor";
+            string str = "select jcID from  JCInfoTable" + ID + " where jcCardNumber=@jcCardNumber and DPName=@DPName and jcBeginDate=@jcBeginDate and XYF=@XYF and jcStaff=@jcStaff and jcPinPai=@jcPinPai and jcColor=@jcColor";
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@jcCardNumber",cardno),
             new SqlParameter("@DPName",dianpu),
             new SqlParameter("@jcBeginDate",date),
-            new SqlParameter("@jcQMoney",money),
+            new SqlParameter("@XYF",money),
             new SqlParameter("@jcStaff",staff),
             new SqlParameter("@jcPinPai",pinpai),
             new SqlParameter("@jcColor",color)
@@ -987,7 +988,6 @@ namespace DAL
         //统计报表中的   欠款统计方法
         public List<JCInfoModel> selectQMoney(string begindate, string enddate, string name)
         {
-            int i = 1;
             List<JCInfoModel> list = new List<JCInfoModel>();
             JCInfoModel model;
             string str="";
@@ -1018,7 +1018,6 @@ namespace DAL
                 if (read.HasRows)
                 {
                     model = new JCInfoModel();
-                    model.jcNo = i;
                     model.jcID = Convert.ToInt32(read["jcID"]);
                     model.jcCardNumber = read["jcCardNumber"].ToString();
                     model.jcName = read["jcName"].ToString();
@@ -1039,7 +1038,6 @@ namespace DAL
                     model.jcQuestion = read["jcQuestion"].ToString();
                     model.lsdm = read["DPName"].ToString();
                     model.Tel = read["YYF"].ToString();
-                    i++;
                     list.Add(model);
                 }
             }
@@ -1235,14 +1233,13 @@ namespace DAL
             if (ID == null)
             {
                 return list;
-            }
-            int i = 1;           
+            }         
             JCInfoModel model;
             string str = "select * from JCInfoTable" + ID + " where (jcAddress=@jcAddress or jcAddress=@jcAddress1) and jcZT=@jcZT order by jcBeginDate";
             SqlParameter[] pms = new SqlParameter[] {
             new SqlParameter("@jcAddress","送回店中"),
             //new SqlParameter("@DPName",name.Trim()),
-            new SqlParameter("@jcAddress1","工厂退回"),
+            new SqlParameter("@jcAddress1","退回店中"),
             //new SqlParameter("@jcAddress2","店铺完工"),
             new SqlParameter("@jcZT","未取走")
             };
@@ -1252,7 +1249,6 @@ namespace DAL
                 if (read.HasRows)
                 {
                     model = new JCInfoModel();
-                    model.jcNo = i;
                     model.jcID = Convert.ToInt32(read["jcID"]);
                     model.jcCardNumber = read["jcCardNumber"].ToString();
                     model.jcName = read["jcName"].ToString();
@@ -1273,7 +1269,6 @@ namespace DAL
                     model.Tel = read["YYF"].ToString();
                     model.jcQuestion = read["jcQuestion"].ToString();
                     model.lsdm = read["DPName"].ToString();
-                    i++;
                     list.Add(model);
                 }
             }
@@ -1292,7 +1287,7 @@ namespace DAL
             string str = "select * from JCInfoTable" + ID + " where jcAddress=@jcAddress1 and jcZT=@jcZT order by jcBeginDate";
             SqlParameter[] pms = new SqlParameter[] {
             //new SqlParameter("@DPName",name.Trim()),
-            new SqlParameter("@jcAddress1","工厂退回"),
+            new SqlParameter("@jcAddress1","退回待处理"),
             //new SqlParameter("@jcAddress2","店铺完工"),
             new SqlParameter("@jcZT","未取走")
             };
@@ -1396,20 +1391,32 @@ namespace DAL
             return list;
         }
         //店面接收
-        public bool UpdateEnd(List<int> list)
+        public bool UpdateEnd(Dictionary<int, string> list)
         {
             bool result = false;
-            string str = "update JCInfoTable"+ID+" set jcAddress=@jcAddress where ";
-            string fromat = "jcID='{0}'";
-            SqlParameter[] pms = new SqlParameter[] { 
-            new SqlParameter("@jcAddress","店铺已收")
-            };
-            foreach (int id in list)
+            string str = "";
+            foreach (KeyValuePair<int, string> id in list)
             {
-                str = str + string.Format(fromat, id) + " or ";
+                if (id.Value.Trim() == "退回店中")
+                {
+                    str += "update JCInfoTable" + ID + " set jcAddress='退回待处理' where jcID='" + id.Key + "';";
+                }
+                else
+                {
+                    str += "update JCInfoTable" + ID + " set jcAddress='店铺已收' where jcID='" + id.Key + "';";
+                }
             }
-            str = str.Substring(0, str.Length - 4);
-            if (SqlHelper.ExecuteNonQuery(str, pms) > 0)
+            //str = "update JCInfoTable"+ID+" set jcAddress=@jcAddress where ";
+            //string fromat = "jcID='{0}'";
+            //SqlParameter[] pms = new SqlParameter[] { 
+            //new SqlParameter("@jcAddress","店铺已收")
+            //};
+            //foreach (KeyValuePair<int,string> id in list)
+            //{
+            //    str = str + string.Format(fromat, id) + " or ";
+            //}
+            //str = str.Substring(0, str.Length - 4);
+            if (SqlHelper.ExecuteNonQuery(str) > 0)
             {
                 result = true;
             }

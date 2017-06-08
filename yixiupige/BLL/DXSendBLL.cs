@@ -28,7 +28,13 @@ namespace BLL
         }
         public List<DXmemberModel> selectListTJ(string begindate,string enddate,string dpname)
         {
-            List<DXmemberModel> list1 = dal.selectListTJ(begindate, enddate, dpname);    
+            List<DXmemberModel> list1 = dal.selectListTJ(begindate, enddate, dpname);
+            list1 = list1.OrderByDescending(a => Convert.ToDateTime(a.Date)).ToList();
+            int count=list1.Count();
+            foreach (var iteam in list1)
+            {
+                iteam.No = count--;
+            }
             return list1;
         }
     }

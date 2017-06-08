@@ -74,6 +74,7 @@ namespace DAL
                     model.DanMoney = read["DanMoney"].ToString().Trim();
                     model.StaffName = read["StaffName"].ToString().Trim();
                     model.ExitDanTime = read["ExitDanTime"].ToString().Trim();
+                    model.IsMoney = read["IsMoney"].ToString();
                     list.Add(model);
                 }
             }

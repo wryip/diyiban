@@ -111,7 +111,7 @@ namespace yixiupige
                 //取走统计
                 case 3: qztjdata(dpname);
                     break;
-                //会员卡统计
+                //会员卡消费统计
                 case 4: xftjdata(dpname);
                     break;
                 //收入统计
@@ -267,16 +267,6 @@ namespace yixiupige
             {
                 money += Convert.ToDouble(iteam.DanMoney);
             }
-            //List<ExitDanModel> list1 = new List<ExitDanModel>();
-            //if (name != "")
-            //{
-            //    foreach (var iteam in list)
-            //    {
-            //        if (iteam.DPName == name)
-            //        { list1.Add(iteam); }
-            //    }
-            //    dataGridView11.DataSource = list1;
-            //}
             label8.Text = list.Count.ToString();
             label9.Text = money.ToString();
             dataGridView11.DataSource = list;
@@ -294,16 +284,6 @@ namespace yixiupige
             {
                 money += Convert.ToDouble(iteam.CardMoney);
             }
-            //List<ExitCardModel> list1=new List<ExitCardModel>();
-            //if (name != "")
-            //{
-            //    foreach (var iteam in list)
-            //    {
-            //        if (iteam.DPName == name)
-            //        { list1.Add(iteam); }
-            //    }
-            //    dataGridView5.DataSource = list1;
-            //}
             label8.Text = list.Count.ToString();
             label9.Text = money.ToString();
             dataGridView5.DataSource = list;
@@ -317,17 +297,7 @@ namespace yixiupige
             foreach (var iteam in list)
             {
                 money += Convert.ToDouble(iteam.HuoMoney);
-            }
-            //List<InHuoTJ> list1 = new List<InHuoTJ>();
-            //if (name != "")
-            //{
-            //    foreach (var iteam in list)
-            //    {
-            //        if (iteam.HuoDianName == name)
-            //        { list1.Add(iteam); }
-            //    }
-            //    dataGridView10.DataSource = list1;
-            //}            
+            }           
             label8.Text = list.Count.ToString();
             label9.Text = money.ToString();
             dataGridView10.DataSource = list;
@@ -338,23 +308,12 @@ namespace yixiupige
             double money = 0;
             int count = 0;
             List<PutHuo> list = new List<PutHuo>();
-            //List<PutHuo> list1 = new List<PutHuo>();
             list = inhuo.SelectListXS(begindate, enddate, yginfo, name);
             foreach (var iteam in list)
             {
                 count += Convert.ToInt32(iteam.PutCount);
                 money += Convert.ToDouble(iteam.PutMoney);
             }
-            //if (name != "")
-            //{
-            //    foreach (var iteam in list)
-            //    {
-            //        if (iteam.PutDianName == name)
-            //        { list1.Add(iteam); }
-            //    }
-            //    dataGridView9.DataSource = list1;
-            //    return;
-            //}
             label8.Text = count.ToString();
             label9.Text = money.ToString();
             dataGridView9.DataSource = list;
@@ -557,7 +516,7 @@ namespace yixiupige
             }
             else if (selectIndex == 8)
             {
-                bool result = NPOIHelper.PrintDocument<InHuoTJ>((List<InHuoTJ>)dataGridView10.DataSource, "商品进货");
+                bool result = NPOIHelper.PrintDocument<InHuoTJ>((List<InHuoTJ>)dataGridView10.DataSource, "商品补货");
                 if (result)
                 {
                     MessageBox.Show("导出成功");

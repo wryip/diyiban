@@ -62,7 +62,7 @@
             this.label1.Location = new System.Drawing.Point(30, 38);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 17);
+            this.label1.Size = new System.Drawing.Size(84, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "起始时间：";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -75,7 +75,7 @@
             this.label2.Location = new System.Drawing.Point(259, 38);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 17);
+            this.label2.Size = new System.Drawing.Size(84, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "结束时间：";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -88,7 +88,7 @@
             this.label3.Location = new System.Drawing.Point(484, 37);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 17);
+            this.label3.Size = new System.Drawing.Size(54, 19);
             this.label3.TabIndex = 2;
             this.label3.Text = "员工：";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -98,7 +98,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(96, 35);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(135, 23);
+            this.dateTimePicker1.Size = new System.Drawing.Size(135, 27);
             this.dateTimePicker1.TabIndex = 3;
             // 
             // dateTimePicker2
@@ -106,7 +106,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(328, 34);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(139, 23);
+            this.dateTimePicker2.Size = new System.Drawing.Size(139, 27);
             this.dateTimePicker2.TabIndex = 4;
             // 
             // comboBox1
@@ -115,7 +115,7 @@
             this.comboBox1.Location = new System.Drawing.Point(531, 32);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(143, 25);
+            this.comboBox1.Size = new System.Drawing.Size(143, 27);
             this.comboBox1.TabIndex = 5;
             // 
             // tjbutton
@@ -150,7 +150,7 @@
             this.wjsradioButton.Location = new System.Drawing.Point(968, 34);
             this.wjsradioButton.Margin = new System.Windows.Forms.Padding(4);
             this.wjsradioButton.Name = "wjsradioButton";
-            this.wjsradioButton.Size = new System.Drawing.Size(62, 21);
+            this.wjsradioButton.Size = new System.Drawing.Size(75, 23);
             this.wjsradioButton.TabIndex = 8;
             this.wjsradioButton.TabStop = true;
             this.wjsradioButton.Text = "未结算";
@@ -165,7 +165,7 @@
             this.yjsradioButton.Location = new System.Drawing.Point(1077, 33);
             this.yjsradioButton.Margin = new System.Windows.Forms.Padding(4);
             this.yjsradioButton.Name = "yjsradioButton";
-            this.yjsradioButton.Size = new System.Drawing.Size(62, 21);
+            this.yjsradioButton.Size = new System.Drawing.Size(75, 23);
             this.yjsradioButton.TabIndex = 9;
             this.yjsradioButton.TabStop = true;
             this.yjsradioButton.Text = "已结算\r\n";
@@ -200,12 +200,12 @@
             this.ywy,
             this.js});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 20);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 24);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1211, 575);
+            this.dataGridView1.Size = new System.Drawing.Size(1211, 571);
             this.dataGridView1.TabIndex = 0;
             // 
             // bh
@@ -270,10 +270,9 @@
             // 
             // tcglForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.BackgroundImage = global::yixiupige.Properties.Resources._1;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1253, 687);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.yjsradioButton);

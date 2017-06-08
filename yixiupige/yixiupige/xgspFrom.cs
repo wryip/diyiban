@@ -68,6 +68,7 @@ namespace yixiupige
                 sp._load();
                 Loadevent();
                 MessageBox.Show("修改成功！");
+                this.Close();
             }
         }
 

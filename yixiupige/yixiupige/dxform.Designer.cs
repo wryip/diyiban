@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dxform));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -63,13 +64,13 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(10, 10);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1365, 541);
+            this.panel1.Size = new System.Drawing.Size(1300, 541);
             this.panel1.TabIndex = 0;
             // 
             // groupBox2
@@ -77,6 +78,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.button11);
             this.groupBox2.Controls.Add(this.button10);
@@ -87,10 +89,10 @@
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(728, 6);
+            this.groupBox2.Font = new System.Drawing.Font("微软雅黑 Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox2.Location = new System.Drawing.Point(674, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(634, 528);
+            this.groupBox2.Size = new System.Drawing.Size(623, 528);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "短信操作";
@@ -103,7 +105,7 @@
             this.groupBox4.Controls.Add(this.textBox2);
             this.groupBox4.Location = new System.Drawing.Point(7, 248);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(620, 274);
+            this.groupBox4.Size = new System.Drawing.Size(609, 274);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "剩余短信【0】-手机号码【0】";
@@ -113,13 +115,14 @@
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.BackColor = System.Drawing.Color.White;
             this.textBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox2.Location = new System.Drawing.Point(7, 21);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox2.Size = new System.Drawing.Size(608, 247);
+            this.textBox2.Size = new System.Drawing.Size(597, 247);
             this.textBox2.TabIndex = 0;
             // 
             // button11
@@ -134,9 +137,9 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(419, 196);
+            this.button10.Location = new System.Drawing.Point(413, 196);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.Size = new System.Drawing.Size(81, 30);
             this.button10.TabIndex = 2;
             this.button10.Text = "删除重号";
             this.button10.UseVisualStyleBackColor = true;
@@ -144,9 +147,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(260, 196);
+            this.button4.Location = new System.Drawing.Point(254, 196);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(81, 30);
             this.button4.TabIndex = 2;
             this.button4.Text = "增加号码";
             this.button4.UseVisualStyleBackColor = true;
@@ -154,9 +157,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(82, 196);
+            this.button2.Location = new System.Drawing.Point(76, 196);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(81, 30);
             this.button2.TabIndex = 2;
             this.button2.Text = "导入";
             this.button2.UseVisualStyleBackColor = true;
@@ -164,9 +167,9 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(419, 155);
+            this.button9.Location = new System.Drawing.Point(413, 155);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.Size = new System.Drawing.Size(81, 30);
             this.button9.TabIndex = 2;
             this.button9.Text = "全部删除";
             this.button9.UseVisualStyleBackColor = true;
@@ -174,9 +177,9 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(260, 155);
+            this.button6.Location = new System.Drawing.Point(254, 155);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.Size = new System.Drawing.Size(81, 30);
             this.button6.TabIndex = 2;
             this.button6.Text = "删除号码";
             this.button6.UseVisualStyleBackColor = true;
@@ -184,9 +187,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(82, 155);
+            this.button1.Location = new System.Drawing.Point(76, 155);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(81, 30);
             this.button1.TabIndex = 2;
             this.button1.Text = "全选";
             this.button1.UseVisualStyleBackColor = true;
@@ -205,10 +208,11 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Location = new System.Drawing.Point(7, 21);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(620, 95);
+            this.groupBox3.Size = new System.Drawing.Size(609, 95);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "短信内容【0】总字数【64】";
@@ -221,7 +225,7 @@
             this.textBox1.Location = new System.Drawing.Point(7, 21);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(609, 68);
+            this.textBox1.Size = new System.Drawing.Size(598, 68);
             this.textBox1.TabIndex = 0;
             // 
             // groupBox1
@@ -229,10 +233,10 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox1.Font = new System.Drawing.Font("微软雅黑 Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(4, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(717, 528);
+            this.groupBox1.Size = new System.Drawing.Size(664, 528);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "会员信息";
@@ -245,6 +249,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dxNo,
@@ -260,7 +265,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(704, 494);
+            this.dataGridView1.Size = new System.Drawing.Size(651, 494);
             this.dataGridView1.TabIndex = 0;
             // 
             // dxNo
@@ -336,8 +341,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1383, 560);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1330, 566);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "dxform";

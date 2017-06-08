@@ -220,7 +220,7 @@ namespace yixiupige
 
         private void button4_Click(object sender, EventArgs e)
         {
-            List<JCInfoModel> jclist = new List<JCInfoModel>();
+             List<JCInfoModel> jclist = new List<JCInfoModel>();
             //List<int> list = new List<int>();
             foreach (DataGridViewRow iteam in dataGridView3.Rows)
             {

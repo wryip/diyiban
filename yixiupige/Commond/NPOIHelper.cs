@@ -51,7 +51,10 @@ namespace Commond
             //new Person(){ Name="王鑫", Age=19, Email="wangxin@yahoo.com"},
             //new Person(){ Name="刘翰", Age=17, Email="liuhan@sohu.com"}
             //};
-
+            if (list==null)
+            {
+                return false;
+            }
             //Excel导出数据的步骤
             //1.创建一个空的Workbook对象（工作簿）
             IWorkbook wk = new HSSFWorkbook();
@@ -74,7 +77,9 @@ namespace Commond
             //} 
             #endregion
             wk=FactoryModel(list, sheet);
-            string dirpath = "..\\..\\memberInfo";
+            string dirpath = "memberInfo";
+            if (!Directory.Exists(dirpath))
+                Directory.CreateDirectory(dirpath);
             string path = dirpath + "\\" + name+DateTime.Now.ToString("yyyy MM dd") + ".xls";
             //4.把内存当中的workbook写入到磁盘中
             using (FileStream fsWrite = File.OpenWrite(path))

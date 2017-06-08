@@ -43,7 +43,6 @@ namespace DAL
         public List<DXmemberModel> selectListTJ(string begindate, string enddate, string dpname)
         {
             List<DXmemberModel> list = new List<DXmemberModel>();
-            int i = 1;
             string dp=FilterClass.DianPu1.UserName.Trim();           
             string str = "";
             //SqlParameter[] pms;
@@ -83,7 +82,6 @@ namespace DAL
                 if (read.HasRows)
                 {
                     model = new DXmemberModel();
-                    model.No = i;
                     model.CardNumber = read["CardNumber"].ToString().Trim();
                     model.MemberName = read["MemberName"].ToString().Trim();
                     model.TelPhone = read["TelPhone"].ToString().Trim();
@@ -92,7 +90,6 @@ namespace DAL
                     model.Content = read["ContentNR"].ToString().Trim();
                     model.DianPu = read["DianPu"].ToString().Trim();
                     list.Add(model);
-                    i++;
                 }
             }
             return list;

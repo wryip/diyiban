@@ -44,6 +44,26 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcImgUrl1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.XZ = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.jcNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,26 +85,6 @@
             this.jcQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcPression = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lsdm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jcImgUrl1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -102,9 +102,10 @@
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(16, 15);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1340, 575);
+            this.panel1.Size = new System.Drawing.Size(1765, 719);
             this.panel1.TabIndex = 0;
             // 
             // groupBox2
@@ -114,9 +115,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.dataGridView2);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(681, 117);
+            this.groupBox2.Location = new System.Drawing.Point(908, 146);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(645, 449);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(839, 561);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "不可取";
@@ -152,14 +155,15 @@
             this.dataGridViewTextBoxColumn18,
             this.dataGridViewTextBoxColumn19,
             this.dataGridViewTextBoxColumn20});
-            this.dataGridView2.Location = new System.Drawing.Point(2, 14);
+            this.dataGridView2.Location = new System.Drawing.Point(3, 18);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(641, 428);
+            this.dataGridView2.Size = new System.Drawing.Size(833, 535);
             this.dataGridView2.TabIndex = 1;
-            this.dataGridView2.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_RowEnter);
+            this.dataGridView2.DoubleClick += new System.EventHandler(this.dataGridView2_DoubleClick);
             // 
             // groupBox3
             // 
@@ -175,9 +179,11 @@
             this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox3.Location = new System.Drawing.Point(11, 4);
+            this.groupBox3.Location = new System.Drawing.Point(15, 5);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1315, 107);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(1729, 134);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "搜索";
@@ -186,9 +192,10 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBox1.Location = new System.Drawing.Point(620, 40);
+            this.checkBox1.Location = new System.Drawing.Point(748, 52);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(71, 25);
+            this.checkBox1.Size = new System.Drawing.Size(88, 31);
             this.checkBox1.TabIndex = 9;
             this.checkBox1.Text = "模糊";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -196,10 +203,10 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button5.Location = new System.Drawing.Point(1090, 36);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Location = new System.Drawing.Point(1273, 45);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(148, 36);
+            this.button5.Size = new System.Drawing.Size(197, 45);
             this.button5.TabIndex = 8;
             this.button5.Text = "有票取走";
             this.button5.UseVisualStyleBackColor = true;
@@ -207,10 +214,10 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(1263, 36);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Location = new System.Drawing.Point(1500, 45);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(148, 36);
+            this.button4.Size = new System.Drawing.Size(197, 45);
             this.button4.TabIndex = 8;
             this.button4.Text = "无票取走";
             this.button4.UseVisualStyleBackColor = true;
@@ -219,9 +226,10 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(729, 37);
+            this.button2.Location = new System.Drawing.Point(843, 46);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 35);
+            this.button2.Size = new System.Drawing.Size(197, 44);
             this.button2.TabIndex = 4;
             this.button2.Text = "确认搜索";
             this.button2.UseVisualStyleBackColor = true;
@@ -230,18 +238,20 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(406, 38);
+            this.textBox1.Location = new System.Drawing.Point(519, 50);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(158, 31);
+            this.textBox1.Size = new System.Drawing.Size(209, 37);
             this.textBox1.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(295, 40);
+            this.label2.Location = new System.Drawing.Point(371, 52);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 27);
+            this.label2.Size = new System.Drawing.Size(140, 32);
             this.label2.TabIndex = 2;
             this.label2.Text = "搜索参数：";
             // 
@@ -249,9 +259,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(10, 43);
+            this.label1.Location = new System.Drawing.Point(13, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 27);
+            this.label1.Size = new System.Drawing.Size(140, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "搜索类型：";
             // 
@@ -265,18 +276,20 @@
             "卡号",
             "单号",
             "条码"});
-            this.comboBox1.Location = new System.Drawing.Point(125, 42);
+            this.comboBox1.Location = new System.Drawing.Point(164, 52);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(147, 29);
+            this.comboBox1.Size = new System.Drawing.Size(195, 34);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(902, 36);
+            this.button1.Location = new System.Drawing.Point(1055, 45);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 34);
+            this.button1.Size = new System.Drawing.Size(199, 42);
             this.button1.TabIndex = 0;
             this.button1.Text = "刷新";
             this.button1.UseVisualStyleBackColor = true;
@@ -288,9 +301,11 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(4, 117);
+            this.groupBox1.Location = new System.Drawing.Point(5, 146);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(671, 455);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(895, 569);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "可取";
@@ -327,177 +342,16 @@
             this.jcQuestion,
             this.jcPression,
             this.lsdm});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 14);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 18);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(658, 435);
+            this.dataGridView1.Size = new System.Drawing.Size(877, 544);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
-            // 
-            // XZ
-            // 
-            this.XZ.HeaderText = "选择";
-            this.XZ.Name = "XZ";
-            this.XZ.ReadOnly = true;
-            this.XZ.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.XZ.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // jcNo
-            // 
-            this.jcNo.DataPropertyName = "jcNo";
-            this.jcNo.HeaderText = "编号";
-            this.jcNo.Name = "jcNo";
-            this.jcNo.ReadOnly = true;
-            // 
-            // jcID
-            // 
-            this.jcID.DataPropertyName = "jcID";
-            this.jcID.HeaderText = "jcID";
-            this.jcID.Name = "jcID";
-            this.jcID.ReadOnly = true;
-            this.jcID.Visible = false;
-            // 
-            // jcCardNumber
-            // 
-            this.jcCardNumber.DataPropertyName = "jcCardNumber";
-            this.jcCardNumber.HeaderText = "卡号";
-            this.jcCardNumber.Name = "jcCardNumber";
-            this.jcCardNumber.ReadOnly = true;
-            // 
-            // jcName
-            // 
-            this.jcName.DataPropertyName = "jcName";
-            this.jcName.HeaderText = "姓名";
-            this.jcName.Name = "jcName";
-            this.jcName.ReadOnly = true;
-            // 
-            // jcQMnoey
-            // 
-            this.jcQMnoey.DataPropertyName = "jcQMoney";
-            this.jcQMnoey.HeaderText = "jcQMoney";
-            this.jcQMnoey.Name = "jcQMnoey";
-            this.jcQMnoey.ReadOnly = true;
-            this.jcQMnoey.Visible = false;
-            // 
-            // jcType
-            // 
-            this.jcType.DataPropertyName = "jcType";
-            this.jcType.HeaderText = "jcType";
-            this.jcType.Name = "jcType";
-            this.jcType.ReadOnly = true;
-            this.jcType.Visible = false;
-            // 
-            // jcPinPai
-            // 
-            this.jcPinPai.DataPropertyName = "jcPinPai";
-            this.jcPinPai.HeaderText = "jcPinPai";
-            this.jcPinPai.Name = "jcPinPai";
-            this.jcPinPai.ReadOnly = true;
-            this.jcPinPai.Visible = false;
-            // 
-            // jcColor
-            // 
-            this.jcColor.DataPropertyName = "jcColor";
-            this.jcColor.HeaderText = "jcColor";
-            this.jcColor.Name = "jcColor";
-            this.jcColor.ReadOnly = true;
-            this.jcColor.Visible = false;
-            // 
-            // jcStaff
-            // 
-            this.jcStaff.DataPropertyName = "jcStaff";
-            this.jcStaff.HeaderText = "jcStaff";
-            this.jcStaff.Name = "jcStaff";
-            this.jcStaff.ReadOnly = true;
-            this.jcStaff.Visible = false;
-            // 
-            // jcBeginDate
-            // 
-            this.jcBeginDate.DataPropertyName = "jcBeginDate";
-            this.jcBeginDate.HeaderText = "jcBeginDate";
-            this.jcBeginDate.Name = "jcBeginDate";
-            this.jcBeginDate.ReadOnly = true;
-            this.jcBeginDate.Visible = false;
-            // 
-            // jcEndDate
-            // 
-            this.jcEndDate.DataPropertyName = "jcEndDate";
-            this.jcEndDate.HeaderText = "jcEndDate";
-            this.jcEndDate.Name = "jcEndDate";
-            this.jcEndDate.ReadOnly = true;
-            this.jcEndDate.Visible = false;
-            // 
-            // jcZT
-            // 
-            this.jcZT.DataPropertyName = "jcZT";
-            this.jcZT.HeaderText = "状态";
-            this.jcZT.Name = "jcZT";
-            this.jcZT.ReadOnly = true;
-            // 
-            // jcAddress
-            // 
-            this.jcAddress.DataPropertyName = "jcAddress";
-            this.jcAddress.HeaderText = "物品位置";
-            this.jcAddress.Name = "jcAddress";
-            this.jcAddress.ReadOnly = true;
-            // 
-            // jcImgUrl
-            // 
-            this.jcImgUrl.DataPropertyName = "jcImgUrl";
-            this.jcImgUrl.HeaderText = "jcImgUrl";
-            this.jcImgUrl.Name = "jcImgUrl";
-            this.jcImgUrl.ReadOnly = true;
-            this.jcImgUrl.Visible = false;
-            // 
-            // jcDanNumber
-            // 
-            this.jcDanNumber.DataPropertyName = "jcDanNumber";
-            this.jcDanNumber.HeaderText = "单号";
-            this.jcDanNumber.Name = "jcDanNumber";
-            this.jcDanNumber.ReadOnly = true;
-            // 
-            // jcPaiNumber
-            // 
-            this.jcPaiNumber.DataPropertyName = "jcPaiNumber";
-            this.jcPaiNumber.HeaderText = "jcPaiNumber";
-            this.jcPaiNumber.Name = "jcPaiNumber";
-            this.jcPaiNumber.ReadOnly = true;
-            this.jcPaiNumber.Visible = false;
-            // 
-            // jcRemark
-            // 
-            this.jcRemark.DataPropertyName = "jcRemark";
-            this.jcRemark.HeaderText = "jcRemark";
-            this.jcRemark.Name = "jcRemark";
-            this.jcRemark.ReadOnly = true;
-            this.jcRemark.Visible = false;
-            // 
-            // jcQuestion
-            // 
-            this.jcQuestion.DataPropertyName = "jcQuestion";
-            this.jcQuestion.HeaderText = "jcQuestion";
-            this.jcQuestion.Name = "jcQuestion";
-            this.jcQuestion.ReadOnly = true;
-            this.jcQuestion.Visible = false;
-            // 
-            // jcPression
-            // 
-            this.jcPression.DataPropertyName = "jcPression";
-            this.jcPression.HeaderText = "jcQuestion";
-            this.jcPression.Name = "jcPression";
-            this.jcPression.ReadOnly = true;
-            this.jcPression.Visible = false;
-            // 
-            // lsdm
-            // 
-            this.lsdm.DataPropertyName = "lsdm";
-            this.lsdm.HeaderText = "lsdm";
-            this.lsdm.Name = "lsdm";
-            this.lsdm.ReadOnly = true;
-            this.lsdm.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -539,10 +393,9 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "jcType";
-            this.dataGridViewTextBoxColumn6.HeaderText = "jcType";
+            this.dataGridViewTextBoxColumn6.HeaderText = "类别";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Visible = false;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -563,10 +416,9 @@
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "jcStaff";
-            this.dataGridViewTextBoxColumn9.HeaderText = "jcStaff";
+            this.dataGridViewTextBoxColumn9.HeaderText = "服务";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Visible = false;
             // 
             // dataGridViewTextBoxColumn10
             // 
@@ -653,15 +505,184 @@
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
             this.dataGridViewTextBoxColumn20.Visible = false;
             // 
+            // XZ
+            // 
+            this.XZ.FillWeight = 87.05584F;
+            this.XZ.HeaderText = "选择";
+            this.XZ.Name = "XZ";
+            this.XZ.ReadOnly = true;
+            this.XZ.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.XZ.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // jcNo
+            // 
+            this.jcNo.DataPropertyName = "jcNo";
+            this.jcNo.FillWeight = 87.05584F;
+            this.jcNo.HeaderText = "编号";
+            this.jcNo.Name = "jcNo";
+            this.jcNo.ReadOnly = true;
+            // 
+            // jcID
+            // 
+            this.jcID.DataPropertyName = "jcID";
+            this.jcID.HeaderText = "jcID";
+            this.jcID.Name = "jcID";
+            this.jcID.ReadOnly = true;
+            this.jcID.Visible = false;
+            // 
+            // jcCardNumber
+            // 
+            this.jcCardNumber.DataPropertyName = "jcCardNumber";
+            this.jcCardNumber.FillWeight = 87.05584F;
+            this.jcCardNumber.HeaderText = "卡号";
+            this.jcCardNumber.Name = "jcCardNumber";
+            this.jcCardNumber.ReadOnly = true;
+            // 
+            // jcName
+            // 
+            this.jcName.DataPropertyName = "jcName";
+            this.jcName.FillWeight = 87.05584F;
+            this.jcName.HeaderText = "姓名";
+            this.jcName.Name = "jcName";
+            this.jcName.ReadOnly = true;
+            // 
+            // jcQMnoey
+            // 
+            this.jcQMnoey.DataPropertyName = "jcQMoney";
+            this.jcQMnoey.HeaderText = "jcQMoney";
+            this.jcQMnoey.Name = "jcQMnoey";
+            this.jcQMnoey.ReadOnly = true;
+            this.jcQMnoey.Visible = false;
+            // 
+            // jcType
+            // 
+            this.jcType.DataPropertyName = "jcType";
+            this.jcType.HeaderText = "类型";
+            this.jcType.Name = "jcType";
+            this.jcType.ReadOnly = true;
+            // 
+            // jcPinPai
+            // 
+            this.jcPinPai.DataPropertyName = "jcPinPai";
+            this.jcPinPai.HeaderText = "jcPinPai";
+            this.jcPinPai.Name = "jcPinPai";
+            this.jcPinPai.ReadOnly = true;
+            this.jcPinPai.Visible = false;
+            // 
+            // jcColor
+            // 
+            this.jcColor.DataPropertyName = "jcColor";
+            this.jcColor.HeaderText = "jcColor";
+            this.jcColor.Name = "jcColor";
+            this.jcColor.ReadOnly = true;
+            this.jcColor.Visible = false;
+            // 
+            // jcStaff
+            // 
+            this.jcStaff.DataPropertyName = "jcStaff";
+            this.jcStaff.HeaderText = "服务";
+            this.jcStaff.Name = "jcStaff";
+            this.jcStaff.ReadOnly = true;
+            // 
+            // jcBeginDate
+            // 
+            this.jcBeginDate.DataPropertyName = "jcBeginDate";
+            this.jcBeginDate.HeaderText = "jcBeginDate";
+            this.jcBeginDate.Name = "jcBeginDate";
+            this.jcBeginDate.ReadOnly = true;
+            this.jcBeginDate.Visible = false;
+            // 
+            // jcEndDate
+            // 
+            this.jcEndDate.DataPropertyName = "jcEndDate";
+            this.jcEndDate.HeaderText = "jcEndDate";
+            this.jcEndDate.Name = "jcEndDate";
+            this.jcEndDate.ReadOnly = true;
+            this.jcEndDate.Visible = false;
+            // 
+            // jcZT
+            // 
+            this.jcZT.DataPropertyName = "jcZT";
+            this.jcZT.FillWeight = 87.05584F;
+            this.jcZT.HeaderText = "状态";
+            this.jcZT.Name = "jcZT";
+            this.jcZT.ReadOnly = true;
+            // 
+            // jcAddress
+            // 
+            this.jcAddress.DataPropertyName = "jcAddress";
+            this.jcAddress.FillWeight = 87.05584F;
+            this.jcAddress.HeaderText = "物品位置";
+            this.jcAddress.Name = "jcAddress";
+            this.jcAddress.ReadOnly = true;
+            // 
+            // jcImgUrl
+            // 
+            this.jcImgUrl.DataPropertyName = "jcImgUrl";
+            this.jcImgUrl.HeaderText = "jcImgUrl";
+            this.jcImgUrl.Name = "jcImgUrl";
+            this.jcImgUrl.ReadOnly = true;
+            this.jcImgUrl.Visible = false;
+            // 
+            // jcDanNumber
+            // 
+            this.jcDanNumber.DataPropertyName = "jcDanNumber";
+            this.jcDanNumber.FillWeight = 177.665F;
+            this.jcDanNumber.HeaderText = "单号";
+            this.jcDanNumber.MinimumWidth = 50;
+            this.jcDanNumber.Name = "jcDanNumber";
+            this.jcDanNumber.ReadOnly = true;
+            // 
+            // jcPaiNumber
+            // 
+            this.jcPaiNumber.DataPropertyName = "jcPaiNumber";
+            this.jcPaiNumber.HeaderText = "jcPaiNumber";
+            this.jcPaiNumber.Name = "jcPaiNumber";
+            this.jcPaiNumber.ReadOnly = true;
+            this.jcPaiNumber.Visible = false;
+            // 
+            // jcRemark
+            // 
+            this.jcRemark.DataPropertyName = "jcRemark";
+            this.jcRemark.HeaderText = "jcRemark";
+            this.jcRemark.Name = "jcRemark";
+            this.jcRemark.ReadOnly = true;
+            this.jcRemark.Visible = false;
+            // 
+            // jcQuestion
+            // 
+            this.jcQuestion.DataPropertyName = "jcQuestion";
+            this.jcQuestion.HeaderText = "jcQuestion";
+            this.jcQuestion.Name = "jcQuestion";
+            this.jcQuestion.ReadOnly = true;
+            this.jcQuestion.Visible = false;
+            // 
+            // jcPression
+            // 
+            this.jcPression.DataPropertyName = "jcPression";
+            this.jcPression.HeaderText = "jcQuestion";
+            this.jcPression.Name = "jcPression";
+            this.jcPression.ReadOnly = true;
+            this.jcPression.Visible = false;
+            // 
+            // lsdm
+            // 
+            this.lsdm.DataPropertyName = "lsdm";
+            this.lsdm.HeaderText = "lsdm";
+            this.lsdm.Name = "lsdm";
+            this.lsdm.ReadOnly = true;
+            this.lsdm.Visible = false;
+            // 
             // QHFrom
             // 
             this.AcceptButton = this.button2;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1364, 600);
+            this.ClientSize = new System.Drawing.Size(1797, 750);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "QHFrom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "取活管理";
@@ -690,27 +711,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn XZ;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcCardNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcQMnoey;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcPinPai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcStaff;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcBeginDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcEndDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcZT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcImgUrl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcDanNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcPaiNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcRemark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcQuestion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcPression;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lsdm;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -736,5 +736,26 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn XZ;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcCardNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcQMnoey;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcPinPai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcStaff;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcBeginDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcEndDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcZT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcImgUrl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcDanNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcPaiNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcRemark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcQuestion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcPression;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lsdm;
     }
 }

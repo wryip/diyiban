@@ -64,5 +64,17 @@ namespace BLL
         {
             return dal.SelectAllDictionary();
         }
+        public void AddDPAndUser(string id, string dpname, string username)
+        {
+            System.Net.IPHostEntry myEntry = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName());
+            string ipAddress = myEntry.AddressList[1].ToString();
+            dal.AddDPAndUser(id, dpname, username, ipAddress);
+        }
+        public string selectLoginInfo()
+        {
+            System.Net.IPHostEntry myEntry = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName());
+            string ipAddress = myEntry.AddressList[1].ToString();
+            return dal.selectLoginInfo(ipAddress);
+        }
     }
 }

@@ -138,7 +138,7 @@ namespace yixiupige
                 {
                     draw.DrawImage(bitmap, 0, 0);
                     draw.Dispose();
-                    dirpath = "..\\..\\memberInfo";
+                    dirpath = "memberInfo";
                     if (!Directory.Exists(dirpath))
                         Directory.CreateDirectory(dirpath);
                     path = dirpath + "\\" + hykhtextBox.Text.Trim() + ".bmp";
@@ -257,7 +257,6 @@ namespace yixiupige
             textBox1.ReadOnly = true;
             hyxbcomboBox.SelectedIndex = 0;
             ztcomboBox.SelectedIndex = 0;
-            dateTimePicker1.Enabled = false;
             szmmbutton.Enabled = false;
             #endregion
             //连锁店名初始化

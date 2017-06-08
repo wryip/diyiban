@@ -43,9 +43,15 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.查找寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.修改寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.取消取走ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.glNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jcQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jcPression = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcDanNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +60,8 @@
             this.glClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcPaiNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcPression = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glDemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,14 +72,6 @@
             this.glTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glDanNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jcImgUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.查找寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.修改寄存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.取消取走ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -91,7 +91,7 @@
             this.panel1.Location = new System.Drawing.Point(13, 12);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1820, 676);
+            this.panel1.Size = new System.Drawing.Size(1769, 676);
             this.panel1.TabIndex = 0;
             // 
             // groupBox4
@@ -114,7 +114,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox4.Size = new System.Drawing.Size(1499, 649);
+            this.groupBox4.Size = new System.Drawing.Size(1448, 649);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "寄存信息";
@@ -133,7 +133,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(743, 605);
+            this.label3.Location = new System.Drawing.Point(716, 605);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 19);
             this.label3.TabIndex = 13;
@@ -167,10 +167,10 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(1027, 601);
+            this.button6.Location = new System.Drawing.Point(1101, 595);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 28);
+            this.button6.Size = new System.Drawing.Size(124, 40);
             this.button6.TabIndex = 5;
             this.button6.Text = "跳转";
             this.button6.UseVisualStyleBackColor = true;
@@ -178,10 +178,10 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(924, 601);
+            this.button5.Location = new System.Drawing.Point(955, 595);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(97, 28);
+            this.button5.Size = new System.Drawing.Size(121, 40);
             this.button5.TabIndex = 6;
             this.button5.Text = "尾页";
             this.button5.UseVisualStyleBackColor = true;
@@ -189,10 +189,10 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(820, 601);
+            this.button4.Location = new System.Drawing.Point(800, 595);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(99, 28);
+            this.button4.Size = new System.Drawing.Size(123, 40);
             this.button4.TabIndex = 7;
             this.button4.Text = "下一页";
             this.button4.UseVisualStyleBackColor = true;
@@ -200,10 +200,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(444, 600);
+            this.button3.Location = new System.Drawing.Point(437, 592);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(88, 29);
+            this.button3.Size = new System.Drawing.Size(112, 41);
             this.button3.TabIndex = 8;
             this.button3.Text = "上一页";
             this.button3.UseVisualStyleBackColor = true;
@@ -211,10 +211,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(329, 600);
+            this.button2.Location = new System.Drawing.Point(300, 591);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 29);
+            this.button2.Size = new System.Drawing.Size(113, 41);
             this.button2.TabIndex = 9;
             this.button2.Text = "首页";
             this.button2.UseVisualStyleBackColor = true;
@@ -229,8 +229,6 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.glNo,
-            this.jcQuestion,
-            this.jcPression,
             this.jcDanNumber,
             this.Tel,
             this.glCardNo,
@@ -239,6 +237,8 @@
             this.glClass,
             this.glType,
             this.jcPaiNumber,
+            this.jcPression,
+            this.jcQuestion,
             this.glColor,
             this.glDemo,
             this.glDate,
@@ -258,172 +258,10 @@
             this.dataGridView1.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1483, 551);
+            this.dataGridView1.Size = new System.Drawing.Size(1432, 551);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView1_RowContextMenuStripNeeded);
-            // 
-            // glNo
-            // 
-            this.glNo.DataPropertyName = "jcNo";
-            this.glNo.HeaderText = "编号";
-            this.glNo.Name = "glNo";
-            this.glNo.ReadOnly = true;
-            this.glNo.Width = 111;
-            // 
-            // jcQuestion
-            // 
-            this.jcQuestion.DataPropertyName = "jcQuestion";
-            this.jcQuestion.HeaderText = "常见问题";
-            this.jcQuestion.Name = "jcQuestion";
-            this.jcQuestion.ReadOnly = true;
-            // 
-            // jcPression
-            // 
-            this.jcPression.DataPropertyName = "jcPression";
-            this.jcPression.HeaderText = "业务员";
-            this.jcPression.Name = "jcPression";
-            this.jcPression.ReadOnly = true;
-            // 
-            // jcDanNumber
-            // 
-            this.jcDanNumber.DataPropertyName = "jcDanNumber";
-            this.jcDanNumber.HeaderText = "单号";
-            this.jcDanNumber.Name = "jcDanNumber";
-            this.jcDanNumber.ReadOnly = true;
-            // 
-            // Tel
-            // 
-            this.Tel.DataPropertyName = "Tel";
-            this.Tel.HeaderText = "电话";
-            this.Tel.Name = "Tel";
-            this.Tel.ReadOnly = true;
-            // 
-            // glCardNo
-            // 
-            this.glCardNo.DataPropertyName = "jcCardNumber";
-            this.glCardNo.HeaderText = "卡号";
-            this.glCardNo.Name = "glCardNo";
-            this.glCardNo.ReadOnly = true;
-            this.glCardNo.Width = 110;
-            // 
-            // glName
-            // 
-            this.glName.DataPropertyName = "jcName";
-            this.glName.HeaderText = "姓名";
-            this.glName.Name = "glName";
-            this.glName.ReadOnly = true;
-            this.glName.Width = 111;
-            // 
-            // glQianKuan
-            // 
-            this.glQianKuan.DataPropertyName = "jcQMoney";
-            this.glQianKuan.HeaderText = "欠款";
-            this.glQianKuan.Name = "glQianKuan";
-            this.glQianKuan.ReadOnly = true;
-            this.glQianKuan.Width = 111;
-            // 
-            // glClass
-            // 
-            this.glClass.DataPropertyName = "jcType";
-            this.glClass.HeaderText = "类别";
-            this.glClass.Name = "glClass";
-            this.glClass.ReadOnly = true;
-            this.glClass.Width = 110;
-            // 
-            // glType
-            // 
-            this.glType.DataPropertyName = "jcPinPai";
-            this.glType.HeaderText = "品牌";
-            this.glType.Name = "glType";
-            this.glType.ReadOnly = true;
-            this.glType.Width = 111;
-            // 
-            // jcPaiNumber
-            // 
-            this.jcPaiNumber.DataPropertyName = "jcPaiNumber";
-            this.jcPaiNumber.HeaderText = "牌号";
-            this.jcPaiNumber.Name = "jcPaiNumber";
-            this.jcPaiNumber.ReadOnly = true;
-            this.jcPaiNumber.Visible = false;
-            // 
-            // glColor
-            // 
-            this.glColor.DataPropertyName = "jcColor";
-            this.glColor.HeaderText = "颜色";
-            this.glColor.Name = "glColor";
-            this.glColor.ReadOnly = true;
-            this.glColor.Width = 111;
-            // 
-            // glDemo
-            // 
-            this.glDemo.DataPropertyName = "jcStaff";
-            this.glDemo.HeaderText = "服务项目";
-            this.glDemo.Name = "glDemo";
-            this.glDemo.ReadOnly = true;
-            this.glDemo.Width = 111;
-            // 
-            // glDate
-            // 
-            this.glDate.DataPropertyName = "jcBeginDate";
-            this.glDate.HeaderText = "寄存时间";
-            this.glDate.Name = "glDate";
-            this.glDate.ReadOnly = true;
-            this.glDate.Width = 110;
-            // 
-            // suoshudp
-            // 
-            this.suoshudp.DataPropertyName = "lsdm";
-            this.suoshudp.HeaderText = "所属店铺";
-            this.suoshudp.Name = "suoshudp";
-            this.suoshudp.ReadOnly = true;
-            // 
-            // glMark
-            // 
-            this.glMark.DataPropertyName = "jcEndDate";
-            this.glMark.HeaderText = "取走时间";
-            this.glMark.Name = "glMark";
-            this.glMark.ReadOnly = true;
-            this.glMark.Width = 111;
-            // 
-            // jcRemark
-            // 
-            this.jcRemark.DataPropertyName = "jcRemark";
-            this.jcRemark.HeaderText = "备注";
-            this.jcRemark.Name = "jcRemark";
-            this.jcRemark.ReadOnly = true;
-            // 
-            // glQuestion
-            // 
-            this.glQuestion.DataPropertyName = "jcZT";
-            this.glQuestion.HeaderText = "状态";
-            this.glQuestion.Name = "glQuestion";
-            this.glQuestion.ReadOnly = true;
-            this.glQuestion.Width = 111;
-            // 
-            // glTel
-            // 
-            this.glTel.DataPropertyName = "jcAddress";
-            this.glTel.HeaderText = "物品位置";
-            this.glTel.Name = "glTel";
-            this.glTel.ReadOnly = true;
-            this.glTel.Width = 110;
-            // 
-            // glDanNo
-            // 
-            this.glDanNo.DataPropertyName = "jcID";
-            this.glDanNo.HeaderText = "物品ID";
-            this.glDanNo.Name = "glDanNo";
-            this.glDanNo.ReadOnly = true;
-            this.glDanNo.Width = 111;
-            // 
-            // jcImgUrl
-            // 
-            this.jcImgUrl.DataPropertyName = "jcImgUrl";
-            this.jcImgUrl.HeaderText = "图片路径";
-            this.jcImgUrl.Name = "jcImgUrl";
-            this.jcImgUrl.ReadOnly = true;
-            this.jcImgUrl.Visible = false;
             // 
             // contextMenuStrip1
             // 
@@ -509,12 +347,175 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // glNo
+            // 
+            this.glNo.DataPropertyName = "jcNo";
+            this.glNo.HeaderText = "编号";
+            this.glNo.Name = "glNo";
+            this.glNo.ReadOnly = true;
+            this.glNo.Width = 111;
+            // 
+            // jcDanNumber
+            // 
+            this.jcDanNumber.DataPropertyName = "jcDanNumber";
+            this.jcDanNumber.HeaderText = "单号";
+            this.jcDanNumber.Name = "jcDanNumber";
+            this.jcDanNumber.ReadOnly = true;
+            // 
+            // Tel
+            // 
+            this.Tel.DataPropertyName = "Tel";
+            this.Tel.HeaderText = "电话";
+            this.Tel.Name = "Tel";
+            this.Tel.ReadOnly = true;
+            // 
+            // glCardNo
+            // 
+            this.glCardNo.DataPropertyName = "jcCardNumber";
+            this.glCardNo.HeaderText = "卡号";
+            this.glCardNo.Name = "glCardNo";
+            this.glCardNo.ReadOnly = true;
+            this.glCardNo.Width = 110;
+            // 
+            // glName
+            // 
+            this.glName.DataPropertyName = "jcName";
+            this.glName.HeaderText = "姓名";
+            this.glName.Name = "glName";
+            this.glName.ReadOnly = true;
+            this.glName.Width = 111;
+            // 
+            // glQianKuan
+            // 
+            this.glQianKuan.DataPropertyName = "jcQMoney";
+            this.glQianKuan.HeaderText = "欠款";
+            this.glQianKuan.Name = "glQianKuan";
+            this.glQianKuan.ReadOnly = true;
+            this.glQianKuan.Width = 111;
+            // 
+            // glClass
+            // 
+            this.glClass.DataPropertyName = "jcType";
+            this.glClass.HeaderText = "类别";
+            this.glClass.Name = "glClass";
+            this.glClass.ReadOnly = true;
+            this.glClass.Width = 110;
+            // 
+            // glType
+            // 
+            this.glType.DataPropertyName = "jcPinPai";
+            this.glType.HeaderText = "品牌";
+            this.glType.Name = "glType";
+            this.glType.ReadOnly = true;
+            this.glType.Width = 111;
+            // 
+            // jcPaiNumber
+            // 
+            this.jcPaiNumber.DataPropertyName = "jcPaiNumber";
+            this.jcPaiNumber.HeaderText = "牌号";
+            this.jcPaiNumber.Name = "jcPaiNumber";
+            this.jcPaiNumber.ReadOnly = true;
+            this.jcPaiNumber.Visible = false;
+            // 
+            // jcPression
+            // 
+            this.jcPression.DataPropertyName = "jcPression";
+            this.jcPression.HeaderText = "业务员";
+            this.jcPression.Name = "jcPression";
+            this.jcPression.ReadOnly = true;
+            // 
+            // jcQuestion
+            // 
+            this.jcQuestion.DataPropertyName = "jcQuestion";
+            this.jcQuestion.HeaderText = "常见问题";
+            this.jcQuestion.Name = "jcQuestion";
+            this.jcQuestion.ReadOnly = true;
+            // 
+            // glColor
+            // 
+            this.glColor.DataPropertyName = "jcColor";
+            this.glColor.HeaderText = "颜色";
+            this.glColor.Name = "glColor";
+            this.glColor.ReadOnly = true;
+            this.glColor.Width = 111;
+            // 
+            // glDemo
+            // 
+            this.glDemo.DataPropertyName = "jcStaff";
+            this.glDemo.HeaderText = "服务项目";
+            this.glDemo.Name = "glDemo";
+            this.glDemo.ReadOnly = true;
+            this.glDemo.Width = 111;
+            // 
+            // glDate
+            // 
+            this.glDate.DataPropertyName = "jcBeginDate";
+            this.glDate.HeaderText = "寄存时间";
+            this.glDate.Name = "glDate";
+            this.glDate.ReadOnly = true;
+            this.glDate.Width = 110;
+            // 
+            // suoshudp
+            // 
+            this.suoshudp.DataPropertyName = "lsdm";
+            this.suoshudp.HeaderText = "所属店铺";
+            this.suoshudp.Name = "suoshudp";
+            this.suoshudp.ReadOnly = true;
+            // 
+            // glMark
+            // 
+            this.glMark.DataPropertyName = "jcEndDate";
+            this.glMark.HeaderText = "取走时间";
+            this.glMark.Name = "glMark";
+            this.glMark.ReadOnly = true;
+            this.glMark.Width = 111;
+            // 
+            // jcRemark
+            // 
+            this.jcRemark.DataPropertyName = "jcRemark";
+            this.jcRemark.HeaderText = "备注";
+            this.jcRemark.Name = "jcRemark";
+            this.jcRemark.ReadOnly = true;
+            // 
+            // glQuestion
+            // 
+            this.glQuestion.DataPropertyName = "jcZT";
+            this.glQuestion.HeaderText = "状态";
+            this.glQuestion.Name = "glQuestion";
+            this.glQuestion.ReadOnly = true;
+            this.glQuestion.Width = 111;
+            // 
+            // glTel
+            // 
+            this.glTel.DataPropertyName = "jcAddress";
+            this.glTel.HeaderText = "物品位置";
+            this.glTel.Name = "glTel";
+            this.glTel.ReadOnly = true;
+            this.glTel.Width = 110;
+            // 
+            // glDanNo
+            // 
+            this.glDanNo.DataPropertyName = "jcID";
+            this.glDanNo.HeaderText = "物品ID";
+            this.glDanNo.Name = "glDanNo";
+            this.glDanNo.ReadOnly = true;
+            this.glDanNo.Visible = false;
+            this.glDanNo.Width = 111;
+            // 
+            // jcImgUrl
+            // 
+            this.jcImgUrl.DataPropertyName = "jcImgUrl";
+            this.jcImgUrl.HeaderText = "图片路径";
+            this.jcImgUrl.Name = "jcImgUrl";
+            this.jcImgUrl.ReadOnly = true;
+            this.jcImgUrl.Visible = false;
+            // 
             // jcglform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1364, 701);
+            this.ClientSize = new System.Drawing.Size(1797, 750);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
@@ -548,27 +549,6 @@
         private System.Windows.Forms.ToolStripMenuItem 查找寄存ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 修改寄存ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 取消取走ToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcQuestion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcPression;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcDanNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glCardNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glQianKuan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glClass;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcPaiNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glDemo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suoshudp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glMark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcRemark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glQuestion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glTel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glDanNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcImgUrl;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
@@ -579,6 +559,27 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn glNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcDanNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn glCardNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn glName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn glQianKuan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn glClass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn glType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcPaiNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcPression;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcQuestion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn glColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn glDemo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn glDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suoshudp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn glMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcRemark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn glQuestion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn glTel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn glDanNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcImgUrl;
 
     }
 }

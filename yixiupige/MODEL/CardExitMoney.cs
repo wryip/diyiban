@@ -15,5 +15,7 @@ namespace MODEL
         public string cardtype { get; set; }
         public string cardmoney { get; set; }
         public string dpname { get; set; }
+        public string LSStaff { get; set; }
+        public string ExitDate { get; set; }
     }
 }

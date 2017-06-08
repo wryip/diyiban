@@ -120,6 +120,7 @@ namespace yixiupige
             dataBind();   
             //添加动态服务
             DataGridViewColumn colum = new DataGridViewColumn();
+            colum.MinimumWidth = 30;
             int count = dataGridView1.Columns.Count;
             for (int co = 5; co < count; co++)
             {
@@ -130,6 +131,7 @@ namespace yixiupige
             foreach (var iteam in list)
             {
                 DataGridViewTextBoxColumn coulm = new DataGridViewTextBoxColumn();
+                coulm.MinimumWidth = 30;
                 coulm.HeaderText = iteam.Name;
                 coulm.Name = iteam.Name;
                 coulm.SortMode = DataGridViewColumnSortMode.Programmatic;
@@ -151,6 +153,7 @@ namespace yixiupige
                     }
                 }
             }
+            dataGridView1.ScrollBars = ScrollBars.Both;
         }
         /// <summary>
         /// 加载店铺中会员卡的信息

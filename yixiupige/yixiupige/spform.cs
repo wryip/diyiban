@@ -202,7 +202,7 @@ namespace yixiupige
         {
             string type = treeView1.SelectedNode.Text;
             List<GoodInfo> list = (List<GoodInfo>)dataGridView1.DataSource;
-            bool resu = NPOIHelper.PrintDocument(list, type + "-商品信息");
+            bool resu = NPOIHelper.PrintDocument(list, type.Split(new char[]{'['},StringSplitOptions.RemoveEmptyEntries)[0] + "-商品信息");
             if (resu)
             {
                 MessageBox.Show("导出成功！");

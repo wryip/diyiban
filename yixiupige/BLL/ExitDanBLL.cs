@@ -17,7 +17,9 @@ namespace BLL
         }
         public List<ExitDanModel> SelectAllList(string begindate,string enddate,string dpname)
         {
-            return dal.SelectAllList(begindate, enddate, dpname);
+            List<ExitDanModel> list=dal.SelectAllList(begindate, enddate, dpname);
+            list=list.OrderByDescending(a=>Convert.ToDateTime(a.ExitDanTime)).ToList();
+            return list;
         }
     }
 }

@@ -37,7 +37,6 @@ namespace DAL
         //统计报表中的进货统计
         public List<InHuoTJ> selectListTJ(string begindate,string enddate,string yginfo,string name)
         {
-            int i = 1;
             string dianpu = FilterClass.DianPu1.UserName.Trim();
             List<InHuoTJ> list = new List<InHuoTJ>();
             InHuoTJ model;
@@ -121,7 +120,6 @@ namespace DAL
                 if (read.HasRows)
                 {
                     model = new InHuoTJ();
-                    model.BH = i;
                     model.HuoCount = read["HuoCount"].ToString().Trim();
                     model.HuoDate = read["HuoDate"].ToString().Trim();
                     model.HuoDianName = read["HuoDianName"].ToString().Trim();
@@ -132,7 +130,6 @@ namespace DAL
                     model.HuoSum = read["HuoSum"].ToString().Trim();
                     model.HuoType = read["HuoType"].ToString().Trim();
                     list.Add(model);
-                    i++;
                 }
             }
             return list;
@@ -140,7 +137,6 @@ namespace DAL
         //统计报表中的   统计销售商品的统计
         public List<PutHuo> SelectListXS(string begindate, string enddate, string yginfo,string dpname)
         {
-            int i = 1;
             string dianpu = FilterClass.DianPu1.UserName.Trim();
             List<PutHuo> list = new List<PutHuo>();
             PutHuo model;
@@ -224,7 +220,6 @@ namespace DAL
                 if (read.HasRows)
                 {
                     model = new PutHuo();
-                    model.PutBH = i;
                     model.PutNo = read["PutNo"].ToString().Trim();
                     model.PutName = read["PutName"].ToString().Trim();
                     model.PutType = read["PutType"].ToString().Trim();
@@ -236,7 +231,6 @@ namespace DAL
                     model.PutSale = read["PutSale"].ToString().Trim();
                     model.PutDianName = read["PutDianName"].ToString().Trim();
                     list.Add(model);
-                    i++;
                 }
             }
             return list;
@@ -321,7 +315,7 @@ namespace DAL
             return result;
         }
         //接收统计    统计报表中的
-        public void InDP(List<int> list)
+        public void InDP(Dictionary<int, string> list)
         {
             if (ID == null)
             {
@@ -330,9 +324,9 @@ namespace DAL
             string datetime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string regx = "('{0}','{1}','{2}'),";
             string str = "insert into SendXI"+ID+"(jcID,DateTime,ZT) values";
-            foreach (int jcid in list)
+            foreach (KeyValuePair<int,string> jcid in list)
             {
-                str = str + string.Format(regx, jcid, datetime, 1);
+                str = str + string.Format(regx, jcid.Key, datetime, 1);
             }
             str = str.Substring(0, str.Length - 1);
             SqlHelper.ExecuteNonQuery(str);

@@ -16,7 +16,7 @@ namespace Commond
             string str = "0";
             for (int i = 0; i < str1.Length; i++)
             {
-                url = "http://utf8.sms.webchinese.cn/?Uid=qdjzjz&Key=0152bc80ec7bdc6f55e2&smsMob=" + str1[i].ToString() + "&smsText=一休皮革:" + neirong;
+                url = "http://utf8.sms.webchinese.cn/?Uid=yixiupige&Key=de1157fdcfabd65571f7&smsMob=" + str1[i].ToString() + "&smsText=" + neirong;
                 str = GetHtmlFromUrl(url);
             }               
             if (Convert.ToInt32(str) >0)
