@@ -64,6 +64,7 @@
             // 
             // scbutton
             // 
+            this.scbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.scbutton.Location = new System.Drawing.Point(611, 40);
             this.scbutton.Name = "scbutton";
             this.scbutton.Size = new System.Drawing.Size(75, 23);
@@ -73,6 +74,7 @@
             // 
             // fxbutton
             // 
+            this.fxbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.fxbutton.Location = new System.Drawing.Point(506, 40);
             this.fxbutton.Name = "fxbutton";
             this.fxbutton.Size = new System.Drawing.Size(75, 23);
@@ -82,6 +84,7 @@
             // 
             // qxbutton
             // 
+            this.qxbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.qxbutton.Location = new System.Drawing.Point(404, 40);
             this.qxbutton.Name = "qxbutton";
             this.qxbutton.Size = new System.Drawing.Size(75, 23);
@@ -91,6 +94,7 @@
             // 
             // scjhbutton
             // 
+            this.scjhbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.scjhbutton.Location = new System.Drawing.Point(289, 40);
             this.scjhbutton.Name = "scjhbutton";
             this.scjhbutton.Size = new System.Drawing.Size(75, 23);
@@ -108,6 +112,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(134, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 17);
@@ -124,6 +129,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(6, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 17);
@@ -155,8 +161,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.BackgroundImage = global::yixiupige.Properties.Resources._1;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(744, 492);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

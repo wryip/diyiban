@@ -355,7 +355,7 @@
             // 
             // szmmbutton
             // 
-            this.szmmbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.szmmbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.szmmbutton.Location = new System.Drawing.Point(133, 156);
             this.szmmbutton.Name = "szmmbutton";
             this.szmmbutton.Size = new System.Drawing.Size(99, 23);
@@ -538,7 +538,7 @@
             // 
             this.panel1.Controls.Add(this.videoSourcePlayer1);
             this.panel1.Location = new System.Drawing.Point(5, 13);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(150, 166);
             this.panel1.TabIndex = 0;
@@ -558,7 +558,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(474, 244);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(154, 224);
             this.pictureBox1.TabIndex = 49;

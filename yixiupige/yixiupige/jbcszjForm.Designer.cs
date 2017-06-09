@@ -46,6 +46,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(59, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -55,6 +56,7 @@
             // 
             // TJbutton
             // 
+            this.TJbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TJbutton.Location = new System.Drawing.Point(41, 72);
             this.TJbutton.Margin = new System.Windows.Forms.Padding(4);
             this.TJbutton.Name = "TJbutton";
@@ -66,6 +68,7 @@
             // 
             // TCbutton
             // 
+            this.TCbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TCbutton.Location = new System.Drawing.Point(199, 72);
             this.TCbutton.Margin = new System.Windows.Forms.Padding(4);
             this.TCbutton.Name = "TCbutton";
@@ -79,8 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.BackgroundImage = global::yixiupige.Properties.Resources._1;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(352, 122);
             this.Controls.Add(this.TCbutton);
             this.Controls.Add(this.TJbutton);

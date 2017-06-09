@@ -734,6 +734,7 @@
     <EmbeddedResource Include="zjhylbForm.resx">
       <DependentUpon>zjhylbForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="kinyaoo123456DataSet.xsc">
       <DependentUpon>kinyaoo123456DataSet.xsd</DependentUpon>
     </None>

@@ -129,6 +129,15 @@
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.IDe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.membername111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.membernum111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LSStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExitDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardtype111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardmoney111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dpname111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.dataGridView7 = new System.Windows.Forms.DataGridView();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -322,15 +331,6 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.IDe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.membername111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.membernum111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LSStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExitDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardtype111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardmoney111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dpname111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -388,58 +388,53 @@
             this.panel1.Controls.Add(this.dateTimePicker2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(10, 14);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1619, 640);
+            this.panel1.Size = new System.Drawing.Size(1416, 725);
             this.panel1.TabIndex = 0;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1409, 20);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(1233, 23);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(15, 15);
+            this.label9.Size = new System.Drawing.Size(15, 17);
             this.label9.TabIndex = 15;
             this.label9.Text = "0";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1299, 21);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(1136, 24);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(15, 15);
+            this.label8.Size = new System.Drawing.Size(15, 17);
             this.label8.TabIndex = 14;
             this.label8.Text = "0";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1363, 20);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(1192, 23);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 15);
+            this.label7.Size = new System.Drawing.Size(44, 17);
             this.label7.TabIndex = 13;
             this.label7.Text = "金额：";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1251, 21);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(1094, 24);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 15);
+            this.label6.Size = new System.Drawing.Size(44, 17);
             this.label6.TabIndex = 13;
             this.label6.Text = "数量：";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1496, 12);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.button2.Location = new System.Drawing.Point(1309, 14);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 40);
+            this.button2.Size = new System.Drawing.Size(93, 45);
             this.button2.TabIndex = 12;
             this.button2.Text = "导出数据";
             this.button2.UseVisualStyleBackColor = true;
@@ -448,37 +443,38 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(1129, 18);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox3.Location = new System.Drawing.Point(988, 20);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(113, 23);
+            this.comboBox3.Size = new System.Drawing.Size(100, 25);
             this.comboBox3.TabIndex = 11;
             this.comboBox3.Visible = false;
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(916, 18);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox2.Location = new System.Drawing.Point(801, 20);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(161, 23);
+            this.comboBox2.Size = new System.Drawing.Size(142, 25);
             this.comboBox2.TabIndex = 11;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(697, 18);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox1.Location = new System.Drawing.Point(610, 20);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(161, 23);
+            this.comboBox1.Size = new System.Drawing.Size(142, 25);
             this.comboBox1.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1081, 22);
+            this.label5.Location = new System.Drawing.Point(946, 25);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 15);
+            this.label5.Size = new System.Drawing.Size(44, 17);
             this.label5.TabIndex = 10;
             this.label5.Text = "店名：";
             this.label5.Visible = false;
@@ -487,9 +483,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(871, 22);
+            this.label4.Location = new System.Drawing.Point(762, 25);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 15);
+            this.label4.Size = new System.Drawing.Size(44, 17);
             this.label4.TabIndex = 10;
             this.label4.Text = "类别：";
             // 
@@ -498,9 +495,10 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(643, 18);
+            this.label3.Location = new System.Drawing.Point(564, 23);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 19);
+            this.label3.Size = new System.Drawing.Size(44, 17);
             this.label3.TabIndex = 10;
             this.label3.Text = "员工：";
             // 
@@ -527,21 +525,19 @@
             this.tabControl1.Controls.Add(this.tabPage16);
             this.tabControl1.Controls.Add(this.tabPage17);
             this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tabControl1.Location = new System.Drawing.Point(4, 52);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabControl1.Location = new System.Drawing.Point(3, 59);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1609, 585);
+            this.tabControl1.Size = new System.Drawing.Size(1408, 663);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 28);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(1400, 633);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "办卡统计";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -581,11 +577,10 @@
             this.rebate,
             this.dianName});
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1591, 545);
+            this.dataGridView1.Size = new System.Drawing.Size(1392, 618);
             this.dataGridView1.TabIndex = 0;
             // 
             // idbh
@@ -767,11 +762,10 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dataGridView2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(1400, 633);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "充值统计";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -799,11 +793,10 @@
             this.czSaleman,
             this.dianpu});
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(1592, 552);
+            this.dataGridView2.Size = new System.Drawing.Size(1393, 626);
             this.dataGridView2.TabIndex = 0;
             // 
             // czId
@@ -894,10 +887,9 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dataGridView3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 28);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 26);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage3.Size = new System.Drawing.Size(1400, 633);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "寄存统计";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -932,11 +924,10 @@
             this.lsdm});
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowTemplate.Height = 23;
-            this.dataGridView3.Size = new System.Drawing.Size(1601, 553);
+            this.dataGridView3.Size = new System.Drawing.Size(1399, 620);
             this.dataGridView3.TabIndex = 0;
             // 
             // jcID
@@ -1100,10 +1091,9 @@
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.dataGridView4);
-            this.tabPage4.Location = new System.Drawing.Point(4, 28);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage4.Location = new System.Drawing.Point(4, 26);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage4.Size = new System.Drawing.Size(1400, 633);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "取走统计";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1138,11 +1128,10 @@
             this.dataGridViewTextBoxColumn20});
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowTemplate.Height = 23;
-            this.dataGridView4.Size = new System.Drawing.Size(1601, 553);
+            this.dataGridView4.Size = new System.Drawing.Size(1399, 620);
             this.dataGridView4.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn2
@@ -1304,10 +1293,9 @@
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.dataGridView6);
-            this.tabPage6.Location = new System.Drawing.Point(4, 28);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage6.Location = new System.Drawing.Point(4, 26);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage6.Size = new System.Drawing.Size(1400, 633);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "会员卡消费";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1330,20 +1318,82 @@
             this.dpname111});
             this.dataGridView6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView6.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView6.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView6.Name = "dataGridView6";
             this.dataGridView6.ReadOnly = true;
             this.dataGridView6.RowTemplate.Height = 23;
-            this.dataGridView6.Size = new System.Drawing.Size(1601, 553);
+            this.dataGridView6.Size = new System.Drawing.Size(1399, 620);
             this.dataGridView6.TabIndex = 0;
+            // 
+            // IDe
+            // 
+            this.IDe.DataPropertyName = "ID";
+            this.IDe.HeaderText = "ID";
+            this.IDe.Name = "IDe";
+            this.IDe.ReadOnly = true;
+            this.IDe.Visible = false;
+            // 
+            // membername111
+            // 
+            this.membername111.DataPropertyName = "membername";
+            this.membername111.HeaderText = "会员姓名";
+            this.membername111.Name = "membername111";
+            this.membername111.ReadOnly = true;
+            // 
+            // membernum111
+            // 
+            this.membernum111.DataPropertyName = "membernum";
+            this.membernum111.HeaderText = "会员卡号";
+            this.membernum111.Name = "membernum111";
+            this.membernum111.ReadOnly = true;
+            // 
+            // LSStaff
+            // 
+            this.LSStaff.DataPropertyName = "LSStaff";
+            this.LSStaff.HeaderText = "服务类型";
+            this.LSStaff.Name = "LSStaff";
+            this.LSStaff.ReadOnly = true;
+            // 
+            // ExitDate
+            // 
+            this.ExitDate.DataPropertyName = "ExitDate";
+            this.ExitDate.HeaderText = "消费时间";
+            this.ExitDate.Name = "ExitDate";
+            this.ExitDate.ReadOnly = true;
+            // 
+            // cardname
+            // 
+            this.cardname.DataPropertyName = "cardname";
+            this.cardname.HeaderText = "卡名字";
+            this.cardname.Name = "cardname";
+            this.cardname.ReadOnly = true;
+            // 
+            // cardtype111
+            // 
+            this.cardtype111.DataPropertyName = "cardtype";
+            this.cardtype111.HeaderText = "卡类型";
+            this.cardtype111.Name = "cardtype111";
+            this.cardtype111.ReadOnly = true;
+            // 
+            // cardmoney111
+            // 
+            this.cardmoney111.DataPropertyName = "cardmoney";
+            this.cardmoney111.HeaderText = "消费金额";
+            this.cardmoney111.Name = "cardmoney111";
+            this.cardmoney111.ReadOnly = true;
+            // 
+            // dpname111
+            // 
+            this.dpname111.DataPropertyName = "dpname";
+            this.dpname111.HeaderText = "所属店铺";
+            this.dpname111.Name = "dpname111";
+            this.dpname111.ReadOnly = true;
             // 
             // tabPage7
             // 
             this.tabPage7.Controls.Add(this.dataGridView7);
-            this.tabPage7.Location = new System.Drawing.Point(4, 28);
-            this.tabPage7.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage7.Location = new System.Drawing.Point(4, 26);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage7.Size = new System.Drawing.Size(1400, 633);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "收入统计";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1363,11 +1413,10 @@
             this.DianPu2});
             this.dataGridView7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView7.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView7.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView7.Name = "dataGridView7";
             this.dataGridView7.ReadOnly = true;
             this.dataGridView7.RowTemplate.Height = 23;
-            this.dataGridView7.Size = new System.Drawing.Size(1601, 553);
+            this.dataGridView7.Size = new System.Drawing.Size(1399, 620);
             this.dataGridView7.TabIndex = 0;
             // 
             // No
@@ -1417,10 +1466,9 @@
             // tabPage8
             // 
             this.tabPage8.Controls.Add(this.dataGridView8);
-            this.tabPage8.Location = new System.Drawing.Point(4, 28);
-            this.tabPage8.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage8.Location = new System.Drawing.Point(4, 26);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage8.Size = new System.Drawing.Size(1400, 633);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "短信统计";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1443,11 +1491,10 @@
             this.SendInfo});
             this.dataGridView8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView8.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView8.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView8.Name = "dataGridView8";
             this.dataGridView8.ReadOnly = true;
             this.dataGridView8.RowTemplate.Height = 23;
-            this.dataGridView8.Size = new System.Drawing.Size(1601, 553);
+            this.dataGridView8.Size = new System.Drawing.Size(1399, 620);
             this.dataGridView8.TabIndex = 0;
             // 
             // No1
@@ -1519,10 +1566,9 @@
             // tabPage9
             // 
             this.tabPage9.Controls.Add(this.dataGridView9);
-            this.tabPage9.Location = new System.Drawing.Point(4, 28);
-            this.tabPage9.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage9.Location = new System.Drawing.Point(4, 26);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage9.Size = new System.Drawing.Size(1400, 633);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "商品销售";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -1547,11 +1593,10 @@
             this.PutDianName});
             this.dataGridView9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView9.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView9.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView9.Name = "dataGridView9";
             this.dataGridView9.ReadOnly = true;
             this.dataGridView9.RowTemplate.Height = 23;
-            this.dataGridView9.Size = new System.Drawing.Size(1601, 553);
+            this.dataGridView9.Size = new System.Drawing.Size(1399, 620);
             this.dataGridView9.TabIndex = 0;
             // 
             // PutBH
@@ -1635,10 +1680,9 @@
             // tabPage10
             // 
             this.tabPage10.Controls.Add(this.dataGridView10);
-            this.tabPage10.Location = new System.Drawing.Point(4, 28);
-            this.tabPage10.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage10.Location = new System.Drawing.Point(4, 26);
             this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage10.Size = new System.Drawing.Size(1400, 633);
             this.tabPage10.TabIndex = 9;
             this.tabPage10.Text = "商品补货";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -1662,11 +1706,10 @@
             this.HuoDianName});
             this.dataGridView10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView10.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView10.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView10.Name = "dataGridView10";
             this.dataGridView10.ReadOnly = true;
             this.dataGridView10.RowTemplate.Height = 23;
-            this.dataGridView10.Size = new System.Drawing.Size(1601, 553);
+            this.dataGridView10.Size = new System.Drawing.Size(1399, 620);
             this.dataGridView10.TabIndex = 0;
             // 
             // BH
@@ -1742,10 +1785,9 @@
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.dataGridView5);
-            this.tabPage5.Location = new System.Drawing.Point(4, 28);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage5.Location = new System.Drawing.Point(4, 26);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage5.Size = new System.Drawing.Size(1400, 633);
             this.tabPage5.TabIndex = 10;
             this.tabPage5.Text = "退卡统计";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1767,12 +1809,11 @@
             this.CardMoney11,
             this.CardType11,
             this.DPName11});
-            this.dataGridView5.Location = new System.Drawing.Point(7, 5);
-            this.dataGridView5.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.dataGridView5.Location = new System.Drawing.Point(6, 6);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.ReadOnly = true;
             this.dataGridView5.RowTemplate.Height = 23;
-            this.dataGridView5.Size = new System.Drawing.Size(1581, 542);
+            this.dataGridView5.Size = new System.Drawing.Size(1384, 615);
             this.dataGridView5.TabIndex = 0;
             // 
             // ID11
@@ -1828,10 +1869,9 @@
             // tabPage11
             // 
             this.tabPage11.Controls.Add(this.dataGridView11);
-            this.tabPage11.Location = new System.Drawing.Point(4, 28);
-            this.tabPage11.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage11.Location = new System.Drawing.Point(4, 26);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage11.Size = new System.Drawing.Size(1400, 633);
             this.tabPage11.TabIndex = 11;
             this.tabPage11.Text = "退单统计";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -1855,12 +1895,11 @@
             this.DPName2,
             this.DanMoney2,
             this.StaffName2});
-            this.dataGridView11.Location = new System.Drawing.Point(7, 5);
-            this.dataGridView11.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.dataGridView11.Location = new System.Drawing.Point(6, 6);
             this.dataGridView11.Name = "dataGridView11";
             this.dataGridView11.ReadOnly = true;
             this.dataGridView11.RowTemplate.Height = 23;
-            this.dataGridView11.Size = new System.Drawing.Size(1581, 542);
+            this.dataGridView11.Size = new System.Drawing.Size(1384, 615);
             this.dataGridView11.TabIndex = 0;
             // 
             // ID2
@@ -1930,10 +1969,9 @@
             // tabPage12
             // 
             this.tabPage12.Controls.Add(this.dataGridView12);
-            this.tabPage12.Location = new System.Drawing.Point(4, 28);
-            this.tabPage12.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage12.Location = new System.Drawing.Point(4, 26);
             this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage12.Size = new System.Drawing.Size(1400, 633);
             this.tabPage12.TabIndex = 12;
             this.tabPage12.Text = "欠款统计";
             this.tabPage12.UseVisualStyleBackColor = true;
@@ -1968,11 +2006,10 @@
             this.dataGridViewTextBoxColumn40});
             this.dataGridView12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView12.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView12.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView12.Name = "dataGridView12";
             this.dataGridView12.ReadOnly = true;
             this.dataGridView12.RowTemplate.Height = 23;
-            this.dataGridView12.Size = new System.Drawing.Size(1601, 553);
+            this.dataGridView12.Size = new System.Drawing.Size(1399, 620);
             this.dataGridView12.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn21
@@ -2132,10 +2169,10 @@
             // tabPage13
             // 
             this.tabPage13.Controls.Add(this.dataGridView13);
-            this.tabPage13.Location = new System.Drawing.Point(4, 28);
-            this.tabPage13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage13.Location = new System.Drawing.Point(4, 26);
+            this.tabPage13.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage13.Size = new System.Drawing.Size(1400, 633);
             this.tabPage13.TabIndex = 13;
             this.tabPage13.Text = "无票取走";
             this.tabPage13.UseVisualStyleBackColor = true;
@@ -2157,12 +2194,12 @@
             this.DateTime,
             this.DanNumber,
             this.DPName});
-            this.dataGridView13.Location = new System.Drawing.Point(9, 0);
-            this.dataGridView13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView13.Location = new System.Drawing.Point(8, 0);
+            this.dataGridView13.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dataGridView13.Name = "dataGridView13";
             this.dataGridView13.ReadOnly = true;
             this.dataGridView13.RowTemplate.Height = 27;
-            this.dataGridView13.Size = new System.Drawing.Size(1589, 552);
+            this.dataGridView13.Size = new System.Drawing.Size(1391, 626);
             this.dataGridView13.TabIndex = 0;
             // 
             // ID3
@@ -2218,10 +2255,9 @@
             // tabPage14
             // 
             this.tabPage14.Controls.Add(this.dataGridView14);
-            this.tabPage14.Location = new System.Drawing.Point(4, 28);
-            this.tabPage14.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage14.Location = new System.Drawing.Point(4, 26);
             this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage14.Size = new System.Drawing.Size(1400, 633);
             this.tabPage14.TabIndex = 14;
             this.tabPage14.Text = "送洗统计";
             this.tabPage14.UseVisualStyleBackColor = true;
@@ -2256,11 +2292,10 @@
             this.dataGridViewTextBoxColumn60});
             this.dataGridView14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView14.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView14.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView14.Name = "dataGridView14";
             this.dataGridView14.ReadOnly = true;
             this.dataGridView14.RowTemplate.Height = 23;
-            this.dataGridView14.Size = new System.Drawing.Size(1601, 553);
+            this.dataGridView14.Size = new System.Drawing.Size(1399, 620);
             this.dataGridView14.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn42
@@ -2423,10 +2458,9 @@
             // tabPage15
             // 
             this.tabPage15.Controls.Add(this.dataGridView15);
-            this.tabPage15.Location = new System.Drawing.Point(4, 28);
-            this.tabPage15.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage15.Location = new System.Drawing.Point(4, 26);
             this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage15.Size = new System.Drawing.Size(1400, 633);
             this.tabPage15.TabIndex = 15;
             this.tabPage15.Text = "接收统计";
             this.tabPage15.UseVisualStyleBackColor = true;
@@ -2461,11 +2495,10 @@
             this.dataGridViewTextBoxColumn80});
             this.dataGridView15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView15.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView15.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView15.Name = "dataGridView15";
             this.dataGridView15.ReadOnly = true;
             this.dataGridView15.RowTemplate.Height = 23;
-            this.dataGridView15.Size = new System.Drawing.Size(1601, 553);
+            this.dataGridView15.Size = new System.Drawing.Size(1399, 620);
             this.dataGridView15.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn61
@@ -2629,10 +2662,9 @@
             // tabPage16
             // 
             this.tabPage16.Controls.Add(this.dataGridView16);
-            this.tabPage16.Location = new System.Drawing.Point(4, 28);
-            this.tabPage16.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage16.Location = new System.Drawing.Point(4, 26);
             this.tabPage16.Name = "tabPage16";
-            this.tabPage16.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage16.Size = new System.Drawing.Size(1400, 633);
             this.tabPage16.TabIndex = 16;
             this.tabPage16.Text = "返工统计";
             this.tabPage16.UseVisualStyleBackColor = true;
@@ -2667,11 +2699,10 @@
             this.dataGridViewTextBoxColumn100});
             this.dataGridView16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView16.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView16.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView16.Name = "dataGridView16";
             this.dataGridView16.ReadOnly = true;
             this.dataGridView16.RowTemplate.Height = 23;
-            this.dataGridView16.Size = new System.Drawing.Size(1601, 553);
+            this.dataGridView16.Size = new System.Drawing.Size(1399, 620);
             this.dataGridView16.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn81
@@ -2835,10 +2866,9 @@
             // tabPage17
             // 
             this.tabPage17.Controls.Add(this.dataGridView17);
-            this.tabPage17.Location = new System.Drawing.Point(4, 28);
-            this.tabPage17.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tabPage17.Location = new System.Drawing.Point(4, 26);
             this.tabPage17.Name = "tabPage17";
-            this.tabPage17.Size = new System.Drawing.Size(1601, 553);
+            this.tabPage17.Size = new System.Drawing.Size(1400, 633);
             this.tabPage17.TabIndex = 17;
             this.tabPage17.Text = "店内完成";
             this.tabPage17.UseVisualStyleBackColor = true;
@@ -2873,11 +2903,10 @@
             this.dataGridViewTextBoxColumn120});
             this.dataGridView17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView17.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView17.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView17.Name = "dataGridView17";
             this.dataGridView17.ReadOnly = true;
             this.dataGridView17.RowTemplate.Height = 23;
-            this.dataGridView17.Size = new System.Drawing.Size(1601, 553);
+            this.dataGridView17.Size = new System.Drawing.Size(1399, 620);
             this.dataGridView17.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn102
@@ -3038,10 +3067,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(533, 12);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.button1.Location = new System.Drawing.Point(467, 14);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 32);
+            this.button1.Size = new System.Drawing.Size(87, 37);
             this.button1.TabIndex = 8;
             this.button1.Text = "统计";
             this.button1.UseVisualStyleBackColor = true;
@@ -3051,111 +3079,43 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(276, 22);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(241, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 15);
+            this.label2.Size = new System.Drawing.Size(68, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "结束时间：";
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(360, 18);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.dateTimePicker2.Location = new System.Drawing.Point(315, 20);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(161, 25);
+            this.dateTimePicker2.Size = new System.Drawing.Size(142, 23);
             this.dateTimePicker2.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(12, 22);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(10, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 15);
+            this.label1.Size = new System.Drawing.Size(68, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "起始时间：";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(101, 18);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.dateTimePicker1.Location = new System.Drawing.Point(89, 20);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(161, 25);
+            this.dateTimePicker1.Size = new System.Drawing.Size(142, 23);
             this.dateTimePicker1.TabIndex = 5;
-            // 
-            // IDe
-            // 
-            this.IDe.DataPropertyName = "ID";
-            this.IDe.HeaderText = "ID";
-            this.IDe.Name = "IDe";
-            this.IDe.ReadOnly = true;
-            this.IDe.Visible = false;
-            // 
-            // membername111
-            // 
-            this.membername111.DataPropertyName = "membername";
-            this.membername111.HeaderText = "会员姓名";
-            this.membername111.Name = "membername111";
-            this.membername111.ReadOnly = true;
-            // 
-            // membernum111
-            // 
-            this.membernum111.DataPropertyName = "membernum";
-            this.membernum111.HeaderText = "会员卡号";
-            this.membernum111.Name = "membernum111";
-            this.membernum111.ReadOnly = true;
-            // 
-            // LSStaff
-            // 
-            this.LSStaff.DataPropertyName = "LSStaff";
-            this.LSStaff.HeaderText = "服务类型";
-            this.LSStaff.Name = "LSStaff";
-            this.LSStaff.ReadOnly = true;
-            // 
-            // ExitDate
-            // 
-            this.ExitDate.DataPropertyName = "ExitDate";
-            this.ExitDate.HeaderText = "消费时间";
-            this.ExitDate.Name = "ExitDate";
-            this.ExitDate.ReadOnly = true;
-            // 
-            // cardname
-            // 
-            this.cardname.DataPropertyName = "cardname";
-            this.cardname.HeaderText = "卡名字";
-            this.cardname.Name = "cardname";
-            this.cardname.ReadOnly = true;
-            // 
-            // cardtype111
-            // 
-            this.cardtype111.DataPropertyName = "cardtype";
-            this.cardtype111.HeaderText = "卡类型";
-            this.cardtype111.Name = "cardtype111";
-            this.cardtype111.ReadOnly = true;
-            // 
-            // cardmoney111
-            // 
-            this.cardmoney111.DataPropertyName = "cardmoney";
-            this.cardmoney111.HeaderText = "消费金额";
-            this.cardmoney111.Name = "cardmoney111";
-            this.cardmoney111.ReadOnly = true;
-            // 
-            // dpname111
-            // 
-            this.dpname111.DataPropertyName = "dpname";
-            this.dpname111.HeaderText = "所属店铺";
-            this.dpname111.Name = "dpname111";
-            this.dpname111.ReadOnly = true;
             // 
             // tjfrom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1701, 692);
+            this.ClientSize = new System.Drawing.Size(1192, 742);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             //this.Name = "tjfrom";

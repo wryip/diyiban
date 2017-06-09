@@ -57,7 +57,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(556, 435);
@@ -144,6 +144,7 @@
             // 
             // qdbutton
             // 
+            this.qdbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.qdbutton.Location = new System.Drawing.Point(112, 346);
             this.qdbutton.Name = "qdbutton";
             this.qdbutton.Size = new System.Drawing.Size(75, 23);
@@ -183,6 +184,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.Location = new System.Drawing.Point(41, 286);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 17);
@@ -192,6 +194,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.Location = new System.Drawing.Point(41, 247);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 17);
@@ -201,6 +204,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(53, 203);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 17);
@@ -210,6 +214,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(41, 153);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 17);
@@ -218,6 +223,7 @@
             // 
             // fxbutton
             // 
+            this.fxbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.fxbutton.Location = new System.Drawing.Point(171, 93);
             this.fxbutton.Name = "fxbutton";
             this.fxbutton.Size = new System.Drawing.Size(75, 23);
@@ -227,6 +233,7 @@
             // 
             // qxbutton
             // 
+            this.qxbutton.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.qxbutton.Location = new System.Drawing.Point(40, 93);
             this.qxbutton.Name = "qxbutton";
             this.qxbutton.Size = new System.Drawing.Size(75, 23);
@@ -238,8 +245,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.BackgroundImage = global::yixiupige.Properties.Resources._1;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(858, 459);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
