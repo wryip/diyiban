@@ -14,6 +14,7 @@ namespace Commond
         public static string DXInfo { get; set; }
         public static string ID { get; set; }
         public static string DPTel { get; set; }
+        public static string Address { get; set; }
         public static Dictionary<string, int> dic { get; set; }
         public static string MemberXF { get; set; }
         public static string BGJPrinter { get; set; }

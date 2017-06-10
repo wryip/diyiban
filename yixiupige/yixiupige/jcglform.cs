@@ -4,6 +4,7 @@ using MODEL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -164,7 +165,8 @@ namespace yixiupige
         }
         public void deletePassword(string pas, string cardNo)
         {
-            if (pas.Trim() == "admin888")
+            string cjpwd = ConfigurationManager.AppSettings["CJpwd"].ToString();
+            if (pas.Trim() == cjpwd)
             {
                 //删除该会员
                 bool result = jcinfobll.deleteIDIteam(cardNo);
@@ -197,7 +199,8 @@ namespace yixiupige
         }
         public void updateZT(string pas, string cardNo)
         {
-            if (pas.Trim() == "admin888")
+            string cjpwd = ConfigurationManager.AppSettings["CJpwd"].ToString();
+            if (pas.Trim() == cjpwd)
             {
                 //取消取走
                 bool result = jcinfobll.UpdateIDIteam(cardNo);

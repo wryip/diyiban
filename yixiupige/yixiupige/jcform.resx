@@ -186,73 +186,84 @@
   <metadata name="Tel.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="XZ.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcCardNumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcPinPai.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcQMoney.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcType.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcColor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcStaff.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcBeginDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcEndDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcZT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcAddress.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcImgUrl.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcDanNumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcPaiNumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcRemark.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcQuestion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="jcPression.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="lsdm.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Tel.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA
+        AAD//////////////////////////////////////////////////////f39/6+5wf9xgpD/L0dY/x44
+        Sf9db3z/PFBe/0pda/9Zanf/srrB//7+/v//////////////////////////////////////////////
+        ///////////////////////////////////////////////////+/v7/+vr7/7/Hz/9UaXz/CSEy/wQd
+        J/8FHSz/Ahkg/wMaKv8CFCH/AhUi/wEQGf8DGSb/ZHN+/3qIk/+IlZ//2Nzg///+/v//////////////
+        ////////////////////////////////////////////////////////9/j5/3+Tp/8vS2b/DCk//wki
+        Nf8HITb/AxYl/wITIf8BDxv/AREg/wALFf8AEBr/AA8a/wAPGP8BFyj/AhYe/wQeJ/8HIS//bX6L//f4
+        +P////////////////////////////////////////////////////////////X3+f9BYYP/EC9L/wsl
+        O/8IITT/BBso/wIZJP8QNUj/J1Fe/yZOV/8mUFb/Jk5R/yE/Qv8aLzb/AwwT/wAJEv8ADBj/AREe/wIV
+        Iv8EHSj/W25+//7+/v/////////////////////////////////////////////////+/v7/b4qp/xAt
+        S/8OKkb/CB8y/wofL/82WmP/Ml5m/yM/R/8JFh3/CRUb/wYPFf8GERb/CiQo/xM4Pf8uXmP/MWJn/xQq
+        M/8AEB//AQ0a/wIUIv8GHzD/3+Pm/////////////////////////////////////////////v7+/5Gp
+        xf8UN1//DCZA/wskPf80TFn/RGdu/wkYJP8DCBD/DQ0T/yAgKf8qKjX/HBwn/xQUHP8NDRT/DAwT/w4O
+        FP8RExv/MVFa/ztlb/8LHjP/AhQo/wQZK/8kO1H/vsXN//7+/v////////////////////////////39
+        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
+        Hv8JCTj/QUt6/7/H2/9ljNT/OmK1/9jV0v+HuNX/L4/C/0rI7/9Wicj/Rajd/43P4P/+/v7/vbCk/zNp
+        zf/Z3eb/kpq0/ygrT/8GBSH/BwYW/w8zOP8+Ym3/EDNN/x5qlv/f7fX//////4Ti8f8VZon/J4aY/ytc
+        ZP8CAg//AwId/wcHMf84QW7/f5Or/zud5P88aLz/7+7t/2hpcv9IhqX/ZL7X/0zO8v9nx+H/dcHV//7+
+        /v+bjov/KWnd/4ig0P92fpv/HB0+/wYGH/8KChr/EkRP/0Fne/8VRmP/KX6m//f7/f//////b+Hv/xNV
+        b/8WWGr/NnZ//wsTIv8HBx3/FBU2/0lQc/9Xdpz/R7Xh/z58y//r8PH/bjYn/0yx0P84Vl3/Ucvs/0Bp
+        cv9+s8D/+vz8/4Ci1P81jN3/TXW8/21zj/8dHTn/DQ0i/w0WJf88cor/HU9l/xdSbP82n8P//v7+////
+        //+f7/b/GWZ3/yafsP8qc4H/JE1Y/w4OIf81N03/RUpo/1Zhhf9Mkbv/Sbrg/2y/1v9zSD3/bqCt/zB+
+        k/9Qu9f/P5et/2Gltf9xwtj/SMDp/02z2v9ng6T/Wl53/zc5Tf8XFyj/FURd/zxsg/8TR1r/G3KN/5TX
+        6f///////////+/8/f86sLr/G2J1/yaAkf84coX/Gi08/zs9T/9TV27/Sk9u/1ZnjP9Ljrj/XK3Q/3KT
+        p/+FYGT/r6Oo/8Oppv+ysrT/gKa8/1Knz/9Qosj/aoWl/2Fmgf9dYHT/OTpL/xwzRf8hRmf/HVZo/xde
+        cP9PvtT/7vn8/////////////////8D2+f8zkpv/I2t5/z+brP81Ynb/JzJB/1pcbf9bX3b/VFl3/1Re
+        gf9kdJn/b36k/295oP9oa5D/eH6f/4WPr/+IlLP/b4Gj/2dykf9jZ4L/YmZ6/1dZaf8iLz//KVNu/x1V
+        Zv8edIP/Nq3A/9/0+P///////////////////////v7+/9b5+/+H6e//QZmh/0qClv8yWmz/LzxK/1ZY
+        af9laHz/YGV+/1phf/9VXYD/UFl//09Zgf9SXIL/V2CE/15lhv9kaYb/Z2uD/2hrfv9OUGD/KDdI/0Ro
+        e/8WRFP/JICL/yOLmP+v6vD//v///////////////////////////////////+H4+v9boqj/PW94/12R
+        oP87X3L/KkNR/zk6Sv9RU2X/XWF1/2drgv9qb4j/aW6I/2pviP9rb4j/ZmqA/15hdf9NT2H/LzBB/zZT
+        ZP9IY2//G01V/ymEjf8ZVV3/WM3W//T8/f///////////////////////////////////////v7+/77u
+        8f90rbP/cKuy/1h9iP9YeY3/K01c/yM9Sv8pKzz/MjNF/zg6Tf8+QFP/PD5S/zY4S/8tLkH/ICIy/yRA
+        Tf9CZnH/MEBE/zeCiP8kW2H/KnN6/2TX3v/x/Pz/////////////////////////////////////////
+        /////////f7+/9/4+v+gztL/ZYOI/0ljaf9ZdIH/LTtN/ytNX/8jP0z/ITxI/xYuOv8XMDz/JkFM/ytH
+        UP8yUFX/O01S/zdfY/9DeoD/QHqB/3PV3P+c5uv/8fz8////////////////////////////////////
+        /////////////////////////v7+//b8/f/Z8vX/pcDD/5e0uf9/mqH/lLe//1lygf81RFP/UWNu/0FQ
+        V/84SE7/Rl5j/2GJkP95rrT/bZ+l/4bFyv++7vL/7fn7//7+/v//////////////////////////////
+        ///////////////////////////////////////////////////6/f7/2ujp/52qrf9dZmv/Ulth/2l3
+        fP9gbnP/aHl+/2h8gf9GVVn/Vmdq/8Dh5P/U8/b/9Pv8////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////+/v7/+fv9//f8
+        /f/v9vf/zNPV/7/Hyf+8xcj/1OLk/+n3+P/w+vv//f7+////////////////////////////////////
+        ////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+</value>
+  </data>
 </root>

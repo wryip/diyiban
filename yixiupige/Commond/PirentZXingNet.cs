@@ -102,59 +102,59 @@ namespace Commond
             }
             string nlentfw = "服务项目：" + _fuwuname;
             int i = 1;
-            e.Graphics.DrawString("     " + FilterClass.DianPu1.UserName, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, 0));
-            e.Graphics.DrawString("---------------------------------------------", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, i * 15));
+            e.Graphics.DrawString("     " + FilterClass.DianPu1.UserName, new Font("Segoe UI", 8), Brushes.Black, new Point(0, 0));
+            e.Graphics.DrawString("---------------------------------------------", new Font("Segoe UI", 8), Brushes.Black, new Point(0, i * 15));
             i++;
             e.Graphics.DrawImage(_ibmap, new Rectangle(new System.Drawing.Point(-18, i*15), new Size(230,50)));
             i++;
-            e.Graphics.DrawString("---------------------------------------------", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (i * 15 + 50)));
+            e.Graphics.DrawString("---------------------------------------------", new Font("Segoe UI", 8), Brushes.Black, new Point(0, (i * 15 + 50)));
             i++;
-            e.Graphics.DrawString("单号：" + _dannumber + "-" + _sumcount.ToString() + "-" + _sumindex.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (i * 15 + 50)));
+            e.Graphics.DrawString("单号：" + _dannumber + " " + _sumcount.ToString() + "-" + _sumindex.ToString(), new Font("Segoe UI", 8), Brushes.Black, new Point(0, (i * 15 + 50)));
             i++;
-            e.Graphics.DrawString("取活日期：" + _datetime, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (i * 15 + 50)));
+            e.Graphics.DrawString("取活日期：" + _datetime, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (i * 15 + 50)));
             i++;
-            e.Graphics.DrawString("---------------------------------------------", new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (i * 15 + 50)));
+            e.Graphics.DrawString("---------------------------------------------", new Font("Segoe UI", 8), Brushes.Black, new Point(0, (i * 15 + 50)));
             i++;
             if (nlen.Length < 16)
             {
-                e.Graphics.DrawString(nlen, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (i * 15 + 50)));
+                e.Graphics.DrawString(nlen, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (i * 15 + 50)));
                 i++;
             }
             else
             {
                 while (nlen.Length > 16)
                 {
-                    e.Graphics.DrawString(nlen.Substring(0, 16), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (i * 15 + 50)));
+                    e.Graphics.DrawString(nlen.Substring(0, 16), new Font("Segoe UI", 8), Brushes.Black, new Point(0, (i * 15 + 50)));
                     nlen = nlen.Substring(16, nlen.Length - 16);
                     i++;
                 }
-                e.Graphics.DrawString(nlen, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (i * 15 + 50)));
+                e.Graphics.DrawString(nlen, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (i * 15 + 50)));
                 i++;
             }
             if (nlentfw.Length < 16)
             {
-                e.Graphics.DrawString(nlentfw, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (i * 15 + 50)));
+                e.Graphics.DrawString(nlentfw, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (i * 15 + 50)));
                 i++;
             }
             else
             {
                 while (nlentfw.Length > 16)
                 {
-                    e.Graphics.DrawString(nlentfw.Substring(0, 16), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (i * 15 + 50)));
+                    e.Graphics.DrawString(nlentfw.Substring(0, 16), new Font("Segoe UI", 8), Brushes.Black, new Point(0, (i * 15 + 50)));
                     nlentfw = nlentfw.Substring(16, nlentfw.Length - 16);
                     i++;
                 }
-                e.Graphics.DrawString(nlentfw, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (i * 15 + 50)));
+                e.Graphics.DrawString(nlentfw, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (i * 15 + 50)));
                 i++;
             }
             if (_question != "")
             {
-                e.Graphics.DrawString("瑕疵：" + _question, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (i * 15 + 50)));
+                e.Graphics.DrawString("瑕疵：" + _question, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (i * 15 + 50)));
                 i++;
             }
             if (_remark != "")
             {
-                e.Graphics.DrawString("备注：" + _remark, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (i * 15 + 50)));    
+                e.Graphics.DrawString("备注：" + _remark, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (i * 15 + 50)));    
             }
             _type = "";
           _pinpai="";

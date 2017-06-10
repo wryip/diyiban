@@ -5,6 +5,7 @@ using MODEL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -155,19 +156,20 @@ namespace yixiupige
         {
             if (hydhtextBox.Text == "" || hykhtextBox.Text == "" || hyxmtextBox.Text == ""  || hyxbcomboBox.Text == "" || lsdcomboBox.Text == "")
             {
-                //此处验证的是    要修改的会员卡号   是否是有重复的信息
-                string cardno = hykhtextBox.Text.Trim();
-                bool result = modelbll.PDCNumber(cardno);
-                if (!result)
-                {
-                    DialogResult resu = MessageBox.Show("此卡号已经存在，请更换卡号！", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    return;
-                }
+                //此处验证的是    要修改的会员卡号   是否是有重复的信息               
                 MessageBox.Show("请将信息填写完整！");
                 return;
             }
             else
             {
+                string cardno = hykhtextBox.Text.Trim();
+                //bool result = modelbll.PDCNumber(cardno);
+                string id = modelbll.PDCNumberID(cardno);
+                if (id != "0" && id != modelmember.ID.ToString())
+                {
+                    DialogResult resu = MessageBox.Show("此卡号已经存在，请更换卡号！", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    return;
+                }
                 #region//封装用户填写进去的内容，进行添加
                 memberInfoModel model = new memberInfoModel();
                 model.ID = modelmember.ID;
@@ -327,7 +329,8 @@ namespace yixiupige
         }
         public void deletePassword(string pas, string cardNo)
         {
-            if (pas.Trim() == "admin888")
+            string cjpwd = ConfigurationManager.AppSettings["CJpwd"].ToString();
+            if (pas.Trim() == cjpwd)
             {
                 czjetextBox.ReadOnly = false;
             }

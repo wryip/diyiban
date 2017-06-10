@@ -44,7 +44,7 @@ namespace yixiupige
         private void lsdglForm_Load(object sender, EventArgs e)
         {
             databind();
-            groupBox1.Text="店铺记录有"+dataGridView1.RowCount+"条";
+            label2.Text="店铺记录有"+dataGridView1.RowCount+"条";
         }
         public void databind()
         {

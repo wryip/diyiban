@@ -240,6 +240,11 @@ namespace yixiupige
                     return;
                 }
             }
+            if (comboBox1.Text.Trim() == "")
+            {
+                MessageBox.Show("类别不能为空！");
+                return;
+            }
             videoSourcePlayer1.NewFrame += new AForge.Controls.VideoSourcePlayer.NewFrameHandler(videoSourcePlayer1_NewFrame);
             if (textBox17.Text.Trim() == "" && textBox18.Text.Trim() == "")
             {
@@ -763,7 +768,11 @@ namespace yixiupige
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            pictureBox1.ImageLocation = dataGridView2.Rows[e.RowIndex].Cells["shImgUrl"].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                pictureBox1.ImageLocation = dataGridView2.Rows[e.RowIndex].Cells["shImgUrl"].Value.ToString();
+            }
+            
         }
         //会员点击保存之后   如果有密码则开始输入密码   并将用户输入的密码合最开始的进行对比
         public void TwoPwdYZ(string pwd)

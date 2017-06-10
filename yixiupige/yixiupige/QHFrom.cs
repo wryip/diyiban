@@ -67,7 +67,7 @@ namespace yixiupige
                 List<JCInfoModel> listbk=new List<JCInfoModel>();
                 int i = 1;
                 int j = 1;
-            string type = comboBox1.Text.Trim();
+                string type = textBox1.Text.Trim();
             if (type == "")
             {
                 MessageBox.Show("数据为空，请输入数据之后在进行搜索！");

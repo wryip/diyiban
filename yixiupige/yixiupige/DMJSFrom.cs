@@ -152,6 +152,11 @@ namespace yixiupige
             }
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         //private void button3_Click(object sender, EventArgs e)
         //{
         //    List<int> list = new List<int>();

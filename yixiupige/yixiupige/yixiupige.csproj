@@ -800,6 +800,8 @@
     <Content Include="leiku\AForge.Video.DirectShow.xml" />
     <Content Include="leiku\AForge.Video.dll" />
     <Content Include="leiku\dog_net_windows.dll" />
+    <None Include="Resources\IMG_3014.JPG" />
+    <None Include="Resources\tpyl.png" />
     <None Include="Resources\log.png" />
     <None Include="Resources\finish.wav" />
     <None Include="Resources\finish.bmp" />

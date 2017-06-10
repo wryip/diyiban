@@ -230,5 +230,9 @@ namespace BLL
         {
             return dal.PDCNumber(cardno);
         }
+        public string PDCNumberID(string cardno)
+        {
+            return dal.PDCNumberID(cardno);
+        }
     }
 }

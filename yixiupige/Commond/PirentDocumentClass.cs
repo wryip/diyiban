@@ -223,7 +223,7 @@ namespace Commond
             int i = 1;
             int j = 0;
             StringBuilder sb = new StringBuilder();
-            string tou = "青岛一休皮革小票";
+            string tou = FilterClass.DianPu1.UserName;
             sb.Append("            " + tou + "       \r\n");
             sb.Append("---------------------------------------------\r\n");
             sb.Append("日期:" + DateTime.Now.ToShortDateString() + " \r\n" + "单号:" + _sb + "\r\n");
@@ -252,33 +252,35 @@ namespace Commond
                 //string[] str = iteam.Type.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
                 if (iteam.Type != "")
                 {
-                    nleng += "类别：" + iteam.Type;
+                    nleng += "类别：" + iteam.Type+"，";
+                }
+                if (iteam.FuWuName != "")
+                {
+                    nleng += "服务项目：" + iteam.FuWuName + "，";
                 }
                 if (iteam.PinPai!="")
                 {
-                    nleng += "品牌：" + iteam.PinPai;
+                    nleng += "品牌：" + iteam.PinPai + "，";
                 }
                 if (iteam.Color != "")
                 {
-                    nleng += "颜色：" + iteam.Color;
+                    nleng += "颜色：" + iteam.Color + "，";
                 }
                 if (iteam.CJQuestion != "")
                 {
-                    nleng += "常见问题：" + iteam.CJQuestion;
+                    nleng += "常见问题：" + iteam.CJQuestion + "，";
                 }
                 if (iteam.Remark != "")
                 {
-                    nleng += "备注：" + iteam.Remark;
+                    nleng += "备注：" + iteam.Remark + "，";
                 }
                 //if (str.Length > 1)
                 //{
-                if (iteam.FuWuName != "")
-                    {
-                        nleng += "服务项目：" + iteam.FuWuName;
-                    }
+               
                 nleng = nleng.Replace(",", "，");
                 nleng = nleng.Replace("[", "【");
                 nleng = nleng.Replace("]", "】");
+                nleng = nleng.Substring(0, nleng.Length - 1);
                 //}                
                 //e.Graphics.DrawString(j.ToString(), new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(0, (100 + i * 15)));
                 //e.Graphics.DrawString(iteam.LSCount, new Font("Segoe UI", 8, FontStyle.Bold), Brushes.Black, new Point(125, (100 + i * 15)));
@@ -337,6 +339,8 @@ namespace Commond
             e.Graphics.DrawString(jiewei, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
             e.Graphics.DrawString("店铺电话：" + DPTel, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
+            i++;
+            e.Graphics.DrawString("店铺地址：" + FilterClass.Address, new Font("Segoe UI", 8), Brushes.Black, new Point(0, (100 + i * 15)));
             i++;
             e.Graphics.DrawString(sb.ToString(), new Font("Segoe UI", 8), Brushes.Black, new System.Drawing.Point(0,0));
             ////e.Graphics.DrawImage(_ibmap, new Rectangle(new System.Drawing.Point(-100, 200), new Size(400,400)));

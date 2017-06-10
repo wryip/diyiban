@@ -222,6 +222,16 @@ namespace yixiupige.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap IMG_3014 {
+            get {
+                object obj = ResourceManager.GetObject("IMG_3014", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap log {
             get {
                 object obj = ResourceManager.GetObject("log", resourceCulture);
@@ -345,6 +355,16 @@ namespace yixiupige.Properties {
         internal static System.Drawing.Bitmap timg {
             get {
                 object obj = ResourceManager.GetObject("timg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap tpyl {
+            get {
+                object obj = ResourceManager.GetObject("tpyl", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

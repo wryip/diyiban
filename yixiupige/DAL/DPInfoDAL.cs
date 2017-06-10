@@ -150,8 +150,8 @@ namespace DAL
         //返回一些参数，进行系统登陆之后的保存
         public string[] selectPicImg(string name)
         {
-            string[] str1 = new string[6];
-            string str = "select DPPicture,DPContent,ID,MemberPrint,BGJPrint,DPTel from DPInfo where DPName=@DPName";
+            string[] str1 = new string[7];
+            string str = "select DPPicture,DPContent,ID,MemberPrint,BGJPrint,DPTel,DPAddress from DPInfo where DPName=@DPName";
             SqlParameter[] pms = new SqlParameter[] { 
             new SqlParameter("@DPName",name)
             };
@@ -166,6 +166,7 @@ namespace DAL
                     str1[3] = read["MemberPrint"].ToString();
                     str1[4] = read["BGJPrint"].ToString();
                     str1[5] = read["DPTel"].ToString();
+                    str1[6] = read["DPAddress"].ToString();
                 }
             }
             return str1;

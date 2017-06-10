@@ -669,5 +669,16 @@ namespace DAL
             }
             return result;
         }
+        public string PDCNumberID(string cardno)
+        {
+            string str1 = "0";
+            string str = "select ID from memberInfo where memberCardNo='" + cardno.Trim() + "'";
+            object oo = SqlHelper.ExecuteScalar(str);
+            if (oo != null)
+            {
+                str1 = oo.ToString();
+            }
+            return str1;
+        }
     }
 }

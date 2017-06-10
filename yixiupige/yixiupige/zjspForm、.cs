@@ -53,6 +53,11 @@ namespace yixiupige
         public event Action Loadevent;
         private void button1_Click(object sender, EventArgs e)
         {
+            if (sumtextBox.Text.Trim() == "")
+            {
+                MessageBox.Show("数量不能为空！");
+                return;
+            }
             GoodInfo gd = new GoodInfo()
             {
                 Gname = nametextBox.Text.ToString(),

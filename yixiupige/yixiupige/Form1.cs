@@ -62,6 +62,8 @@ namespace yixiupige
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            string name= ConfigurationManager.AppSettings["LoginInfo"].ToString();
+            label4.Text = name;
             //sample.sample super = new sample.sample();
             //string res = super.main();
             //if (res != "StatusOk")

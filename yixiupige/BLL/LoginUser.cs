@@ -6,6 +6,7 @@ using Commond;
 using System.Threading.Tasks;
 using DAL;
 using MODEL;
+using System.Configuration;
 
 namespace BLL
 {
@@ -32,8 +33,11 @@ namespace BLL
             }
             else
             {
-                if (LoginName == "admin" && UserPwd == "admin" && UserName == "admin")
+                string name = ConfigurationManager.AppSettings["UserName"].ToString();
+                string pwd = ConfigurationManager.AppSettings["UserPwd"].ToString();
+                if (LoginName == name && UserPwd == pwd && UserName == "admin")
                 {
+                    //虽然登陆验证可以通过，但是放置后未知错误
                     user.LoginName = "admin";
                     user.UserName = "admin";
                     user.UserPwd = "admin";
@@ -55,6 +59,7 @@ namespace BLL
             FilterClass.MemberXF = pict[3];
             FilterClass.BGJPrinter = pict[4];
             FilterClass.DPTel = pict[5];
+            FilterClass.Address = pict[6];
             //将登陆人的信息保存在过滤器中，在用户执行其他操作时进行权限过滤
             AddDPAndUser(pict[2],dpname,model.LoginName);
             FilterClass.DianPu1 = model;

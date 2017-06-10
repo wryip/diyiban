@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SendInfo));
             this.btnSend = new System.Windows.Forms.Button();
             this.txtMsg = new System.Windows.Forms.TextBox();
             this.txtLog = new System.Windows.Forms.TextBox();
@@ -69,6 +70,7 @@
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.txtMsg);
             this.Controls.Add(this.txtLog);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SendInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "通信";
